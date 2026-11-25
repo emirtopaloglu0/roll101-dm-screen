@@ -157,7 +157,9 @@
       "Events": "Rastgele Olaylar",
       "EventsHint": "Ortama göre yan görev ve açık dünya olayları",
       "Actors": "Grup özeti",
-      "ActorsHint": "Karakterlerinin AC, HP, pasif değerleri ve durumları"
+      "ActorsHint": "Karakterlerinin AC, HP, pasif değerleri ve durumları",
+      "Loot": "Ganimet Üreteci",
+      "LootHint": "Aynı değerde para ve eşyalar, hazinelerde büyülü eşyalarla"
     },
     "Coins": {
       "Title": "Para çevirici",
@@ -206,6 +208,25 @@
       "Search": "Kural ara…",
       "Empty": "Kural şablonu bulunamadı."
     },
+    "Loot": {
+      "Title": "Ganimet",
+      "Type": "Hazine türü",
+      "Level": "Zorluk seviyesi (CR)",
+      "Coins": "Para",
+      "Gem": "Mücevher",
+      "Art": "Sanat eseri",
+      "Each": "tanesi",
+      "Worth": "Toplam değer",
+      "MagicExcluded": "(büyülü eşyalar hariç)",
+      "Nothing": "Değerli bir şey yok.",
+      "Mode": { "individual": "Bireysel", "hoard": "Hazine yığını" },
+      "Tier": { "t1": "CR 0–4", "t2": "CR 5–10", "t3": "CR 11–16", "t4": "CR 17+" },
+      "Hint": {
+        "individual": "Bir yaratığın taşıdığı ganimet: çoğunlukla para, bazen birkaç eşya veya bir mücevher. Para ve eşyalar her zaman aynı toplam değere denk gelir.",
+        "hoard": "Bir saklık: aynı toplam değerde para, mücevher, sanat eseri, ticaret malı ve ekipman, ayrıca büyülü eşyalar. Eşya adları ve fiyatları SRD 5.1'i izler. Büyülü eşyalar İngilizce kalır."
+      },
+      "Rarity": { "common": "yaygın", "uncommon": "nadir değil", "rare": "nadir", "very-rare": "çok nadir", "legendary": "efsanevi" }
+    },
     "Generator": {
       "Generate": "Üret",
       "Filter": "Kategori",
@@ -224,6 +245,8 @@
       "Remove": "Bu listeden çıkar",
       "Inspiration": "İlham (Inspiration)",
       "Level": "Seviye",
+      "ToggleCoins": "Grubun paralarını göster veya gizle",
+      "ToggleMembers": "Grubun üyelerini göster veya gizle",
       "WrongSystem": "Tam bilgi yalnızca D&D 5e için gösterilir. Diğer sistemlerde daha az bilgi çıkabilir.",
       "Stat": {
         "hp": "HP",

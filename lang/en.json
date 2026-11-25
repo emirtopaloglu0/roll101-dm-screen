@@ -157,7 +157,9 @@
       "Events": "Random Events",
       "EventsHint": "Side quests and open-world events by setting",
       "Actors": "Party summary",
-      "ActorsHint": "AC, HP, passive scores and conditions of your characters"
+      "ActorsHint": "AC, HP, passive scores and conditions of your characters",
+      "Loot": "Loot Generator",
+      "LootHint": "Coins and items of the same value, with magic items in hoards"
     },
     "Coins": {
       "Title": "Coin converter",
@@ -206,6 +208,25 @@
       "Search": "Search rules…",
       "Empty": "No rules templates found."
     },
+    "Loot": {
+      "Title": "Loot",
+      "Type": "Treasure type",
+      "Level": "Challenge rating",
+      "Coins": "Coins",
+      "Gem": "Gem",
+      "Art": "Art object",
+      "Each": "each",
+      "Worth": "Total worth",
+      "MagicExcluded": "(without magic items)",
+      "Nothing": "Nothing of value.",
+      "Mode": { "individual": "Individual", "hoard": "Hoard" },
+      "Tier": { "t1": "CR 0–4", "t2": "CR 5–10", "t3": "CR 11–16", "t4": "CR 17+" },
+      "Hint": {
+        "individual": "Loot carried by one creature: mostly coins, sometimes a few goods or a gem. Coins and goods always add up to the same total value.",
+        "hoard": "A stash: coins, gems, art objects, trade goods and equipment of the same total value, plus magic items. Item names and prices follow the SRD 5.1. Magic items stay in English."
+      },
+      "Rarity": { "common": "common", "uncommon": "uncommon", "rare": "rare", "very-rare": "very rare", "legendary": "legendary" }
+    },
     "Generator": {
       "Generate": "Generate",
       "Filter": "Category",
@@ -224,6 +245,8 @@
       "Remove": "Remove from this list",
       "Inspiration": "Inspiration",
       "Level": "Level",
+      "ToggleCoins": "Show or hide the group's coins",
+      "ToggleMembers": "Show or hide the group's members",
       "WrongSystem": "Full details are shown for D&D 5e only. Other systems may show less.",
       "Stat": {
         "hp": "HP",

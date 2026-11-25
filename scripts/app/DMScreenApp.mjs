@@ -10,6 +10,7 @@ import { exportLayouts, importLayouts, restoreBackup } from "./layout-io.mjs";
 import { managePacks } from "./packs-io.mjs";
 import { MAX_ACTORS, actorsContext, partyActors } from "../boxes/actors.mjs";
 import { generatorContext, generatorRequest } from "../boxes/generator.mjs";
+import { lootContext, lootRequest } from "../boxes/loot.mjs";
 import { MAX_PARTY, coinSettings, coinTexts, coinsContext, glossaryContext, templateContext } from "../boxes/reference.mjs";
 import { foldSearch, listTemplates, localize as localizeText } from "../templates.mjs";
 import { areaFree, cellKey, fitSpan, placeBoxes } from "../grid.mjs";
@@ -32,7 +33,8 @@ const LINKED_TYPES = {
   template: { build: templateContext, key: "template", missing: `${I18N}.Missing.Template` },
   glossary: { build: glossaryContext, key: "glossary", missing: `${I18N}.Missing.Template` },
   generator: { build: generatorContext, key: "generator", missing: `${I18N}.Missing.Generator` },
-  actors: { build: actorsContext, key: "actors", missing: `${I18N}.Missing.Template` }
+  actors: { build: actorsContext, key: "actors", missing: `${I18N}.Missing.Template` },
+  loot: { build: lootContext, key: "loot", missing: `${I18N}.Missing.Generator` }
 };
 
 /** Actor changes that refresh a party box. Watched only while the window is open. */
@@ -89,7 +91,8 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       clearCoins: DMScreenApp.#onClearCoins,
       generateText: DMScreenApp.#onGenerateText,
       toggleActorMode: DMScreenApp.#onToggleActorMode,
-      removeActor: DMScreenApp.#onRemoveActor
+      removeActor: DMScreenApp.#onRemoveActor,
+      toggleActorSection: DMScreenApp.#onToggleActorSection
     }
   };
 
@@ -107,7 +110,8 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         `${TEMPLATES}/boxes/glossary.hbs`,
         `${TEMPLATES}/boxes/generator.hbs`,
         `${TEMPLATES}/boxes/actors.hbs`,
-        `${TEMPLATES}/boxes/actors-list.hbs`
+        `${TEMPLATES}/boxes/actors-list.hbs`,
+        `${TEMPLATES}/boxes/loot.hbs`
       ]
     }
   };
@@ -199,7 +203,7 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     } else {
       ctx[linked.key] = data;
       ctx.placeholder = data.name ?? ctx.placeholder;
-      if (box.type === "table" || box.type === "tableFolder" || box.type === "generator") {
+      if (box.type === "table" || box.type === "tableFolder" || box.type === "generator" || box.type === "loot") {
         ctx.hasHistory = true;
         ctx.history = getHistory(box.id);
         ctx.historyOpen = this.#historyOpen.has(box.id);
@@ -298,7 +302,7 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     if (!(target instanceof HTMLSelectElement)) return;
 
     const generatorKey = target.dataset.r101Generator;
-    if (generatorKey === "filter" || generatorKey === "lang") {
+    if (["filter", "lang", "mode", "tier"].includes(generatorKey)) {
       const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
       if (!box) return;
       storage.update(() => { box.data[generatorKey] = target.value; });
@@ -1023,6 +1027,7 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     else if (choice === "glossary") [type, data] = ["glossary", { variant: "2024", lang: "auto" }];
     else if (choice.startsWith("gen:")) [type, data] = ["generator", { generator: choice.slice(4), filter: "any", lang: "auto" }];
     else if (choice === "actors") [type, data] = ["actors", { mode: "party", uuids: [] }];
+    else if (choice === "loot") [type, data] = ["loot", { mode: "individual", tier: "t1", lang: "auto" }];
     else [type, data] = ["template", { template: choice, variant: null, lang: "auto" }];
 
     storage.update(() => {
@@ -1091,6 +1096,8 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         "combat environment terrain hazard weather savas ortami arazi tehlike hava"),
       row("gen:events", "fa-solid fa-signs-post", lib("Events"), lib("EventsHint"),
         "random events city village town wilderness forest snow desert rastgele olaylar sehir koy kasaba orman kar col"),
+      row("loot", "fa-solid fa-sack-dollar", lib("Loot"), lib("LootHint"),
+        "loot treasure hoard gold coins gems magic items hazine ganimet altin"),
       row("actors", "fa-solid fa-users", lib("Actors"), lib("ActorsHint"),
         "party actor players characters summary oyuncu karakter ozet")
     ], true));
@@ -1261,7 +1268,7 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
   static async #onGenerateText(event, target) {
     const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
     if (!box) return;
-    const request = await generatorRequest(box);
+    const request = await (box.type === "loot" ? lootRequest(box) : generatorRequest(box));
     if (!request) {
       ui.notifications.warn(`${I18N}.Missing.Generator`, { localize: true });
       return;
@@ -1280,6 +1287,19 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         const kept = Array.isArray(box.data.uuids) ? box.data.uuids : [];
         box.data = { mode: "custom", uuids: kept.length ? kept : partyActors().map(a => a.uuid).slice(0, MAX_ACTORS) };
       }
+    });
+    this.render();
+  }
+
+  /** Group actors: show or hide their coins or member list. @this {DMScreenApp} */
+  static #onToggleActorSection(event, target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    const section = target.dataset.section;
+    if (!box || (section !== "currency" && section !== "members")) return;
+    storage.update(() => {
+      const show = { currency: true, members: true, ...(box.data.show ?? {}) };
+      show[section] = !show[section];
+      box.data.show = show;
     });
     this.render();
   }

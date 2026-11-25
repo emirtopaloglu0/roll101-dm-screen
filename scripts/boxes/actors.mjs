@@ -40,7 +40,36 @@ function classText(actor, get) {
   return level ? `${game.i18n.localize(`${I18N}.Actors.Level`)} ${level}` : "";
 }
 
-function summarize(actor) {
+const DENOMS = ["pp", "gp", "ep", "sp", "cp"];
+
+/** Group actor (dnd5e): its coins and its members. Read only. */
+function summarizeGroup(actor, show) {
+  const get = path => foundry.utils.getProperty(actor.system ?? {}, path);
+  const raw = get("members");
+  const list = Array.isArray(raw) ? raw : raw instanceof Set ? [...raw] : [];
+  const members = list.map(m => m?.actor ?? m).filter(a => a?.name).slice(0, 30).map(a => {
+    const read = path => num(foundry.utils.getProperty(a.system ?? {}, path));
+    const hp = read("attributes.hp.value");
+    const max = read("attributes.hp.max");
+    const ac = read("attributes.ac.value");
+    const parts = [];
+    if (hp !== null && max !== null) parts.push(`${hp} / ${max} HP`);
+    if (ac !== null) parts.push(`AC ${ac}`);
+    return { name: a.name, line: parts.join(" · ") };
+  });
+  return {
+    uuid: actor.uuid,
+    name: actor.name,
+    isGroup: true,
+    showCurrency: show.currency && get("currency") !== undefined,
+    currency: DENOMS.map(key => ({ key, value: num(get(`currency.${key}`)) ?? 0 })),
+    showMembers: show.members,
+    members
+  };
+}
+
+function summarize(actor, show) {
+  if (actor.type === "group") return summarizeGroup(actor, show);
   const get = path => foundry.utils.getProperty(actor.system ?? {}, path);
   const t = key => game.i18n.localize(`${I18N}.Actors.Stat.${key}`);
 
@@ -83,15 +112,16 @@ function summarize(actor) {
 /** Template data for the actors box (the whole box, including the list). */
 export async function actorsContext(box) {
   const mode = box.data.mode === "custom" ? "custom" : "party";
+  const show = { currency: true, members: true, ...(box.data.show ?? {}) };
   const rows = [];
 
   if (mode === "party") {
-    for (const actor of partyActors().slice(0, MAX_ACTORS)) rows.push(safeSummary(actor));
+    for (const actor of partyActors().slice(0, MAX_ACTORS)) rows.push(safeSummary(actor, show));
   } else {
     const uuids = Array.isArray(box.data.uuids) ? box.data.uuids.slice(0, MAX_ACTORS) : [];
     const docs = await Promise.all(uuids.map(uuid => fromUuid(uuid).catch(() => null)));
     docs.forEach((doc, i) => {
-      if (doc?.documentName === "Actor") rows.push(safeSummary(doc));
+      if (doc?.documentName === "Actor") rows.push(safeSummary(doc, show));
       else rows.push({ uuid: uuids[i], missing: true, name: game.i18n.localize(`${I18N}.Actors.Missing`) });
     });
   }
@@ -100,6 +130,9 @@ export async function actorsContext(box) {
     name: game.i18n.localize(`${I18N}.Actors.Title`),
     isParty: mode === "party",
     editable: mode === "custom",
+    hasGroup: rows.some(r => r.isGroup),
+    showCurrency: show.currency,
+    showMembers: show.members,
     rows,
     empty: !rows.length,
     emptyText: game.i18n.localize(`${I18N}.Actors.${mode === "party" ? "EmptyParty" : "EmptyCustom"}`),
@@ -108,9 +141,9 @@ export async function actorsContext(box) {
 }
 
 /** A failure while reading one actor must not break the box. */
-function safeSummary(actor) {
+function safeSummary(actor, show) {
   try {
-    return summarize(actor);
+    return summarize(actor, show);
   } catch (err) {
     console.warn("roll101-dm-screen | Could not read actor", actor?.uuid, err);
     return { uuid: actor?.uuid ?? "", missing: true, name: actor?.name ?? "?" };

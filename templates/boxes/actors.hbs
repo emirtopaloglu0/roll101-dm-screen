@@ -5,6 +5,16 @@
             data-tooltip="{{#if isParty}}R101DMSCREEN.Actors.PartyOnHint{{else}}R101DMSCREEN.Actors.PartyOffHint{{/if}}">
       <i class="fa-solid fa-users" aria-hidden="true"></i> {{localize "R101DMSCREEN.Actors.Party"}}
     </button>
+    {{#if hasGroup}}
+    <button type="button" class="r101-small-button r101-toggle" data-action="toggleActorSection" data-section="currency"
+            aria-pressed="{{#if showCurrency}}true{{else}}false{{/if}}" data-tooltip="R101DMSCREEN.Actors.ToggleCoins">
+      <i class="fa-solid fa-coins" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="r101-small-button r101-toggle" data-action="toggleActorSection" data-section="members"
+            aria-pressed="{{#if showMembers}}true{{else}}false{{/if}}" data-tooltip="R101DMSCREEN.Actors.ToggleMembers">
+      <i class="fa-solid fa-user-group" aria-hidden="true"></i>
+    </button>
+    {{/if}}
     <span class="r101-note">{{localize "R101DMSCREEN.Actors.DropHint"}}</span>
   </div>
   {{#if wrongSystem}}<p class="r101-note r101-warning r101-pad">{{localize "R101DMSCREEN.Actors.WrongSystem"}}</p>{{/if}}

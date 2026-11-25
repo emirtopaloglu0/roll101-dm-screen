@@ -18,6 +18,18 @@
     {{/if}}
   </header>
   {{#unless missing}}
+  {{#if isGroup}}
+  {{#if showCurrency}}
+  <dl class="r101-actor-stats r101-actor-coins">
+    {{#each currency}}<div><dt>{{key}}</dt><dd>{{value}}</dd></div>{{/each}}
+  </dl>
+  {{/if}}
+  {{#if showMembers}}
+  <ul class="r101-actor-members">
+    {{#each members}}<li><span>{{name}}</span> <span class="r101-note">{{line}}</span></li>{{/each}}
+  </ul>
+  {{/if}}
+  {{else}}
   {{#if hasHp}}
   <div class="r101-hp {{hpClass}}" style="--r101-hp: {{percent}}%;" role="img"
        aria-label="{{localize 'R101DMSCREEN.Actors.Stat.hp'}} {{hp}} / {{max}}">
@@ -31,6 +43,7 @@
   {{/if}}
   {{#if conditions.length}}
   <p class="r101-actor-conditions"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> {{#each conditions}}{{#unless @first}}, {{/unless}}{{this}}{{/each}}</p>
+  {{/if}}
   {{/if}}
   {{/unless}}
 </article>

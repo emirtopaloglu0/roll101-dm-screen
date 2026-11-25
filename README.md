@@ -29,6 +29,11 @@ without leaving Foundry.
 - Party summary (D&D 5e): AC, HP, initiative, speed, passive scores, spell DC, inspiration and
   conditions of all player-owned characters, or of actors you drop in. Updates live.
 
+- Loot Generator (English and Turkish): individual treasure or hoards for four CR tiers. Coins and
+  items always add up to the same total value: gems, art objects, trade goods and equipment (names
+  and prices from SRD 5.1), plus magic items in hoards. Amounts and gem/art descriptions are original.
+- Party summary also shows dnd5e group actors (coins and members, read only). Toggle each section.
+
 Planned: "Monsters Know What They're Doing" summary and your own rollable tables as a pack (private content).
 
 ## Compatibility

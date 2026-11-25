@@ -1,0 +1,20 @@
+<div class="r101-loot">
+  <div class="r101-box-actions">
+    <button type="button" class="r101-small-button r101-primary" data-action="generateText">
+      <i class="fa-solid fa-sack-dollar" aria-hidden="true"></i> {{localize "R101DMSCREEN.Generator.Generate"}}
+    </button>
+    <select class="r101-select" data-r101-generator="mode" aria-label="{{localize 'R101DMSCREEN.Loot.Type'}}">
+      {{#each modes}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    <select class="r101-select" data-r101-generator="tier" aria-label="{{localize 'R101DMSCREEN.Loot.Level'}}">
+      {{#each tiers}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    <select class="r101-select" data-r101-generator="lang" aria-label="{{localize 'R101DMSCREEN.Template.Language'}}">
+      {{#each langs}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+  </div>
+  <div class="r101-scroll r101-loot-body">
+    <p>{{hint}}</p>
+    {{#if attribution}}<p class="r101-attribution">{{attribution}}</p>{{/if}}
+  </div>
+</div>

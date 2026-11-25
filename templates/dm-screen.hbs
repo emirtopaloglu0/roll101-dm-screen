@@ -109,6 +109,8 @@
       {{> "modules/roll101-dm-screen/templates/boxes/glossary.hbs" box.glossary}}
       {{else if box.generator}}
       {{> "modules/roll101-dm-screen/templates/boxes/generator.hbs" box.generator}}
+      {{else if box.loot}}
+      {{> "modules/roll101-dm-screen/templates/boxes/loot.hbs" box.loot}}
       {{else if box.actors}}
       {{> "modules/roll101-dm-screen/templates/boxes/actors.hbs" box.actors}}
       {{else}}

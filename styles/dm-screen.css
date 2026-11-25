@@ -1064,3 +1064,31 @@
   margin: 0;
   font-size: 0.9em;
 }
+
+/* Loot box and group actors */
+.r101-dm-screen .r101-loot {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.r101-dm-screen .r101-loot-body {
+  padding: 6px 10px;
+}
+
+.r101-dm-screen .r101-actor-members {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.r101-dm-screen .r101-actor-members li {
+  display: flex;
+  gap: 0.6em;
+  justify-content: space-between;
+}
+
+.r101-dm-screen .r101-actor-coins dt {
+  text-transform: uppercase;
+}
