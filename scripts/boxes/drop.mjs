@@ -32,6 +32,9 @@ export async function boxFromDrop(event) {
     case "RollTable":
       return data.uuid ? { type: "table", data: { uuid: data.uuid } } : null;
 
+    case "Actor":
+      return data.uuid ? { type: "actors", data: { mode: "custom", uuids: [data.uuid] } } : null;
+
     case "Folder": {
       if (!data.uuid) return null;
       let folder = null;

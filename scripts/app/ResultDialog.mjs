@@ -61,6 +61,24 @@ export class ResultDialog extends ApplicationV2 {
     dialog.bringToFront?.();
   }
 
+  /**
+   * Show a generated text (combat environment, random events) in the same window.
+   * @param {{title: string, generate: () => Promise<{name: string, texts: string[]}>}} request
+   * @param {ResultCallback} [onResult]
+   */
+  static async showGenerated({ title, generate }, onResult) {
+    if (typeof generate !== "function") return;
+    instance ??= new ResultDialog();
+    const dialog = instance;
+    dialog.#group = false;
+    dialog.#groupTitle = title ?? "";
+    dialog.#onResult = onResult ?? null;
+    dialog.#items = [{ uuid: "", generate, name: title ?? "", texts: [], error: "" }];
+    await dialog.#rollAll();
+    await dialog.render({ force: true, position: { width: 380, height: "auto" } });
+    dialog.bringToFront?.();
+  }
+
   get title() {
     if (this.#group) return this.#groupTitle || game.i18n.localize(`${I18N}.Result.Title`);
     return this.#items[0]?.name || game.i18n.localize(`${I18N}.Result.Title`);
@@ -78,15 +96,15 @@ export class ResultDialog extends ApplicationV2 {
   async #rollItem(item) {
     item.error = "";
     try {
-      const { name, texts } = await rollTableByUuid(item.uuid);
+      const { name, texts } = item.generate ? await item.generate() : await rollTableByUuid(item.uuid);
       item.name = name;
       item.texts = texts;
       if (!texts.length) item.error = game.i18n.localize(`${I18N}.Result.Empty`);
     } catch (err) {
       item.texts = [];
-      const missing = err?.message === "missing";
-      item.error = game.i18n.localize(missing ? `${I18N}.Result.Missing` : `${I18N}.Result.Failed`);
-      if (!missing) console.error("roll101-dm-screen | Roll failed", err);
+      const known = err?.message === "missing" ? "Missing" : err?.message === "empty" ? "NoEntries" : null;
+      item.error = game.i18n.localize(`${I18N}.Result.${known ?? "Failed"}`);
+      if (!known) console.error("roll101-dm-screen | Roll failed", err);
     }
   }
 

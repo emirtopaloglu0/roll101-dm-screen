@@ -51,3 +51,18 @@ and the project uses [Semantic Versioning](https://semver.org/).
 - Deleted or missing journals, tables and folders show a warning in the box instead of an error.
   Drop a replacement on the box to reconnect it.
 - Linked boxes update when their journal, table or folder changes, only while the screen is open.
+- Generator boxes (EN/TR): Combat Environment (40 entries: terrain, hazards, weather, magic, objects)
+  and Random Events (69 entries by setting: city, village, town, wilderness, forest, snow, desert;
+  general events mix into every setting). Results open in the result window with Reroll, Copy and
+  Whisper, and appear in the box's recent results.
+- Party summary box (dnd5e): AC, HP bar with temp HP, initiative, speed, passive Perception,
+  Investigation and Insight, spell DC, inspiration and conditions. Shows all player-owned characters,
+  or a list you build by dropping actors. Only its list refreshes when an actor changes.
+- Loot Generator box (EN/TR): individual or hoard, four CR tiers. The coin share and the item share
+  add up to one total value. Items are gems, art objects, trade goods and equipment (SRD 5.1 names and
+  prices); hoards add magic items by rarity. Results use the result window and recent results.
+- Party summary: drop a dnd5e group actor to see its coins and members (read only). Coins and members
+  can be shown or hidden separately.
+- Loot: the result now appears inside the box and each new roll replaces it (no dialog). Copy and
+  whisper buttons sit in the box toolbar. Coins are gp, sp and cp only. An optional min and max set the
+  total worth (coins and items, without magic items) in gp.

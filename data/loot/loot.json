@@ -1,0 +1,1312 @@
+{
+ "attribution": {
+  "en": "Item names and prices from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0). Treasure amounts, gems and art objects are original.",
+  "tr": "Eşya adları ve fiyatlar Wizards of the Coast LLC'nin System Reference Document 5.1 belgesindendir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0). Hazine miktarları, mücevherler ve sanat eserleri özgündür."
+ },
+ "goods": [
+  {
+   "n": "Padded",
+   "v": 5.0
+  },
+  {
+   "n": "Leather",
+   "v": 10.0
+  },
+  {
+   "n": "Studded leather",
+   "v": 45.0
+  },
+  {
+   "n": "Hide",
+   "v": 10.0
+  },
+  {
+   "n": "Chain shirt",
+   "v": 50.0
+  },
+  {
+   "n": "Scale mail",
+   "v": 50.0
+  },
+  {
+   "n": "Breastplate",
+   "v": 400.0
+  },
+  {
+   "n": "Half plate",
+   "v": 750.0
+  },
+  {
+   "n": "Ring mail",
+   "v": 30.0
+  },
+  {
+   "n": "Chain mail",
+   "v": 75.0
+  },
+  {
+   "n": "Splint",
+   "v": 200.0
+  },
+  {
+   "n": "Plate",
+   "v": 1500.0
+  },
+  {
+   "n": "Shield",
+   "v": 10.0
+  },
+  {
+   "n": "Club",
+   "v": 0.1
+  },
+  {
+   "n": "Dagger",
+   "v": 2.0
+  },
+  {
+   "n": "Greatclub",
+   "v": 0.2
+  },
+  {
+   "n": "Handaxe",
+   "v": 5.0
+  },
+  {
+   "n": "Javelin",
+   "v": 0.5
+  },
+  {
+   "n": "Light hammer",
+   "v": 2.0
+  },
+  {
+   "n": "Mace",
+   "v": 5.0
+  },
+  {
+   "n": "Quarterstaff",
+   "v": 0.2
+  },
+  {
+   "n": "Sickle",
+   "v": 1.0
+  },
+  {
+   "n": "Spear",
+   "v": 1.0
+  },
+  {
+   "n": "Crossbow, light",
+   "v": 25.0
+  },
+  {
+   "n": "Dart",
+   "v": 0.05
+  },
+  {
+   "n": "Shortbow",
+   "v": 25.0
+  },
+  {
+   "n": "Sling",
+   "v": 0.1
+  },
+  {
+   "n": "Battleaxe",
+   "v": 10.0
+  },
+  {
+   "n": "Flail",
+   "v": 10.0
+  },
+  {
+   "n": "Glaive",
+   "v": 20.0
+  },
+  {
+   "n": "Greataxe",
+   "v": 30.0
+  },
+  {
+   "n": "Greatsword",
+   "v": 50.0
+  },
+  {
+   "n": "Halberd",
+   "v": 20.0
+  },
+  {
+   "n": "Lance",
+   "v": 10.0
+  },
+  {
+   "n": "Longsword",
+   "v": 15.0
+  },
+  {
+   "n": "Maul",
+   "v": 10.0
+  },
+  {
+   "n": "Morningstar",
+   "v": 15.0
+  },
+  {
+   "n": "Pike",
+   "v": 5.0
+  },
+  {
+   "n": "Rapier",
+   "v": 25.0
+  },
+  {
+   "n": "Scimitar",
+   "v": 25.0
+  },
+  {
+   "n": "Shortsword",
+   "v": 10.0
+  },
+  {
+   "n": "Trident",
+   "v": 5.0
+  },
+  {
+   "n": "War pick",
+   "v": 5.0
+  },
+  {
+   "n": "Warhammer",
+   "v": 15.0
+  },
+  {
+   "n": "Whip",
+   "v": 2.0
+  },
+  {
+   "n": "Blowgun",
+   "v": 10.0
+  },
+  {
+   "n": "Crossbow, hand",
+   "v": 75.0
+  },
+  {
+   "n": "Crossbow, heavy",
+   "v": 50.0
+  },
+  {
+   "n": "Longbow",
+   "v": 50.0
+  },
+  {
+   "n": "Net",
+   "v": 1.0
+  },
+  {
+   "n": "Abacus",
+   "v": 2.0
+  },
+  {
+   "n": "Acid (vial)",
+   "v": 25.0
+  },
+  {
+   "n": "Alchemist’s fire (flask)",
+   "v": 50.0
+  },
+  {
+   "n": "Arrows (20)",
+   "v": 1.0
+  },
+  {
+   "n": "Blowgun needles (50)",
+   "v": 1.0
+  },
+  {
+   "n": "Crossbow bolts (20)",
+   "v": 1.0
+  },
+  {
+   "n": "Antitoxin (vial)",
+   "v": 50.0
+  },
+  {
+   "n": "Crystal",
+   "v": 10.0
+  },
+  {
+   "n": "Orb",
+   "v": 20.0
+  },
+  {
+   "n": "Rod",
+   "v": 10.0
+  },
+  {
+   "n": "Staff",
+   "v": 5.0
+  },
+  {
+   "n": "Wand",
+   "v": 10.0
+  },
+  {
+   "n": "Backpack",
+   "v": 2.0
+  },
+  {
+   "n": "Ball bearings (bag of 1,000)",
+   "v": 1.0
+  },
+  {
+   "n": "Barrel",
+   "v": 2.0
+  },
+  {
+   "n": "Basket",
+   "v": 0.4
+  },
+  {
+   "n": "Bedroll",
+   "v": 1.0
+  },
+  {
+   "n": "Bell",
+   "v": 1.0
+  },
+  {
+   "n": "Blanket",
+   "v": 0.5
+  },
+  {
+   "n": "Block and tackle",
+   "v": 1.0
+  },
+  {
+   "n": "Book",
+   "v": 25.0
+  },
+  {
+   "n": "Bottle, glass",
+   "v": 2.0
+  },
+  {
+   "n": "Bucket",
+   "v": 0.05
+  },
+  {
+   "n": "Caltrops (bag of 20)",
+   "v": 1.0
+  },
+  {
+   "n": "Case, crossbow bolt",
+   "v": 1.0
+  },
+  {
+   "n": "Case, map or scroll",
+   "v": 1.0
+  },
+  {
+   "n": "Chain (10 feet)",
+   "v": 5.0
+  },
+  {
+   "n": "Chest",
+   "v": 5.0
+  },
+  {
+   "n": "Climber’s kit",
+   "v": 25.0
+  },
+  {
+   "n": "Clothes, common",
+   "v": 0.5
+  },
+  {
+   "n": "Clothes, costume",
+   "v": 5.0
+  },
+  {
+   "n": "Clothes, fine",
+   "v": 15.0
+  },
+  {
+   "n": "Clothes, traveler’s",
+   "v": 2.0
+  },
+  {
+   "n": "Component pouch",
+   "v": 25.0
+  },
+  {
+   "n": "Crowbar",
+   "v": 2.0
+  },
+  {
+   "n": "Sprig of mistletoe",
+   "v": 1.0
+  },
+  {
+   "n": "Totem",
+   "v": 1.0
+  },
+  {
+   "n": "Wooden staff",
+   "v": 5.0
+  },
+  {
+   "n": "Yew wand",
+   "v": 10.0
+  },
+  {
+   "n": "Fishing tackle",
+   "v": 1.0
+  },
+  {
+   "n": "Grappling hook",
+   "v": 2.0
+  },
+  {
+   "n": "Hammer",
+   "v": 1.0
+  },
+  {
+   "n": "Hammer, sledge",
+   "v": 2.0
+  },
+  {
+   "n": "Healer’s kit",
+   "v": 5.0
+  },
+  {
+   "n": "Amulet",
+   "v": 5.0
+  },
+  {
+   "n": "Emblem",
+   "v": 5.0
+  },
+  {
+   "n": "Reliquary",
+   "v": 5.0
+  },
+  {
+   "n": "Holy water (flask)",
+   "v": 25.0
+  },
+  {
+   "n": "Hourglass",
+   "v": 25.0
+  },
+  {
+   "n": "Hunting trap",
+   "v": 5.0
+  },
+  {
+   "n": "Ink (1 ounce bottle)",
+   "v": 10.0
+  },
+  {
+   "n": "Ladder (10-foot)",
+   "v": 0.1
+  },
+  {
+   "n": "Lamp",
+   "v": 0.5
+  },
+  {
+   "n": "Lantern, bullseye",
+   "v": 10.0
+  },
+  {
+   "n": "Lantern, hooded",
+   "v": 5.0
+  },
+  {
+   "n": "Lock",
+   "v": 10.0
+  },
+  {
+   "n": "Magnifying glass",
+   "v": 100.0
+  },
+  {
+   "n": "Manacles",
+   "v": 2.0
+  },
+  {
+   "n": "Mess kit",
+   "v": 0.2
+  },
+  {
+   "n": "Mirror, steel",
+   "v": 5.0
+  },
+  {
+   "n": "Oil (flask)",
+   "v": 0.1
+  },
+  {
+   "n": "Paper (one sheet)",
+   "v": 0.2
+  },
+  {
+   "n": "Parchment (one sheet)",
+   "v": 0.1
+  },
+  {
+   "n": "Perfume (vial)",
+   "v": 5.0
+  },
+  {
+   "n": "Pick, miner’s",
+   "v": 2.0
+  },
+  {
+   "n": "Piton",
+   "v": 0.05
+  },
+  {
+   "n": "Poison, basic (vial)",
+   "v": 100.0
+  },
+  {
+   "n": "Pole (10-foot)",
+   "v": 0.05
+  },
+  {
+   "n": "Pot, iron",
+   "v": 2.0
+  },
+  {
+   "n": "Pouch",
+   "v": 0.5
+  },
+  {
+   "n": "Quiver",
+   "v": 1.0
+  },
+  {
+   "n": "Ram, portable",
+   "v": 4.0
+  },
+  {
+   "n": "Rations (1 day)",
+   "v": 0.5
+  },
+  {
+   "n": "Robes",
+   "v": 1.0
+  },
+  {
+   "n": "Rope, hempen (50 feet)",
+   "v": 1.0
+  },
+  {
+   "n": "Rope, silk (50 feet)",
+   "v": 10.0
+  },
+  {
+   "n": "Scale, merchant’s",
+   "v": 5.0
+  },
+  {
+   "n": "Sealing wax",
+   "v": 0.5
+  },
+  {
+   "n": "Shovel",
+   "v": 2.0
+  },
+  {
+   "n": "Signal whistle",
+   "v": 0.05
+  },
+  {
+   "n": "Signet ring",
+   "v": 5.0
+  },
+  {
+   "n": "Spellbook",
+   "v": 50.0
+  },
+  {
+   "n": "Spikes, iron (10)",
+   "v": 1.0
+  },
+  {
+   "n": "Spyglass",
+   "v": 1000.0
+  },
+  {
+   "n": "Tent, two-person",
+   "v": 2.0
+  },
+  {
+   "n": "Tinderbox",
+   "v": 0.5
+  },
+  {
+   "n": "Vial",
+   "v": 1.0
+  },
+  {
+   "n": "Waterskin",
+   "v": 0.2
+  },
+  {
+   "n": "Alchemist’s supplies",
+   "v": 50.0
+  },
+  {
+   "n": "Brewer’s supplies",
+   "v": 20.0
+  },
+  {
+   "n": "Calligrapher's supplies",
+   "v": 10.0
+  },
+  {
+   "n": "Carpenter’s tools",
+   "v": 8.0
+  },
+  {
+   "n": "Cartographer’s tools",
+   "v": 15.0
+  },
+  {
+   "n": "Cobbler’s tools",
+   "v": 5.0
+  },
+  {
+   "n": "Cook’s utensils",
+   "v": 1.0
+  },
+  {
+   "n": "Glassblower’s tools",
+   "v": 30.0
+  },
+  {
+   "n": "Jeweler’s tools",
+   "v": 25.0
+  },
+  {
+   "n": "Leatherworker’s tools",
+   "v": 5.0
+  },
+  {
+   "n": "Mason’s tools",
+   "v": 10.0
+  },
+  {
+   "n": "Painter’s supplies",
+   "v": 10.0
+  },
+  {
+   "n": "Potter’s tools",
+   "v": 10.0
+  },
+  {
+   "n": "Smith’s tools",
+   "v": 20.0
+  },
+  {
+   "n": "Tinker’s tools",
+   "v": 50.0
+  },
+  {
+   "n": "Weaver’s tools",
+   "v": 1.0
+  },
+  {
+   "n": "Woodcarver’s tools",
+   "v": 1.0
+  },
+  {
+   "n": "Disguise kit",
+   "v": 25.0
+  },
+  {
+   "n": "Forgery kit",
+   "v": 15.0
+  },
+  {
+   "n": "Dice set",
+   "v": 0.1
+  },
+  {
+   "n": "Playing card set",
+   "v": 0.5
+  },
+  {
+   "n": "Herbalism kit",
+   "v": 5.0
+  },
+  {
+   "n": "Bagpipes",
+   "v": 30.0
+  },
+  {
+   "n": "Drum",
+   "v": 6.0
+  },
+  {
+   "n": "Dulcimer",
+   "v": 25.0
+  },
+  {
+   "n": "Flute",
+   "v": 2.0
+  },
+  {
+   "n": "Lute",
+   "v": 35.0
+  },
+  {
+   "n": "Lyre",
+   "v": 30.0
+  },
+  {
+   "n": "Horn",
+   "v": 3.0
+  },
+  {
+   "n": "Pan flute",
+   "v": 12.0
+  },
+  {
+   "n": "Shawm",
+   "v": 2.0
+  },
+  {
+   "n": "Viol",
+   "v": 30.0
+  },
+  {
+   "n": "Navigator’s tools",
+   "v": 25.0
+  },
+  {
+   "n": "Poisoner’s kit",
+   "v": 50.0
+  },
+  {
+   "n": "Thieves’ tools",
+   "v": 25.0
+  }
+ ],
+ "trade": [
+  {
+   "n": {
+    "en": "1 lb. of wheat",
+    "tr": "1 lb. buğday"
+   },
+   "v": 0.01
+  },
+  {
+   "n": {
+    "en": "1 lb. of flour",
+    "tr": "1 lb. un"
+   },
+   "v": 0.02
+  },
+  {
+   "n": {
+    "en": "chicken",
+    "tr": "tavuk"
+   },
+   "v": 0.02
+  },
+  {
+   "n": {
+    "en": "1 lb. of salt",
+    "tr": "1 lb. tuz"
+   },
+   "v": 0.05
+  },
+  {
+   "n": {
+    "en": "1 lb. of iron",
+    "tr": "1 lb. demir"
+   },
+   "v": 0.1
+  },
+  {
+   "n": {
+    "en": "1 sq. yd. of canvas",
+    "tr": "1 sq. yd. branda bezi"
+   },
+   "v": 0.1
+  },
+  {
+   "n": {
+    "en": "1 lb. of copper",
+    "tr": "1 lb. bakır"
+   },
+   "v": 0.5
+  },
+  {
+   "n": {
+    "en": "1 sq. yd. of cotton cloth",
+    "tr": "1 sq. yd. pamuklu kumaş"
+   },
+   "v": 0.5
+  },
+  {
+   "n": {
+    "en": "1 lb. of ginger",
+    "tr": "1 lb. zencefil"
+   },
+   "v": 1.0
+  },
+  {
+   "n": {
+    "en": "goat",
+    "tr": "keçi"
+   },
+   "v": 1.0
+  },
+  {
+   "n": {
+    "en": "1 lb. of cinnamon",
+    "tr": "1 lb. tarçın"
+   },
+   "v": 2.0
+  },
+  {
+   "n": {
+    "en": "1 lb. of pepper",
+    "tr": "1 lb. karabiber"
+   },
+   "v": 2.0
+  },
+  {
+   "n": {
+    "en": "sheep",
+    "tr": "koyun"
+   },
+   "v": 2.0
+  },
+  {
+   "n": {
+    "en": "1 lb. of cloves",
+    "tr": "1 lb. karanfil"
+   },
+   "v": 3.0
+  },
+  {
+   "n": {
+    "en": "pig",
+    "tr": "domuz"
+   },
+   "v": 3.0
+  },
+  {
+   "n": {
+    "en": "1 lb. of silver",
+    "tr": "1 lb. gümüş"
+   },
+   "v": 5.0
+  },
+  {
+   "n": {
+    "en": "1 sq. yd. of linen",
+    "tr": "1 sq. yd. keten"
+   },
+   "v": 5.0
+  },
+  {
+   "n": {
+    "en": "1 sq. yd. of silk",
+    "tr": "1 sq. yd. ipek"
+   },
+   "v": 10.0
+  },
+  {
+   "n": {
+    "en": "cow",
+    "tr": "inek"
+   },
+   "v": 10.0
+  },
+  {
+   "n": {
+    "en": "1 lb. of saffron",
+    "tr": "1 lb. safran"
+   },
+   "v": 15.0
+  },
+  {
+   "n": {
+    "en": "ox",
+    "tr": "öküz"
+   },
+   "v": 15.0
+  },
+  {
+   "n": {
+    "en": "1 lb. of gold",
+    "tr": "1 lb. altın"
+   },
+   "v": 50.0
+  },
+  {
+   "n": {
+    "en": "1 lb. of platinum",
+    "tr": "1 lb. platin"
+   },
+   "v": 500.0
+  }
+ ],
+ "gems": [
+  {
+   "v": 10,
+   "n": [
+    {
+     "en": "a banded, polished stone",
+     "tr": "bantlı, cilalı bir taş"
+    },
+    {
+     "en": "a small cloudy crystal",
+     "tr": "küçük, bulanık bir kristal"
+    },
+    {
+     "en": "a smooth, speckled pebble",
+     "tr": "pürüzsüz, benekli bir çakıl"
+    }
+   ]
+  },
+  {
+   "v": 50,
+   "n": [
+    {
+     "en": "a clear blue stone",
+     "tr": "berrak mavi bir taş"
+    },
+    {
+     "en": "a rose-colored crystal",
+     "tr": "gül renkli bir kristal"
+    },
+    {
+     "en": "a glossy dark-green gem",
+     "tr": "parlak koyu yeşil bir mücevher"
+    }
+   ]
+  },
+  {
+   "v": 100,
+   "n": [
+    {
+     "en": "a deep red gem",
+     "tr": "koyu kırmızı bir mücevher"
+    },
+    {
+     "en": "a glittering amber stone",
+     "tr": "parıldayan kehribar bir taş"
+    },
+    {
+     "en": "a violet gem with a pale core",
+     "tr": "açık renk çekirdekli mor bir mücevher"
+    }
+   ]
+  },
+  {
+   "v": 500,
+   "n": [
+    {
+     "en": "a flawless sea-green gem",
+     "tr": "kusursuz deniz yeşili bir mücevher"
+    },
+    {
+     "en": "a brilliant golden gem",
+     "tr": "parlak altın sarısı bir mücevher"
+    },
+    {
+     "en": "a rich black gem with silver flecks",
+     "tr": "gümüş benekli, koyu siyah bir mücevher"
+    }
+   ]
+  },
+  {
+   "v": 1000,
+   "n": [
+    {
+     "en": "a fiery orange gem that shifts color",
+     "tr": "renk değiştiren ateşli turuncu bir mücevher"
+    },
+    {
+     "en": "a pearl-white gem with a rainbow sheen",
+     "tr": "gökkuşağı parıltılı inci beyazı bir mücevher"
+    },
+    {
+     "en": "a deep blue gem that glows faintly",
+     "tr": "hafifçe parlayan koyu mavi bir mücevher"
+    }
+   ]
+  },
+  {
+   "v": 5000,
+   "n": [
+    {
+     "en": "a large, flawless red gem",
+     "tr": "büyük, kusursuz kırmızı bir mücevher"
+    },
+    {
+     "en": "a clear gem that throws bright sparks",
+     "tr": "parlak kıvılcımlar saçan berrak bir mücevher"
+    },
+    {
+     "en": "a huge sapphire-blue gem of perfect cut",
+     "tr": "kusursuz kesimli, kocaman safir mavisi bir mücevher"
+    }
+   ]
+  }
+ ],
+ "art": [
+  {
+   "v": 25,
+   "n": [
+    {
+     "en": "a silver ewer",
+     "tr": "gümüş bir ibrik"
+    },
+    {
+     "en": "a carved bone statuette",
+     "tr": "oyma kemik bir heykelcik"
+    },
+    {
+     "en": "a small painted portrait",
+     "tr": "küçük, boyalı bir portre"
+    }
+   ]
+  },
+  {
+   "v": 250,
+   "n": [
+    {
+     "en": "a gold ring set with tiny stones",
+     "tr": "küçük taşlı altın bir yüzük"
+    },
+    {
+     "en": "a jeweled anklet",
+     "tr": "mücevherli bir halhal"
+    },
+    {
+     "en": "an embroidered silk tapestry",
+     "tr": "işlemeli ipek bir duvar halısı"
+    }
+   ]
+  },
+  {
+   "v": 750,
+   "n": [
+    {
+     "en": "a silver chalice with small gems",
+     "tr": "küçük mücevherli gümüş bir kadeh"
+    },
+    {
+     "en": "a carved ivory statuette",
+     "tr": "oyma fildişi bir heykelcik"
+    },
+    {
+     "en": "a gold music box",
+     "tr": "altın bir müzik kutusu"
+    }
+   ]
+  },
+  {
+   "v": 2500,
+   "n": [
+    {
+     "en": "a gold crown with small gems",
+     "tr": "küçük mücevherli altın bir taç"
+    },
+    {
+     "en": "a jeweled gold necklace",
+     "tr": "mücevherli altın bir kolye"
+    },
+    {
+     "en": "a masterwork landscape painting",
+     "tr": "ustalık eseri bir manzara tablosu"
+    }
+   ]
+  },
+  {
+   "v": 7500,
+   "n": [
+    {
+     "en": "a jeweled platinum crown",
+     "tr": "mücevherli platin bir taç"
+    },
+    {
+     "en": "a gold dragon statue with ruby eyes",
+     "tr": "yakut gözlü altın bir ejderha heykeli"
+    },
+    {
+     "en": "a lost masterpiece painting",
+     "tr": "kayıp bir başyapıt tablo"
+    }
+   ]
+  }
+ ],
+ "magic": {
+  "common": [
+   "Potion of Climbing"
+  ],
+  "uncommon": [
+   "Adamantine Armor",
+   "Ammunition, +1, +2, or +3",
+   "Amulet of Proof against Detection and Location",
+   "Bag of Holding",
+   "Bag of Tricks",
+   "Boots of Elvenkind",
+   "Boots of Striding and Springing",
+   "Boots of the Winterlands",
+   "Bracers of Archery",
+   "Brooch of Shielding",
+   "Broom of Flying",
+   "Circlet of Blasting",
+   "Cloak of Elvenkind",
+   "Cloak of Protection",
+   "Cloak of the Manta Ray",
+   "Decanter of Endless Water",
+   "Deck of Illusions",
+   "Dust of Disappearance",
+   "Dust of Dryness",
+   "Dust of Sneezing and Choking",
+   "Efficient Quiver",
+   "Elemental Gem",
+   "Eversmoking Bottle",
+   "Eyes of Charming",
+   "Eyes of Minute Seeing",
+   "Eyes of the Eagle",
+   "Gauntlets of Ogre Power",
+   "Gem of Brightness",
+   "Gloves of Missile Snaring",
+   "Gloves of Swimming and Climbing",
+   "Goggles of Night",
+   "Hat of Disguise",
+   "Headband of Intellect",
+   "Helm of Comprehending Languages",
+   "Helm of Telepathy",
+   "Immovable Rod",
+   "Javelin of Lightning",
+   "Lantern of Revealing",
+   "Medallion of Thoughts",
+   "Mithral Armor",
+   "Necklace of Adaptation",
+   "Oil of Slipperiness",
+   "Pearl of Power",
+   "Periapt of Health",
+   "Periapt of Wound Closure",
+   "Philter of Love",
+   "Pipes of Haunting",
+   "Pipes of the Sewers",
+   "Potion of Animal Friendship",
+   "Potion of Growth",
+   "Potion of Poison",
+   "Potion of Resistance",
+   "Potion of Water Breathing",
+   "Restorative Ointment",
+   "Ring of Jumping",
+   "Ring of Mind Shielding",
+   "Ring of Swimming",
+   "Ring of Warmth",
+   "Ring of Water Walking",
+   "Robe of Useful Items",
+   "Rope of Climbing",
+   "Shield, +1, +2, or +3",
+   "Slippers of Spider Climbing",
+   "Staff of the Python",
+   "Stone of Good Luck (Luckstone)",
+   "Trident of Fish Command",
+   "Wand of Magic Detection",
+   "Wand of Magic Missiles",
+   "Wand of Secrets",
+   "Wand of the War Mage, +1, +2, or +3",
+   "Wand of Web",
+   "Weapon, +1, +2, or +3",
+   "Wind Fan",
+   "Winged Boots"
+  ],
+  "rare": [
+   "Ammunition, +1, +2, or +3",
+   "Amulet of Health",
+   "Armor, +1, +2, or +3",
+   "Armor of Resistance",
+   "Armor of Vulnerability",
+   "Arrow-Catching Shield",
+   "Bag of Beans",
+   "Bead of Force",
+   "Belt of Dwarvenkind",
+   "Berserker Axe",
+   "Boots of Levitation",
+   "Boots of Speed",
+   "Bowl of Commanding Water Elementals",
+   "Bracers of Defense",
+   "Brazier of Commanding Fire Elementals",
+   "Cape of the Mountebank",
+   "Censer of Controlling Air Elementals",
+   "Chime of Opening",
+   "Cloak of Displacement",
+   "Cloak of the Bat",
+   "Cube of Force",
+   "Dagger of Venom",
+   "Dimensional Shackles",
+   "Dragon Slayer",
+   "Elven Chain",
+   "Feather Token",
+   "Flame Tongue",
+   "Folding Boat",
+   "Gem of Seeing",
+   "Giant Slayer",
+   "Glamoured Studded Leather",
+   "Handy Haversack",
+   "Helm of Teleportation",
+   "Horn of Blasting",
+   "Horn of Valhalla",
+   "Horseshoes of Speed",
+   "Instant Fortress",
+   "Iron Bands of Binding",
+   "Mace of Disruption",
+   "Mace of Smiting",
+   "Mace of Terror",
+   "Mantle of Spell Resistance",
+   "Necklace of Fireballs",
+   "Necklace of Prayer Beads",
+   "Oil of Etherealness",
+   "Periapt of Proof against Poison",
+   "Portable Hole",
+   "Potion of Clairvoyance",
+   "Potion of Diminution",
+   "Potion of Gaseous Form",
+   "Potion of Heroism",
+   "Potion of Mind Reading",
+   "Ring of Animal Influence",
+   "Ring of Evasion",
+   "Ring of Feather Falling",
+   "Ring of Free Action",
+   "Ring of Protection",
+   "Ring of Resistance",
+   "Ring of Spell Storing",
+   "Ring of the Ram",
+   "Ring of X-ray Vision",
+   "Robe of Eyes",
+   "Rod of Rulership",
+   "Rope of Entanglement",
+   "Shield, +1, +2, or +3",
+   "Shield of Missile Attraction",
+   "Staff of Charming",
+   "Staff of Healing",
+   "Staff of Swarming Insects",
+   "Staff of the Woodlands",
+   "Staff of Withering",
+   "Stone of Controlling Earth Elementals",
+   "Sun Blade",
+   "Sword of Life Stealing",
+   "Sword of Wounding",
+   "Vicious Weapon",
+   "Wand of Binding",
+   "Wand of Enemy Detection",
+   "Wand of Fear",
+   "Wand of Fireballs",
+   "Wand of Lightning Bolts",
+   "Wand of Paralysis",
+   "Wand of the War Mage, +1, +2, or +3",
+   "Wand of Wonder",
+   "Weapon, +1, +2, or +3",
+   "Wings of Flying"
+  ],
+  "very-rare": [
+   "Ammunition, +1, +2, or +3",
+   "Amulet of the Planes",
+   "Animated Shield",
+   "Armor, +1, +2, or +3",
+   "Arrow of Slaying",
+   "Bag of Devouring",
+   "Candle of Invocation",
+   "Carpet of Flying",
+   "Cloak of Arachnida",
+   "Crystal Ball",
+   "Dancing Sword",
+   "Demon Armor",
+   "Dragon Scale Mail",
+   "Dwarven Plate",
+   "Dwarven Thrower",
+   "Efreeti Bottle",
+   "Frost Brand",
+   "Helm of Brilliance",
+   "Horn of Valhalla",
+   "Horseshoes of a Zephyr",
+   "Manual of Bodily Health",
+   "Manual of Gainful Exercise",
+   "Manual of Golems",
+   "Manual of Quickness of Action",
+   "Marvelous Pigments",
+   "Mirror of Life Trapping",
+   "Nine Lives Stealer",
+   "Oathbow",
+   "Oil of Sharpness",
+   "Potion of Flying",
+   "Potion of Invisibility",
+   "Potion of Speed",
+   "Ring of Regeneration",
+   "Ring of Shooting Stars",
+   "Ring of Telekinesis",
+   "Robe of Scintillating Colors",
+   "Robe of Stars",
+   "Rod of Absorption",
+   "Rod of Alertness",
+   "Rod of Security",
+   "Scimitar of Speed",
+   "Shield, +1, +2, or +3",
+   "Spellguard Shield",
+   "Staff of Fire",
+   "Staff of Frost",
+   "Staff of Power",
+   "Staff of Striking",
+   "Staff of Thunder and Lightning",
+   "Sword of Sharpness",
+   "Tome of Clear Thought",
+   "Tome of Leadership and Influence",
+   "Tome of Understanding",
+   "Wand of Polymorph",
+   "Wand of the War Mage, +1, +2, or +3",
+   "Weapon, +1, +2, or +3"
+  ],
+  "legendary": [
+   "Apparatus of the Crab",
+   "Armor, +1, +2, or +3",
+   "Armor of Invulnerability",
+   "Crystal Ball",
+   "Cubic Gate",
+   "Deck of Many Things",
+   "Defender",
+   "Hammer of Thunderbolts",
+   "Holy Avenger",
+   "Horn of Valhalla",
+   "Iron Flask",
+   "Luck Blade",
+   "Plate Armor of Etherealness",
+   "Ring of Djinni Summoning",
+   "Ring of Elemental Command",
+   "Ring of Invisibility",
+   "Ring of Spell Turning",
+   "Ring of Three Wishes",
+   "Robe of the Archmagi",
+   "Rod of Lordly Might",
+   "Scarab of Protection",
+   "Sovereign Glue",
+   "Sphere of Annihilation",
+   "Staff of the Magi",
+   "Talisman of Pure Good",
+   "Talisman of the Sphere",
+   "Talisman of Ultimate Evil",
+   "Universal Solvent",
+   "Vorpal Sword",
+   "Well of Many Worlds"
+  ]
+ }
+}

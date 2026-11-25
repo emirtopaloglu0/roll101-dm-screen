@@ -1,0 +1,200 @@
+{
+  "id": "environment",
+  "title": { "en": "Combat Environment", "tr": "Savaş Ortamı" },
+  "attribution": {
+    "en": "Original suggestions for any d20 fantasy game. Adjust DCs and damage to your party's level.",
+    "tr": "d20 fantezi oyunları için özgün önerilerdir. DC ve hasarı grubun seviyesine göre ayarla."
+  },
+  "groups": [
+    {
+      "id": "terrain",
+      "label": { "en": "Terrain & footing", "tr": "Zemin ve hareket" },
+      "entries": [
+        {
+          "en": "Slick floor (oil, ice or wet stone). A creature that Dashes or is pushed here makes a DC 12 Dexterity save or falls Prone.",
+          "tr": "Kaygan zemin (yağ, buz veya ıslak taş). Burada koşan (Dash) veya itilen yaratık DC 12 Çeviklik kurtarma zarı atar; başarısız olursa Prone olur."
+        },
+        {
+          "en": "Sticky mud. Difficult terrain. A creature that ends its turn in it has Disadvantage on Dexterity saves until its next turn.",
+          "tr": "Yapışkan çamur. Zor arazi. Turunu içinde bitiren yaratık, bir sonraki turuna kadar Çeviklik kurtarma zarlarında Dezavantaj alır."
+        },
+        {
+          "en": "Rubble and debris fill half the area: difficult terrain. A DC 13 Dexterity (Acrobatics) check crosses it at normal speed for one move.",
+          "tr": "Alanın yarısı moloz ve enkazla dolu: zor arazi. DC 13 Çeviklik (Acrobatics) kontrolü, bir hareket boyunca normal hızla geçmeyi sağlar."
+        },
+        {
+          "en": "A ledge or beam only 1 foot wide. Each turn spent on it needs a DC 12 Dexterity (Acrobatics) check, or the creature falls Prone or off the edge.",
+          "tr": "Yalnızca 30 cm genişliğinde bir çıkıntı veya kiriş. Üzerinde geçirilen her tur DC 12 Çeviklik (Acrobatics) kontrolü ister; başarısızlıkta yaratık Prone olur veya düşer."
+        },
+        {
+          "en": "Crumbling floor: a 10-foot square gives way when 2 or more creatures stand on it. Each makes a DC 13 Dexterity save or falls 10 feet (1d6 bludgeoning).",
+          "tr": "Çöken zemin: 3 metrelik bir kare, üzerinde 2 veya daha fazla yaratık dururken çöker. Her biri DC 13 Çeviklik kurtarma zarı atar; başarısız olan 3 metre düşer (1d6 ezme hasarı)."
+        },
+        {
+          "en": "Thick undergrowth or webbing: difficult terrain. A creature entering it makes a DC 11 Strength save or its speed is 0 until its next turn.",
+          "tr": "Sık çalılık veya ağ: zor arazi. İçine giren yaratık DC 11 Güç kurtarma zarı atar; başarısız olursa bir sonraki turuna kadar hızı 0 olur."
+        },
+        {
+          "en": "A steep slope. Moving uphill costs double movement. A creature moving downhill faster than half its speed makes a DC 11 Dexterity save or falls Prone.",
+          "tr": "Dik yamaç. Yokuş yukarı hareket iki katı maliyetlidir. Yokuş aşağı hızının yarısından fazla ilerleyen yaratık DC 11 Çeviklik kurtarma zarı atar; başarısız olursa Prone olur."
+        },
+        {
+          "en": "Knee-deep, fast-flowing water: difficult terrain. At the end of its turn a creature makes a DC 12 Strength save or is pushed 10 feet downstream.",
+          "tr": "Diz boyu, hızlı akan su: zor arazi. Yaratık turunun sonunda DC 12 Güç kurtarma zarı atar; başarısız olursa akıntı yönünde 3 metre sürüklenir."
+        }
+      ]
+    },
+    {
+      "id": "hazard",
+      "label": { "en": "Hazards & damage", "tr": "Tehlikeler ve hasar" },
+      "entries": [
+        {
+          "en": "Fire spreads across the area. A creature that starts its turn there or enters it takes 1d6 fire damage. It spreads 5 feet each round.",
+          "tr": "Ateş alanı sarıyor. Turuna burada başlayan veya buraya giren yaratık 1d6 ateş hasarı alır. Ateş her tur 1,5 metre yayılır."
+        },
+        {
+          "en": "Falling debris. Creatures in a 10-foot square make a DC 13 Dexterity save, taking 2d6 bludgeoning damage on a failure, half on a success.",
+          "tr": "Tavandan enkaz düşüyor. 3 metrelik karedeki yaratıklar DC 13 Çeviklik kurtarma zarı atar; başarısızlıkta 2d6 ezme hasarı, başarıda yarısı."
+        },
+        {
+          "en": "Poisonous gas seeps in. A creature starting its turn in it makes a DC 12 Constitution save or takes 1d8 poison damage and is Poisoned until the end of its next turn.",
+          "tr": "Zehirli gaz sızıyor. Turuna içinde başlayan yaratık DC 12 Yapı kurtarma zarı atar; başarısız olursa 1d8 zehir hasarı alır ve bir sonraki turunun sonuna kadar Poisoned olur."
+        },
+        {
+          "en": "Scalding steam vents erupt at initiative count 20. Creatures within 5 feet of a vent make a DC 12 Dexterity save or take 2d6 fire damage.",
+          "tr": "Haşlayıcı buhar bacaları inisiyatif 20'de patlar. Bir bacaya 1,5 metre içindeki yaratıklar DC 12 Çeviklik kurtarma zarı atar; başarısız olursa 2d6 ateş hasarı alır."
+        },
+        {
+          "en": "Acid pools on the floor. A creature that ends its turn in it takes 2d4 acid damage.",
+          "tr": "Zeminde asit birikintileri var. Turunu içinde bitiren yaratık 2d4 asit hasarı alır."
+        },
+        {
+          "en": "Electrified water or metal. A creature touching it makes a DC 13 Constitution save or takes 2d8 lightning damage and cannot take reactions until its next turn.",
+          "tr": "Elektrik yüklü su veya metal. Dokunan yaratık DC 13 Yapı kurtarma zarı atar; başarısız olursa 2d8 yıldırım hasarı alır ve bir sonraki turuna kadar reaksiyon kullanamaz."
+        },
+        {
+          "en": "A hidden spiked pit. A DC 14 Wisdom (Perception) check spots it. A creature that falls in (10 feet) takes 1d6 bludgeoning and 1d6 piercing damage.",
+          "tr": "Gizli, kazıklı bir çukur. DC 14 Bilgelik (Perception) kontrolüyle fark edilir. Düşen yaratık (3 metre) 1d6 ezme ve 1d6 delici hasar alır."
+        },
+        {
+          "en": "A hidden mechanism fires bolts. Creatures in a 15-foot line make a DC 13 Dexterity save, taking 3d6 piercing damage on a failure, half on a success.",
+          "tr": "Gizli bir mekanizma ok fırlatır. 4,5 metrelik hattaki yaratıklar DC 13 Çeviklik kurtarma zarı atar; başarısızlıkta 3d6 delici hasar, başarıda yarısı."
+        }
+      ]
+    },
+    {
+      "id": "weather",
+      "label": { "en": "Weather & visibility", "tr": "Hava ve görüş" },
+      "entries": [
+        {
+          "en": "Heavy rain. Disadvantage on Wisdom (Perception) checks that rely on sight or hearing. Open flames go out.",
+          "tr": "Şiddetli yağmur. Görme veya duymaya dayanan Bilgelik (Perception) kontrollerinde Dezavantaj. Açık alevler söner."
+        },
+        {
+          "en": "Thick fog. Everything more than 10 feet away is Heavily Obscured.",
+          "tr": "Yoğun sis. 3 metreden uzaktaki her şey Heavily Obscured olur."
+        },
+        {
+          "en": "Howling wind. Ranged weapon attacks have Disadvantage, and flying creatures must land by the end of their turn or fall.",
+          "tr": "Uluyan rüzgâr. Menzilli silah saldırılarında Dezavantaj; uçan yaratıklar turun sonunda inmezse düşer."
+        },
+        {
+          "en": "Blinding glare from the sun or a fire. Creatures looking toward it have Disadvantage on ranged attacks and sight-based Perception checks.",
+          "tr": "Güneşten veya ateşten kamaştırıcı ışık. Ona doğru bakan yaratıklar menzilli saldırılarda ve görmeye dayalı Perception kontrollerinde Dezavantaj alır."
+        },
+        {
+          "en": "Oppressive heat. Creatures in medium or heavy armor have Disadvantage on Constitution saves, and make a DC 11 Constitution save after the fight or gain a level of Exhaustion.",
+          "tr": "Bunaltıcı sıcak. Orta veya ağır zırhlı yaratıklar Yapı kurtarma zarlarında Dezavantaj alır; savaştan sonra DC 11 Yapı kurtarma zarı atar, başarısız olursa bir Exhaustion seviyesi kazanır."
+        },
+        {
+          "en": "Freezing cold. A creature without cold protection makes a DC 12 Constitution save at the end of each of its turns, or its speed drops by 10 feet until its next turn.",
+          "tr": "Dondurucu soğuk. Soğuktan korunmayan yaratık her turunun sonunda DC 12 Yapı kurtarma zarı atar; başarısız olursa bir sonraki turuna kadar hızı 3 metre azalır."
+        },
+        {
+          "en": "Lightning storm. At initiative count 20 roll 1d6. On a 1, lightning strikes a random creature or metal object: DC 14 Dexterity save, 3d10 lightning damage, half on a success.",
+          "tr": "Fırtına ve yıldırım. İnisiyatif 20'de 1d6 at. 1 gelirse rastgele bir yaratığa veya metal nesneye yıldırım düşer: DC 14 Çeviklik kurtarma zarı, 3d10 yıldırım hasarı, başarıda yarısı."
+        },
+        {
+          "en": "Smoke fills the area (Heavily Obscured). A creature starting its turn in it makes a DC 12 Constitution save or loses its bonus action while coughing.",
+          "tr": "Duman alanı kaplar (Heavily Obscured). Turuna içinde başlayan yaratık DC 12 Yapı kurtarma zarı atar; başarısız olursa öksürdüğü için bonus aksiyonunu kaybeder."
+        }
+      ]
+    },
+    {
+      "id": "magic",
+      "label": { "en": "Magical & strange", "tr": "Büyülü ve tuhaf" },
+      "entries": [
+        {
+          "en": "Wild magic shimmers here. When a creature casts a spell of 1st level or higher, roll 1d6. On a 1 the spell targets a random creature in range.",
+          "tr": "Burada vahşi büyü titreşiyor. Bir yaratık 1. seviye veya üstü büyü yaptığında 1d6 at. 1 gelirse büyü menzildeki rastgele bir yaratığı hedef alır."
+        },
+        {
+          "en": "A pocket of dead magic (10-foot radius). A spell cast inside fails unless the caster succeeds on a DC 13 spellcasting ability check.",
+          "tr": "Ölü büyü cebi (3 metre yarıçap). İçeride yapılan büyü, büyücü DC 13 büyü yeteneği kontrolünü geçmedikçe başarısız olur."
+        },
+        {
+          "en": "Gravity wobbles. At the start of each round every creature makes a DC 12 Strength save or floats up 10 feet, then drops at the end of the round (1d6 bludgeoning).",
+          "tr": "Yerçekimi sallanıyor. Her turun başında her yaratık DC 12 Güç kurtarma zarı atar; başarısız olursa 3 metre yükselir ve turun sonunda düşer (1d6 ezme hasarı)."
+        },
+        {
+          "en": "Whispers of the dead. A creature starting its turn in the area makes a DC 12 Wisdom save or is Frightened until the end of its next turn.",
+          "tr": "Ölülerin fısıltıları. Turuna alanda başlayan yaratık DC 12 Bilgelik kurtarma zarı atar; başarısız olursa bir sonraki turunun sonuna kadar Frightened olur."
+        },
+        {
+          "en": "Glowing runes flare, a different one each round. Roll 1d4: fire, cold, lightning or radiant. A creature on a rune makes a DC 13 Dexterity save or takes 2d6 of that type, half on a success.",
+          "tr": "Parlayan rünler her tur farklı biri alevlenir. 1d4 at: ateş, soğuk, yıldırım veya ışıma. Rünün üzerindeki yaratık DC 13 Çeviklik kurtarma zarı atar; başarısızlıkta o türden 2d6 hasar, başarıda yarısı."
+        },
+        {
+          "en": "Time stutters. At the start of each round two random creatures swap their initiative counts for that round.",
+          "tr": "Zaman kekeliyor. Her turun başında rastgele iki yaratık o tur için inisiyatif sıralarını değiştirir."
+        },
+        {
+          "en": "Echoing illusions. After a creature moves, an illusory copy of it appears. An attack against it has a 1 in 3 chance (1–2 on a d6) of hitting the copy instead and missing.",
+          "tr": "Yankılanan illüzyonlar. Hareket eden yaratığın illüzyon bir kopyası belirir. Ona yapılan saldırı 3'te 1 ihtimalle (d6'da 1–2) kopyaya denk gelir ve ıskalar."
+        },
+        {
+          "en": "A ley-line surge. A creature that casts a cantrip here adds one extra damage die to it but takes 1d4 force damage.",
+          "tr": "Büyü hattı dalgalanması. Burada hile büyüsü (cantrip) yapan yaratık büyüsüne bir fazladan hasar zarı ekler ama 1d4 kuvvet hasarı alır."
+        }
+      ]
+    },
+    {
+      "id": "objects",
+      "label": { "en": "Objects & cover", "tr": "Nesneler ve siper" },
+      "entries": [
+        {
+          "en": "A heavy statue can be toppled with a DC 13 Strength check (action). Creatures in a 10-foot line make a DC 13 Dexterity save or take 3d6 bludgeoning damage.",
+          "tr": "Ağır bir heykel, DC 13 Güç kontrolüyle (aksiyon) devrilebilir. 3 metrelik hattaki yaratıklar DC 13 Çeviklik kurtarma zarı atar; başarısız olursa 3d6 ezme hasarı alır."
+        },
+        {
+          "en": "A hanging chandelier (AC 11, 5 HP). Cut loose, it drops on a 5-foot square: DC 12 Dexterity save, 2d6 bludgeoning damage, half on a success.",
+          "tr": "Asılı bir avize (AC 11, 5 HP). Kesilirse 1,5 metrelik kareye düşer: DC 12 Çeviklik kurtarma zarı, 2d6 ezme hasarı, başarıda yarısı."
+        },
+        {
+          "en": "Barrels of lamp oil (AC 9, 10 HP). Fire damage makes them burst: 10-foot radius, DC 13 Dexterity save, 3d6 fire damage, half on a success.",
+          "tr": "Lamba yağı fıçıları (AC 9, 10 HP). Ateş hasarı patlatır: 3 metre yarıçap, DC 13 Çeviklik kurtarma zarı, 3d6 ateş hasarı, başarıda yarısı."
+        },
+        {
+          "en": "Overturned tables and crates. Flipping one is a bonus action and gives half cover. Two stacked give three-quarters cover.",
+          "tr": "Devrilebilir masalar ve sandıklar. Birini devirmek bonus aksiyondur ve yarım siper sağlar. İki tanesi üst üste üç çeyrek siper sağlar."
+        },
+        {
+          "en": "A stone pillar gives three-quarters cover. A creature standing behind it can't be targeted by anyone on the other side without moving.",
+          "tr": "Taş bir sütun üç çeyrek siper sağlar. Arkasındaki yaratık, karşı taraftakilerce yer değiştirilmeden hedeflenemez."
+        },
+        {
+          "en": "A rope bridge. Cutting an anchor rope (AC 11, 5 HP) drops the bridge: creatures on it make a DC 13 Dexterity save or fall.",
+          "tr": "Bir halat köprü. Bir bağlantı halatını kesmek (AC 11, 5 HP) köprüyü düşürür: üzerindeki yaratıklar DC 13 Çeviklik kurtarma zarı atar; başarısız olan düşer."
+        },
+        {
+          "en": "A lever or wheel on the wall opens a portcullis or trapdoor. A DC 14 Intelligence (Investigation) check reveals what it does. Pulling it is an action.",
+          "tr": "Duvardaki bir kol veya çark bir parmaklık kapıyı ya da tuzak kapağı açar. DC 14 Zeka (Investigation) kontrolü ne işe yaradığını gösterir. Çekmek bir aksiyondur."
+        },
+        {
+          "en": "A narrow doorway. Only one Medium creature can pass at a time, and a creature in it has half cover against attacks from beyond.",
+          "tr": "Dar bir kapı aralığı. Aynı anda yalnızca bir Medium yaratık geçebilir; içindeki yaratık, ötesinden gelen saldırılara karşı yarım siper alır."
+        }
+      ]
+    }
+  ]
+}

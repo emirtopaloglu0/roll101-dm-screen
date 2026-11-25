@@ -8,11 +8,14 @@ import { getHistory, pushHistory } from "../history.mjs";
 import { ResultDialog } from "./ResultDialog.mjs";
 import { exportLayouts, importLayouts, restoreBackup } from "./layout-io.mjs";
 import { managePacks } from "./packs-io.mjs";
+import { MAX_ACTORS, actorsContext, partyActors } from "../boxes/actors.mjs";
+import { generatorContext, generatorRequest } from "../boxes/generator.mjs";
+import { lastLoot, lootContext, lootRequest } from "../boxes/loot.mjs";
 import { MAX_PARTY, coinSettings, coinTexts, coinsContext, glossaryContext, templateContext } from "../boxes/reference.mjs";
 import { foldSearch, listTemplates, localize as localizeText } from "../templates.mjs";
 import { areaFree, cellKey, fitSpan, placeBoxes } from "../grid.mjs";
 import { cloneLayout, createLayout } from "../migrate.mjs";
-import { escapeHTML } from "../tables.mjs";
+import { copyText, escapeHTML, whisperToGM } from "../tables.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
 
@@ -28,8 +31,18 @@ const LINKED_TYPES = {
   table: { build: tableContext, key: "table", missing: `${I18N}.Missing.Table` },
   tableFolder: { build: tableFolderContext, key: "folder", missing: `${I18N}.Missing.Folder` },
   template: { build: templateContext, key: "template", missing: `${I18N}.Missing.Template` },
-  glossary: { build: glossaryContext, key: "glossary", missing: `${I18N}.Missing.Template` }
+  glossary: { build: glossaryContext, key: "glossary", missing: `${I18N}.Missing.Template` },
+  generator: { build: generatorContext, key: "generator", missing: `${I18N}.Missing.Generator` },
+  actors: { build: actorsContext, key: "actors", missing: `${I18N}.Missing.Template` },
+  loot: { build: lootContext, key: "loot", missing: `${I18N}.Missing.Generator` }
 };
+
+/** Actor changes that refresh a party box. Watched only while the window is open. */
+const ACTOR_HOOKS = [
+  "createActor", "updateActor", "deleteActor",
+  "createItem", "updateItem", "deleteItem",
+  "createActiveEffect", "updateActiveEffect", "deleteActiveEffect"
+];
 
 /** Document hooks watched only while the window is open. */
 const WATCHED_HOOKS = [
@@ -75,7 +88,13 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       managePacks: DMScreenApp.#onManagePacks,
       openLibrary: DMScreenApp.#onOpenLibrary,
       toggleCoin: DMScreenApp.#onToggleCoin,
-      clearCoins: DMScreenApp.#onClearCoins
+      clearCoins: DMScreenApp.#onClearCoins,
+      generateText: DMScreenApp.#onGenerateText,
+      toggleActorMode: DMScreenApp.#onToggleActorMode,
+      removeActor: DMScreenApp.#onRemoveActor,
+      toggleActorSection: DMScreenApp.#onToggleActorSection,
+      copyLoot: DMScreenApp.#onCopyLoot,
+      whisperLoot: DMScreenApp.#onWhisperLoot
     }
   };
 
@@ -90,7 +109,11 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         `${TEMPLATES}/boxes/history.hbs`,
         `${TEMPLATES}/boxes/coins.hbs`,
         `${TEMPLATES}/boxes/template.hbs`,
-        `${TEMPLATES}/boxes/glossary.hbs`
+        `${TEMPLATES}/boxes/glossary.hbs`,
+        `${TEMPLATES}/boxes/generator.hbs`,
+        `${TEMPLATES}/boxes/actors.hbs`,
+        `${TEMPLATES}/boxes/actors-list.hbs`,
+        `${TEMPLATES}/boxes/loot.hbs`
       ]
     }
   };
@@ -98,6 +121,7 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
   /** @type {[string, number][]} */
   #hooks = [];
   #renderTimer = null;
+  #actorTimer = null;
   /** Boxes whose recent-results view is open. Memory only. */
   #historyOpen = new Set();
   /** Pending "open this layout" while a box hovers a tab. */
@@ -181,7 +205,7 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     } else {
       ctx[linked.key] = data;
       ctx.placeholder = data.name ?? ctx.placeholder;
-      if (box.type === "table" || box.type === "tableFolder") {
+      if (box.type === "table" || box.type === "tableFolder" || box.type === "generator" || box.type === "loot") {
         ctx.hasHistory = true;
         ctx.history = getHistory(box.id);
         ctx.historyOpen = this.#historyOpen.has(box.id);
@@ -233,6 +257,15 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       return;
     }
 
+    const bound = target.dataset.r101LootRange;
+    if (bound === "min" || bound === "max") {
+      const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+      if (!box) return;
+      const value = target.value;
+      storage.update(() => { box.data.range = { ...(box.data.range ?? {}), [bound]: value }; });
+      return;
+    }
+
     if (target.dataset.r101Setting === "fontScale") this.#applyFontScale(target, target.value);
     else if (target.hasAttribute("data-r101-search")) this.#filterTree(target);
     else if (target.matches("[data-r101-coin], [data-r101-coin-party]")) this.#onCoinInput(target);
@@ -278,6 +311,15 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
   #onChange(event) {
     const target = event.target;
     if (!(target instanceof HTMLSelectElement)) return;
+
+    const generatorKey = target.dataset.r101Generator;
+    if (["filter", "lang", "mode", "tier"].includes(generatorKey)) {
+      const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+      if (!box) return;
+      storage.update(() => { box.data[generatorKey] = target.value; });
+      this.render();
+      return;
+    }
 
     const templateKey = target.dataset.r101Template;
     if (templateKey === "variant" || templateKey === "lang") {
@@ -497,7 +539,8 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         ui.notifications.warn(`${I18N}.Notifications.DropOccupied`, { localize: true });
         return;
       }
-      storage.update(() => { box.data = dropped.data; });
+      if (box.type === "actors") this.#addActors(box, dropped.data.uuids);
+      else storage.update(() => { box.data = dropped.data; });
     } else {
       if (!col || !row) return;
       storage.update(() => {
@@ -518,6 +561,9 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     this.#unwatchDocuments();
     const handler = doc => this.#onDocumentChange(doc);
     for (const name of WATCHED_HOOKS) this.#hooks.push([name, Hooks.on(name, handler)]);
+    for (const name of ACTOR_HOOKS) {
+      this.#hooks.push([name, Hooks.on(name, (doc, changes) => this.#onActorChange(name, doc, changes))]);
+    }
   }
 
   #unwatchDocuments() {
@@ -525,6 +571,56 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     this.#hooks = [];
     if (this.#renderTimer) clearTimeout(this.#renderTimer);
     this.#renderTimer = null;
+    if (this.#actorTimer) clearTimeout(this.#actorTimer);
+    this.#actorTimer = null;
+  }
+
+  /**
+   * An actor, one of its items or one of its effects changed. Refresh only the party
+   * boxes that show it, and only their list (not the whole window).
+   */
+  #onActorChange(name, doc, changes) {
+    if (!this.rendered || !doc) return;
+    const boxes = storage.getActiveLayout().boxes.filter(b => b.type === "actors");
+    if (!boxes.length) return;
+    const actor = doc.documentName === "Actor" ? doc : doc.parent;
+    if (actor?.documentName !== "Actor") return;
+    // Ignore actor updates that cannot change what the box shows (flags, sort, stats of others).
+    if (name === "updateActor" && changes && !("system" in changes || "name" in changes || "ownership" in changes || "effects" in changes)) return;
+    const shown = boxes.some(b => (b.data.mode === "custom"
+      ? (Array.isArray(b.data.uuids) && b.data.uuids.includes(actor.uuid))
+      : (actor.hasPlayerOwner || name === "deleteActor")));
+    if (!shown) return;
+    if (this.#actorTimer) clearTimeout(this.#actorTimer);
+    this.#actorTimer = setTimeout(() => {
+      this.#actorTimer = null;
+      this.#refreshActors();
+    }, 300);
+  }
+
+  /** Redraw the actor lists in place. */
+  async #refreshActors() {
+    if (!this.rendered) return;
+    const renderTpl = foundry.applications.handlebars?.renderTemplate ?? globalThis.renderTemplate;
+    for (const box of storage.getActiveLayout().boxes.filter(b => b.type === "actors")) {
+      try {
+        const html = await renderTpl(`${TEMPLATES}/boxes/actors-list.hbs`, await actorsContext(box));
+        const list = this.element?.querySelector(`[data-box-id="${CSS.escape(box.id)}"] [data-r101-actors]`);
+        if (list) list.innerHTML = html;
+      } catch (err) {
+        console.warn(`${MODULE_ID} | Could not refresh actors box ${box.id}`, err);
+      }
+    }
+  }
+
+  /** Dropped actors join a party box. A party box becomes a custom list first. */
+  #addActors(box, uuids) {
+    storage.update(() => {
+      const current = (box.data.mode === "custom" && Array.isArray(box.data.uuids))
+        ? box.data.uuids
+        : partyActors().map(a => a.uuid);
+      box.data = { mode: "custom", uuids: [...new Set([...current, ...uuids])].slice(0, MAX_ACTORS) };
+    });
   }
 
   #onDocumentChange(doc) {
@@ -940,6 +1036,9 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     if (choice === "notes") [type, data] = ["notes", { text: "" }];
     else if (choice === "coins") [type, data] = ["coins", { amounts: {}, showPP: true, showEP: true, party: 1 }];
     else if (choice === "glossary") [type, data] = ["glossary", { variant: "2024", lang: "auto" }];
+    else if (choice.startsWith("gen:")) [type, data] = ["generator", { generator: choice.slice(4), filter: "any", lang: "auto" }];
+    else if (choice === "actors") [type, data] = ["actors", { mode: "party", uuids: [] }];
+    else if (choice === "loot") [type, data] = ["loot", { mode: "individual", tier: "t1", lang: "auto" }];
     else [type, data] = ["template", { template: choice, variant: null, lang: "auto" }];
 
     storage.update(() => {
@@ -1001,6 +1100,18 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       row("coins", "fa-solid fa-coins", game.i18n.localize(`${I18N}.Coins.Title`), game.i18n.localize(`${I18N}.Library.CoinsHint`), ""),
       row("glossary", "fa-solid fa-magnifying-glass", game.i18n.localize(`${I18N}.Glossary.Title`), game.i18n.localize(`${I18N}.Library.GlossaryHint`), "")
     ], true)];
+
+    const lib = key => game.i18n.localize(`${I18N}.Library.${key}`);
+    groups.push(group("fa-solid fa-wand-magic-sparkles", lib("Generators"), [
+      row("gen:environment", "fa-solid fa-cloud-bolt", lib("Environment"), lib("EnvironmentHint"),
+        "combat environment terrain hazard weather savas ortami arazi tehlike hava"),
+      row("gen:events", "fa-solid fa-signs-post", lib("Events"), lib("EventsHint"),
+        "random events city village town wilderness forest snow desert rastgele olaylar sehir koy kasaba orman kar col"),
+      row("loot", "fa-solid fa-sack-dollar", lib("Loot"), lib("LootHint"),
+        "loot treasure hoard gold coins gems magic items hazine ganimet altin"),
+      row("actors", "fa-solid fa-users", lib("Actors"), lib("ActorsHint"),
+        "party actor players characters summary oyuncu karakter ozet")
+    ], true));
 
     const templates = await listTemplates();
     const byTitle = (a, b) => localizeText(a.title, lang).localeCompare(localizeText(b.title, lang), lang);
@@ -1162,6 +1273,87 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       { uuids, title: target.dataset.name ?? "", group: true },
       (entry, updated) => this.#addHistory(boxId, entry, updated)
     );
+  }
+
+  /** Generate one result from a generator box (combat environment, random events). @this {DMScreenApp} */
+  static async #onGenerateText(event, target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    if (!box) return;
+    const request = await (box.type === "loot" ? lootRequest(box) : generatorRequest(box));
+    if (!request) {
+      ui.notifications.warn(`${I18N}.Missing.Generator`, { localize: true });
+      return;
+    }
+    if (box.type !== "loot") {
+      ResultDialog.showGenerated(request, (entry, updated) => this.#addHistory(box.id, entry, updated));
+      return;
+    }
+    // Loot shows in the box itself. A new roll replaces the last one.
+    const { texts } = await request.generate();
+    lastLoot.set(box.id, texts);
+    const out = this.element?.querySelector(`[data-box-id="${CSS.escape(box.id)}"] [data-r101-loot-result]`);
+    out?.replaceChildren(...texts.map(line => {
+      const p = document.createElement("p");
+      p.textContent = line;
+      return p;
+    }));
+    this.#addHistory(box.id, { table: request.title, text: texts.join("; ") }, false);
+  }
+
+  /** @this {DMScreenApp} */
+  static async #onCopyLoot(event, target) {
+    const lines = lastLoot.get(target.closest("[data-box-id]")?.dataset.boxId);
+    if (!lines?.length) return;
+    if (await copyText(lines.join("\n"))) ui.notifications.info(`${I18N}.Result.Copied`, { localize: true });
+  }
+
+  /** @this {DMScreenApp} */
+  static async #onWhisperLoot(event, target) {
+    const lines = lastLoot.get(target.closest("[data-box-id]")?.dataset.boxId);
+    if (!lines?.length) return;
+    try {
+      await whisperToGM(game.i18n.localize(`${I18N}.Loot.Title`), lines.join("\n"));
+      ui.notifications.info(`${I18N}.Result.Whispered`, { localize: true });
+    } catch (err) {
+      console.error(`${MODULE_ID} | Whisper failed`, err);
+    }
+  }
+
+  /** Party box: switch between all player characters and a hand-picked list. @this {DMScreenApp} */
+  static #onToggleActorMode(event, target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    if (!box) return;
+    storage.update(() => {
+      if (box.data.mode === "custom") {
+        box.data = { mode: "party", uuids: Array.isArray(box.data.uuids) ? box.data.uuids : [] };
+      } else {
+        const kept = Array.isArray(box.data.uuids) ? box.data.uuids : [];
+        box.data = { mode: "custom", uuids: kept.length ? kept : partyActors().map(a => a.uuid).slice(0, MAX_ACTORS) };
+      }
+    });
+    this.render();
+  }
+
+  /** Group actors: show or hide their coins or member list. @this {DMScreenApp} */
+  static #onToggleActorSection(event, target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    const section = target.dataset.section;
+    if (!box || (section !== "currency" && section !== "members")) return;
+    storage.update(() => {
+      const show = { currency: true, members: true, ...(box.data.show ?? {}) };
+      show[section] = !show[section];
+      box.data.show = show;
+    });
+    this.render();
+  }
+
+  /** Remove one actor from a hand-picked list. @this {DMScreenApp} */
+  static #onRemoveActor(event, target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    const uuid = target.dataset.uuid;
+    if (!box || box.data.mode !== "custom" || !uuid) return;
+    storage.update(() => { box.data.uuids = (box.data.uuids ?? []).filter(u => u !== uuid); });
+    this.render();
   }
 
   /** Switch a box between its content and its recent results. DOM only. @this {DMScreenApp} */

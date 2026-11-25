@@ -1,0 +1,38 @@
+<div class="r101-loot">
+  <div class="r101-box-actions">
+    <button type="button" class="r101-small-button r101-primary" data-action="generateText">
+      <i class="fa-solid fa-sack-dollar" aria-hidden="true"></i> {{localize "R101DMSCREEN.Generator.Generate"}}
+    </button>
+    <select class="r101-select" data-r101-generator="mode" aria-label="{{localize 'R101DMSCREEN.Loot.Type'}}">
+      {{#each modes}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    <select class="r101-select" data-r101-generator="tier" aria-label="{{localize 'R101DMSCREEN.Loot.Level'}}">
+      {{#each tiers}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    <select class="r101-select" data-r101-generator="lang" aria-label="{{localize 'R101DMSCREEN.Template.Language'}}">
+      {{#each langs}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    <span class="r101-push-right"></span>
+    <button type="button" class="r101-small-button" data-action="copyLoot"
+            data-tooltip="R101DMSCREEN.Result.Copy" aria-label="{{localize 'R101DMSCREEN.Result.Copy'}}">
+      <i class="fa-solid fa-copy" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="r101-small-button" data-action="whisperLoot"
+            data-tooltip="R101DMSCREEN.Result.Whisper" aria-label="{{localize 'R101DMSCREEN.Result.Whisper'}}">
+      <i class="fa-solid fa-user-secret" aria-hidden="true"></i>
+    </button>
+    <i class="fa-solid fa-circle-info r101-note" data-tooltip="{{attribution}}" aria-label="{{attribution}}"></i>
+  </div>
+  <div class="r101-loot-limits" role="group" aria-label="{{localize 'R101DMSCREEN.Loot.Range'}}">
+    <span class="r101-note">{{localize "R101DMSCREEN.Loot.Range"}}</span>
+    <input type="number" min="0" step="any" inputmode="decimal" value="{{range.min}}" placeholder="{{localize 'R101DMSCREEN.Loot.Min'}}"
+           data-r101-loot-range="min" aria-label="{{localize 'R101DMSCREEN.Loot.Range'}} {{localize 'R101DMSCREEN.Loot.Min'}}">
+    <span aria-hidden="true">–</span>
+    <input type="number" min="0" step="any" inputmode="decimal" value="{{range.max}}" placeholder="{{localize 'R101DMSCREEN.Loot.Max'}}"
+           data-r101-loot-range="max" aria-label="{{localize 'R101DMSCREEN.Loot.Range'}} {{localize 'R101DMSCREEN.Loot.Max'}}">
+    <span class="r101-note">gp</span>
+  </div>
+  <div class="r101-scroll r101-loot-result" data-r101-loot-result aria-live="polite">
+    {{#each result}}<p>{{this}}</p>{{/each}}
+  </div>
+</div>

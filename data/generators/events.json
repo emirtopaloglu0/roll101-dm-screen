@@ -1,0 +1,335 @@
+{
+  "id": "events",
+  "title": { "en": "Random Events", "tr": "Rastgele Olaylar" },
+  "attribution": {
+    "en": "Original side-quest hooks and open-world events. \"General\" events fit any place and are mixed into every setting.",
+    "tr": "Özgün yan görev ve açık dünya olayı fikirleri. \"Genel\" olaylar her yere uyar ve her ortama karışır."
+  },
+  "alwaysInclude": "general",
+  "groups": [
+    {
+      "id": "city",
+      "label": { "en": "City", "tr": "Şehir" },
+      "entries": [
+        {
+          "en": "A pickpocket bumps into a character and takes a small purse. A DC 13 Wisdom (Perception) check notices it. The thief runs for the rooftops.",
+          "tr": "Bir yankesici karaktere çarpıp küçük bir kese alır. DC 13 Bilgelik (Perception) kontrolüyle fark edilir. Hırsız çatılara kaçar."
+        },
+        {
+          "en": "The town crier announces a reward for a missing person. A character matches the description of the last person seen with them.",
+          "tr": "Tellal kayıp biri için ödül ilan eder. Karakterlerden biri, kayıpla son görülen kişinin tarifine uyar."
+        },
+        {
+          "en": "A street performer's act goes wrong and a crowd panics. Someone is hurt and the city watch arrives asking questions.",
+          "tr": "Bir sokak sanatçısının gösterisi ters gider ve kalabalık panikler. Biri yaralanır ve şehir muhafızları soru sormaya gelir."
+        },
+        {
+          "en": "The watch is hunting a thief and mistakes a character for them. Talking their way out needs a DC 13 Charisma check.",
+          "tr": "Muhafızlar bir hırsızı arar ve bir karakteri onunla karıştırır. Kurtulmak DC 13 Karizma kontrolü ister."
+        },
+        {
+          "en": "A fire breaks out in a nearby building. Residents need help: a DC 12 Strength (Athletics) check clears a door, and the owner remembers who helped.",
+          "tr": "Yakındaki bir binada yangın çıkar. Sakinlerin yardıma ihtiyacı var: DC 12 Güç (Athletics) kontrolü bir kapıyı açar; sahibi kimin yardım ettiğini unutmaz."
+        },
+        {
+          "en": "A merchant sells a rare item far below its worth. It is stolen, or it is cursed, or both.",
+          "tr": "Bir tüccar nadir bir eşyayı değerinin çok altında satar. Eşya ya çalıntıdır, ya lanetlidir ya da ikisi birden."
+        },
+        {
+          "en": "A noble's carriage overturns and blocks the street. The guards demand witnesses, and the driver whispers it was no accident.",
+          "tr": "Bir soylunun arabası devrilir ve sokağı kapatır. Muhafızlar tanık ister; sürücü kazanın tesadüf olmadığını fısıldar."
+        },
+        {
+          "en": "Two rival guilds brawl in the street, and a character is dragged in. Both sides want them as allies afterwards.",
+          "tr": "İki rakip lonca sokakta kavga eder ve bir karakter içine çekilir. Sonrasında iki taraf da onu müttefik olarak ister."
+        },
+        {
+          "en": "A child delivers a sealed note with no sender. It names a meeting place at midnight.",
+          "tr": "Bir çocuk gönderen belirtilmemiş mühürlü bir not getirir. Not gece yarısı bir buluşma yeri söyler."
+        }
+      ]
+    },
+    {
+      "id": "village",
+      "label": { "en": "Village", "tr": "Köy" },
+      "entries": [
+        {
+          "en": "The well water tastes strange and villagers fear a curse. A DC 12 Wisdom (Survival) check finds a dead animal upstream.",
+          "tr": "Kuyu suyu tuhaf tadıyor ve köylüler lanetten korkuyor. DC 12 Bilgelik (Survival) kontrolü, akıntı yukarısında ölü bir hayvan bulur."
+        },
+        {
+          "en": "The harvest festival is tomorrow and they need hands to finish the stalls. The best helper wins a prize from the elder.",
+          "tr": "Hasat şenliği yarın ve tezgâhları bitirmek için ele ihtiyaç var. En iyi yardımcı yaşlıdan bir ödül kazanır."
+        },
+        {
+          "en": "Livestock went missing overnight. Strange tracks lead toward the hills (DC 13 Survival to read them).",
+          "tr": "Hayvanlar gece kayboldu. Garip izler tepelere gidiyor (okumak için DC 13 Survival)."
+        },
+        {
+          "en": "The elder asks the party to settle a boundary dispute between two farmers. Each tells a convincing story.",
+          "tr": "Köy yaşlısı iki çiftçi arasındaki sınır anlaşmazlığını çözmelerini ister. İkisi de inandırıcı bir hikâye anlatır."
+        },
+        {
+          "en": "A peddler's cart has a broken wheel. He offers a discount on his wares for help, and his goods include one odd trinket.",
+          "tr": "Bir seyyar satıcının arabasının tekerleği kırıldı. Yardım karşılığında mallarında indirim önerir; mallar arasında tuhaf bir biblo vardır."
+        },
+        {
+          "en": "Village children dare each other to enter the abandoned mill. One of them has not come out.",
+          "tr": "Köy çocukları birbirini terk edilmiş değirmene girmeye kışkırtır. İçlerinden biri çıkmadı."
+        },
+        {
+          "en": "A wedding is interrupted when the ring is stolen. Everyone suspects the groom's cousin, who was seen near the barn.",
+          "tr": "Yüzük çalındığı için bir düğün yarıda kalır. Herkes ahır yakınında görülen damadın kuzeninden şüphelenir."
+        },
+        {
+          "en": "A stranger asks careful questions about a local legend. He carries a worn map and pays well for answers.",
+          "tr": "Bir yabancı yerel bir efsane hakkında dikkatli sorular sorar. Eski bir harita taşıyor ve cevaplara iyi öder."
+        }
+      ]
+    },
+    {
+      "id": "town",
+      "label": { "en": "Town", "tr": "Kasaba" },
+      "entries": [
+        {
+          "en": "It is market day and a traveling auction sells confiscated goods. One lot looks very familiar to a character.",
+          "tr": "Pazar günü ve gezici bir müzayede el konulmuş malları satıyor. Bir parti bir karaktere çok tanıdık gelir."
+        },
+        {
+          "en": "Two candidates for mayor accuse each other of fraud. Both ask the party to find proof against the other.",
+          "tr": "Belediye başkanlığı için iki aday birbirini yolsuzlukla suçlar. İkisi de grubun diğerine karşı kanıt bulmasını ister."
+        },
+        {
+          "en": "The tavern holds a contest (arm wrestling, riddles or drinking). The winner gets a free week of lodging.",
+          "tr": "Taverna bir yarışma düzenler (bilek güreşi, bilmece veya içki). Kazanan bir hafta bedava konaklar."
+        },
+        {
+          "en": "Smugglers' tunnels are discovered under the granary. The guard captain wants outsiders to explore them quietly.",
+          "tr": "Tahıl ambarının altında kaçakçı tünelleri bulunur. Muhafız komutanı bunları yabancıların sessizce keşfetmesini ister."
+        },
+        {
+          "en": "Rumors of a sickness spread. The healer needs rare herbs from the nearby woods and pays in coin and favors.",
+          "tr": "Bir hastalık söylentisi yayılır. Şifacı yakındaki ormandan nadir otlara ihtiyaç duyar ve para ile iyilikle öder."
+        },
+        {
+          "en": "A caravan is days late and its guard captain is missing. The merchants offer a reward for news.",
+          "tr": "Bir kervan günlerdir geç kaldı ve muhafız komutanı kayıp. Tüccarlar haber getirene ödül verir."
+        },
+        {
+          "en": "A traveling theater troupe's lead actor has vanished before opening night. The troupe suspects a rival.",
+          "tr": "Gezici bir tiyatro topluluğunun başrol oyuncusu açılış gecesinden önce ortadan kayboldu. Topluluk bir rakipten şüpheleniyor."
+        },
+        {
+          "en": "The bridge toll was doubled overnight. Travelers are angry and a toll collector is being threatened.",
+          "tr": "Köprü geçiş ücreti bir gecede ikiye katlandı. Yolcular öfkeli ve bir vergi memuru tehdit ediliyor."
+        }
+      ]
+    },
+    {
+      "id": "wilderness",
+      "label": { "en": "Wilderness", "tr": "Vahşi doğa" },
+      "entries": [
+        {
+          "en": "An abandoned campsite with still-warm embers. A DC 13 Wisdom (Survival) check shows they left in a hurry, three hours ago.",
+          "tr": "Közleri hâlâ sıcak terk edilmiş bir kamp. DC 13 Bilgelik (Survival) kontrolü, üç saat önce aceleyle ayrıldıklarını gösterir."
+        },
+        {
+          "en": "A wounded traveler lies by the road. Bandits ambushed them, and they know where the bandit camp is.",
+          "tr": "Yol kenarında yaralı bir yolcu yatıyor. Haydutlar pusu kurmuş; haydut kampının yerini biliyor."
+        },
+        {
+          "en": "A fallen tree blocks the road. Tracks around it suggest an ambush (DC 13 Survival to notice).",
+          "tr": "Devrilmiş bir ağaç yolu kapatmış. Etrafındaki izler bir pusuya işaret ediyor (fark etmek için DC 13 Survival)."
+        },
+        {
+          "en": "The river crossing is washed out. A local guide offers to ferry the party across for a toll.",
+          "tr": "Nehir geçidi sel almış. Yerel bir rehber ücret karşılığı grubu karşıya geçirmeyi önerir."
+        },
+        {
+          "en": "A circle of standing stones hums at dusk. Anyone who touches one has a brief, vivid vision of the past.",
+          "tr": "Ayakta duran taşlardan bir çember alacakaranlıkta uğuldar. Birine dokunan herkes geçmişten kısa ve canlı bir görüntü görür."
+        },
+        {
+          "en": "A herd of migrating animals stampedes across the path. A DC 12 Dexterity save avoids being swept along.",
+          "tr": "Göç eden bir hayvan sürüsü yolun üzerinden koşar. DC 12 Çeviklik kurtarma zarı sürüklenmeyi önler."
+        },
+        {
+          "en": "A lone hermit offers shelter and cryptic advice. What he says proves useful, though not in the way they expect.",
+          "tr": "Yalnız bir münzevi barınak ve esrarengiz tavsiyeler sunar. Söyledikleri işe yarar, ama beklenmedik şekilde."
+        },
+        {
+          "en": "A signpost has been turned to point the wrong way. Someone wants travelers to take the other road.",
+          "tr": "Bir yön tabelası yanlış yöne çevrilmiş. Biri yolcuların diğer yola sapmasını istiyor."
+        }
+      ]
+    },
+    {
+      "id": "forest",
+      "label": { "en": "Forest", "tr": "Orman" },
+      "entries": [
+        {
+          "en": "A ring of mushrooms glows in a glade. Stepping in needs a DC 12 Wisdom save or an hour passes unnoticed.",
+          "tr": "Bir açıklıkta mantar halkası parlıyor. İçine adım atmak DC 12 Bilgelik kurtarma zarı ister; başarısız olursa fark edilmeden bir saat geçer."
+        },
+        {
+          "en": "A hunter's snare has caught something strange, and it begs to be released in a language they understand.",
+          "tr": "Bir avcının tuzağına tuhaf bir şey yakalanmış ve anladıkları bir dilde serbest bırakılmak için yalvarıyor."
+        },
+        {
+          "en": "Wolves howl and follow the party at a distance. They are herding it away from something.",
+          "tr": "Kurtlar uluyor ve grubu uzaktan izliyor. Onları bir şeyden uzaklaştırmaya çalışıyorlar."
+        },
+        {
+          "en": "An ancient tree has carved symbols. A hollow in it holds a small cache left by a ranger.",
+          "tr": "Eski bir ağacın üzerinde oyulmuş semboller var. İçindeki oyukta bir korucunun bıraktığı küçük bir saklık duruyor."
+        },
+        {
+          "en": "A poachers' camp, and they are hiding a captured rare creature. They hope the party leaves them alone.",
+          "tr": "Bir kaçak avcı kampı; yakalanmış nadir bir yaratığı saklıyorlar. Grubun onları rahat bırakmasını umuyorlar."
+        },
+        {
+          "en": "Smoke rises on the horizon and animals flee past the party. A wildfire is coming, or someone set it.",
+          "tr": "Ufukta duman yükseliyor ve hayvanlar grubun yanından kaçıyor. Orman yangını geliyor ya da biri çıkardı."
+        },
+        {
+          "en": "A stream runs a strange color. The source lies upstream, in a place the locals avoid.",
+          "tr": "Bir dere tuhaf bir renkte akıyor. Kaynağı, yerlilerin kaçındığı bir yerde, akıntı yukarısında."
+        },
+        {
+          "en": "A druid asks the party to leave the grove untouched, or to help drive off those who would cut it down.",
+          "tr": "Bir druid gruptan koruyu olduğu gibi bırakmasını ya da onu kesmek isteyenleri kovmasına yardım etmesini ister."
+        }
+      ]
+    },
+    {
+      "id": "snow",
+      "label": { "en": "Snow", "tr": "Kar" },
+      "entries": [
+        {
+          "en": "A sudden whiteout. A DC 12 Wisdom (Survival) check keeps the party on course. On a failure they lose an hour.",
+          "tr": "Ani bir kar fırtınası. DC 12 Bilgelik (Survival) kontrolü grubu rotada tutar. Başarısızlıkta bir saat kaybederler."
+        },
+        {
+          "en": "A frozen traveler clutches a key and a half-finished letter.",
+          "tr": "Donmuş bir yolcu bir anahtar ve yarım kalmış bir mektubu sıkıca tutuyor."
+        },
+        {
+          "en": "A low rumble warns of an avalanche. A DC 13 Dexterity save gets a creature clear. On a failure it takes 4d6 bludgeoning damage and is buried.",
+          "tr": "Alçak bir gümbürtü çığ uyarısı verir. DC 13 Çeviklik kurtarma zarı yaratığı kurtarır. Başarısızlıkta 4d6 ezme hasarı alır ve karın altında kalır."
+        },
+        {
+          "en": "Ice fishers invite the party to warm up at their fire and share a rumor about something that lives in the lake.",
+          "tr": "Buz balıkçıları grubu ateşlerinde ısınmaya çağırır ve gölde yaşayan bir şey hakkında söylenti paylaşır."
+        },
+        {
+          "en": "The frozen lake cracks underfoot, and something large moves beneath the ice.",
+          "tr": "Donmuş göl ayak altında çatırdar ve buzun altında büyük bir şey hareket eder."
+        },
+        {
+          "en": "A snowbound cabin has smoke in its chimney but no tracks lead to the door.",
+          "tr": "Karla çevrili bir kulübenin bacasından duman çıkıyor ama kapıya giden hiç iz yok."
+        },
+        {
+          "en": "An aurora fills the night sky. Spellcasters feel a faint pull from it, and any who watch have a strange dream.",
+          "tr": "Kutup ışıkları gece gökyüzünü doldurur. Büyücüler ondan hafif bir çekim hisseder; izleyenler tuhaf bir rüya görür."
+        },
+        {
+          "en": "A sled team arrives at the camp with no driver, their harness cut and a bloodied note tied to it.",
+          "tr": "Bir kızak ekibi sürücüsüz kampa gelir; koşumları kesilmiş ve üzerine kanlı bir not bağlanmış."
+        }
+      ]
+    },
+    {
+      "id": "desert",
+      "label": { "en": "Desert", "tr": "Çöl" },
+      "entries": [
+        {
+          "en": "A mirage of an oasis. A DC 14 Wisdom (Survival) check sees through it. Chasing it costs a day of water.",
+          "tr": "Bir vaha serabı. DC 14 Bilgelik (Survival) kontrolü onu fark ettirir. Peşinden gitmek bir günlük suya mal olur."
+        },
+        {
+          "en": "A sandstorm approaches. The party must find shelter within the hour or take 1d4 slashing damage each round it hits.",
+          "tr": "Bir kum fırtınası yaklaşıyor. Grup bir saat içinde barınak bulmalı, yoksa fırtına her tur 1d4 kesme hasarı verir."
+        },
+        {
+          "en": "Shifting dunes expose a half-buried ruin. The entrance has been open for a very long time, or someone just dug it.",
+          "tr": "Kayan kum tepeleri yarı gömülü bir harabeyi ortaya çıkarır. Giriş çok uzun zamandır açık ya da biri yeni kazmış."
+        },
+        {
+          "en": "A nomad caravan trades water at a high price. They sell it cheaper for news from the road or an escort.",
+          "tr": "Göçebe bir kervan suyu yüksek fiyata satar. Yoldan haber ya da koruma karşılığında daha ucuza verirler."
+        },
+        {
+          "en": "A dry well bears strange markings, and echoes in it answer when someone calls down.",
+          "tr": "Kuru bir kuyunun üzerinde garip işaretler var ve aşağıya seslenince içindeki yankı cevap veriyor."
+        },
+        {
+          "en": "Giant bones lie in the sand and scavengers circle overhead. Something killed it recently.",
+          "tr": "Kumun içinde dev kemikler yatıyor ve leş kuşları tepede dönüyor. Onu yakın zamanda bir şey öldürmüş."
+        },
+        {
+          "en": "The cold night sky is clear. A DC 12 Intelligence check using the stars reveals a shortcut to the next well.",
+          "tr": "Soğuk gece gökyüzü açık. Yıldızları kullanan DC 12 Zeka kontrolü bir sonraki kuyuya kestirme bir yol gösterir."
+        },
+        {
+          "en": "A thirst-crazed traveler stumbles in, begs for water and warns of what chased them.",
+          "tr": "Susuzluktan çılgına dönmüş bir yolcu sendeleyerek gelir, su ister ve onu kovalayan şey hakkında uyarır."
+        }
+      ]
+    },
+    {
+      "id": "general",
+      "label": { "en": "General", "tr": "Genel" },
+      "entries": [
+        {
+          "en": "A messenger searches for the party with an urgent letter. Someone else is following the messenger.",
+          "tr": "Bir ulak acil bir mektupla grubu arıyor. Ulağı başka biri izliyor."
+        },
+        {
+          "en": "A rival adventuring party arrives with the same goal and a better map.",
+          "tr": "Rakip bir macera grubu aynı hedefle ve daha iyi bir haritayla gelir."
+        },
+        {
+          "en": "A friendly NPC from an earlier adventure asks for a favor, and it is not a small one.",
+          "tr": "Önceki bir maceradan dost bir NPC bir iyilik ister ve bu küçük bir iş değildir."
+        },
+        {
+          "en": "A traveler offers a map in exchange for an escort to the next settlement.",
+          "tr": "Bir yolcu bir sonraki yerleşime kadar eşlik karşılığında bir harita önerir."
+        },
+        {
+          "en": "An omen appears: a comet, a flock of silent crows or a partial eclipse. Locals are uneasy and want an explanation.",
+          "tr": "Bir alâmet belirir: bir kuyruklu yıldız, sessiz bir karga sürüsü ya da kısmi bir tutulma. Yerliler tedirgin ve açıklama bekliyor."
+        },
+        {
+          "en": "A lost child or pet is found nearby. The people who come looking for it are not who they claim to be.",
+          "tr": "Yakında kayıp bir çocuk ya da evcil hayvan bulunur. Onu aramaya gelenler söyledikleri kişiler değildir."
+        },
+        {
+          "en": "A local authority demands to inspect the party's goods. They are looking for something specific.",
+          "tr": "Yerel bir yetkili grubun eşyalarını denetlemek ister. Belirli bir şey arıyor."
+        },
+        {
+          "en": "A stranger offers a shortcut for a small fee. It is faster, and it is not entirely safe.",
+          "tr": "Bir yabancı küçük bir ücret karşılığında kestirme bir yol önerir. Daha hızlı ama tamamen güvenli değil."
+        },
+        {
+          "en": "The weather turns suddenly and everyone nearby seeks shelter in the same place.",
+          "tr": "Hava aniden değişir ve yakındaki herkes aynı yere sığınır."
+        },
+        {
+          "en": "Someone asks the party to deliver a sealed letter. The recipient is dangerous, or has been dead for years.",
+          "tr": "Biri gruptan mühürlü bir mektubu teslim etmesini ister. Alıcı ya tehlikelidir ya da yıllar önce ölmüştür."
+        },
+        {
+          "en": "Rumors of buried treasure spread, and every version of the story disagrees.",
+          "tr": "Gömülü bir hazine söylentisi yayılır ve hikâyenin her versiyonu birbirinden farklıdır."
+        },
+        {
+          "en": "A debt collector is looking for someone who matches a character's past.",
+          "tr": "Bir tefeci, bir karakterin geçmişine uyan birini arıyor."
+        }
+      ]
+    }
+  ]
+}
