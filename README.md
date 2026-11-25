@@ -4,6 +4,8 @@ A configurable Game Master screen for Foundry VTT. Keep notes, rollable tables,
 table-folder generators, journals and quick rules references in one grid window,
 without leaving Foundry.
 
+Made by [Roll101](https://roll101rpg.com/en).
+
 > **Status:** 1.1.0. Tested on Foundry v14; v13 untested. Back up your world before first use.
 > See [docs/TESTING.md](docs/TESTING.md).
 
