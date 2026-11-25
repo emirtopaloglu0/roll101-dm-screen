@@ -43,8 +43,6 @@ Several layouts as tabs. Empty cells take notes, library boxes or dropped journa
   and prices from SRD 5.1), plus magic items in hoards. Amounts and gem/art descriptions are original.
 - Party summary also shows dnd5e group actors (coins and members, read only). Toggle each section.
 
-Planned: "Monsters Know What They're Doing" summary and your own rollable tables as a pack (private content).
-
 ## Compatibility
 
 | Foundry VTT | Status |
