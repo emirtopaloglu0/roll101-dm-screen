@@ -4,7 +4,12 @@ A configurable Game Master screen for Foundry VTT. Keep notes, rollable tables,
 table-folder generators, journals and quick rules references in one grid window,
 without leaving Foundry.
 
-> **Status:** early development. Not ready for live games yet.
+> **Status:** 1.0.0. Tested on Foundry v14; v13 untested. Back up your world before first use.
+> See [docs/TESTING.md](docs/TESTING.md).
+
+## Screenshots
+
+Coming with the 1.0.0 release.
 
 ## Features
 
@@ -40,8 +45,8 @@ Planned: "Monsters Know What They're Doing" summary and your own rollable tables
 
 | Foundry VTT | Status |
 |---|---|
-| v14 | Verified target |
-| v13 | Minimum supported |
+| v14 | Tested |
+| v13 | Minimum supported, not tested yet. Reports welcome. |
 
 System-agnostic. Some optional boxes (actor summary) need the dnd5e system.
 

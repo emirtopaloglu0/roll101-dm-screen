@@ -6,6 +6,11 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-11-25
+
+First release. Tested on Foundry VTT v14. Not tested on v13 yet (v13 is the declared minimum, so
+please report any problem there).
+
 ### Added
 - Repository skeleton: license, README, contributing guide, release workflow.
 - DM Screen window (ApplicationV2) for the Gamemaster only. Assistant GMs can be allowed in settings.
