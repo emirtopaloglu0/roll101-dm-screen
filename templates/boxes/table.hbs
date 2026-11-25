@@ -1,0 +1,18 @@
+<div class="r101-table">
+  <div class="r101-box-actions">
+    <button type="button" class="r101-small-button r101-primary" data-action="rollTable" data-uuid="{{uuid}}">
+      <i class="fa-solid fa-dice-d20" aria-hidden="true"></i> {{localize "R101DMSCREEN.Table.Roll"}}
+    </button>
+    <span class="r101-note">{{formula}}</span>
+    <button type="button" class="r101-small-button r101-push-right" data-action="openDocument" data-uuid="{{uuid}}"
+            data-tooltip="R101DMSCREEN.Box.Open" aria-label="{{localize 'R101DMSCREEN.Box.Open'}}">
+      <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+    </button>
+  </div>
+  <ol class="r101-scroll r101-table-rows">
+    {{#each rows}}
+    <li class="{{#if drawn}}r101-drawn{{/if}}"><span class="r101-range">{{range}}</span><span class="r101-row-text">{{text}}</span></li>
+    {{/each}}
+  </ol>
+  {{#if truncated}}<p class="r101-note r101-pad">{{localize "R101DMSCREEN.Table.More" count=truncated}}</p>{{/if}}
+</div>

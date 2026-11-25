@@ -1,0 +1,25 @@
+<ul class="r101-tree-list">
+  {{#each folders}}
+  <li class="r101-tree-folder">
+    <details>
+      <summary>
+        <span class="r101-summary-name"><i class="fa-solid fa-folder" aria-hidden="true"></i> {{name}}</span>
+        {{#if tables.length}}
+        <button type="button" class="r101-roll-all" data-action="generateGroup" data-name="{{name}}"
+                data-tooltip="R101DMSCREEN.Folder.RollAll" aria-label="{{localize 'R101DMSCREEN.Folder.RollAll'}}">
+          <i class="fa-solid fa-dice" aria-hidden="true"></i>
+        </button>
+        {{/if}}
+      </summary>
+      {{> "modules/roll101-dm-screen/templates/boxes/tree-node.hbs" this}}
+    </details>
+  </li>
+  {{/each}}
+  {{#each tables}}
+  <li class="r101-tree-table" data-name="{{name}}">
+    <button type="button" data-action="generate" data-uuid="{{uuid}}">
+      <i class="fa-solid fa-dice-d20" aria-hidden="true"></i> {{name}}
+    </button>
+  </li>
+  {{/each}}
+</ul>

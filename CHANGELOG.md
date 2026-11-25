@@ -15,3 +15,15 @@ and the project uses [Semantic Versioning](https://semver.org/).
 - Notes box with title and autosave (1 second after the last edit).
 - Scene Controls button (Token controls) and an unbound "Open / close" keybinding in Configure Controls.
 - English and Turkish translations.
+- Journal box: drop a journal or a journal page. Shows text and image pages read-only, with an Open button.
+- Rollable table box: shows the results list and rolls in a result window (no chat message).
+- Table folder generator: drop a rollable table folder or a compendium of rollable tables.
+  Browse subfolders or search by name, then generate a result.
+- Result window with Reroll, Copy, Whisper to GM and OK.
+- Roll a whole folder at once (dice button on the folder): one result per table in one window.
+  Reroll a single row or all rows. Copy gives one "Table: result" line per table.
+- Recent results (last 10 per box, not saved) open from a button next to the box title.
+- Move a box by dragging its grip handle. Dropping on another box swaps the two.
+- Deleted or missing journals, tables and folders show a warning in the box instead of an error.
+  Drop a replacement on the box to reconnect it.
+- Linked boxes update when their journal, table or folder changes, only while the screen is open.

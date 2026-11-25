@@ -1,0 +1,20 @@
+<div class="r101-folder">
+  <div class="r101-box-actions">
+    <input type="search" class="r101-search" data-r101-search
+           placeholder="{{localize 'R101DMSCREEN.Folder.Search'}}" aria-label="{{localize 'R101DMSCREEN.Folder.Search'}}">
+    <span class="r101-note" data-tooltip="R101DMSCREEN.Folder.Count">{{count}}</span>
+    {{#if tree.tables.length}}
+    <button type="button" class="r101-small-button" data-action="generateGroup" data-name="{{name}}"
+            data-tooltip="R101DMSCREEN.Folder.RollAll" aria-label="{{localize 'R101DMSCREEN.Folder.RollAll'}}">
+      <i class="fa-solid fa-dice" aria-hidden="true"></i>
+    </button>
+    {{/if}}
+  </div>
+  <div class="r101-scroll r101-tree">
+    {{#if count}}
+    {{> "modules/roll101-dm-screen/templates/boxes/tree-node.hbs" tree}}
+    {{else}}
+    <p class="r101-note r101-pad">{{localize "R101DMSCREEN.Folder.Empty"}}</p>
+    {{/if}}
+  </div>
+</div>

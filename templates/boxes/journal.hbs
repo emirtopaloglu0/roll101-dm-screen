@@ -1,0 +1,26 @@
+<div class="r101-journal">
+  <div class="r101-box-actions">
+    <button type="button" class="r101-small-button" data-action="openDocument" data-uuid="{{uuid}}">
+      <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> {{localize "R101DMSCREEN.Box.Open"}}
+    </button>
+  </div>
+  <div class="r101-scroll r101-journal-content">
+    {{#each pages}}
+    <article class="r101-page">
+      {{#if ../showPageNames}}<h3 class="r101-page-name">{{name}}</h3>{{/if}}
+      {{#if html}}
+      <div class="r101-page-html">{{{html}}}</div>
+      {{else if image}}
+      <figure class="r101-page-image">
+        <img src="{{image}}" alt="{{caption}}" loading="lazy">
+        {{#if caption}}<figcaption>{{caption}}</figcaption>{{/if}}
+      </figure>
+      {{else}}
+      <p class="r101-note">{{localize "R101DMSCREEN.Journal.OpenToView"}}</p>
+      {{/if}}
+    </article>
+    {{else}}
+    <p class="r101-note">{{localize "R101DMSCREEN.Journal.Empty"}}</p>
+    {{/each}}
+  </div>
+</div>

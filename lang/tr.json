@@ -36,10 +36,56 @@
       "Remove": "Kutuyu kaldır",
       "RemoveConfirmTitle": "Kutuyu kaldır",
       "RemoveConfirmContent": "Bu kutu ve içeriği kaldırılsın mı? Bu işlem geri alınamaz.",
-      "Unsupported": "Bu kutu türü için Roll101 DM Screen'in daha yeni bir sürümü gerekiyor."
+      "Unsupported": "Bu kutu türü için Roll101 DM Screen'in daha yeni bir sürümü gerekiyor.",
+      "Open": "Aç",
+      "ReconnectHint": "Yeniden bağlamak için yerine yenisini buraya sürükleyin veya kutuyu kaldırın.",
+      "DropHint": "veya bir journal, tablo, tablo klasörü ya da tablo compendium'u bırakın",
+      "Move": "Taşımak için sürükleyin. Başka bir kutunun üstüne bırakırsanız yer değiştirirler."
     },
     "Notifications": {
-      "SaveFailed": "DM Ekranı: değişiklikler kaydedilemedi. Ayrıntılar için konsola (F12) bakın."
+      "SaveFailed": "DM Ekranı: değişiklikler kaydedilemedi. Ayrıntılar için konsola (F12) bakın.",
+      "DropFolderType": "Sadece rollable table klasörleri eklenebilir.",
+      "DropPackType": "Sadece rollable table compendium'ları eklenebilir.",
+      "DropUnsupported": "Bu öğe DM Ekranına eklenemez.",
+      "DropOccupied": "Bu hücre dolu. Boş bir hücreye bırakın ya da bağlantısını değiştirmek için aynı türdeki bir kutuya bırakın.",
+      "NotFound": "Bu belge silinmiş veya bulunamıyor."
+    },
+    "Missing": {
+      "Journal": "Bu journal silinmiş veya bulunamıyor.",
+      "Table": "Bu rollable table silinmiş veya bulunamıyor.",
+      "Folder": "Bu tablo klasörü veya compendium silinmiş ya da bulunamıyor."
+    },
+    "Journal": {
+      "OpenToView": "Bu sayfa türü burada gösterilemiyor. Aç'ı kullanın.",
+      "Empty": "Bu journal'da sayfa yok."
+    },
+    "Table": {
+      "Roll": "At",
+      "More": "+{count} sonuç daha. Hepsini görmek için Aç'ı kullanın."
+    },
+    "Folder": {
+      "Search": "Tablo ara…",
+      "Count": "Bu klasördeki tablolar",
+      "Empty": "Bu klasörde rollable table yok.",
+      "RollAll": "Bu klasördeki tüm tabloları tek seferde at"
+    },
+    "History": {
+      "Label": "Son sonuçlar",
+      "Toggle": "Son sonuçlar",
+      "Empty": "Henüz sonuç yok."
+    },
+    "Result": {
+      "Title": "Sonuç",
+      "Empty": "Sonuç yok. Tabloda çekilecek sonuç kalmamış olabilir.",
+      "Missing": "Bu tablo silinmiş veya bulunamıyor.",
+      "Failed": "Zar atılamadı. Ayrıntılar için konsola (F12) bakın.",
+      "Reroll": "Yeniden üret",
+      "Copy": "Kopyala",
+      "Whisper": "GM'e fısılda",
+      "Ok": "Tamam",
+      "Copied": "Sonuç kopyalandı.",
+      "Whispered": "Sonuç GM'e fısıldandı.",
+      "RerollAll": "Hepsini yeniden üret"
     }
   }
 }

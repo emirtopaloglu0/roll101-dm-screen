@@ -36,10 +36,56 @@
       "Remove": "Remove box",
       "RemoveConfirmTitle": "Remove box",
       "RemoveConfirmContent": "Remove this box and its contents? This cannot be undone.",
-      "Unsupported": "This box type needs a newer version of Roll101 DM Screen."
+      "Unsupported": "This box type needs a newer version of Roll101 DM Screen.",
+      "Open": "Open",
+      "ReconnectHint": "Drag a replacement here to reconnect, or remove the box.",
+      "DropHint": "or drop a journal, table, table folder or table compendium",
+      "Move": "Drag to move. Dropping on another box swaps them."
     },
     "Notifications": {
-      "SaveFailed": "DM Screen: changes could not be saved. See the console (F12) for details."
+      "SaveFailed": "DM Screen: changes could not be saved. See the console (F12) for details.",
+      "DropFolderType": "Only rollable table folders can be added.",
+      "DropPackType": "Only compendiums of rollable tables can be added.",
+      "DropUnsupported": "This item cannot be added to the DM Screen.",
+      "DropOccupied": "This cell is in use. Drop on an empty cell, or on a box of the same type to replace its link.",
+      "NotFound": "This document was deleted or cannot be found."
+    },
+    "Missing": {
+      "Journal": "This journal was deleted or cannot be found.",
+      "Table": "This rollable table was deleted or cannot be found.",
+      "Folder": "This table folder or compendium was deleted or cannot be found."
+    },
+    "Journal": {
+      "OpenToView": "This page type cannot be shown here. Use Open.",
+      "Empty": "This journal has no pages."
+    },
+    "Table": {
+      "Roll": "Roll",
+      "More": "+{count} more results. Use Open to see all."
+    },
+    "Folder": {
+      "Search": "Search tables…",
+      "Count": "Tables in this folder",
+      "Empty": "No rollable tables in this folder.",
+      "RollAll": "Roll every table in this folder at once"
+    },
+    "History": {
+      "Label": "Recent results",
+      "Toggle": "Recent results",
+      "Empty": "No results yet."
+    },
+    "Result": {
+      "Title": "Result",
+      "Empty": "No result. The table may have no results left to draw.",
+      "Missing": "This table was deleted or cannot be found.",
+      "Failed": "The roll failed. See the console (F12) for details.",
+      "Reroll": "Reroll",
+      "Copy": "Copy",
+      "Whisper": "Whisper to GM",
+      "Ok": "OK",
+      "Copied": "Result copied.",
+      "Whispered": "Result whispered to the GM.",
+      "RerollAll": "Reroll all"
     }
   }
 }
