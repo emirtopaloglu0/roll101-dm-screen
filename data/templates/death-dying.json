@@ -1,0 +1,262 @@
+{
+  "id": "death-dying",
+  "category": "rules",
+  "title": {
+    "en": "Death & Dying",
+    "tr": "Ölüm ve Can Çekişme"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "At 0 Hit Points",
+            "tr": "0 Can Puanında"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Dropping to 0 HP",
+                "tr": "0 HP'ye düşmek"
+              },
+              {
+                "en": "Monsters die (the GM may treat one like a character). A character falls Unconscious until healed and makes Death Saving Throws.",
+                "tr": "Canavarlar ölür (GM birini karakter gibi ele alabilir). Karakter iyileşene kadar Unconscious olur ve Death Saving Throw atar."
+              }
+            ],
+            [
+              {
+                "en": "Massive damage",
+                "tr": "Ağır hasar"
+              },
+              {
+                "en": "If damage drops you to 0 and the rest equals or exceeds your HP maximum, you die.",
+                "tr": "Hasar seni 0'a düşürür ve artan hasar maksimum HP'ne eşit ya da fazlaysa ölürsün."
+              }
+            ],
+            [
+              {
+                "en": "HP maximum 0",
+                "tr": "Maksimum HP 0"
+              },
+              {
+                "en": "A creature dies if its HP maximum reaches 0.",
+                "tr": "Maksimum HP'si 0 olan yaratık ölür."
+              }
+            ],
+            [
+              {
+                "en": "Death Saving Throw",
+                "tr": "Ölüm Kurtarma Zarı"
+              },
+              {
+                "en": "At the start of your turn at 0 HP, roll d20 (no modifier from an ability). 10 or higher: success. 3 successes: Stable. 3 failures: dead. They don't need to be in a row. Both counts reset when you regain HP or become Stable.",
+                "tr": "0 HP'de turunun başında d20 at (yetenek değiştiricisi yok). 10 ve üstü: başarı. 3 başarı: stabil. 3 başarısızlık: ölüm. Arka arkaya olması gerekmez. HP kazanınca veya stabil olunca ikisi de sıfırlanır."
+              }
+            ],
+            [
+              {
+                "en": "Natural 1 or 20",
+                "tr": "Doğal 1 veya 20"
+              },
+              {
+                "en": "Rolling 1 counts as two failures. Rolling 20: you regain 1 HP.",
+                "tr": "1 atmak iki başarısızlık sayılır. 20 atmak: 1 HP kazanırsın."
+              }
+            ],
+            [
+              {
+                "en": "Damage at 0 HP",
+                "tr": "0 HP'de hasar"
+              },
+              {
+                "en": "One failure; two from a Critical Hit. Damage equal to or above your HP maximum kills you.",
+                "tr": "Bir başarısızlık; kritik vuruştan iki. Maksimum HP'ne eşit ya da fazla hasar seni öldürür."
+              }
+            ],
+            [
+              {
+                "en": "Stabilizing",
+                "tr": "Stabil hale getirme"
+              },
+              {
+                "en": "Help action with a DC 10 Wis (Medicine) check, or a Healer's Kit use (Utilize, no check).",
+                "tr": "Help aksiyonu ve DC 10 Wis (Medicine) kontrolü, ya da bir Healer's Kit kullanımı (Utilize, kontrol yok)."
+              }
+            ],
+            [
+              {
+                "en": "Stable",
+                "tr": "Stabil"
+              },
+              {
+                "en": "No more Death Saving Throws, but still Unconscious. Taking damage starts them again. Regains 1 HP after 1d4 hours if not healed.",
+                "tr": "Artık Death Saving Throw atmaz ama Unconscious kalır. Hasar alırsa yeniden başlar. İyileştirilmezse 1d4 saat sonra 1 HP kazanır."
+              }
+            ],
+            [
+              {
+                "en": "Knocking out",
+                "tr": "Bayıltma"
+              },
+              {
+                "en": "When a melee attack would drop a creature to 0 HP, leave it at 1 HP and Unconscious instead. It starts a Short Rest and wakes at its end, when healed, or after first aid (DC 10 Wis (Medicine)).",
+                "tr": "Yakın dövüş saldırısı bir yaratığı 0 HP'ye düşürecekse, onu 1 HP'de ve Unconscious bırakabilirsin. Kısa Dinlenmeye başlar; sonunda, iyileşince ya da ilk yardımla (DC 10 Wis (Medicine)) uyanır."
+              }
+            ],
+            [
+              {
+                "en": "Temporary HP",
+                "tr": "Geçici HP"
+              },
+              {
+                "en": "Lost before real HP. Don't stack: keep the old or take the new. Last until used up or a Long Rest. Healing can't restore them and they don't wake you at 0 HP.",
+                "tr": "Gerçek HP'den önce gider. Birikmez: eskisini tut ya da yenisini al. Bitene veya Uzun Dinlenmeye kadar sürer. İyileştirme geri getirmez; 0 HP'de seni uyandırmaz."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "At 0 Hit Points",
+            "tr": "0 Can Puanında"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Dropping to 0 HP",
+                "tr": "0 HP'ye düşmek"
+              },
+              {
+                "en": "You fall unconscious until you regain HP. Most monsters die instead; important villains may follow the character rules.",
+                "tr": "HP kazanana kadar bilincini kaybedersin. Çoğu canavar bunun yerine ölür; önemli kötüler karakter kurallarını izleyebilir."
+              }
+            ],
+            [
+              {
+                "en": "Massive damage",
+                "tr": "Ağır hasar"
+              },
+              {
+                "en": "If damage drops you to 0 and the rest equals or exceeds your HP maximum, you die.",
+                "tr": "Hasar seni 0'a düşürür ve artan hasar maksimum HP'ne eşit ya da fazlaysa ölürsün."
+              }
+            ],
+            [
+              {
+                "en": "Death saving throw",
+                "tr": "Ölüm kurtarma zarı"
+              },
+              {
+                "en": "At the start of your turn at 0 HP, roll d20 (no modifier from an ability). 10 or higher: success. 3 successes: Stable. 3 failures: dead. They don't need to be in a row. Both counts reset when you regain HP or become Stable.",
+                "tr": "0 HP'de turunun başında d20 at (yetenek değiştiricisi yok). 10 ve üstü: başarı. 3 başarı: stabil. 3 başarısızlık: ölüm. Arka arkaya olması gerekmez. HP kazanınca veya stabil olunca ikisi de sıfırlanır."
+              }
+            ],
+            [
+              {
+                "en": "Natural 1 or 20",
+                "tr": "Doğal 1 veya 20"
+              },
+              {
+                "en": "Rolling 1 counts as two failures. Rolling 20: you regain 1 HP.",
+                "tr": "1 atmak iki başarısızlık sayılır. 20 atmak: 1 HP kazanırsın."
+              }
+            ],
+            [
+              {
+                "en": "Damage at 0 HP",
+                "tr": "0 HP'de hasar"
+              },
+              {
+                "en": "One failure; two from a critical hit. Damage equal to or above your HP maximum kills you.",
+                "tr": "Bir başarısızlık; kritik vuruştan iki. Maksimum HP'ne eşit ya da fazla hasar seni öldürür."
+              }
+            ],
+            [
+              {
+                "en": "Stabilizing",
+                "tr": "Stabil hale getirme"
+              },
+              {
+                "en": "Action: first aid with a DC 10 Wis (Medicine) check, or one use of a healer's kit (no check).",
+                "tr": "Aksiyon: DC 10 Wis (Medicine) ile ilk yardım, ya da healer's kit'ten bir kullanım (kontrol yok)."
+              }
+            ],
+            [
+              {
+                "en": "Stable",
+                "tr": "Stabil"
+              },
+              {
+                "en": "No more death saves, but still unconscious. Taking damage starts them again. Regains 1 HP after 1d4 hours if not healed.",
+                "tr": "Artık ölüm zarı atmaz ama bilinçsiz kalır. Hasar alırsa yeniden başlar. İyileştirilmezse 1d4 saat sonra 1 HP kazanır."
+              }
+            ],
+            [
+              {
+                "en": "Knocking out",
+                "tr": "Bayıltma"
+              },
+              {
+                "en": "When a melee attack drops a creature to 0 HP, the attacker can knock it out instead: it falls unconscious and is stable.",
+                "tr": "Yakın dövüş saldırısı bir yaratığı 0 HP'ye düşürdüğünde, saldıran onu bayıltmayı seçebilir: bilincini kaybeder ve stabildir."
+              }
+            ],
+            [
+              {
+                "en": "Temporary hit points",
+                "tr": "Geçici HP"
+              },
+              {
+                "en": "Lost before real HP. Don't stack: keep the old or take the new. Healing can't restore them. They don't wake you at 0 HP.",
+                "tr": "Gerçek HP'den önce gider. Birikmez: eskisini tut ya da yenisini al. İyileştirme onları geri getirmez. 0 HP'de seni uyandırmaz."
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

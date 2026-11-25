@@ -1,0 +1,407 @@
+{
+  "id": "movement",
+  "category": "rules",
+  "title": {
+    "en": "Movement",
+    "tr": "Hareket"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Moving",
+            "tr": "Hareket etme"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Difficult Terrain",
+                "tr": "Zorlu arazi"
+              },
+              {
+                "en": "Each foot costs 1 extra foot (not cumulative). Examples: a creature that isn't Tiny or your ally, furniture, heavy snow, ice, rubble, undergrowth, shin- to waist-deep liquid, a narrow opening, a slope of 20° or more.",
+                "tr": "Her foot 1 ft fazladan harcar (birikmez). Örnek: Tiny ya da müttefik olmayan yaratık, mobilya, kalın kar, buz, moloz, çalılık, baldır-bel arası sıvı, dar geçit, 20° ve üstü eğim."
+              }
+            ],
+            [
+              {
+                "en": "Climbing, swimming, crawling",
+                "tr": "Tırmanma, yüzme, sürünme"
+              },
+              {
+                "en": "Each foot costs 1 extra foot (2 in Difficult Terrain). A Climb or Swim Speed removes the extra cost. Slippery surface or rough water: DC 15 Str (Athletics) at the GM's option.",
+                "tr": "Her foot 1 ft fazladan harcar (zorlu arazide 2). Tırmanma veya yüzme hızı bu ek maliyeti kaldırır. Kaygan yüzey ya da dalgalı su: GM isterse DC 15 Str (Athletics)."
+              }
+            ],
+            [
+              {
+                "en": "Long Jump",
+                "tr": "Uzun atlama"
+              },
+              {
+                "en": "Up to your Str score in feet with a 10 ft run-up; half from standing. Each foot costs movement. Landing in difficult terrain: DC 10 Dex (Acrobatics) or fall Prone. Low obstacle (up to a quarter of the jump): DC 10 Str (Athletics) at the GM's option.",
+                "tr": "10 ft koşarak Str skorun kadar feet; duruştan yarısı. Her foot hareketten düşer. Zorlu araziye inerken: DC 10 Dex (Acrobatics), yoksa Prone. Alçak engel (atlayışın en fazla dörtte biri): GM isterse DC 10 Str (Athletics)."
+              }
+            ],
+            [
+              {
+                "en": "High Jump",
+                "tr": "Yüksek atlama"
+              },
+              {
+                "en": "3 + Str modifier feet with a 10 ft run-up (minimum 0); half from standing. Each foot costs movement. You can reach up to the jump height + 1.5 × your height.",
+                "tr": "10 ft koşarak 3 + Str değiştiricisi feet (en az 0); duruştan yarısı. Her foot hareketten düşer. Atlayış yüksekliği + boyunun 1,5 katına kadar uzanabilirsin."
+              }
+            ],
+            [
+              {
+                "en": "Standing up",
+                "tr": "Ayağa kalkma"
+              },
+              {
+                "en": "Costs half your Speed. Not possible at Speed 0. Dropping Prone is free.",
+                "tr": "Hızının yarısına mal olur. Hız 0 iken olmaz. Yere yatmak serbesttir."
+              }
+            ],
+            [
+              {
+                "en": "Other creatures",
+                "tr": "Diğer yaratıklar"
+              },
+              {
+                "en": "You can pass through an ally, an Incapacitated or Tiny creature, or one two sizes larger or smaller. Their space is Difficult Terrain unless Tiny or an ally. You can't end your move there; if you do, you are Prone unless Tiny or larger than it.",
+                "tr": "Müttefik, Incapacitated veya Tiny yaratığın ya da senden iki boy büyük veya küçük yaratığın içinden geçebilirsin. Alanı, Tiny ya da müttefik değilse zorlu arazidir. Hareketini orada bitiremezsin; bitirirsen Tiny değilsen veya ondan büyük değilsen Prone olursun."
+              }
+            ],
+            [
+              {
+                "en": "Breaking up a move",
+                "tr": "Hareketi bölme"
+              },
+              {
+                "en": "Move before and after actions on the same turn.",
+                "tr": "Aynı turda aksiyonlardan önce ve sonra hareket edebilirsin."
+              }
+            ],
+            [
+              {
+                "en": "Falling",
+                "tr": "Düşme"
+              },
+              {
+                "en": "1d6 Bludgeoning per 10 ft, max 20d6. Prone unless you take no damage. Into water: Reaction, DC 15 Str (Athletics) or Dex (Acrobatics) to halve the damage.",
+                "tr": "Her 10 ft için 1d6 Bludgeoning, en fazla 20d6. Hasar almazsan Prone olmazsın. Suya düşerken: Reaksiyon, DC 15 Str (Athletics) veya Dex (Acrobatics) başarılıysa hasar yarıya iner."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Travel pace",
+            "tr": "Yolculuk temposu"
+          },
+          "columns": [
+            {
+              "en": "Pace",
+              "tr": "Tempo"
+            },
+            {
+              "en": "Minute",
+              "tr": "Dakika"
+            },
+            {
+              "en": "Hour",
+              "tr": "Saat"
+            },
+            {
+              "en": "Day (8 h)",
+              "tr": "Gün (8 s)"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Fast",
+                "tr": "Hızlı"
+              },
+              "400 ft",
+              {
+                "en": "4 miles",
+                "tr": "4 mil"
+              },
+              {
+                "en": "30 miles",
+                "tr": "30 mil"
+              },
+              {
+                "en": "Disadvantage on Wis (Perception or Survival) and Dex (Stealth)",
+                "tr": "Wis (Perception veya Survival) ve Dex (Stealth) dezavantajlı"
+              }
+            ],
+            [
+              {
+                "en": "Normal",
+                "tr": "Normal"
+              },
+              "300 ft",
+              {
+                "en": "3 miles",
+                "tr": "3 mil"
+              },
+              {
+                "en": "24 miles",
+                "tr": "24 mil"
+              },
+              {
+                "en": "Disadvantage on Dex (Stealth)",
+                "tr": "Dex (Stealth) dezavantajlı"
+              }
+            ],
+            [
+              {
+                "en": "Slow",
+                "tr": "Yavaş"
+              },
+              "200 ft",
+              {
+                "en": "2 miles",
+                "tr": "2 mil"
+              },
+              {
+                "en": "18 miles",
+                "tr": "18 mil"
+              },
+              {
+                "en": "Advantage on Wis (Perception or Survival)",
+                "tr": "Wis (Perception veya Survival) avantajlı"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Moving",
+            "tr": "Hareket etme"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Difficult terrain",
+                "tr": "Zorlu arazi"
+              },
+              {
+                "en": "Each foot costs 1 extra foot.",
+                "tr": "Her foot 1 ft fazladan harcar."
+              }
+            ],
+            [
+              {
+                "en": "Climbing, swimming, crawling",
+                "tr": "Tırmanma, yüzme, sürünme"
+              },
+              {
+                "en": "Each foot costs 1 extra foot (2 in difficult terrain), unless you have a climbing or swimming speed. Slippery surfaces or rough water may need a Str (Athletics) check.",
+                "tr": "Tırmanma veya yüzme hızın yoksa her foot 1 ft fazladan harcar (zorlu arazide 2). Kaygan yüzey ya da dalgalı su Str (Athletics) kontrolü isteyebilir."
+              }
+            ],
+            [
+              {
+                "en": "Long jump",
+                "tr": "Uzun atlama"
+              },
+              {
+                "en": "Up to your Str score in feet with a 10 ft run-up; half from standing. Each foot costs movement. Landing in difficult terrain: DC 10 Dex (Acrobatics) or fall Prone. Low obstacle (up to a quarter of the jump): DC 10 Str (Athletics) at the GM's option.",
+                "tr": "10 ft koşarak Str skorun kadar feet; duruştan yarısı. Her foot hareketten düşer. Zorlu araziye inerken: DC 10 Dex (Acrobatics), yoksa Prone. Alçak engel (atlayışın en fazla dörtte biri): GM isterse DC 10 Str (Athletics)."
+              }
+            ],
+            [
+              {
+                "en": "High jump",
+                "tr": "Yüksek atlama"
+              },
+              {
+                "en": "3 + Str modifier feet with a 10 ft run-up (minimum 0); half from standing. Each foot costs movement. You can reach up to the jump height + 1.5 × your height.",
+                "tr": "10 ft koşarak 3 + Str değiştiricisi feet (en az 0); duruştan yarısı. Her foot hareketten düşer. Atlayış yüksekliği + boyunun 1,5 katına kadar uzanabilirsin."
+              }
+            ],
+            [
+              {
+                "en": "Standing up",
+                "tr": "Ayağa kalkma"
+              },
+              {
+                "en": "Costs half your speed. Dropping prone costs no movement.",
+                "tr": "Hızının yarısına mal olur. Yere yatmak hareket harcamaz."
+              }
+            ],
+            [
+              {
+                "en": "Other creatures",
+                "tr": "Diğer yaratıklar"
+              },
+              {
+                "en": "You can pass through a friendly creature, or a hostile one two sizes larger or smaller. Another creature's space is difficult terrain. You can't willingly end your move there.",
+                "tr": "Dost bir yaratığın ya da senden iki boy büyük veya küçük düşman bir yaratığın içinden geçebilirsin. Başka yaratığın alanı zorlu arazidir. Hareketini isteyerek orada bitiremezsin."
+              }
+            ],
+            [
+              {
+                "en": "Squeezing",
+                "tr": "Dar yerden geçme"
+              },
+              {
+                "en": "You can fit through a space big enough for one size smaller. Each foot costs 1 extra foot; Disadvantage on attacks and Dex saves; attacks against you have Advantage.",
+                "tr": "Bir boy küçük yaratığa yetecek yerden geçebilirsin. Her foot 1 ft fazladan harcar; saldırı ve Dex kurtarmada dezavantaj; sana saldırılar avantajlı."
+              }
+            ],
+            [
+              {
+                "en": "Falling",
+                "tr": "Düşme"
+              },
+              {
+                "en": "1d6 bludgeoning per 10 ft, max 20d6. You land prone unless you take no damage.",
+                "tr": "Her 10 ft için 1d6 bludgeoning, en fazla 20d6. Hasar almazsan yere düşmezsin."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Travel pace",
+            "tr": "Yolculuk temposu"
+          },
+          "columns": [
+            {
+              "en": "Pace",
+              "tr": "Tempo"
+            },
+            {
+              "en": "Minute",
+              "tr": "Dakika"
+            },
+            {
+              "en": "Hour",
+              "tr": "Saat"
+            },
+            {
+              "en": "Day (8 h)",
+              "tr": "Gün (8 s)"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Fast",
+                "tr": "Hızlı"
+              },
+              "400 ft",
+              {
+                "en": "4 miles",
+                "tr": "4 mil"
+              },
+              {
+                "en": "30 miles",
+                "tr": "30 mil"
+              },
+              {
+                "en": "−5 to passive Wis (Perception)",
+                "tr": "Pasif Wis (Perception) −5"
+              }
+            ],
+            [
+              {
+                "en": "Normal",
+                "tr": "Normal"
+              },
+              "300 ft",
+              {
+                "en": "3 miles",
+                "tr": "3 mil"
+              },
+              {
+                "en": "24 miles",
+                "tr": "24 mil"
+              },
+              "—"
+            ],
+            [
+              {
+                "en": "Slow",
+                "tr": "Yavaş"
+              },
+              "200 ft",
+              {
+                "en": "2 miles",
+                "tr": "2 mil"
+              },
+              {
+                "en": "18 miles",
+                "tr": "18 mil"
+              },
+              {
+                "en": "Able to use stealth",
+                "tr": "Gizlilik kullanılabilir"
+              }
+            ]
+          ],
+          "note": {
+            "en": "Forced march: each hour past 8, Con save DC 10 + 1 per extra hour, or 1 level of exhaustion.",
+            "tr": "Zorlu yürüyüş: 8 saatten sonraki her saat Con kurtarma zarı, DC 10 + fazladan her saat için 1; başarısızsa 1 seviye exhaustion."
+          }
+        }
+      ]
+    }
+  ]
+}

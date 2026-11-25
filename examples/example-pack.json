@@ -8,6 +8,7 @@
     {
       "id": "tavern-menu",
       "title": { "en": "The Prancing Goat: Menu", "tr": "Zıplayan Keçi: Menü" },
+      "group": { "en": "Taverns", "tr": "Hanlar" },
       "variants": [
         {
           "id": "default",

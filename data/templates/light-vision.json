@@ -1,0 +1,414 @@
+{
+  "id": "light-vision",
+  "category": "rules",
+  "title": {
+    "en": "Light & Vision",
+    "tr": "Işık ve Görüş"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Illumination",
+            "tr": "Aydınlatma"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Bright light",
+                "tr": "Parlak ışık"
+              },
+              {
+                "en": "Normal vision. Daylight, torches, lanterns, fires.",
+                "tr": "Normal görüş. Gün ışığı, meşale, fener, ateş."
+              }
+            ],
+            [
+              {
+                "en": "Dim light",
+                "tr": "Loş ışık"
+              },
+              {
+                "en": "Lightly obscured: Disadvantage on Wis (Perception) checks that rely on sight. Twilight, dawn, edge of a light, bright full moon.",
+                "tr": "Hafif örtülü: görmeye dayalı Wis (Perception) kontrollerinde dezavantaj. Alacakaranlık, şafak, ışığın kenarı, parlak dolunay."
+              }
+            ],
+            [
+              {
+                "en": "Darkness",
+                "tr": "Karanlık"
+              },
+              {
+                "en": "Heavily obscured: you are effectively Blinded when trying to see into it. Night outdoors, unlit dungeons, magical darkness.",
+                "tr": "Yoğun örtülü: içini görmeye çalışırken fiilen Blinded olursun. Açık havada gece, ışıksız zindan, büyülü karanlık."
+              }
+            ],
+            [
+              {
+                "en": "Lightly obscured",
+                "tr": "Hafif örtülü"
+              },
+              {
+                "en": "Dim light, patchy fog, moderate foliage.",
+                "tr": "Loş ışık, seyrek sis, orta yoğunlukta bitki örtüsü."
+              }
+            ],
+            [
+              {
+                "en": "Heavily obscured",
+                "tr": "Yoğun örtülü"
+              },
+              {
+                "en": "Darkness, thick fog, dense foliage.",
+                "tr": "Karanlık, yoğun sis, sık bitki örtüsü."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Special senses",
+            "tr": "Özel hisler"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Darkvision",
+                "tr": "Darkvision (Karanlık görüş)"
+              },
+              {
+                "en": "Within range: Dim Light counts as Bright, Darkness as Dim. Colors in Darkness only as shades of gray.",
+                "tr": "Menzil içinde: loş ışık parlak, karanlık loş sayılır. Karanlıkta renkler sadece gri tonlarında."
+              }
+            ],
+            [
+              {
+                "en": "Blindsight",
+                "tr": "Blindsight (Kör görüş)"
+              },
+              {
+                "en": "Within range, see anything not behind Total Cover, even while Blinded, in Darkness or if it is Invisible.",
+                "tr": "Menzil içinde, tam siper arkasında olmayan her şeyi görürsün; Blinded iken, karanlıkta ya da Invisible olsa bile."
+              }
+            ],
+            [
+              {
+                "en": "Tremorsense",
+                "tr": "Tremorsense (Titreşim algısı)"
+              },
+              {
+                "en": "Pinpoints creatures and moving objects in range that touch the same surface or liquid as you. Not sight.",
+                "tr": "Menzildeki, seninle aynı yüzeye veya sıvıya temas eden yaratık ve hareketli nesnelerin yerini bilirsin. Görme sayılmaz."
+              }
+            ],
+            [
+              {
+                "en": "Truesight",
+                "tr": "Truesight (Gerçek görüş)"
+              },
+              {
+                "en": "Within range: see in normal and magical Darkness, see Invisible creatures and objects, see through visual illusions (auto-succeed on saves), see true forms of transformed creatures, see into the Ethereal Plane.",
+                "tr": "Menzil içinde: normal ve büyülü karanlıkta görürsün, Invisible yaratık ve nesneleri görürsün, görsel illüzyonları görürsün (kurtarma zarlarında otomatik başarı), dönüştürülmüş yaratıkların gerçek halini ve Ethereal Plane'i görürsün."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Light sources",
+            "tr": "Işık kaynakları"
+          },
+          "columns": [
+            {
+              "en": "Source",
+              "tr": "Kaynak"
+            },
+            {
+              "en": "Bright",
+              "tr": "Parlak"
+            },
+            {
+              "en": "Dim (beyond)",
+              "tr": "Loş (ötesinde)"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Candle",
+                "tr": "Mum"
+              },
+              "5 ft",
+              "+5 ft"
+            ],
+            [
+              {
+                "en": "Torch",
+                "tr": "Meşale"
+              },
+              "20 ft",
+              "+20 ft"
+            ],
+            [
+              {
+                "en": "Lamp",
+                "tr": "Kandil"
+              },
+              "15 ft",
+              "+30 ft"
+            ],
+            [
+              {
+                "en": "Hooded lantern",
+                "tr": "Kapaklı fener"
+              },
+              "30 ft",
+              {
+                "en": "+30 ft (lowered hood: dim 5 ft)",
+                "tr": "+30 ft (kapak inik: 5 ft loş)"
+              }
+            ],
+            [
+              {
+                "en": "Bullseye lantern",
+                "tr": "Odaklı fener"
+              },
+              {
+                "en": "60 ft cone",
+                "tr": "60 ft koni"
+              },
+              "+60 ft"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Illumination",
+            "tr": "Aydınlatma"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Bright light",
+                "tr": "Parlak ışık"
+              },
+              {
+                "en": "Normal vision. Daylight, torches, lanterns, fires.",
+                "tr": "Normal görüş. Gün ışığı, meşale, fener, ateş."
+              }
+            ],
+            [
+              {
+                "en": "Dim light",
+                "tr": "Loş ışık"
+              },
+              {
+                "en": "Lightly obscured: Disadvantage on Wis (Perception) checks that rely on sight. Twilight, dawn, edge of a light, bright full moon.",
+                "tr": "Hafif örtülü: görmeye dayalı Wis (Perception) kontrollerinde dezavantaj. Alacakaranlık, şafak, ışığın kenarı, parlak dolunay."
+              }
+            ],
+            [
+              {
+                "en": "Darkness",
+                "tr": "Karanlık"
+              },
+              {
+                "en": "Heavily obscured: you are effectively Blinded when trying to see into it. Night outdoors, unlit dungeons, magical darkness.",
+                "tr": "Yoğun örtülü: içini görmeye çalışırken fiilen Blinded olursun. Açık havada gece, ışıksız zindan, büyülü karanlık."
+              }
+            ],
+            [
+              {
+                "en": "Lightly obscured",
+                "tr": "Hafif örtülü"
+              },
+              {
+                "en": "Dim light, patchy fog, moderate foliage.",
+                "tr": "Loş ışık, seyrek sis, orta yoğunlukta bitki örtüsü."
+              }
+            ],
+            [
+              {
+                "en": "Heavily obscured",
+                "tr": "Yoğun örtülü"
+              },
+              {
+                "en": "Darkness, thick fog, dense foliage.",
+                "tr": "Karanlık, yoğun sis, sık bitki örtüsü."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Special senses",
+            "tr": "Özel hisler"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Darkvision",
+                "tr": "Darkvision (Karanlık görüş)"
+              },
+              {
+                "en": "Within range: darkness counts as dim light (so only lightly obscured), dim light as bright. Colors in darkness only as shades of gray.",
+                "tr": "Menzil içinde: karanlık loş ışık (yani sadece hafif örtülü), loş ışık parlak sayılır. Karanlıkta renkler sadece gri tonlarında."
+              }
+            ],
+            [
+              {
+                "en": "Blindsight",
+                "tr": "Blindsight (Kör görüş)"
+              },
+              {
+                "en": "Perceives surroundings within range without relying on sight.",
+                "tr": "Menzil içinde çevresini görmeye ihtiyaç duymadan algılar."
+              }
+            ],
+            [
+              {
+                "en": "Truesight",
+                "tr": "Truesight (Gerçek görüş)"
+              },
+              {
+                "en": "Within range: see in normal and magical darkness, see invisible creatures and objects, detect visual illusions (auto-succeed on saves), see the true form of shapechangers and transformed creatures, see into the Ethereal Plane.",
+                "tr": "Menzil içinde: normal ve büyülü karanlıkta görürsün, görünmez yaratık ve nesneleri görürsün, görsel illüzyonları fark edersin (kurtarma zarlarında otomatik başarı), şekil değiştirenlerin gerçek halini ve Ethereal Plane'i görürsün."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Light sources",
+            "tr": "Işık kaynakları"
+          },
+          "columns": [
+            {
+              "en": "Source",
+              "tr": "Kaynak"
+            },
+            {
+              "en": "Bright",
+              "tr": "Parlak"
+            },
+            {
+              "en": "Dim (beyond)",
+              "tr": "Loş (ötesinde)"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Candle",
+                "tr": "Mum"
+              },
+              "5 ft",
+              "+5 ft"
+            ],
+            [
+              {
+                "en": "Torch",
+                "tr": "Meşale"
+              },
+              "20 ft",
+              "+20 ft"
+            ],
+            [
+              {
+                "en": "Lamp",
+                "tr": "Kandil"
+              },
+              "15 ft",
+              "+30 ft"
+            ],
+            [
+              {
+                "en": "Hooded lantern",
+                "tr": "Kapaklı fener"
+              },
+              "30 ft",
+              {
+                "en": "+30 ft (lowered hood: dim 5 ft)",
+                "tr": "+30 ft (kapak inik: 5 ft loş)"
+              }
+            ],
+            [
+              {
+                "en": "Bullseye lantern",
+                "tr": "Odaklı fener"
+              },
+              {
+                "en": "60 ft cone",
+                "tr": "60 ft koni"
+              },
+              "+60 ft"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

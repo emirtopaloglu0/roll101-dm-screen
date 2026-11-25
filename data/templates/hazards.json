@@ -1,0 +1,333 @@
+{
+  "id": "hazards",
+  "category": "rules",
+  "title": {
+    "en": "Environmental Hazards",
+    "tr": "Çevresel Tehlikeler"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Hazards",
+            "tr": "Tehlikeler"
+          },
+          "columns": [
+            {
+              "en": "Hazard",
+              "tr": "Tehlike"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Burning",
+                "tr": "Yanma"
+              },
+              {
+                "en": "1d4 Fire at the start of each turn. Action: drop Prone and roll to put it out; dousing or submerging also works.",
+                "tr": "Her tur başında 1d4 Fire. Aksiyon: Prone olup yuvarlanarak söndür; ıslatmak veya suya batmak da söndürür."
+              }
+            ],
+            [
+              {
+                "en": "Falling",
+                "tr": "Düşme"
+              },
+              {
+                "en": "1d6 Bludgeoning per 10 ft, max 20d6, then Prone. Into water: Reaction, DC 15 Str (Athletics) or Dex (Acrobatics) halves it.",
+                "tr": "Her 10 ft için 1d6 Bludgeoning, en fazla 20d6, sonra Prone. Suya: Reaksiyon, DC 15 Str (Athletics) veya Dex (Acrobatics) yarıya indirir."
+              }
+            ],
+            [
+              {
+                "en": "Suffocation",
+                "tr": "Boğulma"
+              },
+              {
+                "en": "Hold breath for 1 + Con mod minutes (min 30 seconds). Out of air: +1 Exhaustion at the end of each turn. Breathing again removes all of it.",
+                "tr": "Nefesini 1 + Con dakika tutarsın (en az 30 saniye). Hava bitince: her tur sonunda +1 Exhaustion. Tekrar nefes alınca bunların hepsi gider."
+              }
+            ],
+            [
+              {
+                "en": "Dehydration",
+                "tr": "Susuzluk"
+              },
+              {
+                "en": "Water per day: Tiny ¼ gal, Small/Medium 1 gal, Large 4, Huge 16, Gargantuan 64. Less than half: +1 Exhaustion at day's end. Can't be removed until a full day's water.",
+                "tr": "Günlük su: Tiny ¼ galon, Small/Medium 1, Large 4, Huge 16, Gargantuan 64. Yarısından azı: gün sonunda +1 Exhaustion. Tam günlük su içmeden gitmez."
+              }
+            ],
+            [
+              {
+                "en": "Malnutrition",
+                "tr": "Yetersiz beslenme"
+              },
+              {
+                "en": "Food per day: Tiny ¼ lb, Small/Medium 1 lb, Large 4, Huge 16, Gargantuan 64. Less than half: DC 10 Con save or +1 Exhaustion. Nothing for 5 days: +1 Exhaustion that day and each day after. Can't be removed until a full day's food.",
+                "tr": "Günlük yiyecek: Tiny ¼ lb, Small/Medium 1 lb, Large 4, Huge 16, Gargantuan 64. Yarısından azı: DC 10 Con kurtarma ya da +1 Exhaustion. 5 gün hiç yemek yok: o gün ve sonraki her gün +1 Exhaustion. Tam günlük yiyecek yemeden gitmez."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Environmental effects",
+            "tr": "Çevresel etkiler"
+          },
+          "columns": [
+            {
+              "en": "Effect",
+              "tr": "Etki"
+            },
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Extreme cold (0 °F / −18 °C or less)",
+                "tr": "Aşırı soğuk (0 °F / −18 °C ve altı)"
+              },
+              {
+                "en": "DC 10 Con save at the end of each hour or +1 Exhaustion. Cold Resistance or Immunity: auto-success.",
+                "tr": "Her saatin sonunda DC 10 Con kurtarma ya da +1 Exhaustion. Cold direnci veya bağışıklığı: otomatik başarı."
+              }
+            ],
+            [
+              {
+                "en": "Extreme heat (100 °F / 38 °C or more)",
+                "tr": "Aşırı sıcak (100 °F / 38 °C ve üstü)"
+              },
+              {
+                "en": "Without drinkable water: Con save each hour, DC 5 then +1 per hour, or +1 Exhaustion. Medium or Heavy armor: Disadvantage. Fire Resistance or Immunity: auto-success.",
+                "tr": "İçilebilir su yoksa: her saat Con kurtarma, DC 5 ve her saat +1; başarısızsa +1 Exhaustion. Orta veya ağır zırh: dezavantaj. Fire direnci veya bağışıklığı: otomatik başarı."
+              }
+            ],
+            [
+              {
+                "en": "Frigid water",
+                "tr": "Buz gibi su"
+              },
+              {
+                "en": "Safe for Con score minutes. Then each minute: DC 10 Con save or +1 Exhaustion. Cold Resistance or adapted creatures: auto-success.",
+                "tr": "Con skoru kadar dakika güvenli. Sonra her dakika: DC 10 Con kurtarma ya da +1 Exhaustion. Cold direnci olan veya alışkın yaratıklar: otomatik başarı."
+              }
+            ],
+            [
+              {
+                "en": "Deep water (100+ ft)",
+                "tr": "Derin su (100+ ft)"
+              },
+              {
+                "en": "Each hour of swimming without a Swim Speed: DC 10 Con save or +1 Exhaustion.",
+                "tr": "Yüzme hızı olmadan her saat yüzüşte: DC 10 Con kurtarma ya da +1 Exhaustion."
+              }
+            ],
+            [
+              {
+                "en": "Heavy rain or snow",
+                "tr": "Yoğun yağmur veya kar"
+              },
+              {
+                "en": "Lightly Obscured; Disadvantage on Wis (Perception). Heavy rain puts out open flames.",
+                "tr": "Hafif örtülü; Wis (Perception) dezavantajlı. Yoğun yağmur açık alevleri söndürür."
+              }
+            ],
+            [
+              {
+                "en": "Strong wind",
+                "tr": "Kuvvetli rüzgar"
+              },
+              {
+                "en": "Disadvantage on ranged weapon attacks; puts out open flames; disperses fog. Flyers must land at the end of their turn or fall. In a desert, a sandstorm gives Disadvantage on Wis (Perception).",
+                "tr": "Uzak silah saldırılarında dezavantaj; açık alevi söndürür; sisi dağıtır. Uçanlar tur sonunda inmezse düşer. Çölde kum fırtınası Wis (Perception) dezavantajı verir."
+              }
+            ],
+            [
+              {
+                "en": "High altitude (10,000+ ft)",
+                "tr": "Yüksek rakım (10.000+ ft)"
+              },
+              {
+                "en": "Each hour of travel counts as 2 hours. Acclimate after 30 days (not above 20,000 ft unless native).",
+                "tr": "Her yolculuk saati 2 saat sayılır. 30 günde alışılır (yerlisi değilsen 20.000 ft üstüne alışılmaz)."
+              }
+            ],
+            [
+              {
+                "en": "Slippery ice",
+                "tr": "Kaygan buz"
+              },
+              {
+                "en": "Difficult Terrain. Entering it first time on a turn or starting there: DC 10 Dex save or Prone.",
+                "tr": "Zorlu arazi. Turda ilk kez girince ya da turu orada başlatınca: DC 10 Dex kurtarma ya da Prone."
+              }
+            ],
+            [
+              {
+                "en": "Thin ice",
+                "tr": "İnce buz"
+              },
+              {
+                "en": "Holds 3d10 × 10 lb per 10-ft square. Over that, it breaks and everyone falls into frigid water.",
+                "tr": "Her 10 ft karede 3d10 × 10 lb taşır. Fazlasında kırılır, herkes buz gibi suya düşer."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Fear",
+            "tr": "Korku"
+          },
+          "columns": [
+            {
+              "en": "Example",
+              "tr": "Örnek"
+            },
+            {
+              "en": "Save DC",
+              "tr": "Kurtarma DC"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Harmless but terrifying apparition",
+                "tr": "Zararsız ama dehşet verici hayalet"
+              },
+              "10"
+            ],
+            [
+              {
+                "en": "Illusion of your worst fear",
+                "tr": "En büyük korkunun illüzyonu"
+              },
+              "15"
+            ],
+            [
+              {
+                "en": "Portal to a nightmare realm opens",
+                "tr": "Kabus diyarına geçit açılır"
+              },
+              "20"
+            ]
+          ],
+          "note": {
+            "en": "Wis save or Frightened; repeat the save at the end of each turn. Optional extras: must Dash away; attacks against it have Advantage; only move, action or Bonus Action each turn.",
+            "tr": "Wis kurtarma ya da Frightened; her tur sonunda tekrar at. İsteğe bağlı ekler: Dash ile kaçmak zorunda; ona saldırılar avantajlı; her tur sadece hareket, aksiyon ya da bonus aksiyon."
+          }
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Hazards",
+            "tr": "Tehlikeler"
+          },
+          "columns": [
+            {
+              "en": "Hazard",
+              "tr": "Tehlike"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Falling",
+                "tr": "Düşme"
+              },
+              {
+                "en": "1d6 bludgeoning per 10 ft, max 20d6. Land prone unless you take no damage.",
+                "tr": "Her 10 ft için 1d6 bludgeoning, en fazla 20d6. Hasar almazsan yere düşmezsin."
+              }
+            ],
+            [
+              {
+                "en": "Suffocating",
+                "tr": "Boğulma"
+              },
+              {
+                "en": "Hold breath for 1 + Con mod minutes (min 30 seconds). Then survive Con mod rounds (min 1). Next turn: drop to 0 HP and dying; can't regain HP or be stabilized until you can breathe.",
+                "tr": "Nefesini 1 + Con dakika tutarsın (en az 30 saniye). Sonra Con kadar tur dayanırsın (en az 1). Bir sonraki turda 0 HP'ye düşer, can çekişirsin; nefes alana kadar HP kazanamaz, stabil olamazsın."
+              }
+            ],
+            [
+              {
+                "en": "Food",
+                "tr": "Yiyecek"
+              },
+              {
+                "en": "1 lb per day; half a pound counts as half a day without food. You can go 3 + Con mod days (min 1) without food; each day after: 1 level of exhaustion. A normal day of eating resets the count.",
+                "tr": "Günde 1 lb; yarım lb yarım gün aç sayılır. 3 + Con gün (en az 1) yemeden dayanırsın; sonraki her gün: 1 seviye exhaustion. Normal bir gün yemek sayacı sıfırlar."
+              }
+            ],
+            [
+              {
+                "en": "Water",
+                "tr": "Su"
+              },
+              {
+                "en": "1 gallon per day (2 in hot weather). Only half: DC 15 Con save or 1 level of exhaustion at day's end. Less: automatic level. Already exhausted: 2 levels instead.",
+                "tr": "Günde 1 galon (sıcak havada 2). Sadece yarısı: gün sonunda DC 15 Con kurtarma ya da 1 seviye exhaustion. Daha azı: otomatik 1 seviye. Zaten bitkinsen: bunun yerine 2 seviye."
+              }
+            ],
+            [
+              {
+                "en": "Recovery",
+                "tr": "İyileşme"
+              },
+              {
+                "en": "Exhaustion from hunger or thirst can't be removed until you eat and drink the full amount.",
+                "tr": "Açlık veya susuzluktan gelen exhaustion, tam miktarı yiyip içmeden gitmez."
+              }
+            ],
+            [
+              {
+                "en": "Forced march",
+                "tr": "Zorlu yürüyüş"
+              },
+              {
+                "en": "Each hour past 8: Con save DC 10 + 1 per extra hour, or 1 level of exhaustion.",
+                "tr": "8 saatten sonraki her saat: Con kurtarma, DC 10 + fazladan her saat için 1; başarısızsa 1 seviye exhaustion."
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

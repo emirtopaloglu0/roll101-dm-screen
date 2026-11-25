@@ -1,0 +1,265 @@
+{
+  "id": "exhaustion",
+  "category": "rules",
+  "title": {
+    "en": "Exhaustion",
+    "tr": "Bitkinlik (Exhaustion)"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Exhaustion levels",
+            "tr": "Bitkinlik seviyeleri"
+          },
+          "columns": [
+            {
+              "en": "Level",
+              "tr": "Seviye"
+            },
+            {
+              "en": "D20 Tests",
+              "tr": "d20 testleri"
+            },
+            {
+              "en": "Speed",
+              "tr": "Hız"
+            }
+          ],
+          "rows": [
+            [
+              "1",
+              "−2",
+              "−5 ft"
+            ],
+            [
+              "2",
+              "−4",
+              "−10 ft"
+            ],
+            [
+              "3",
+              "−6",
+              "−15 ft"
+            ],
+            [
+              "4",
+              "−8",
+              "−20 ft"
+            ],
+            [
+              "5",
+              "−10",
+              "−25 ft"
+            ],
+            [
+              "6",
+              {
+                "en": "Death",
+                "tr": "Ölüm"
+              },
+              "—"
+            ]
+          ],
+          "note": {
+            "en": "The penalty applies to every D20 Test: ability checks, attack rolls and saving throws.",
+            "tr": "Ceza tüm d20 testlerine uygulanır: yetenek kontrolleri, saldırı ve kurtarma zarları."
+          }
+        },
+        {
+          "title": {
+            "en": "Gaining and losing levels",
+            "tr": "Seviye kazanma ve kaybetme"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Gaining",
+                "tr": "Kazanma"
+              },
+              {
+                "en": "Each time you receive Exhaustion you gain 1 level.",
+                "tr": "Her Exhaustion alışında 1 seviye kazanırsın."
+              }
+            ],
+            [
+              {
+                "en": "Long Rest",
+                "tr": "Uzun Dinlenme"
+              },
+              {
+                "en": "Removes 1 level. At level 0 the condition ends.",
+                "tr": "1 seviye düşürür. Seviye 0 olunca durum biter."
+              }
+            ],
+            [
+              {
+                "en": "Death and revival",
+                "tr": "Ölüm ve dirilme"
+              },
+              {
+                "en": "A creature that dies with Exhaustion returns to life with 1 fewer level.",
+                "tr": "Exhaustion ile ölen yaratık 1 seviye eksikle dirilir."
+              }
+            ],
+            [
+              {
+                "en": "Common causes",
+                "tr": "Yaygın sebepler"
+              },
+              {
+                "en": "Suffocation, dehydration, malnutrition, extreme cold or heat, frigid or deep water (see Environmental Hazards).",
+                "tr": "Boğulma, susuzluk, yetersiz beslenme, aşırı soğuk veya sıcak, buz gibi ya da derin su (Çevresel Tehlikeler'e bak)."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Exhaustion levels",
+            "tr": "Bitkinlik seviyeleri"
+          },
+          "columns": [
+            {
+              "en": "Level",
+              "tr": "Seviye"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              "1",
+              {
+                "en": "Disadvantage on ability checks",
+                "tr": "Yetenek kontrollerinde dezavantaj"
+              }
+            ],
+            [
+              "2",
+              {
+                "en": "Speed halved",
+                "tr": "Hız yarıya iner"
+              }
+            ],
+            [
+              "3",
+              {
+                "en": "Disadvantage on attack rolls and saving throws",
+                "tr": "Saldırı ve kurtarma zarlarında dezavantaj"
+              }
+            ],
+            [
+              "4",
+              {
+                "en": "Hit point maximum halved",
+                "tr": "Maksimum HP yarıya iner"
+              }
+            ],
+            [
+              "5",
+              {
+                "en": "Speed reduced to 0",
+                "tr": "Hız 0 olur"
+              }
+            ],
+            [
+              "6",
+              {
+                "en": "Death",
+                "tr": "Ölüm"
+              }
+            ]
+          ],
+          "note": {
+            "en": "Effects add up: a creature at level 3 suffers levels 1, 2 and 3.",
+            "tr": "Etkiler birikir: 3. seviyedeki yaratık 1, 2 ve 3. seviye etkilerinin hepsini yaşar."
+          }
+        },
+        {
+          "title": {
+            "en": "Gaining and losing levels",
+            "tr": "Seviye kazanma ve kaybetme"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Gaining",
+                "tr": "Kazanma"
+              },
+              {
+                "en": "The effect says how many levels you gain; they add to your current level.",
+                "tr": "Kaç seviye kazanacağını etki söyler; mevcut seviyene eklenir."
+              }
+            ],
+            [
+              {
+                "en": "Long Rest",
+                "tr": "Uzun Dinlenme"
+              },
+              {
+                "en": "Removes 1 level, if you also ate and drank.",
+                "tr": "Yiyip içtiysen 1 seviye düşürür."
+              }
+            ],
+            [
+              {
+                "en": "Common causes",
+                "tr": "Yaygın sebepler"
+              },
+              {
+                "en": "Forced march, lack of food or water, and some spells or monsters.",
+                "tr": "Zorlu yürüyüş, yiyecek veya su eksikliği, bazı büyü ya da canavarlar."
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

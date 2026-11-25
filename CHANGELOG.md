@@ -35,6 +35,16 @@ and the project uses [Semantic Versioning](https://semver.org/).
   Platinum and electrum can be hidden.
 - Services & Prices template (EN/TR): inn, meals, food and drink, lifestyle, hirelings, travel,
   spellcasting services and healing, for 2024 (SRD 5.2.1) and 2014 (SRD 5.1), plus labelled homebrew rows.
+- Rules references (EN/TR, 2024 and 2014, summarized from SRD 5.2.1 and 5.1): Conditions, Exhaustion,
+  Combat Actions, Cover, Concentration, Death & Dying, DC Table, Light & Vision, Movement, Damage,
+  Objects (AC & HP), Traps, Environmental Hazards and Weapon Mastery. Each can be its own box.
+- Rules Glossary box: search all rules references at once, by edition and language.
+- Collapse / expand all button in reference template and glossary boxes. The choice is kept
+  after a re-render, and clearing the glossary search no longer leaves every group open.
+- Library dialog with a search field (ignores accents, matches every language of a title) and
+  collapsible categories: Tools, Rules reference, Prices and services, and one per content pack.
+  Double-click a row or press Enter to add it.
+- Content pack templates can set an optional `group` to sort them under sub-headings in the library.
 - Content packs: import your own reference templates from a .json file (see docs/content-packs.md).
 - Automatic backups (last 5, stored on this computer only): before the first edit after opening,
   before removing a box, deleting a layout, importing or restoring. Restore from the toolbar.

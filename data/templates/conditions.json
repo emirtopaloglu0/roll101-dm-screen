@@ -1,0 +1,380 @@
+{
+  "id": "conditions",
+  "category": "rules",
+  "title": {
+    "en": "Conditions",
+    "tr": "Durumlar (Conditions)"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Conditions",
+            "tr": "Durumlar"
+          },
+          "columns": [
+            {
+              "en": "Condition",
+              "tr": "Durum"
+            },
+            {
+              "en": "Effects",
+              "tr": "Etkileri"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Blinded",
+                "tr": "Blinded (Kör)"
+              },
+              {
+                "en": "• Can't see. Auto-fail ability checks that need sight.\n• Attacks against you have Advantage. Your attacks have Disadvantage.",
+                "tr": "• Göremezsin. Görme gerektiren yetenek kontrollerinde otomatik başarısız olursun.\n• Sana yapılan saldırılar avantajlı, senin saldırıların dezavantajlı."
+              }
+            ],
+            [
+              {
+                "en": "Charmed",
+                "tr": "Charmed (Büyülenmiş)"
+              },
+              {
+                "en": "• Can't attack the charmer or target it with damaging abilities or magical effects.\n• The charmer has Advantage on ability checks to interact with you socially.",
+                "tr": "• Seni büyüleyene saldıramaz, onu hasar veren yetenek veya büyülü etkilerle hedef alamazsın.\n• Büyüleyen, seninle sosyal etkileşim kontrollerinde avantajlıdır."
+              }
+            ],
+            [
+              {
+                "en": "Deafened",
+                "tr": "Deafened (Sağır)"
+              },
+              {
+                "en": "• Can't hear. Auto-fail ability checks that need hearing.",
+                "tr": "• Duyamazsın. Duyma gerektiren yetenek kontrollerinde otomatik başarısız olursun."
+              }
+            ],
+            [
+              {
+                "en": "Exhaustion",
+                "tr": "Exhaustion (Bitkinlik)"
+              },
+              {
+                "en": "• Cumulative: each time you gain it, +1 level. Level 6 = death.\n• D20 Tests: −2 × level.\n• Speed: −5 ft × level.\n• A Long Rest removes 1 level. At level 0 the condition ends.",
+                "tr": "• Birikir: her alışta +1 seviye. 6. seviyede ölürsün.\n• d20 testleri: −2 × seviye.\n• Hız: −5 ft × seviye.\n• Uzun Dinlenme 1 seviye düşürür. Seviye 0 olunca durum biter."
+              }
+            ],
+            [
+              {
+                "en": "Frightened",
+                "tr": "Frightened (Korkmuş)"
+              },
+              {
+                "en": "• Disadvantage on ability checks and attack rolls while the source of fear is in line of sight.\n• Can't willingly move closer to the source.",
+                "tr": "• Korku kaynağı görüş hattındayken yetenek kontrolleri ve saldırı zarlarında dezavantaj.\n• Kaynağa isteyerek yaklaşamazsın."
+              }
+            ],
+            [
+              {
+                "en": "Grappled",
+                "tr": "Grappled (Tutulmuş)"
+              },
+              {
+                "en": "• Speed 0 and can't increase.\n• Disadvantage on attacks against anyone except the grappler.\n• The grappler can drag or carry you; each foot costs it 1 extra foot unless you are Tiny or 2+ sizes smaller.\n• Escape: action, Str (Athletics) or Dex (Acrobatics) check vs the escape DC. Ends if the grappler is Incapacitated or you leave its range.",
+                "tr": "• Hız 0 olur ve artamaz.\n• Tutan dışındaki hedeflere saldırılarında dezavantaj.\n• Tutan seni sürükleyebilir veya taşıyabilir; Tiny ya da ondan 2+ boy küçük değilsen her adım ona 1 ft fazladan mal olur.\n• Kurtulma: aksiyon, kaçış DC'sine karşı Str (Athletics) veya Dex (Acrobatics). Tutan Incapacitated olursa ya da menzilinden çıkarsan biter."
+              }
+            ],
+            [
+              {
+                "en": "Incapacitated",
+                "tr": "Incapacitated (Etkisiz)"
+              },
+              {
+                "en": "• No actions, Bonus Actions or Reactions.\n• Concentration breaks.\n• Can't speak.\n• Disadvantage on Initiative if Incapacitated when you roll it.",
+                "tr": "• Aksiyon, Bonus Aksiyon veya Reaksiyon kullanamazsın.\n• Konsantrasyonun bozulur.\n• Konuşamazsın.\n• İnisiyatif atarken Incapacitated isen dezavantajlı atarsın."
+              }
+            ],
+            [
+              {
+                "en": "Invisible",
+                "tr": "Invisible (Görünmez)"
+              },
+              {
+                "en": "• Advantage on Initiative.\n• Effects that need to see the target don't affect you, unless their creator can see you. Your gear is hidden too.\n• Attacks against you have Disadvantage, yours have Advantage, except against a creature that can see you.",
+                "tr": "• İnisiyatifte avantaj.\n• Hedefi görmeyi gerektiren etkiler, yaratıcıları seni göremiyorsa seni etkilemez. Taşıdıkların da gizlidir.\n• Sana saldırılar dezavantajlı, seninkiler avantajlı; seni görebilen yaratığa karşı bu geçerli değil."
+              }
+            ],
+            [
+              {
+                "en": "Paralyzed",
+                "tr": "Paralyzed (Felçli)"
+              },
+              {
+                "en": "• Incapacitated. Speed 0.\n• Auto-fail Str and Dex saving throws.\n• Attacks against you have Advantage.\n• A hit from within 5 ft is a Critical Hit.",
+                "tr": "• Incapacitated. Hız 0.\n• Str ve Dex kurtarma zarlarında otomatik başarısız.\n• Sana saldırılar avantajlı.\n• 5 ft içinden gelen isabet kritik vuruştur."
+              }
+            ],
+            [
+              {
+                "en": "Petrified",
+                "tr": "Petrified (Taşlaşmış)"
+              },
+              {
+                "en": "• Turned to stone with your nonmagical gear. Weight ×10, no aging.\n• Incapacitated. Speed 0.\n• Attacks against you have Advantage.\n• Auto-fail Str and Dex saving throws.\n• Resistance to all damage. Immunity to Poisoned.",
+                "tr": "• Büyüsüz eşyalarınla birlikte taşa dönersin. Ağırlık ×10, yaşlanmazsın.\n• Incapacitated. Hız 0.\n• Sana saldırılar avantajlı.\n• Str ve Dex kurtarma zarlarında otomatik başarısız.\n• Tüm hasara direnç. Poisoned durumuna bağışıklık."
+              }
+            ],
+            [
+              {
+                "en": "Poisoned",
+                "tr": "Poisoned (Zehirlenmiş)"
+              },
+              {
+                "en": "• Disadvantage on attack rolls and ability checks.",
+                "tr": "• Saldırı zarlarında ve yetenek kontrollerinde dezavantaj."
+              }
+            ],
+            [
+              {
+                "en": "Prone",
+                "tr": "Prone (Yerde)"
+              },
+              {
+                "en": "• Move only by crawling, or spend half your Speed to stand up (not possible at Speed 0).\n• Your attacks have Disadvantage.\n• Attacks against you have Advantage from within 5 ft, otherwise Disadvantage.",
+                "tr": "• Sadece sürünerek hareket edersin ya da Hızının yarısını harcayıp kalkarsın (Hız 0 iken kalkamazsın).\n• Saldırıların dezavantajlı.\n• Sana 5 ft içinden saldırılar avantajlı, daha uzaktan dezavantajlı."
+              }
+            ],
+            [
+              {
+                "en": "Restrained",
+                "tr": "Restrained (Bağlı)"
+              },
+              {
+                "en": "• Speed 0 and can't increase.\n• Attacks against you have Advantage. Your attacks have Disadvantage.\n• Disadvantage on Dex saving throws.",
+                "tr": "• Hız 0 olur ve artamaz.\n• Sana saldırılar avantajlı, seninkiler dezavantajlı.\n• Dex kurtarma zarlarında dezavantaj."
+              }
+            ],
+            [
+              {
+                "en": "Stunned",
+                "tr": "Stunned (Sersemlemiş)"
+              },
+              {
+                "en": "• Incapacitated.\n• Auto-fail Str and Dex saving throws.\n• Attacks against you have Advantage.",
+                "tr": "• Incapacitated.\n• Str ve Dex kurtarma zarlarında otomatik başarısız.\n• Sana saldırılar avantajlı."
+              }
+            ],
+            [
+              {
+                "en": "Unconscious",
+                "tr": "Unconscious (Bilinçsiz)"
+              },
+              {
+                "en": "• Incapacitated and Prone. Drop what you hold. Still Prone when it ends.\n• Speed 0. Unaware of surroundings.\n• Attacks against you have Advantage.\n• Auto-fail Str and Dex saving throws.\n• A hit from within 5 ft is a Critical Hit.",
+                "tr": "• Incapacitated ve Prone. Tuttuğunu düşürürsün. Durum bitince yerde kalırsın.\n• Hız 0. Çevrenin farkında değilsin.\n• Sana saldırılar avantajlı.\n• Str ve Dex kurtarma zarlarında otomatik başarısız.\n• 5 ft içinden gelen isabet kritik vuruştur."
+              }
+            ]
+          ],
+          "note": {
+            "en": "A condition doesn't stack with itself; Exhaustion is the only exception.",
+            "tr": "Bir durum kendisiyle birikmez; tek istisna Exhaustion'dır."
+          }
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Conditions",
+            "tr": "Durumlar"
+          },
+          "columns": [
+            {
+              "en": "Condition",
+              "tr": "Durum"
+            },
+            {
+              "en": "Effects",
+              "tr": "Etkileri"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Blinded",
+                "tr": "Blinded (Kör)"
+              },
+              {
+                "en": "• Can't see. Auto-fail ability checks that need sight.\n• Attacks against you have Advantage. Your attacks have Disadvantage.",
+                "tr": "• Göremezsin. Görme gerektiren yetenek kontrollerinde otomatik başarısız olursun.\n• Sana yapılan saldırılar avantajlı, senin saldırıların dezavantajlı."
+              }
+            ],
+            [
+              {
+                "en": "Charmed",
+                "tr": "Charmed (Büyülenmiş)"
+              },
+              {
+                "en": "• Can't attack the charmer or target it with harmful abilities or magical effects.\n• The charmer has Advantage on ability checks to interact with you socially.",
+                "tr": "• Seni büyüleyene saldıramaz, onu zararlı yetenek veya büyülü etkilerle hedef alamazsın.\n• Büyüleyen, seninle sosyal etkileşim kontrollerinde avantajlıdır."
+              }
+            ],
+            [
+              {
+                "en": "Deafened",
+                "tr": "Deafened (Sağır)"
+              },
+              {
+                "en": "• Can't hear. Auto-fail ability checks that need hearing.",
+                "tr": "• Duyamazsın. Duyma gerektiren yetenek kontrollerinde otomatik başarısız olursun."
+              }
+            ],
+            [
+              {
+                "en": "Exhaustion",
+                "tr": "Exhaustion (Bitkinlik)"
+              },
+              {
+                "en": "• Six levels; effects add up (see the Exhaustion box).\n• 1 Disadvantage on ability checks · 2 Speed halved · 3 Disadvantage on attacks and saves · 4 HP maximum halved · 5 Speed 0 · 6 Death.",
+                "tr": "• Altı seviye; etkiler birikir (Bitkinlik kutusuna bak).\n• 1 Yetenek kontrollerinde dezavantaj · 2 Hız yarıya · 3 Saldırı ve kurtarma zarlarında dezavantaj · 4 Maksimum HP yarıya · 5 Hız 0 · 6 Ölüm."
+              }
+            ],
+            [
+              {
+                "en": "Frightened",
+                "tr": "Frightened (Korkmuş)"
+              },
+              {
+                "en": "• Disadvantage on ability checks and attack rolls while the source of fear is in line of sight.\n• Can't willingly move closer to the source.",
+                "tr": "• Korku kaynağı görüş hattındayken yetenek kontrolleri ve saldırı zarlarında dezavantaj.\n• Kaynağa isteyerek yaklaşamazsın."
+              }
+            ],
+            [
+              {
+                "en": "Grappled",
+                "tr": "Grappled (Tutulmuş)"
+              },
+              {
+                "en": "• Speed 0; no bonus to speed.\n• Ends if the grappler is incapacitated, or an effect moves you out of its reach.\n• Escape: action, Str (Athletics) or Dex (Acrobatics) contested by the grappler's Str (Athletics).",
+                "tr": "• Hız 0; hız bonusu alamazsın.\n• Tutan incapacitated olursa ya da bir etki seni erişiminden çıkarırsa biter.\n• Kurtulma: aksiyon, tutanın Str (Athletics) kontrolüne karşı Str (Athletics) veya Dex (Acrobatics) çekişmesi."
+              }
+            ],
+            [
+              {
+                "en": "Incapacitated",
+                "tr": "Incapacitated (Etkisiz)"
+              },
+              {
+                "en": "• Can't take actions or reactions.",
+                "tr": "• Aksiyon veya reaksiyon kullanamazsın."
+              }
+            ],
+            [
+              {
+                "en": "Invisible",
+                "tr": "Invisible (Görünmez)"
+              },
+              {
+                "en": "• Can't be seen without magic or a special sense. Counts as heavily obscured for hiding. Noise or tracks can reveal your location.\n• Attacks against you have Disadvantage. Your attacks have Advantage.",
+                "tr": "• Büyü ya da özel bir his olmadan görülemezsin. Saklanmak için yoğun örtülü sayılırsın. Ses ve iz yerini belli edebilir.\n• Sana saldırılar dezavantajlı, seninkiler avantajlı."
+              }
+            ],
+            [
+              {
+                "en": "Paralyzed",
+                "tr": "Paralyzed (Felçli)"
+              },
+              {
+                "en": "• Incapacitated. Can't move or speak.\n• Auto-fail Str and Dex saving throws.\n• Attacks against you have Advantage.\n• A hit from within 5 ft is a critical hit.",
+                "tr": "• Incapacitated. Hareket edemez, konuşamazsın.\n• Str ve Dex kurtarma zarlarında otomatik başarısız.\n• Sana saldırılar avantajlı.\n• 5 ft içinden gelen isabet kritik vuruştur."
+              }
+            ],
+            [
+              {
+                "en": "Petrified",
+                "tr": "Petrified (Taşlaşmış)"
+              },
+              {
+                "en": "• Turned to stone with your nonmagical gear. Weight ×10, no aging.\n• Incapacitated. Can't move or speak. Unaware of surroundings.\n• Attacks against you have Advantage.\n• Auto-fail Str and Dex saving throws.\n• Resistance to all damage.\n• Immune to poison and disease (ones already in you are paused, not cured).",
+                "tr": "• Büyüsüz eşyalarınla birlikte taşa dönersin. Ağırlık ×10, yaşlanmazsın.\n• Incapacitated. Hareket edemez, konuşamazsın. Çevrenin farkında değilsin.\n• Sana saldırılar avantajlı.\n• Str ve Dex kurtarma zarlarında otomatik başarısız.\n• Tüm hasara direnç.\n• Zehir ve hastalığa bağışıklık (vücuttakiler durur, iyileşmez)."
+              }
+            ],
+            [
+              {
+                "en": "Poisoned",
+                "tr": "Poisoned (Zehirlenmiş)"
+              },
+              {
+                "en": "• Disadvantage on attack rolls and ability checks.",
+                "tr": "• Saldırı zarlarında ve yetenek kontrollerinde dezavantaj."
+              }
+            ],
+            [
+              {
+                "en": "Prone",
+                "tr": "Prone (Yerde)"
+              },
+              {
+                "en": "• Move only by crawling unless you stand up (costs half your speed), which ends the condition.\n• Your attacks have Disadvantage.\n• Attacks against you have Advantage from within 5 ft, otherwise Disadvantage.",
+                "tr": "• Kalkmadıkça sadece sürünerek hareket edersin (kalkmak hızının yarısına mal olur ve durumu bitirir).\n• Saldırıların dezavantajlı.\n• Sana 5 ft içinden saldırılar avantajlı, daha uzaktan dezavantajlı."
+              }
+            ],
+            [
+              {
+                "en": "Restrained",
+                "tr": "Restrained (Bağlı)"
+              },
+              {
+                "en": "• Speed 0; no bonus to speed.\n• Attacks against you have Advantage. Your attacks have Disadvantage.\n• Disadvantage on Dex saving throws.",
+                "tr": "• Hız 0; hız bonusu alamazsın.\n• Sana saldırılar avantajlı, seninkiler dezavantajlı.\n• Dex kurtarma zarlarında dezavantaj."
+              }
+            ],
+            [
+              {
+                "en": "Stunned",
+                "tr": "Stunned (Sersemlemiş)"
+              },
+              {
+                "en": "• Incapacitated. Can't move. Can speak only falteringly.\n• Auto-fail Str and Dex saving throws.\n• Attacks against you have Advantage.",
+                "tr": "• Incapacitated. Hareket edemezsin. Ancak kekeleyerek konuşabilirsin.\n• Str ve Dex kurtarma zarlarında otomatik başarısız.\n• Sana saldırılar avantajlı."
+              }
+            ],
+            [
+              {
+                "en": "Unconscious",
+                "tr": "Unconscious (Bilinçsiz)"
+              },
+              {
+                "en": "• Incapacitated. Can't move or speak. Unaware of surroundings.\n• Drop what you hold and fall prone.\n• Auto-fail Str and Dex saving throws.\n• Attacks against you have Advantage.\n• A hit from within 5 ft is a critical hit.",
+                "tr": "• Incapacitated. Hareket edemez, konuşamazsın. Çevrenin farkında değilsin.\n• Tuttuğunu düşürür, yere yığılırsın.\n• Str ve Dex kurtarma zarlarında otomatik başarısız.\n• Sana saldırılar avantajlı.\n• 5 ft içinden gelen isabet kritik vuruştur."
+              }
+            ]
+          ],
+          "note": {
+            "en": "A condition doesn't stack with itself. Each instance has its own duration.",
+            "tr": "Bir durum kendisiyle birikmez. Her biri kendi süresini işletir."
+          }
+        }
+      ]
+    }
+  ]
+}

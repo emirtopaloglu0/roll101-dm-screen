@@ -780,6 +780,38 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Rule cells can hold several lines ("\n" in data). */
+.r101-dm-screen .r101-tpl-table td {
+  white-space: pre-line;
+}
+
+.r101-dm-screen .r101-tpl-table td:first-child {
+  font-weight: 600;
+}
+
+/* Rules glossary */
+.r101-dm-screen .r101-glossary-entries {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.r101-dm-screen .r101-glossary-entry {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--r101-border);
+}
+
+.r101-dm-screen .r101-glossary-entry:last-child {
+  border-bottom: none;
+}
+
+.r101-dm-screen .r101-glossary-text {
+  white-space: pre-line;
+  user-select: text;
+}
+
 .r101-dm-screen .r101-tpl-note {
   margin: 3px 6px 0;
   font-size: 0.85em;
@@ -824,6 +856,58 @@
 .r101-backup-dialog .r101-backup-meta {
   font-size: 0.85em;
   opacity: 0.7;
+}
+
+/* Library dialog */
+.r101-library-dialog .r101-library {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.r101-library-dialog .r101-library-list {
+  max-height: min(60vh, 520px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.r101-library-dialog .r101-library-group + .r101-library-group {
+  margin-top: 4px;
+}
+
+.r101-library-dialog .r101-library-group > summary {
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.r101-library-dialog .r101-library-group > summary:hover {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.r101-library-dialog .r101-library-count {
+  margin-left: 0.3em;
+  font-weight: normal;
+  font-size: 0.85em;
+  opacity: 0.6;
+}
+
+.r101-library-dialog .r101-library-group .r101-backup-list {
+  margin: 2px 0 4px 1em;
+}
+
+.r101-library-dialog .r101-library-sub {
+  margin: 6px 0 0;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.65;
+}
+
+.r101-library-dialog [hidden] {
+  display: none !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {

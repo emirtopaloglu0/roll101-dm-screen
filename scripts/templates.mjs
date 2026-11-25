@@ -68,7 +68,14 @@ export function validateTemplate(raw) {
   const id = cleanId(raw.id);
   const variants = Array.isArray(raw.variants) ? raw.variants.slice(0, LIMITS.variants).map(cleanVariant).filter(Boolean) : [];
   if (!id || !variants.length) return null;
-  return { id, title: cleanText(raw.title) || id, variants };
+  return {
+    id,
+    title: cleanText(raw.title) || id,
+    category: cleanId(raw.category) ?? "",
+    // Free-text heading the library groups pack templates under, e.g. {en: "Travel", tr: "Yolculuk"}.
+    group: cleanText(raw.group),
+    variants
+  };
 }
 
 /**
@@ -104,6 +111,14 @@ export function localize(value, lang) {
   return value[lang] ?? value.en ?? Object.values(value)[0] ?? "";
 }
 
+/**
+ * Lower-case text for loose search: accents and the Turkish dotless i fold away,
+ * so "sifa" finds "Şifa" and "initiative" finds "İnitiative".
+ */
+export function foldSearch(text) {
+  return String(text ?? "").toLowerCase().normalize("NFD").replace(/\p{M}/gu, "").replace(/ı/g, "i");
+}
+
 /** Languages a template offers (from its title and first section). */
 export function templateLanguages(template) {
   const langs = new Set();
@@ -134,16 +149,19 @@ async function loadBuiltins() {
     try {
       const index = await fetchJson(INDEX_URL);
       const files = Array.isArray(index?.templates) ? index.templates : [];
-      await Promise.all(files.map(async file => {
-        if (typeof file !== "string" || !/^[a-z0-9._-]+\.json$/i.test(file)) return;
+      // Fetch in parallel, keep index order.
+      const loaded = await Promise.all(files.map(async file => {
+        if (typeof file !== "string" || !/^[a-z0-9._-]+\.json$/i.test(file)) return null;
         try {
           const template = validateTemplate(await fetchJson(`modules/${MODULE_ID}/data/templates/${file}`));
-          if (template) map.set(template.id, template);
-          else console.warn(`${MODULE_ID} | Skipped invalid template ${file}`);
+          if (!template) console.warn(`${MODULE_ID} | Skipped invalid template ${file}`);
+          return template;
         } catch (err) {
           console.warn(`${MODULE_ID} | Could not load template ${file}`, err);
+          return null;
         }
       }));
+      for (const template of loaded) if (template) map.set(template.id, template);
     } catch (err) {
       console.warn(`${MODULE_ID} | Could not load template index`, err);
     }
@@ -188,16 +206,28 @@ export function subscribe(fn) {
 /* -------------------------------------------- */
 
 /**
- * Every template the screen can add, grouped by source.
- * @returns {Promise<{key: string, title: object|string, source: string}[]>}
+ * Every template the screen can add. Pack templates also carry their pack id and group.
+ * @returns {Promise<{key: string, title: object|string, source: string, category: string, group?: object|string, packId?: string}[]>}
  */
 export async function listTemplates() {
   const out = [];
-  for (const t of (await loadBuiltins()).values()) out.push({ key: `builtin:${t.id}`, title: t.title, source: "builtin" });
+  for (const t of (await loadBuiltins()).values()) {
+    out.push({ key: `builtin:${t.id}`, title: t.title, source: "builtin", category: t.category });
+  }
   for (const pack of getPacks()) {
-    for (const t of pack.templates) out.push({ key: `pack:${pack.id}:${t.id}`, title: t.title, source: pack.name });
+    for (const t of pack.templates) {
+      out.push({
+        key: `pack:${pack.id}:${t.id}`, title: t.title, source: pack.name,
+        category: t.category, group: t.group, packId: pack.id
+      });
+    }
   }
   return out;
+}
+
+/** Built-in templates of one category (for example "rules"), in index order. */
+export async function getBuiltinsByCategory(category) {
+  return [...(await loadBuiltins()).values()].filter(t => t.category === category);
 }
 
 /** @returns {Promise<object|null>} */

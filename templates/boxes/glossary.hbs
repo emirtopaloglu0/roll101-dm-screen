@@ -1,0 +1,36 @@
+<div class="r101-template r101-glossary">
+  <div class="r101-box-actions">
+    <button type="button" class="r101-header-button r101-toggle-all" data-action="toggleSections"
+            data-tooltip="R101DMSCREEN.Template.ToggleAll" aria-label="{{localize 'R101DMSCREEN.Template.ToggleAll'}}">
+      <i class="fa-solid {{#if open}}fa-angles-up{{else}}fa-angles-down{{/if}}" aria-hidden="true"></i>
+    </button>
+    <input type="search" class="r101-search" data-r101-glossary-search
+           placeholder="{{localize 'R101DMSCREEN.Glossary.Search'}}" aria-label="{{localize 'R101DMSCREEN.Glossary.Search'}}">
+    <select class="r101-select" data-r101-template="variant" aria-label="{{localize 'R101DMSCREEN.Template.Variant'}}">
+      {{#each variants}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    {{#if langs}}
+    <select class="r101-select" data-r101-template="lang" aria-label="{{localize 'R101DMSCREEN.Template.Language'}}">
+      {{#each langs}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    {{/if}}
+  </div>
+  <div class="r101-scroll r101-template-body r101-glossary-list">
+    {{#each groups}}
+    <details class="r101-tpl-section r101-glossary-group" {{#if ../open}}open{{/if}}>
+      <summary>{{name}} <span class="r101-note">({{entries.length}})</span></summary>
+      <ul class="r101-glossary-entries">
+        {{#each entries}}
+        <li class="r101-glossary-entry" data-search="{{search}}">
+          <strong class="r101-glossary-term">{{term}}</strong>
+          <span class="r101-glossary-text">{{text}}</span>
+        </li>
+        {{/each}}
+      </ul>
+      {{#if attribution}}<p class="r101-attribution">{{attribution}}</p>{{/if}}
+    </details>
+    {{else}}
+    <p class="r101-note r101-pad">{{localize "R101DMSCREEN.Glossary.Empty"}}</p>
+    {{/each}}
+  </div>
+</div>

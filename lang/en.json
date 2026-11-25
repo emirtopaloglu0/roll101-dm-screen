@@ -142,7 +142,13 @@
       "CoinsHint": "Convert and split coins",
       "BuiltIn": "Built in",
       "Add": "Add",
-      "PacksHint": "Import content packs with the box button in the toolbar to add your own templates."
+      "PacksHint": "Import content packs with the box button in the toolbar to add your own templates.",
+      "GlossaryHint": "Search every rules reference in one box",
+      "Rules": "Rules reference (SRD)",
+      "Tools": "Tools",
+      "Prices": "Prices and services",
+      "Search": "Search the library…",
+      "NoMatch": "Nothing matches this search."
     },
     "Coins": {
       "Title": "Coin converter",
@@ -167,7 +173,8 @@
     "Template": {
       "AutoLanguage": "Auto",
       "Variant": "Edition",
-      "Language": "Language"
+      "Language": "Language",
+      "ToggleAll": "Collapse or expand all sections"
     },
     "Packs": {
       "Title": "Content packs",
@@ -184,6 +191,11 @@
       "Imported": "Imported {name}: {count} template(s).",
       "RemoveTitle": "Remove pack",
       "RemoveContent": "Remove this pack? Boxes that use it will show \"not found\" until it is imported again."
+    },
+    "Glossary": {
+      "Title": "Rules Glossary",
+      "Search": "Search rules…",
+      "Empty": "No rules templates found."
     }
   }
 }

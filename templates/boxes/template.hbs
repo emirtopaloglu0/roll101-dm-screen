@@ -1,6 +1,9 @@
 <div class="r101-template">
-  {{#if hasControls}}
   <div class="r101-box-actions">
+    <button type="button" class="r101-header-button r101-toggle-all" data-action="toggleSections"
+            data-tooltip="R101DMSCREEN.Template.ToggleAll" aria-label="{{localize 'R101DMSCREEN.Template.ToggleAll'}}">
+      <i class="fa-solid {{#if open}}fa-angles-up{{else}}fa-angles-down{{/if}}" aria-hidden="true"></i>
+    </button>
     {{#if variants}}
     <select class="r101-select" data-r101-template="variant" aria-label="{{localize 'R101DMSCREEN.Template.Variant'}}">
       {{#each variants}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
@@ -12,10 +15,9 @@
     </select>
     {{/if}}
   </div>
-  {{/if}}
   <div class="r101-scroll r101-template-body">
     {{#each sections}}
-    <details class="r101-tpl-section" open>
+    <details class="r101-tpl-section" {{#if ../open}}open{{/if}}>
       <summary>{{title}}</summary>
       <table class="r101-tpl-table">
         {{#if columns.length}}

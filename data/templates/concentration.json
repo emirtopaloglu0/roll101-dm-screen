@@ -1,0 +1,172 @@
+{
+  "id": "concentration",
+  "category": "rules",
+  "title": {
+    "en": "Concentration",
+    "tr": "Konsantrasyon"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Concentration",
+            "tr": "Konsantrasyon"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "One at a time",
+                "tr": "Tek seferde bir"
+              },
+              {
+                "en": "Starting to cast another Concentration spell, or activating another Concentration effect, ends the first one.",
+                "tr": "Başka bir Konsantrasyon büyüsüne başlamak ya da başka bir Konsantrasyon etkisini açmak ilkini bitirir."
+              }
+            ],
+            [
+              {
+                "en": "Taking damage",
+                "tr": "Hasar almak"
+              },
+              {
+                "en": "Con saving throw. DC = 10 or half the damage (round down), whichever is higher, up to DC 30.",
+                "tr": "Con kurtarma zarı. DC = 10 ya da hasarın yarısı (aşağı yuvarla), hangisi yüksekse; en fazla DC 30."
+              }
+            ],
+            [
+              {
+                "en": "Incapacitated or dead",
+                "tr": "Incapacitated veya ölü"
+              },
+              {
+                "en": "Concentration ends.",
+                "tr": "Konsantrasyon biter."
+              }
+            ],
+            [
+              {
+                "en": "Ending it",
+                "tr": "Sonlandırma"
+              },
+              {
+                "en": "Any time, no action needed.",
+                "tr": "İstediğin an, aksiyon gerekmez."
+              }
+            ],
+            [
+              {
+                "en": "Long spells",
+                "tr": "Uzun büyüler"
+              },
+              {
+                "en": "A spell with a casting time of 1 minute or more needs Concentration while you cast it. If it breaks, the spell fails but the slot isn't spent.",
+                "tr": "Döküm süresi 1 dakika veya daha uzun büyü, yapılırken Konsantrasyon ister. Bozulursa büyü başarısız olur ama slot harcanmaz."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Concentration",
+            "tr": "Konsantrasyon"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "One at a time",
+                "tr": "Tek seferde bir"
+              },
+              {
+                "en": "Casting another spell that needs concentration ends the first one.",
+                "tr": "Konsantrasyon isteyen başka bir büyü yapmak ilkini bitirir."
+              }
+            ],
+            [
+              {
+                "en": "Taking damage",
+                "tr": "Hasar almak"
+              },
+              {
+                "en": "Con saving throw. DC = 10 or half the damage, whichever is higher. Make a separate save for each source of damage.",
+                "tr": "Con kurtarma zarı. DC = 10 ya da hasarın yarısı, hangisi yüksekse. Her hasar kaynağı için ayrı zar at."
+              }
+            ],
+            [
+              {
+                "en": "Incapacitated or killed",
+                "tr": "Incapacitated veya ölü"
+              },
+              {
+                "en": "Concentration ends.",
+                "tr": "Konsantrasyon biter."
+              }
+            ],
+            [
+              {
+                "en": "Environment",
+                "tr": "Çevre"
+              },
+              {
+                "en": "The GM may call for a DC 10 Con save, for example when a wave crashes over you on a ship in a storm.",
+                "tr": "GM DC 10 Con kurtarma zarı isteyebilir; örneğin fırtınada gemide üstüne dalga vurduğunda."
+              }
+            ],
+            [
+              {
+                "en": "Ending it",
+                "tr": "Sonlandırma"
+              },
+              {
+                "en": "Any time, no action needed. Moving and attacking don't break it.",
+                "tr": "İstediğin an, aksiyon gerekmez. Hareket ve saldırı bozmaz."
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

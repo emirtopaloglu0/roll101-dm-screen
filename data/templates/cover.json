@@ -1,0 +1,172 @@
+{
+  "id": "cover",
+  "category": "rules",
+  "title": {
+    "en": "Cover",
+    "tr": "Siper (Cover)"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Cover",
+            "tr": "Siper"
+          },
+          "columns": [
+            {
+              "en": "Cover",
+              "tr": "Siper"
+            },
+            {
+              "en": "Benefit",
+              "tr": "Faydası"
+            },
+            {
+              "en": "Example",
+              "tr": "Örnek"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Half",
+                "tr": "Yarım (Half)"
+              },
+              {
+                "en": "+2 AC and Dex saves",
+                "tr": "+2 AC ve Dex kurtarma"
+              },
+              {
+                "en": "Covers at least half the target: low wall, big furniture, narrow tree, another creature.",
+                "tr": "Hedefin en az yarısını örter: alçak duvar, büyük mobilya, ince ağaç, başka bir yaratık."
+              }
+            ],
+            [
+              {
+                "en": "Three-quarters",
+                "tr": "Dörtte üç (Three-Quarters)"
+              },
+              {
+                "en": "+5 AC and Dex saves",
+                "tr": "+5 AC ve Dex kurtarma"
+              },
+              {
+                "en": "Covers about three-quarters: portcullis, arrow slit, thick tree.",
+                "tr": "Yaklaşık dörtte üçünü örter: parmaklıklı kapı, mazgal, kalın ağaç."
+              }
+            ],
+            [
+              {
+                "en": "Total",
+                "tr": "Tam (Total)"
+              },
+              {
+                "en": "Can't be targeted directly",
+                "tr": "Doğrudan hedef alınamaz"
+              },
+              {
+                "en": "Completely hidden by an obstacle. An area effect can still reach it.",
+                "tr": "Bir engelle tamamen gizlidir. Alan etkileri yine de ulaşabilir."
+              }
+            ]
+          ],
+          "note": {
+            "en": "Cover counts only against attacks and effects from the other side. Sources don't add up: only the best one applies.",
+            "tr": "Siper sadece diğer taraftan gelen saldırı ve etkilere karşı sayılır. Kaynaklar toplanmaz: en iyisi geçerlidir."
+          }
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Cover",
+            "tr": "Siper"
+          },
+          "columns": [
+            {
+              "en": "Cover",
+              "tr": "Siper"
+            },
+            {
+              "en": "Benefit",
+              "tr": "Faydası"
+            },
+            {
+              "en": "Example",
+              "tr": "Örnek"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Half",
+                "tr": "Yarım (Half)"
+              },
+              {
+                "en": "+2 AC and Dex saves",
+                "tr": "+2 AC ve Dex kurtarma"
+              },
+              {
+                "en": "Covers at least half the target: low wall, big furniture, narrow tree, another creature.",
+                "tr": "Hedefin en az yarısını örter: alçak duvar, büyük mobilya, ince ağaç, başka bir yaratık."
+              }
+            ],
+            [
+              {
+                "en": "Three-quarters",
+                "tr": "Dörtte üç (Three-Quarters)"
+              },
+              {
+                "en": "+5 AC and Dex saves",
+                "tr": "+5 AC ve Dex kurtarma"
+              },
+              {
+                "en": "Covers about three-quarters: portcullis, arrow slit, thick tree.",
+                "tr": "Yaklaşık dörtte üçünü örter: parmaklıklı kapı, mazgal, kalın ağaç."
+              }
+            ],
+            [
+              {
+                "en": "Total",
+                "tr": "Tam (Total)"
+              },
+              {
+                "en": "Can't be targeted directly",
+                "tr": "Doğrudan hedef alınamaz"
+              },
+              {
+                "en": "Completely hidden by an obstacle. An area effect can still reach it.",
+                "tr": "Bir engelle tamamen gizlidir. Alan etkileri yine de ulaşabilir."
+              }
+            ]
+          ],
+          "note": {
+            "en": "Cover counts only against attacks and effects from the other side. Sources don't add up: only the best one applies.",
+            "tr": "Siper sadece diğer taraftan gelen saldırı ve etkilere karşı sayılır. Kaynaklar toplanmaz: en iyisi geçerlidir."
+          }
+        }
+      ]
+    }
+  ]
+}
