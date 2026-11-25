@@ -70,7 +70,7 @@ export function coinsContext(box) {
 /*  Reference templates                         */
 /* -------------------------------------------- */
 
-function pickLanguage(chosen, available) {
+export function pickLanguage(chosen, available) {
   if (chosen && chosen !== "auto" && available.includes(chosen)) return chosen;
   const current = game.i18n.lang;
   if (available.includes(current)) return current;

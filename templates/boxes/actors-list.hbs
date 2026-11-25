@@ -1,0 +1,37 @@
+{{#if empty}}<p class="r101-note r101-pad">{{emptyText}}</p>{{/if}}
+{{#each rows}}
+<article class="r101-actor{{#if missing}} r101-actor-missing{{/if}}">
+  <header class="r101-actor-head">
+    {{#if missing}}
+    <span class="r101-actor-name"><i class="fa-solid fa-link-slash" aria-hidden="true"></i> {{name}}</span>
+    {{else}}
+    <button type="button" class="r101-actor-name" data-action="openDocument" data-uuid="{{uuid}}"
+            data-tooltip="R101DMSCREEN.Box.Open">{{name}}</button>
+    {{#if inspiration}}<i class="fa-solid fa-star r101-actor-inspiration" data-tooltip="R101DMSCREEN.Actors.Inspiration" aria-label="{{localize 'R101DMSCREEN.Actors.Inspiration'}}"></i>{{/if}}
+    {{#if classText}}<span class="r101-note">{{classText}}</span>{{/if}}
+    {{/if}}
+    {{#if ../editable}}
+    <button type="button" class="r101-small-button r101-push-right" data-action="removeActor" data-uuid="{{uuid}}"
+            data-tooltip="R101DMSCREEN.Actors.Remove" aria-label="{{localize 'R101DMSCREEN.Actors.Remove'}}">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+    {{/if}}
+  </header>
+  {{#unless missing}}
+  {{#if hasHp}}
+  <div class="r101-hp {{hpClass}}" style="--r101-hp: {{percent}}%;" role="img"
+       aria-label="{{localize 'R101DMSCREEN.Actors.Stat.hp'}} {{hp}} / {{max}}">
+    <span class="r101-hp-text">{{hp}} / {{max}}{{#if temp}} (+{{temp}}){{/if}}</span>
+  </div>
+  {{/if}}
+  {{#if stats.length}}
+  <dl class="r101-actor-stats">
+    {{#each stats}}<div><dt>{{label}}</dt><dd>{{value}}</dd></div>{{/each}}
+  </dl>
+  {{/if}}
+  {{#if conditions.length}}
+  <p class="r101-actor-conditions"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> {{#each conditions}}{{#unless @first}}, {{/unless}}{{this}}{{/each}}</p>
+  {{/if}}
+  {{/unless}}
+</article>
+{{/each}}

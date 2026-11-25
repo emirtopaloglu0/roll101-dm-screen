@@ -56,7 +56,8 @@
       "Journal": "Bu journal silinmiş veya bulunamıyor.",
       "Table": "Bu rollable table silinmiş veya bulunamıyor.",
       "Folder": "Bu tablo klasörü veya compendium silinmiş ya da bulunamıyor.",
-      "Template": "Bu şablon bulunamıyor. İçerik paketi kaldırılmış olabilir."
+      "Template": "Bu şablon bulunamıyor. İçerik paketi kaldırılmış olabilir.",
+      "Generator": "Bu üretecin veri dosyası eksik veya bozuk. Modülü yeniden kurun veya kutuyu kaldırın."
     },
     "Journal": {
       "OpenToView": "Bu sayfa türü burada gösterilemiyor. Aç'ı kullanın.",
@@ -82,6 +83,7 @@
       "Empty": "Sonuç yok. Tabloda çekilecek sonuç kalmamış olabilir.",
       "Missing": "Bu tablo silinmiş veya bulunamıyor.",
       "Failed": "Zar atılamadı. Ayrıntılar için konsola (F12) bakın.",
+      "NoEntries": "Bu üretecin hiç girdisi yok.",
       "Reroll": "Yeniden üret",
       "Copy": "Kopyala",
       "Whisper": "GM'e fısılda",
@@ -148,7 +150,14 @@
       "Tools": "Araçlar",
       "Prices": "Fiyatlar ve hizmetler",
       "Search": "Kütüphanede ara…",
-      "NoMatch": "Bu aramaya uyan bir şey yok."
+      "NoMatch": "Bu aramaya uyan bir şey yok.",
+      "Generators": "Üreteçler ve grup",
+      "Environment": "Savaş Ortamı",
+      "EnvironmentHint": "Rastgele arazi, tehlike, hava ve nesneler",
+      "Events": "Rastgele Olaylar",
+      "EventsHint": "Ortama göre yan görev ve açık dünya olayları",
+      "Actors": "Grup özeti",
+      "ActorsHint": "Karakterlerinin AC, HP, pasif değerleri ve durumları"
     },
     "Coins": {
       "Title": "Para çevirici",
@@ -196,6 +205,36 @@
       "Title": "Kural Sözlüğü",
       "Search": "Kural ara…",
       "Empty": "Kural şablonu bulunamadı."
+    },
+    "Generator": {
+      "Generate": "Üret",
+      "Filter": "Kategori",
+      "Any": "Hepsi",
+      "Count": "{count} girdi"
+    },
+    "Actors": {
+      "Title": "Grup özeti",
+      "Party": "Grup",
+      "PartyOnHint": "Oyunculara ait tüm karakterler gösteriliyor. Listeyi kendin seçmek için tıkla.",
+      "PartyOffHint": "Kendi listen gösteriliyor. Oyunculara ait tüm karakterleri göstermek için tıkla.",
+      "DropHint": "Kendi listen için aktör sürükle",
+      "EmptyParty": "Oyuncuya ait karakter bulunamadı. Bir karaktere oyuncu sahipliği ver veya buraya aktör sürükle.",
+      "EmptyCustom": "Buraya aktör sürükle veya tüm oyuncu karakterleri için Grup'a tıkla.",
+      "Missing": "Bu aktör silinmiş veya bulunamıyor.",
+      "Remove": "Bu listeden çıkar",
+      "Inspiration": "İlham (Inspiration)",
+      "Level": "Seviye",
+      "WrongSystem": "Tam bilgi yalnızca D&D 5e için gösterilir. Diğer sistemlerde daha az bilgi çıkabilir.",
+      "Stat": {
+        "hp": "HP",
+        "ac": "AC",
+        "init": "İnisiyatif",
+        "speed": "Hız",
+        "pp": "Algı",
+        "inv": "Araştırma",
+        "ins": "Sezgi",
+        "dc": "Büyü DC"
+      }
     }
   }
 }

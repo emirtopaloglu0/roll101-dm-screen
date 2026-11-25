@@ -56,7 +56,8 @@
       "Journal": "This journal was deleted or cannot be found.",
       "Table": "This rollable table was deleted or cannot be found.",
       "Folder": "This table folder or compendium was deleted or cannot be found.",
-      "Template": "This template cannot be found. Its content pack may have been removed."
+      "Template": "This template cannot be found. Its content pack may have been removed.",
+      "Generator": "This generator's data file is missing or damaged. Reinstall the module, or remove the box."
     },
     "Journal": {
       "OpenToView": "This page type cannot be shown here. Use Open.",
@@ -82,6 +83,7 @@
       "Empty": "No result. The table may have no results left to draw.",
       "Missing": "This table was deleted or cannot be found.",
       "Failed": "The roll failed. See the console (F12) for details.",
+      "NoEntries": "This generator has no entries.",
       "Reroll": "Reroll",
       "Copy": "Copy",
       "Whisper": "Whisper to GM",
@@ -148,7 +150,14 @@
       "Tools": "Tools",
       "Prices": "Prices and services",
       "Search": "Search the library…",
-      "NoMatch": "Nothing matches this search."
+      "NoMatch": "Nothing matches this search.",
+      "Generators": "Generators and party",
+      "Environment": "Combat Environment",
+      "EnvironmentHint": "Random terrain, hazards, weather and objects",
+      "Events": "Random Events",
+      "EventsHint": "Side quests and open-world events by setting",
+      "Actors": "Party summary",
+      "ActorsHint": "AC, HP, passive scores and conditions of your characters"
     },
     "Coins": {
       "Title": "Coin converter",
@@ -196,6 +205,36 @@
       "Title": "Rules Glossary",
       "Search": "Search rules…",
       "Empty": "No rules templates found."
+    },
+    "Generator": {
+      "Generate": "Generate",
+      "Filter": "Category",
+      "Any": "Any",
+      "Count": "{count} entries"
+    },
+    "Actors": {
+      "Title": "Party summary",
+      "Party": "Party",
+      "PartyOnHint": "Showing every player-owned character. Click to pick the list yourself.",
+      "PartyOffHint": "Showing your own list. Click to show every player-owned character.",
+      "DropHint": "Drop actors to pick your own",
+      "EmptyParty": "No player-owned characters found. Give a player ownership of a character, or drop actors here.",
+      "EmptyCustom": "Drop actors here, or click Party to show every player-owned character.",
+      "Missing": "This actor was deleted or cannot be found.",
+      "Remove": "Remove from this list",
+      "Inspiration": "Inspiration",
+      "Level": "Level",
+      "WrongSystem": "Full details are shown for D&D 5e only. Other systems may show less.",
+      "Stat": {
+        "hp": "HP",
+        "ac": "AC",
+        "init": "Init",
+        "speed": "Speed",
+        "pp": "Perception",
+        "inv": "Investigation",
+        "ins": "Insight",
+        "dc": "Spell DC"
+      }
     }
   }
 }

@@ -1,0 +1,14 @@
+<div class="r101-actors">
+  <div class="r101-box-actions">
+    <button type="button" class="r101-small-button r101-toggle" data-action="toggleActorMode"
+            aria-pressed="{{#if isParty}}true{{else}}false{{/if}}"
+            data-tooltip="{{#if isParty}}R101DMSCREEN.Actors.PartyOnHint{{else}}R101DMSCREEN.Actors.PartyOffHint{{/if}}">
+      <i class="fa-solid fa-users" aria-hidden="true"></i> {{localize "R101DMSCREEN.Actors.Party"}}
+    </button>
+    <span class="r101-note">{{localize "R101DMSCREEN.Actors.DropHint"}}</span>
+  </div>
+  {{#if wrongSystem}}<p class="r101-note r101-warning r101-pad">{{localize "R101DMSCREEN.Actors.WrongSystem"}}</p>{{/if}}
+  <div class="r101-scroll r101-actor-list" data-r101-actors>
+    {{> "modules/roll101-dm-screen/templates/boxes/actors-list.hbs" this}}
+  </div>
+</div>

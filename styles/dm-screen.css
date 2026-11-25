@@ -916,3 +916,151 @@
     transition: opacity 120ms ease;
   }
 }
+
+/* Generators and party summary */
+.r101-dm-screen .r101-generator,
+.r101-dm-screen .r101-actors {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.r101-dm-screen .r101-generator-list {
+  margin: 0;
+  padding: 2px 0;
+  list-style: none;
+}
+
+.r101-dm-screen .r101-generator-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 3px 8px;
+}
+
+.r101-dm-screen .r101-generator-list li:nth-child(even) {
+  background: color-mix(in srgb, currentColor 5%, transparent);
+}
+
+.r101-dm-screen .r101-generator-group {
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--r101-muted);
+}
+
+.r101-dm-screen .r101-actor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 6px;
+}
+
+.r101-dm-screen .r101-actor {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px 6px;
+  border: 1px solid var(--r101-border);
+  border-radius: 4px;
+}
+
+.r101-dm-screen .r101-actor-missing {
+  opacity: 0.7;
+}
+
+.r101-dm-screen .r101-actor-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.r101-dm-screen button.r101-actor-name {
+  width: auto;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  font-weight: 700;
+  line-height: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+
+.r101-dm-screen .r101-actor-name {
+  font-weight: 700;
+}
+
+.r101-dm-screen .r101-actor-inspiration {
+  color: #d4a017;
+}
+
+.r101-dm-screen .r101-hp {
+  --r101-hp-color: #3a9d5d;
+  position: relative;
+  height: 1.3em;
+  overflow: hidden;
+  border-radius: 3px;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.r101-dm-screen .r101-hp::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--r101-hp, 0%);
+  background: var(--r101-hp-color);
+}
+
+.r101-dm-screen .r101-hp-mid {
+  --r101-hp-color: #b8921f;
+}
+
+.r101-dm-screen .r101-hp-low {
+  --r101-hp-color: #b83a2e;
+}
+
+.r101-dm-screen .r101-hp-text {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-size: 0.85em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.55;
+  color: #fff;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+}
+
+.r101-dm-screen .r101-actor-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  margin: 0;
+}
+
+.r101-dm-screen .r101-actor-stats div {
+  display: flex;
+  gap: 0.3em;
+}
+
+.r101-dm-screen .r101-actor-stats dt {
+  font-size: 0.85em;
+  color: var(--r101-muted);
+}
+
+.r101-dm-screen .r101-actor-stats dd {
+  margin: 0;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.r101-dm-screen .r101-actor-conditions {
+  margin: 0;
+  font-size: 0.9em;
+}

@@ -51,3 +51,10 @@ and the project uses [Semantic Versioning](https://semver.org/).
 - Deleted or missing journals, tables and folders show a warning in the box instead of an error.
   Drop a replacement on the box to reconnect it.
 - Linked boxes update when their journal, table or folder changes, only while the screen is open.
+- Generator boxes (EN/TR): Combat Environment (40 entries: terrain, hazards, weather, magic, objects)
+  and Random Events (69 entries by setting: city, village, town, wilderness, forest, snow, desert;
+  general events mix into every setting). Results open in the result window with Reroll, Copy and
+  Whisper, and appear in the box's recent results.
+- Party summary box (dnd5e): AC, HP bar with temp HP, initiative, speed, passive Perception,
+  Investigation and Insight, spell DC, inspiration and conditions. Shows all player-owned characters,
+  or a list you build by dropping actors. Only its list refreshes when an actor changes.

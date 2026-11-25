@@ -23,7 +23,13 @@ without leaving Foundry.
   conditions, exhaustion, combat actions, cover, concentration, death and dying, DCs, light and vision,
   movement, damage, objects, traps, environmental hazards and weapon mastery, plus a searchable Rules Glossary.
 
-Planned: random event and combat environment generators, actor summary for dnd5e.
+- Generators (English and Turkish): Combat Environment (terrain, hazards, weather, magic, objects)
+  and Random Events (city, village, town, wilderness, forest, snow, desert, general).
+  Pick a category, press Generate, then reroll, copy or whisper the result to the GM.
+- Party summary (D&D 5e): AC, HP, initiative, speed, passive scores, spell DC, inspiration and
+  conditions of all player-owned characters, or of actors you drop in. Updates live.
+
+Planned: "Monsters Know What They're Doing" summary and your own rollable tables as a pack (private content).
 
 ## Compatibility
 

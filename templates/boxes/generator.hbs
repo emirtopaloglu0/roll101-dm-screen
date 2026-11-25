@@ -1,0 +1,25 @@
+<div class="r101-generator">
+  <div class="r101-box-actions">
+    <button type="button" class="r101-small-button r101-primary" data-action="generateText">
+      <i class="fa-solid fa-dice-d20" aria-hidden="true"></i> {{localize "R101DMSCREEN.Generator.Generate"}}
+    </button>
+    <select class="r101-select" data-r101-generator="filter" aria-label="{{localize 'R101DMSCREEN.Generator.Filter'}}">
+      {{#each filters}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    {{#if langs}}
+    <select class="r101-select" data-r101-generator="lang" aria-label="{{localize 'R101DMSCREEN.Template.Language'}}">
+      {{#each langs}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    {{/if}}
+    <span class="r101-note r101-push-right">{{localize "R101DMSCREEN.Generator.Count" count=count}}</span>
+  </div>
+  <ul class="r101-scroll r101-generator-list">
+    {{#each entries}}
+    <li>
+      {{#if group}}<span class="r101-generator-group">{{group}}</span>{{/if}}
+      <span class="r101-row-text">{{text}}</span>
+    </li>
+    {{/each}}
+    {{#if attribution}}<li class="r101-attribution">{{attribution}}</li>{{/if}}
+  </ul>
+</div>
