@@ -218,7 +218,7 @@
       "Each": "each",
       "Worth": "Total worth",
       "MagicExcluded": "(without magic items)",
-      "Limits": "Coin limits (blank = no limit)",
+      "Range": "Total worth (without magic items)",
       "Min": "min",
       "Max": "max",
       "Nothing": "Nothing of value.",

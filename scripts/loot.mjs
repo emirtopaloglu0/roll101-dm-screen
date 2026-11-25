@@ -109,62 +109,48 @@ function formatValue(gp, lang) {
 }
 
 /**
- * Clean the min/max limits of each coin: whole numbers, 0 or more. Blank means no limit.
- * @returns {Record<string, {min: number|null, max: number|null}>}
+ * Clean the total-value range (gp): numbers of 0 or more. Blank means no limit.
+ * @returns {{min: number|null, max: number|null}}
  */
-export function cleanLimits(raw) {
+export function cleanRange(raw) {
   const num = v => {
     if (v === "" || v === null || v === undefined) return null;
-    const n = Math.floor(Number(v));
+    const n = Number(v);
     return Number.isFinite(n) && n >= 0 ? n : null;
   };
-  const out = {};
-  for (const denom of COINS) {
-    const min = num(raw?.[denom]?.min);
-    let max = num(raw?.[denom]?.max);
-    if (min !== null && max !== null && max < min) max = min;
-    out[denom] = { min, max };
-  }
-  return out;
+  const min = num(raw?.min);
+  let max = num(raw?.max);
+  if (min !== null && max !== null && max < min) max = min;
+  return { min, max };
 }
 
-const capOf = (limits, denom) => limits[denom].max ?? Infinity;
 const coinValueOf = coins => COINS.reduce((sum, d) => sum + coins[d] * RATE[d], 0);
 
-/** Add as much of a gp value as the limits allow, largest coin first. Returns what did not fit. */
-function addValue(coins, value, limits) {
+/** Add a gp value as coins, largest coin first. Whatever is below 1 cp is dropped. */
+function addValue(coins, value) {
   let remain = value;
   for (const denom of COINS) {
-    const count = Math.min(Math.floor(remain / RATE[denom] + 1e-9), capOf(limits, denom) - coins[denom]);
+    const count = Math.floor(remain / RATE[denom] + 1e-9);
     if (count > 0) {
       coins[denom] += count;
       remain -= count * RATE[denom];
     }
   }
-  return remain;
 }
 
-/**
- * Split a gp value into coins: the minimums first, then the tier's mix, then the rest.
- * A coin never goes over its maximum. Value that does not fit is returned for items.
- */
-function makeCoins(value, tier, limits) {
+/** Split a gp value into coins following the tier's mix. */
+function makeCoins(value, tier) {
   const coins = { gp: 0, sp: 0, cp: 0 };
   let remain = value;
-  for (const denom of COINS) {
-    coins[denom] = Math.min(limits[denom].min ?? 0, capOf(limits, denom));
-    remain -= coins[denom] * RATE[denom];
-  }
-  const pool = Math.max(0, remain);
   for (const [denom, share] of Object.entries(COIN_MIX[tier])) {
-    const wanted = Math.min(remain, pool * share * (0.7 + rand() * 0.6));
-    const count = Math.min(Math.floor(wanted / RATE[denom] + 1e-9), capOf(limits, denom) - coins[denom]);
+    const count = Math.floor(Math.min(remain, value * share * (0.7 + rand() * 0.6)) / RATE[denom] + 1e-9);
     if (count > 0) {
       coins[denom] += count;
       remain -= count * RATE[denom];
     }
   }
-  return { coins, unplaced: addValue(coins, Math.max(0, remain), limits) };
+  addValue(coins, remain);
+  return coins;
 }
 
 /**
@@ -182,21 +168,19 @@ function candidates(entries, left, flat) {
 /**
  * Roll treasure.
  * @param {object} data  Loaded loot data.
- * @param {{mode: string, tier: string, limits?: object}} choice
+ * @param {{mode: string, tier: string, range?: object}} choice
  * @param {string} lang
  * @returns {string[]}  Result lines.
  */
-export function generateLoot(data, { mode, tier, limits: rawLimits }, lang) {
+export function generateLoot(data, { mode, tier, range: rawRange }, lang) {
   const t = key => game.i18n.localize(`${I18N}.Loot.${key}`);
   const L = value => localize(value, lang);
-  const limits = cleanLimits(rawLimits);
-  const minValue = COINS.reduce((sum, d) => sum + (limits[d].min ?? 0) * RATE[d], 0);
-  const budget = Math.max(rollBudget(BUDGET[mode][tier]), minValue);
+  // The total worth (coins and items, without magic items) stays inside the chosen range.
+  const range = cleanRange(rawRange);
+  const budget = Math.min(range.max ?? Infinity, Math.max(range.min ?? 0, rollBudget(BUDGET[mode][tier])));
   const coinShare = mode === "hoard" ? 0.35 + rand() * 0.25 : 0.7 + rand() * 0.3;
-  const wanted = Math.max(budget * coinShare, minValue);
-  // Coins come first. Value that the limits do not allow as coins goes to items instead.
-  const { coins, unplaced } = makeCoins(wanted, tier, limits);
-  let left = budget - wanted + unplaced;
+  const coins = makeCoins(budget * coinShare, tier);
+  let left = budget - coinValueOf(coins);
 
   // Spend the item budget on items of the same total value.
   const weights = mode === "hoard" ? { gems: 3, art: 2, trade: 2, goods: 2 } : { gems: 1, art: 0, trade: 2, goods: 2 };
@@ -230,7 +214,7 @@ export function generateLoot(data, { mode, tier, limits: rawLimits }, lang) {
     left -= qty * entry.v;
     itemsWorth += qty * entry.v;
   }
-  addValue(coins, Math.max(0, left), limits); // What the items did not use goes back to coins, if allowed.
+  addValue(coins, Math.max(0, left)); // What the items did not use goes back to coins.
 
   const lines = [];
   const coinText = COINS.filter(d => coins[d]).map(d => `${coins[d].toLocaleString(lang)} ${d}`).join(", ");

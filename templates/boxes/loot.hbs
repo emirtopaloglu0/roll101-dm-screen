@@ -23,16 +23,14 @@
     </button>
     <i class="fa-solid fa-circle-info r101-note" data-tooltip="{{attribution}}" aria-label="{{attribution}}"></i>
   </div>
-  <div class="r101-loot-limits" role="group" aria-label="{{localize 'R101DMSCREEN.Loot.Limits'}}">
-    {{#each limits}}
-    <div class="r101-loot-limit">
-      <span class="r101-coin-label">{{denom}}</span>
-      <input type="number" min="0" step="1" inputmode="numeric" value="{{min}}" placeholder="{{localize 'R101DMSCREEN.Loot.Min'}}"
-             data-r101-loot-limit="{{denom}}.min" aria-label="{{denom}} {{localize 'R101DMSCREEN.Loot.Min'}}">
-      <input type="number" min="0" step="1" inputmode="numeric" value="{{max}}" placeholder="{{localize 'R101DMSCREEN.Loot.Max'}}"
-             data-r101-loot-limit="{{denom}}.max" aria-label="{{denom}} {{localize 'R101DMSCREEN.Loot.Max'}}">
-    </div>
-    {{/each}}
+  <div class="r101-loot-limits" role="group" aria-label="{{localize 'R101DMSCREEN.Loot.Range'}}">
+    <span class="r101-note">{{localize "R101DMSCREEN.Loot.Range"}}</span>
+    <input type="number" min="0" step="any" inputmode="decimal" value="{{range.min}}" placeholder="{{localize 'R101DMSCREEN.Loot.Min'}}"
+           data-r101-loot-range="min" aria-label="{{localize 'R101DMSCREEN.Loot.Range'}} {{localize 'R101DMSCREEN.Loot.Min'}}">
+    <span aria-hidden="true">–</span>
+    <input type="number" min="0" step="any" inputmode="decimal" value="{{range.max}}" placeholder="{{localize 'R101DMSCREEN.Loot.Max'}}"
+           data-r101-loot-range="max" aria-label="{{localize 'R101DMSCREEN.Loot.Range'}} {{localize 'R101DMSCREEN.Loot.Max'}}">
+    <span class="r101-note">gp</span>
   </div>
   <div class="r101-scroll r101-loot-result" data-r101-loot-result aria-live="polite">
     {{#each result}}<p>{{this}}</p>{{/each}}

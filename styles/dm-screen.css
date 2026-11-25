@@ -1101,13 +1101,11 @@
   border-bottom: 1px solid var(--r101-border);
 }
 
-.r101-dm-screen .r101-loot-limit {
-  display: flex;
+.r101-dm-screen .r101-loot-limits {
   align-items: center;
-  gap: 4px;
 }
 
-.r101-dm-screen .r101-loot-limit input {
+.r101-dm-screen .r101-loot-limits input {
   width: 5em;
   height: auto;
   padding: 0.1em 0.3em;

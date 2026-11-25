@@ -1,5 +1,5 @@
 import { I18N } from "../constants.mjs";
-import { LOOT_LANGS, LOOT_MODES, LOOT_TIERS, cleanLimits, generateLoot, loadLoot } from "../loot.mjs";
+import { LOOT_LANGS, LOOT_MODES, LOOT_TIERS, cleanRange, generateLoot, loadLoot } from "../loot.mjs";
 import { localize } from "../templates.mjs";
 import { pickLanguage } from "./reference.mjs";
 
@@ -8,7 +8,6 @@ export const lastLoot = new Map();
 
 const choose = (value, list) => (list.includes(value) ? value : list[0]);
 const t = key => game.i18n.localize(`${I18N}.Loot.${key}`);
-const LIMIT_COINS = ["gp", "sp", "cp"];
 
 /** Template data for a loot box. */
 export async function lootContext(box) {
@@ -18,7 +17,6 @@ export async function lootContext(box) {
   const tier = choose(box.data.tier, LOOT_TIERS);
   const lang = pickLanguage(box.data.lang, LOOT_LANGS);
   const chosenLang = box.data.lang && box.data.lang !== "auto" ? box.data.lang : "auto";
-  const stored = box.data.limits ?? {};
   return {
     name: t("Title"),
     modes: LOOT_MODES.map(id => ({ id, label: t(`Mode.${id}`), selected: id === mode })),
@@ -27,11 +25,7 @@ export async function lootContext(box) {
       { id: "auto", label: game.i18n.localize(`${I18N}.Template.AutoLanguage`), selected: chosenLang === "auto" },
       ...LOOT_LANGS.map(l => ({ id: l, label: l.toUpperCase(), selected: chosenLang === l }))
     ],
-    limits: LIMIT_COINS.map(denom => ({
-      denom,
-      min: stored[denom]?.min ?? "",
-      max: stored[denom]?.max ?? ""
-    })),
+    range: { min: box.data.range?.min ?? "", max: box.data.range?.max ?? "" },
     result: lastLoot.get(box.id) ?? [],
     attribution: localize(data.attribution, lang)
   };
@@ -47,10 +41,10 @@ export async function lootRequest(box) {
   const mode = choose(box.data.mode, LOOT_MODES);
   const tier = choose(box.data.tier, LOOT_TIERS);
   const lang = pickLanguage(box.data.lang, LOOT_LANGS);
-  const limits = cleanLimits(box.data.limits);
+  const range = cleanRange(box.data.range);
   const title = `${t("Title")} · ${t(`Mode.${mode}`)} · ${t(`Tier.${tier}`)}`;
   return {
     title,
-    generate: async () => ({ name: title, texts: generateLoot(data, { mode, tier, limits }, lang) })
+    generate: async () => ({ name: title, texts: generateLoot(data, { mode, tier, range }, lang) })
   };
 }

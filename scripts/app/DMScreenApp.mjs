@@ -257,16 +257,12 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       return;
     }
 
-    const limit = target.dataset.r101LootLimit;
-    if (limit) {
-      const [denom, bound] = limit.split(".");
+    const bound = target.dataset.r101LootRange;
+    if (bound === "min" || bound === "max") {
       const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
-      if (!box || !["gp", "sp", "cp"].includes(denom) || !["min", "max"].includes(bound)) return;
+      if (!box) return;
       const value = target.value;
-      storage.update(() => {
-        box.data.limits ??= {};
-        box.data.limits[denom] = { ...(box.data.limits[denom] ?? {}), [bound]: value };
-      });
+      storage.update(() => { box.data.range = { ...(box.data.range ?? {}), [bound]: value }; });
       return;
     }
 

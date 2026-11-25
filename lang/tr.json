@@ -218,7 +218,7 @@
       "Each": "tanesi",
       "Worth": "Toplam değer",
       "MagicExcluded": "(büyülü eşyalar hariç)",
-      "Limits": "Para sınırları (boş = sınırsız)",
+      "Range": "Toplam değer (büyülü eşyalar hariç)",
       "Min": "en az",
       "Max": "en çok",
       "Nothing": "Değerli bir şey yok.",
