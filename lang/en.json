@@ -40,7 +40,8 @@
       "Open": "Open",
       "ReconnectHint": "Drag a replacement here to reconnect, or remove the box.",
       "DropHint": "or drop a journal, table, table folder or table compendium",
-      "Move": "Drag to move. Dropping on another box swaps them."
+      "Move": "Drag to move. Dropping on another box swaps them.",
+      "Resize": "Drag to cover more or fewer cells."
     },
     "Notifications": {
       "SaveFailed": "DM Screen: changes could not be saved. See the console (F12) for details.",
@@ -48,7 +49,8 @@
       "DropPackType": "Only compendiums of rollable tables can be added.",
       "DropUnsupported": "This item cannot be added to the DM Screen.",
       "DropOccupied": "This cell is in use. Drop on an empty cell, or on a box of the same type to replace its link.",
-      "NotFound": "This document was deleted or cannot be found."
+      "NotFound": "This document was deleted or cannot be found.",
+      "LayoutFull": "That layout has no free cell. Enlarge its grid or free a cell first."
     },
     "Missing": {
       "Journal": "This journal was deleted or cannot be found.",
@@ -86,6 +88,50 @@
       "Copied": "Result copied.",
       "Whispered": "Result whispered to the GM.",
       "RerollAll": "Reroll all"
+    },
+    "Layout": {
+      "Tabs": "Layouts",
+      "TabHint": "Click to switch. Double-click the open layout to rename it. Drag a box here to move it to this layout.",
+      "Add": "New layout",
+      "Duplicate": "Duplicate this layout",
+      "Delete": "Delete this layout",
+      "DeleteTitle": "Delete layout",
+      "DeleteContent": "Delete this layout and all its boxes? A backup is kept.",
+      "Rename": "Layout name",
+      "DefaultName": "Layout {n}",
+      "CopyName": "{name} (copy)"
+    },
+    "IO": {
+      "Export": "Export layouts",
+      "Import": "Import layouts",
+      "ExportTitle": "Export layouts",
+      "ExportContent": "Save layouts to a .json file. Linked journals and tables are saved as references, not their content.",
+      "ExportCurrent": "This layout: {name}",
+      "ExportAll": "All layouts ({count})",
+      "ImportTitle": "Import layouts",
+      "ImportContent": "This file has {count} layout(s):",
+      "ImportHint": "Add keeps your layouts. Replace removes them. A backup is kept either way.",
+      "ImportMerge": "Add",
+      "ImportReplace": "Replace all",
+      "Imported": "Imported {count} layout(s).",
+      "InvalidFile": "This is not a DM Screen layout file, or it is damaged. Nothing was changed.",
+      "NewerFile": "This file was made by a newer version of Roll101 DM Screen. Update the module first. Nothing was changed.",
+      "TooLarge": "This file is too large (over 5 MB). Nothing was changed."
+    },
+    "Backup": {
+      "Title": "Restore a backup",
+      "Restore": "Restore",
+      "Restored": "Backup restored.",
+      "None": "There are no backups on this computer yet.",
+      "Content": "Backups are stored on this computer only (last 5). The current state is backed up before restoring.",
+      "Meta": "{layouts} layout(s), {boxes} box(es)",
+      "Reason": {
+        "Session": "Before editing",
+        "RemoveBox": "Before removing a box",
+        "DeleteLayout": "Before deleting a layout",
+        "Import": "Before import",
+        "Restore": "Before restore"
+      }
     }
   }
 }

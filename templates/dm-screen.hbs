@@ -1,4 +1,25 @@
 <div class="r101-screen" style="--r101-cols: {{layout.cols}}; --r101-rows: {{layout.rows}}; --r101-font-scale: {{font.value}};">
+  <nav class="r101-tabs" aria-label="{{localize 'R101DMSCREEN.Layout.Tabs'}}">
+    {{#each tabs}}
+    <button type="button" class="r101-tab{{#if active}} r101-active{{/if}}" data-action="switchLayout"
+            data-layout-id="{{id}}" aria-pressed="{{#if active}}true{{else}}false{{/if}}"
+            data-tooltip="R101DMSCREEN.Layout.TabHint">{{name}}</button>
+    {{/each}}
+    <button type="button" class="r101-tab-tool" data-action="addLayout"
+            data-tooltip="R101DMSCREEN.Layout.Add" aria-label="{{localize 'R101DMSCREEN.Layout.Add'}}">
+      <i class="fa-solid fa-plus" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="r101-tab-tool" data-action="duplicateLayout"
+            data-tooltip="R101DMSCREEN.Layout.Duplicate" aria-label="{{localize 'R101DMSCREEN.Layout.Duplicate'}}">
+      <i class="fa-solid fa-clone" aria-hidden="true"></i>
+    </button>
+    {{#if canDeleteLayout}}
+    <button type="button" class="r101-tab-tool" data-action="deleteLayout"
+            data-tooltip="R101DMSCREEN.Layout.Delete" aria-label="{{localize 'R101DMSCREEN.Layout.Delete'}}">
+      <i class="fa-solid fa-trash" aria-hidden="true"></i>
+    </button>
+    {{/if}}
+  </nav>
   <header class="r101-toolbar">
     <label class="r101-field">
       <span>{{localize "R101DMSCREEN.Toolbar.Columns"}}</span>
@@ -21,13 +42,29 @@
     {{#if readOnly}}
     <span class="r101-note r101-warning"><i class="fa-solid fa-lock" aria-hidden="true"></i> {{localize "R101DMSCREEN.Toolbar.ReadOnly"}}</span>
     {{/if}}
+    <span class="r101-toolbar-end">
+      <button type="button" class="r101-tab-tool" data-action="exportLayouts"
+              data-tooltip="R101DMSCREEN.IO.Export" aria-label="{{localize 'R101DMSCREEN.IO.Export'}}">
+        <i class="fa-solid fa-file-export" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="r101-tab-tool" data-action="importLayouts"
+              data-tooltip="R101DMSCREEN.IO.Import" aria-label="{{localize 'R101DMSCREEN.IO.Import'}}">
+        <i class="fa-solid fa-file-import" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="r101-tab-tool" data-action="restoreBackup"
+              data-tooltip="R101DMSCREEN.Backup.Title" aria-label="{{localize 'R101DMSCREEN.Backup.Title'}}">
+        <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+      </button>
+    </span>
   </header>
 
   <div class="r101-grid">
     {{#each cells}}
     {{#if box}}
-    <section class="r101-box r101-box-{{box.type}}{{#if box.historyOpen}} r101-show-history{{/if}}" style="grid-column: {{col}}; grid-row: {{row}};"
-             data-col="{{col}}" data-row="{{row}}" data-box-id="{{box.id}}" data-box-type="{{box.type}}">
+    <section class="r101-box r101-box-{{box.type}}{{#if box.historyOpen}} r101-show-history{{/if}}"
+             style="grid-column: {{col}} / span {{colSpan}}; grid-row: {{row}} / span {{rowSpan}};"
+             data-col="{{col}}" data-row="{{row}}" data-col-span="{{colSpan}}" data-row-span="{{rowSpan}}"
+             data-box-id="{{box.id}}" data-box-type="{{box.type}}">
       <header class="r101-box-header">
         <span class="r101-drag-handle" draggable="true" data-tooltip="R101DMSCREEN.Box.Move">
           <i class="fa-solid fa-grip-vertical" aria-hidden="true"></i>
@@ -75,6 +112,7 @@
               data-tooltip="R101DMSCREEN.Box.Remove" aria-label="{{localize 'R101DMSCREEN.Box.Remove'}}">
         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
+      <span class="r101-resize-handle" data-tooltip="R101DMSCREEN.Box.Resize" aria-hidden="true"></span>
     </section>
     {{else}}
     <section class="r101-box r101-empty" style="grid-column: {{col}}; grid-row: {{row}};" data-col="{{col}}" data-row="{{row}}">

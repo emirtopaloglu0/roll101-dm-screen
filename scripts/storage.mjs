@@ -1,5 +1,6 @@
 import { MODULE_ID, SAVE_DELAY_MS, SETTINGS } from "./constants.mjs";
 import { migrateData } from "./migrate.mjs";
+import { addBackup } from "./backups.mjs";
 
 /**
  * In-memory copy of the screen data with debounced writes to one world setting.
@@ -10,6 +11,7 @@ let current = null;
 let readOnly = false;
 let lastSavedJSON = null;
 let saveTimer = null;
+let sessionBackupPending = false;
 const listeners = new Set();
 
 export const isLoaded = () => current !== null;
@@ -37,8 +39,36 @@ export function getActiveLayout() {
  */
 export function update(mutator) {
   if (!current) return;
+  // First change after the window opens: keep the state from before this session.
+  if (sessionBackupPending) {
+    sessionBackupPending = false;
+    snapshot("Session");
+  }
   mutator(current);
   scheduleSave();
+}
+
+/** Call when the window opens. The next change stores a backup first. */
+export function beginSession() {
+  sessionBackupPending = true;
+}
+
+/** Store a backup of the current data, for example before a destructive change. */
+export function snapshot(reason) {
+  if (current && !readOnly) addBackup(current, reason);
+}
+
+/**
+ * Replace all data (restore or import). The old data is backed up first.
+ * @param {object} raw
+ * @param {string} reason
+ */
+export function replaceData(raw, reason) {
+  if (!current || readOnly) return false;
+  snapshot(reason);
+  current = migrateData(raw).data;
+  scheduleSave();
+  return true;
 }
 
 function scheduleSave() {

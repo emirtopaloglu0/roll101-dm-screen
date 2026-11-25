@@ -35,6 +35,30 @@ export function createLayout(name = "Main") {
   };
 }
 
+/** Deep copy of a layout with fresh layout and box ids (for duplicate and import). */
+export function cloneLayout(layout, name = layout.name) {
+  const copy = foundry.utils.deepClone(layout);
+  copy.id = randomId();
+  copy.name = String(name).slice(0, TITLE_MAX_LENGTH);
+  for (const box of copy.boxes) box.id = randomId();
+  return copy;
+}
+
+/**
+ * Validate layouts read from an export file.
+ * @returns {{layouts: object[]}|{error: string}}  error is a key under R101DMSCREEN.IO
+ */
+export function parseExport(raw) {
+  if (!isObject(raw) || !Array.isArray(raw.layouts) || !raw.layouts.length) return { error: "InvalidFile" };
+  const { data, readOnly } = migrateData({
+    schemaVersion: raw.schemaVersion ?? SCHEMA_VERSION,
+    activeLayoutId: null,
+    layouts: raw.layouts
+  });
+  if (readOnly) return { error: "NewerFile" };
+  return { layouts: data.layouts };
+}
+
 export function createDefaultData() {
   const layout = createLayout();
   return { schemaVersion: SCHEMA_VERSION, activeLayoutId: layout.id, layouts: [layout] };

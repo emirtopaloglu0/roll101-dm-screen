@@ -23,7 +23,15 @@ and the project uses [Semantic Versioning](https://semver.org/).
 - Roll a whole folder at once (dice button on the folder): one result per table in one window.
   Reroll a single row or all rows. Copy gives one "Table: result" line per table.
 - Recent results (last 10 per box, not saved) open from a button next to the box title.
-- Move a box by dragging its grip handle. Dropping on another box swaps the two.
+- Move a box by dragging its grip handle. Dropping on another box swaps the two (place and size).
+- Resize a box over several cells by dragging its bottom-right corner.
+- Multiple layouts as tabs: add, duplicate, rename (double-click) and delete.
+- Move a box to another layout: hold it over a tab to open that layout, then drop it on a cell.
+  Dropping on the tab itself puts the box in that layout's first free cell.
+- Export one or all layouts to a .json file; import with Add or Replace all.
+  Invalid or newer-version files are rejected without changing anything.
+- Automatic backups (last 5, stored on this computer only): before the first edit after opening,
+  before removing a box, deleting a layout, importing or restoring. Restore from the toolbar.
 - Deleted or missing journals, tables and folders show a warning in the box instead of an error.
   Drop a replacement on the box to reconnect it.
 - Linked boxes update when their journal, table or folder changes, only while the screen is open.

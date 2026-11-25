@@ -6,11 +6,16 @@ import { boxFromDrop } from "../boxes/drop.mjs";
 import { journalContext, tableContext, tableFolderContext } from "../boxes/resolve.mjs";
 import { getHistory, pushHistory } from "../history.mjs";
 import { ResultDialog } from "./ResultDialog.mjs";
+import { exportLayouts, importLayouts, restoreBackup } from "./layout-io.mjs";
+import { areaFree, cellKey, fitSpan, placeBoxes } from "../grid.mjs";
+import { cloneLayout, createLayout } from "../migrate.mjs";
+import { escapeHTML } from "../tables.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
 
 const TEMPLATES = `modules/${MODULE_ID}/templates`;
 const BOX_DRAG_TYPE = "application/x-r101-box";
+const TAB_SWITCH_DELAY_MS = 500;
 const range = n => Array.from({ length: n }, (_, i) => i + 1);
 const toChoices = n => Object.fromEntries(range(n).map(i => [i, String(i)]));
 
@@ -53,7 +58,14 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       rollTable: DMScreenApp.#onRollTable,
       generate: DMScreenApp.#onRollTable,
       generateGroup: DMScreenApp.#onGenerateGroup,
-      toggleHistory: DMScreenApp.#onToggleHistory
+      toggleHistory: DMScreenApp.#onToggleHistory,
+      switchLayout: DMScreenApp.#onSwitchLayout,
+      addLayout: DMScreenApp.#onAddLayout,
+      duplicateLayout: DMScreenApp.#onDuplicateLayout,
+      deleteLayout: DMScreenApp.#onDeleteLayout,
+      exportLayouts: DMScreenApp.#onExport,
+      importLayouts: DMScreenApp.#onImport,
+      restoreBackup: DMScreenApp.#onRestore
     }
   };
 
@@ -75,8 +87,8 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
   #renderTimer = null;
   /** Boxes whose recent-results view is open. Memory only. */
   #historyOpen = new Set();
-  /** Box being moved by its drag handle. */
-  #draggingBoxId = null;
+  /** Pending "open this layout" while a box hovers a tab. */
+  #tabSwitch = null;
 
   /* -------------------------------------------- */
   /*  Context                                     */
@@ -87,28 +99,31 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const context = await super._prepareContext(options);
     const layout = storage.getActiveLayout();
 
-    // First box wins a cell. Extra boxes and boxes outside the grid stay in data.
-    const byCell = new Map();
-    for (const box of layout.boxes) {
-      const key = `${box.col}:${box.row}`;
-      if (!byCell.has(key)) byCell.set(key, box);
-    }
+    // Boxes that do not fit (outside the grid or overlapping) stay in data but are hidden.
+    const { placed, taken, hidden: hiddenCount } = placeBoxes(layout);
+    const byStart = new Map(placed.map(p => [cellKey(p.box.col, p.box.row), p]));
 
+    // DOM order row by row, so Tab follows the visual order.
     const pending = [];
     for (const row of range(layout.rows)) {
       for (const col of range(layout.cols)) {
-        const box = byCell.get(`${col}:${row}`);
-        pending.push(box
-          ? this.#boxContext(box).then(ctx => ({ col, row, box: ctx }))
-          : Promise.resolve({ col, row, box: null }));
+        const p = byStart.get(cellKey(col, row));
+        if (p) {
+          pending.push(this.#boxContext(p.box).then(box => ({
+            col, row, colSpan: p.colSpan, rowSpan: p.rowSpan, box
+          })));
+        } else if (!taken.has(cellKey(col, row))) {
+          pending.push(Promise.resolve({ col, row, colSpan: 1, rowSpan: 1, box: null }));
+        }
       }
     }
     const cells = await Promise.all(pending);
-    const visible = cells.filter(c => c.box).length;
-    const hiddenCount = layout.boxes.length - visible;
 
+    const data = storage.getData();
     return Object.assign(context, {
       layout,
+      tabs: data.layouts.map(l => ({ id: l.id, name: l.name, active: l.id === layout.id })),
+      canDeleteLayout: data.layouts.length > 1,
       cells,
       colChoices: toChoices(GRID_LIMITS.maxCols),
       rowChoices: toChoices(GRID_LIMITS.maxRows),
@@ -177,7 +192,9 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     el.addEventListener("dragover", this.#onDragOver.bind(this));
     el.addEventListener("dragleave", this.#onDragLeave.bind(this));
     el.addEventListener("drop", this.#onDrop.bind(this));
+    el.addEventListener("pointerdown", this.#onPointerDown.bind(this));
     this.#watchDocuments();
+    storage.beginSession();
   }
 
   #onInput(event) {
@@ -221,9 +238,15 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     if (event.key === "Tab") event.stopPropagation();
   }
 
-  /** Double-click on the text size control resets it to 100%. */
+  /** Double-click: a layout tab starts renaming, the text size control resets to 100%. */
   #onDoubleClick(event) {
-    const control = event.target instanceof Element ? event.target.closest(".r101-font") : null;
+    if (!(event.target instanceof Element)) return;
+    const tab = event.target.closest(".r101-tab[data-layout-id]");
+    if (tab) {
+      this.#startRename(tab);
+      return;
+    }
+    const control = event.target.closest(".r101-font");
     const input = control?.querySelector('input[type="range"]');
     if (!input) return;
     input.value = "1";
@@ -263,14 +286,28 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
   /* -------------------------------------------- */
 
   /**
+   * True while one of our boxes is being dragged. Uses the drag data type, which
+   * survives a re-render (switching layouts removes the original drag handle).
+   */
+  #isBoxDrag(event) {
+    return !!event.dataTransfer?.types?.includes(BOX_DRAG_TYPE);
+  }
+
+  /**
    * The cell under the pointer. While a box is being moved, every cell counts.
    * Otherwise text fields keep their native text drag and drop.
    */
   #dropCell(event) {
     const target = event.target;
     if (!(target instanceof Element)) return null;
-    if (!this.#draggingBoxId && target.matches("input, textarea")) return null;
+    if (!this.#isBoxDrag(event) && target.matches("input, textarea")) return null;
     return target.closest(".r101-box");
+  }
+
+  /** A layout tab under the pointer, only while a box is being moved. */
+  #dropTab(event) {
+    if (!this.#isBoxDrag(event) || !(event.target instanceof Element)) return null;
+    return event.target.closest(".r101-tab[data-layout-id]");
   }
 
   /** Start moving a box by its drag handle. */
@@ -279,48 +316,100 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const cell = handle?.closest("[data-box-id]");
     if (!cell || !event.dataTransfer) return;
     event.stopPropagation();
-    this.#draggingBoxId = cell.dataset.boxId;
     // Custom type only: other drop targets (canvas, sheets) ignore it.
-    event.dataTransfer.setData(BOX_DRAG_TYPE, cell.dataset.boxId);
+    const payload = { boxId: cell.dataset.boxId, layoutId: storage.getActiveLayout().id };
+    event.dataTransfer.setData(BOX_DRAG_TYPE, JSON.stringify(payload));
     event.dataTransfer.effectAllowed = "move";
     event.dataTransfer.setDragImage(cell, 16, 16);
     cell.classList.add("r101-dragging");
   }
 
   #onDragEnd() {
-    this.#draggingBoxId = null;
+    this.#cancelTabSwitch();
     for (const el of this.element.querySelectorAll(".r101-dragging, .r101-drop-target")) {
       el.classList.remove("r101-dragging", "r101-drop-target");
     }
   }
 
   #onDragOver(event) {
+    const tab = this.#dropTab(event);
+    if (tab) {
+      event.preventDefault();
+      event.dataTransfer.dropEffect = "move";
+      this.#highlight(tab);
+      this.#scheduleTabSwitch(tab.dataset.layoutId);
+      return;
+    }
     const cell = this.#dropCell(event);
     if (!cell) return;
     event.preventDefault();
-    if (event.dataTransfer) event.dataTransfer.dropEffect = this.#draggingBoxId ? "move" : "copy";
-    if (!cell.classList.contains("r101-drop-target")) {
-      this.element.querySelector(".r101-drop-target")?.classList.remove("r101-drop-target");
-      cell.classList.add("r101-drop-target");
-    }
+    if (event.dataTransfer) event.dataTransfer.dropEffect = this.#isBoxDrag(event) ? "move" : "copy";
+    this.#highlight(cell);
+  }
+
+  #highlight(el) {
+    if (el.classList.contains("r101-drop-target")) return;
+    this.element.querySelector(".r101-drop-target")?.classList.remove("r101-drop-target");
+    el.classList.add("r101-drop-target");
   }
 
   #onDragLeave(event) {
-    const cell = this.#dropCell(event);
-    if (cell && !cell.contains(event.relatedTarget)) cell.classList.remove("r101-drop-target");
+    const el = this.#dropTab(event) ?? this.#dropCell(event);
+    if (!el || el.contains(event.relatedTarget)) return;
+    el.classList.remove("r101-drop-target");
+    if (el.matches(".r101-tab")) this.#cancelTabSwitch();
+  }
+
+  /** Hovering a tab with a box for a moment opens that layout. */
+  #scheduleTabSwitch(layoutId) {
+    if (layoutId === storage.getActiveLayout().id) return;
+    if (this.#tabSwitch?.layoutId === layoutId) return;
+    this.#cancelTabSwitch();
+    const timer = setTimeout(() => {
+      this.#tabSwitch = null;
+      if (!this.rendered) return;
+      storage.update(data => { data.activeLayoutId = layoutId; });
+      this.render();
+    }, TAB_SWITCH_DELAY_MS);
+    this.#tabSwitch = { layoutId, timer };
+  }
+
+  #cancelTabSwitch() {
+    if (this.#tabSwitch) clearTimeout(this.#tabSwitch.timer);
+    this.#tabSwitch = null;
+  }
+
+  #readBoxDrag(event) {
+    try {
+      const data = JSON.parse(event.dataTransfer?.getData(BOX_DRAG_TYPE) || "null");
+      return (data && typeof data.boxId === "string") ? data : null;
+    } catch {
+      return null;
+    }
   }
 
   async #onDrop(event) {
+    const tab = this.#dropTab(event);
+    if (tab) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.#cancelTabSwitch();
+      tab.classList.remove("r101-drop-target");
+      const moving = this.#readBoxDrag(event);
+      if (moving) this.#moveToLayout(moving.boxId, moving.layoutId, tab.dataset.layoutId);
+      return;
+    }
+
     const cell = this.#dropCell(event);
     if (!cell) return;
     event.preventDefault();
     event.stopPropagation();
     cell.classList.remove("r101-drop-target");
 
-    const movingId = this.#draggingBoxId || event.dataTransfer?.getData(BOX_DRAG_TYPE);
-    if (movingId) {
-      this.#draggingBoxId = null;
-      this.#moveBox(movingId, Number(cell.dataset.col), Number(cell.dataset.row));
+    if (this.#isBoxDrag(event)) {
+      this.#cancelTabSwitch();
+      const moving = this.#readBoxDrag(event);
+      if (moving) this.#moveBox(moving.boxId, moving.layoutId, Number(cell.dataset.col), Number(cell.dataset.row));
       return;
     }
 
@@ -407,20 +496,202 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
   /*  Helpers                                     */
   /* -------------------------------------------- */
 
-  /** Move a box to a cell. If another box is there, the two swap places. */
-  #moveBox(boxId, col, row) {
-    const box = this.#findBox(boxId);
-    if (!box || !col || !row || (box.col === col && box.row === row)) return;
-    storage.update(() => {
-      const other = storage.getActiveLayout().boxes.find(b => b.col === col && b.row === row);
-      if (other) {
-        other.col = box.col;
-        other.row = box.row;
+  /**
+   * Move a box to a cell.
+   * Empty cell: the box keeps its size, shrunk if it does not fit there.
+   * Another box: the two swap places and sizes, so they always fit.
+   */
+  #moveBox(boxId, fromLayoutId, col, row) {
+    const data = storage.getData();
+    const target = storage.getActiveLayout();
+    const source = data.layouts.find(l => l.id === fromLayoutId) ?? target;
+    if (source !== target) {
+      this.#moveAcross(boxId, source, target, col, row);
+      return;
+    }
+
+    const { placed, taken } = placeBoxes(target);
+    const me = placed.find(p => p.box.id === boxId);
+    if (!me || !col || !row) return;
+    const targetId = taken.get(cellKey(col, row));
+    if (targetId === boxId) return;
+
+    if (targetId) {
+      const other = placed.find(p => p.box.id === targetId);
+      if (!other) return;
+      storage.update(() => {
+        const a = { col: me.box.col, row: me.box.row, colSpan: me.colSpan, rowSpan: me.rowSpan };
+        Object.assign(me.box, { col: other.box.col, row: other.box.row, colSpan: other.colSpan, rowSpan: other.rowSpan });
+        Object.assign(other.box, a);
+      });
+    } else {
+      const fit = fitSpan(target, taken, col, row, me.colSpan, me.rowSpan, boxId);
+      if (!fit) return;
+      storage.update(() => Object.assign(me.box, { col, row, ...fit }));
+    }
+    this.render();
+  }
+
+  /**
+   * Move a box from another layout to a cell of the open layout.
+   * Empty cell: the box goes there, shrunk if needed.
+   * Another box: that box goes to the source layout, into the moved box's place.
+   */
+  #moveAcross(boxId, source, target, col, row) {
+    const box = source.boxes.find(b => b.id === boxId);
+    if (!box || !col || !row) return;
+    const { placed, taken } = placeBoxes(target);
+    const otherId = taken.get(cellKey(col, row));
+
+    if (otherId) {
+      const other = placed.find(p => p.box.id === otherId);
+      if (!other) return;
+      storage.update(() => {
+        const myRect = { col: box.col, row: box.row, colSpan: box.colSpan, rowSpan: box.rowSpan };
+        Object.assign(box, { col: other.box.col, row: other.box.row, colSpan: other.colSpan, rowSpan: other.rowSpan });
+        Object.assign(other.box, myRect);
+        source.boxes = source.boxes.filter(b => b !== box);
+        target.boxes = target.boxes.filter(b => b !== other.box);
+        source.boxes.push(other.box);
+        target.boxes.push(box);
+      });
+    } else {
+      const fit = fitSpan(target, taken, col, row, box.colSpan, box.rowSpan);
+      if (!fit) return;
+      storage.update(() => {
+        Object.assign(box, { col, row, ...fit });
+        source.boxes = source.boxes.filter(b => b !== box);
+        target.boxes.push(box);
+      });
+    }
+    this.render();
+  }
+
+  /** Dropped on a tab: move the box to the first free cell of that layout. */
+  #moveToLayout(boxId, fromLayoutId, toLayoutId) {
+    const data = storage.getData();
+    const source = data.layouts.find(l => l.id === fromLayoutId);
+    const target = data.layouts.find(l => l.id === toLayoutId);
+    const box = source?.boxes.find(b => b.id === boxId);
+    if (!box || !target || source === target) return;
+
+    const { taken } = placeBoxes(target);
+    let spot = null;
+    for (let r = 1; r <= target.rows && !spot; r++) {
+      for (let c = 1; c <= target.cols && !spot; c++) {
+        const fit = fitSpan(target, taken, c, r, box.colSpan, box.rowSpan);
+        if (fit) spot = { col: c, row: r, ...fit };
       }
-      box.col = col;
-      box.row = row;
+    }
+    if (!spot) {
+      ui.notifications.warn(`${I18N}.Notifications.LayoutFull`, { localize: true });
+      return;
+    }
+    storage.update(d => {
+      Object.assign(box, spot);
+      source.boxes = source.boxes.filter(b => b !== box);
+      target.boxes.push(box);
+      d.activeLayoutId = target.id;
     });
     this.render();
+  }
+
+  /* -------------------------------------------- */
+  /*  Resize                                      */
+  /* -------------------------------------------- */
+
+  /**
+   * Drag the corner handle to make a box cover more or fewer cells.
+   * Preview changes only inline styles; data is saved and the window re-renders on release.
+   */
+  #onPointerDown(event) {
+    const handle = event.target instanceof Element ? event.target.closest(".r101-resize-handle") : null;
+    if (!handle || event.button !== 0) return;
+    const section = handle.closest("[data-box-id]");
+    const grid = this.element.querySelector(".r101-grid");
+    const layout = storage.getActiveLayout();
+    const box = section ? this.#findBox(section.dataset.boxId) : null;
+    if (!box || !grid) return;
+    event.preventDefault();
+    event.stopPropagation();
+
+    const { taken } = placeBoxes(layout);
+    const rect = grid.getBoundingClientRect();
+    const style = getComputedStyle(grid);
+    const padL = parseFloat(style.paddingLeft) || 0;
+    const padT = parseFloat(style.paddingTop) || 0;
+    const gapX = parseFloat(style.columnGap) || 0;
+    const gapY = parseFloat(style.rowGap) || 0;
+    const cellW = (rect.width - padL - (parseFloat(style.paddingRight) || 0) - gapX * (layout.cols - 1)) / layout.cols;
+    const cellH = (rect.height - padT - (parseFloat(style.paddingBottom) || 0) - gapY * (layout.rows - 1)) / layout.rows;
+    const clamp = (v, max) => Math.min(max, Math.max(1, v));
+    const colAt = x => clamp(Math.floor((x - rect.left - padL + gapX / 2) / (cellW + gapX)) + 1, layout.cols);
+    const rowAt = y => clamp(Math.floor((y - rect.top - padT + gapY / 2) / (cellH + gapY)) + 1, layout.rows);
+
+    let current = {
+      colSpan: Number(section.dataset.colSpan) || 1,
+      rowSpan: Number(section.dataset.rowSpan) || 1
+    };
+    const initial = { ...current };
+    section.classList.add("r101-resizing");
+    handle.setPointerCapture(event.pointerId);
+
+    const onMove = ev => {
+      const cs = Math.max(1, colAt(ev.clientX) - box.col + 1);
+      const rs = Math.max(1, rowAt(ev.clientY) - box.row + 1);
+      if (cs === current.colSpan && rs === current.rowSpan) return;
+      if (!areaFree(taken, box.col, box.row, cs, rs, box.id)) return;
+      current = { colSpan: cs, rowSpan: rs };
+      section.style.gridColumn = `${box.col} / span ${cs}`;
+      section.style.gridRow = `${box.row} / span ${rs}`;
+    };
+    const onUp = () => {
+      handle.removeEventListener("pointermove", onMove);
+      handle.removeEventListener("pointerup", onUp);
+      handle.removeEventListener("pointercancel", onUp);
+      section.classList.remove("r101-resizing");
+      if (current.colSpan === initial.colSpan && current.rowSpan === initial.rowSpan) return;
+      storage.update(() => Object.assign(box, current));
+      this.render();
+    };
+    handle.addEventListener("pointermove", onMove);
+    handle.addEventListener("pointerup", onUp);
+    handle.addEventListener("pointercancel", onUp);
+  }
+
+  /* -------------------------------------------- */
+  /*  Layouts                                     */
+  /* -------------------------------------------- */
+
+  /** Replace a tab label with a text field. Enter or leaving the field saves, Escape cancels. */
+  #startRename(tab) {
+    const layoutId = tab.dataset.layoutId;
+    const layout = storage.getData().layouts.find(l => l.id === layoutId);
+    if (!layout) return;
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "r101-tab-rename";
+    input.value = layout.name;
+    input.maxLength = TITLE_MAX_LENGTH;
+    input.setAttribute("aria-label", game.i18n.localize(`${I18N}.Layout.Rename`));
+    tab.replaceWith(input);
+    input.focus();
+    input.select();
+
+    let done = false;
+    const finish = save => {
+      if (done) return;
+      done = true;
+      const name = input.value.trim().slice(0, TITLE_MAX_LENGTH);
+      if (save && name && name !== layout.name) storage.update(() => { layout.name = name; });
+      this.render();
+    };
+    input.addEventListener("keydown", ev => {
+      ev.stopPropagation();
+      if (ev.key === "Enter") { ev.preventDefault(); finish(true); }
+      else if (ev.key === "Escape") { ev.preventDefault(); finish(false); }
+    });
+    input.addEventListener("blur", () => finish(true));
   }
 
   #findBox(boxId) {
@@ -490,11 +761,78 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       if (!confirmed) return;
     }
 
+    storage.snapshot("RemoveBox");
     storage.update(() => {
       const layout = storage.getActiveLayout();
       layout.boxes = layout.boxes.filter(b => b.id !== boxId);
     });
     this.render();
+  }
+
+  /** @this {DMScreenApp} */
+  static #onSwitchLayout(event, target) {
+    const id = target.dataset.layoutId;
+    if (!id || id === storage.getData().activeLayoutId) return;
+    storage.update(data => { data.activeLayoutId = id; });
+    this.render();
+  }
+
+  /** @this {DMScreenApp} */
+  static #onAddLayout() {
+    const data = storage.getData();
+    const layout = createLayout(game.i18n.format(`${I18N}.Layout.DefaultName`, { n: data.layouts.length + 1 }));
+    storage.update(d => {
+      d.layouts.push(layout);
+      d.activeLayoutId = layout.id;
+    });
+    this.render();
+  }
+
+  /** @this {DMScreenApp} */
+  static #onDuplicateLayout() {
+    const source = storage.getActiveLayout();
+    const copy = cloneLayout(source, game.i18n.format(`${I18N}.Layout.CopyName`, { name: source.name }));
+    storage.update(d => {
+      d.layouts.splice(d.layouts.indexOf(source) + 1, 0, copy);
+      d.activeLayoutId = copy.id;
+    });
+    this.render();
+  }
+
+  /** @this {DMScreenApp} */
+  static async #onDeleteLayout() {
+    const data = storage.getData();
+    const layout = storage.getActiveLayout();
+    if (data.layouts.length < 2) return;
+    const confirmed = await DialogV2.confirm({
+      window: { title: `${I18N}.Layout.DeleteTitle` },
+      content: `<p><strong>${escapeHTML(layout.name)}</strong></p><p>${game.i18n.localize(`${I18N}.Layout.DeleteContent`)}</p>`,
+      rejectClose: false
+    });
+    if (!confirmed) return;
+    storage.snapshot("DeleteLayout");
+    storage.update(d => {
+      const index = d.layouts.indexOf(layout);
+      d.layouts = d.layouts.filter(l => l !== layout);
+      d.activeLayoutId = d.layouts[Math.max(0, index - 1)].id;
+    });
+    this.render();
+  }
+
+  /** @this {DMScreenApp} */
+  static async #onExport() {
+    await storage.flush();
+    await exportLayouts();
+  }
+
+  /** @this {DMScreenApp} */
+  static async #onImport() {
+    if (await importLayouts()) this.render();
+  }
+
+  /** @this {DMScreenApp} */
+  static async #onRestore() {
+    if (await restoreBackup()) this.render();
   }
 
   /** @this {DMScreenApp} */
@@ -559,6 +897,7 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
   _onClose(options) {
     super._onClose(options);
     this.#unwatchDocuments();
+    this.#cancelTabSwitch();
     storage.flush();
     const { left, top, width, height } = this.position;
     game.settings.set(MODULE_ID, SETTINGS.WINDOW, { left, top, width, height }).catch(() => {});

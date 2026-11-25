@@ -40,7 +40,8 @@
       "Open": "Aç",
       "ReconnectHint": "Yeniden bağlamak için yerine yenisini buraya sürükleyin veya kutuyu kaldırın.",
       "DropHint": "veya bir journal, tablo, tablo klasörü ya da tablo compendium'u bırakın",
-      "Move": "Taşımak için sürükleyin. Başka bir kutunun üstüne bırakırsanız yer değiştirirler."
+      "Move": "Taşımak için sürükleyin. Başka bir kutunun üstüne bırakırsanız yer değiştirirler.",
+      "Resize": "Daha fazla veya daha az hücre kaplaması için sürükleyin."
     },
     "Notifications": {
       "SaveFailed": "DM Ekranı: değişiklikler kaydedilemedi. Ayrıntılar için konsola (F12) bakın.",
@@ -48,7 +49,8 @@
       "DropPackType": "Sadece rollable table compendium'ları eklenebilir.",
       "DropUnsupported": "Bu öğe DM Ekranına eklenemez.",
       "DropOccupied": "Bu hücre dolu. Boş bir hücreye bırakın ya da bağlantısını değiştirmek için aynı türdeki bir kutuya bırakın.",
-      "NotFound": "Bu belge silinmiş veya bulunamıyor."
+      "NotFound": "Bu belge silinmiş veya bulunamıyor.",
+      "LayoutFull": "O layout'ta boş hücre yok. Önce grid'ini büyütün veya bir hücre boşaltın."
     },
     "Missing": {
       "Journal": "Bu journal silinmiş veya bulunamıyor.",
@@ -86,6 +88,50 @@
       "Copied": "Sonuç kopyalandı.",
       "Whispered": "Sonuç GM'e fısıldandı.",
       "RerollAll": "Hepsini yeniden üret"
+    },
+    "Layout": {
+      "Tabs": "Layout'lar",
+      "TabHint": "Geçmek için tıklayın. Açık layout'un adını değiştirmek için çift tıklayın. Bir kutuyu bu layout'a taşımak için buraya sürükleyin.",
+      "Add": "Yeni layout",
+      "Duplicate": "Bu layout'u kopyala",
+      "Delete": "Bu layout'u sil",
+      "DeleteTitle": "Layout'u sil",
+      "DeleteContent": "Bu layout ve tüm kutuları silinsin mi? Bir yedek tutulur.",
+      "Rename": "Layout adı",
+      "DefaultName": "Layout {n}",
+      "CopyName": "{name} (kopya)"
+    },
+    "IO": {
+      "Export": "Layout'ları dışa aktar",
+      "Import": "Layout'ları içe aktar",
+      "ExportTitle": "Layout'ları dışa aktar",
+      "ExportContent": "Layout'ları bir .json dosyasına kaydeder. Bağlı journal ve tabloların içeriği değil, sadece bağlantısı kaydedilir.",
+      "ExportCurrent": "Bu layout: {name}",
+      "ExportAll": "Tüm layout'lar ({count})",
+      "ImportTitle": "Layout'ları içe aktar",
+      "ImportContent": "Bu dosyada {count} layout var:",
+      "ImportHint": "Ekle, mevcut layout'larını korur. Tümünü değiştir, onları kaldırır. Her iki durumda da yedek tutulur.",
+      "ImportMerge": "Ekle",
+      "ImportReplace": "Tümünü değiştir",
+      "Imported": "{count} layout içe aktarıldı.",
+      "InvalidFile": "Bu bir DM Ekranı layout dosyası değil veya bozuk. Hiçbir şey değişmedi.",
+      "NewerFile": "Bu dosya Roll101 DM Screen'in daha yeni bir sürümüyle yapılmış. Önce modülü güncelleyin. Hiçbir şey değişmedi.",
+      "TooLarge": "Bu dosya çok büyük (5 MB üstü). Hiçbir şey değişmedi."
+    },
+    "Backup": {
+      "Title": "Yedekten geri yükle",
+      "Restore": "Geri yükle",
+      "Restored": "Yedek geri yüklendi.",
+      "None": "Bu bilgisayarda henüz yedek yok.",
+      "Content": "Yedekler sadece bu bilgisayarda tutulur (son 5). Geri yüklemeden önce mevcut durum da yedeklenir.",
+      "Meta": "{layouts} layout, {boxes} kutu",
+      "Reason": {
+        "Session": "Düzenlemeden önce",
+        "RemoveBox": "Kutu kaldırmadan önce",
+        "DeleteLayout": "Layout silmeden önce",
+        "Import": "İçe aktarmadan önce",
+        "Restore": "Geri yüklemeden önce"
+      }
     }
   }
 }

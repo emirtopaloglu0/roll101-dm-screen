@@ -16,6 +16,75 @@
   min-height: 0;
 }
 
+/* Layout tabs */
+.r101-dm-screen .r101-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  padding: 6px 10px 0;
+}
+
+.r101-dm-screen .r101-tab {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  max-width: 16em;
+  overflow: hidden;
+  padding: 0.25em 0.9em;
+  border: 1px solid var(--r101-border);
+  border-radius: 6px 6px 0 0;
+  background: transparent;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--r101-muted);
+}
+
+.r101-dm-screen .r101-tab:hover {
+  color: inherit;
+}
+
+.r101-dm-screen .r101-tab.r101-active {
+  color: inherit;
+  font-weight: 600;
+  border-bottom-color: transparent;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.r101-dm-screen .r101-tab-rename {
+  width: 12em;
+  height: auto;
+  padding: 0.2em 0.5em;
+}
+
+.r101-dm-screen .r101-tab-tool {
+  flex: 0 0 auto;
+  width: 1.9em;
+  height: 1.9em;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  line-height: 1;
+  color: var(--r101-muted);
+}
+
+.r101-dm-screen .r101-tab-tool:hover,
+.r101-dm-screen .r101-tab-tool:focus-visible {
+  color: inherit;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.r101-dm-screen .r101-toolbar-end {
+  display: inline-flex;
+  gap: 2px;
+  margin-left: auto;
+}
+
 /* Toolbar */
 .r101-dm-screen .r101-toolbar {
   display: flex;
@@ -125,6 +194,31 @@
 
 .r101-dm-screen .r101-dragging {
   opacity: 0.4;
+}
+
+/* Corner handle: drag to cover more or fewer cells. */
+.r101-dm-screen .r101-resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 14px;
+  height: 14px;
+  cursor: nwse-resize;
+  touch-action: none;
+  opacity: 0;
+  background: linear-gradient(135deg, transparent 50%, color-mix(in srgb, currentColor 45%, transparent) 50%);
+  border-bottom-right-radius: var(--r101-radius);
+}
+
+.r101-dm-screen .r101-box:hover .r101-resize-handle,
+.r101-dm-screen .r101-resizing .r101-resize-handle {
+  opacity: 1;
+}
+
+.r101-dm-screen .r101-resizing {
+  outline: 2px dashed color-mix(in srgb, currentColor 70%, transparent);
+  outline-offset: -3px;
+  z-index: 1;
 }
 
 .r101-dm-screen .r101-header-button {
@@ -542,6 +636,41 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 6px;
+}
+
+/* Backup restore dialog */
+.r101-backup-dialog .r101-backup-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0.5em 0;
+}
+
+.r101-backup-dialog .r101-backup-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 8px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.r101-backup-dialog .r101-backup-row:hover {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.r101-backup-dialog .r101-backup-row input {
+  grid-row: span 2;
+}
+
+.r101-backup-dialog .r101-backup-time {
+  font-weight: 600;
+}
+
+.r101-backup-dialog .r101-backup-meta {
+  font-size: 0.85em;
+  opacity: 0.7;
 }
 
 @media (prefers-reduced-motion: no-preference) {
