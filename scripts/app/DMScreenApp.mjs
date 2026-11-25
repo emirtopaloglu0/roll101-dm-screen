@@ -21,6 +21,7 @@ const { ApplicationV2, HandlebarsApplicationMixin, DialogV2 } = foundry.applicat
 
 const TEMPLATES = `modules/${MODULE_ID}/templates`;
 const BOX_DRAG_TYPE = "application/x-r101-box";
+const TAB_DRAG_TYPE = "application/x-r101-tab";
 const TAB_SWITCH_DELAY_MS = 500;
 const range = n => Array.from({ length: n }, (_, i) => i + 1);
 const toChoices = n => Object.fromEntries(range(n).map(i => [i, String(i)]));
@@ -418,8 +419,38 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     return event.target.closest(".r101-tab[data-layout-id]");
   }
 
-  /** Start moving a box by its drag handle. */
+  /** True while one of our layout tabs is being dragged to a new position. */
+  #isTabDrag(event) {
+    return !!event.dataTransfer?.types?.includes(TAB_DRAG_TYPE);
+  }
+
+  #tabUnderPointer(event) {
+    return event.target instanceof Element ? event.target.closest(".r101-tab[data-layout-id]") : null;
+  }
+
+  /** Move a layout tab to the position of the tab it was dropped on. */
+  #reorderTabs(fromId, toId) {
+    if (!fromId || !toId || fromId === toId) return;
+    storage.update(data => {
+      const from = data.layouts.findIndex(l => l.id === fromId);
+      const to = data.layouts.findIndex(l => l.id === toId);
+      if (from < 0 || to < 0) return;
+      const [layout] = data.layouts.splice(from, 1);
+      data.layouts.splice(to, 0, layout);
+    });
+    this.render();
+  }
+
+  /** Start moving a tab, or a box by its drag handle. */
   #onDragStart(event) {
+    const dragTab = this.#tabUnderPointer(event);
+    if (dragTab && event.dataTransfer) {
+      event.stopPropagation();
+      event.dataTransfer.setData(TAB_DRAG_TYPE, dragTab.dataset.layoutId);
+      event.dataTransfer.effectAllowed = "move";
+      dragTab.classList.add("r101-dragging");
+      return;
+    }
     const handle = event.target instanceof Element ? event.target.closest(".r101-drag-handle") : null;
     const cell = handle?.closest("[data-box-id]");
     if (!cell || !event.dataTransfer) return;
@@ -440,6 +471,14 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   #onDragOver(event) {
+    if (this.#isTabDrag(event)) {
+      const overTab = this.#tabUnderPointer(event);
+      if (!overTab) return;
+      event.preventDefault();
+      event.dataTransfer.dropEffect = "move";
+      this.#highlight(overTab);
+      return;
+    }
     const tab = this.#dropTab(event);
     if (tab) {
       event.preventDefault();
@@ -462,6 +501,11 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   #onDragLeave(event) {
+    if (this.#isTabDrag(event)) {
+      const leaving = this.#tabUnderPointer(event);
+      if (leaving && !leaving.contains(event.relatedTarget)) leaving.classList.remove("r101-drop-target");
+      return;
+    }
     const el = this.#dropTab(event) ?? this.#dropCell(event);
     if (!el || el.contains(event.relatedTarget)) return;
     el.classList.remove("r101-drop-target");
@@ -497,6 +541,15 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   async #onDrop(event) {
+    if (this.#isTabDrag(event)) {
+      const overTab = this.#tabUnderPointer(event);
+      if (!overTab) return;
+      event.preventDefault();
+      event.stopPropagation();
+      overTab.classList.remove("r101-drop-target");
+      this.#reorderTabs(event.dataTransfer.getData(TAB_DRAG_TYPE), overTab.dataset.layoutId);
+      return;
+    }
     const tab = this.#dropTab(event);
     if (tab) {
       event.preventDefault();

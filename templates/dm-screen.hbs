@@ -2,7 +2,7 @@
   <nav class="r101-tabs" aria-label="{{localize 'R101DMSCREEN.Layout.Tabs'}}">
     {{#each tabs}}
     <button type="button" class="r101-tab{{#if active}} r101-active{{/if}}" data-action="switchLayout"
-            data-layout-id="{{id}}" aria-pressed="{{#if active}}true{{else}}false{{/if}}"
+            data-layout-id="{{id}}" draggable="true" aria-pressed="{{#if active}}true{{else}}false{{/if}}"
             data-tooltip="R101DMSCREEN.Layout.TabHint">{{name}}</button>
     {{/each}}
     <button type="button" class="r101-tab-tool" data-action="addLayout"

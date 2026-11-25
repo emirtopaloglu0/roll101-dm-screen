@@ -149,7 +149,7 @@ export class ResultDialog extends ApplicationV2 {
       const item = this.#items[0];
       body = item?.error
         ? `<p class="r101-result-error">${escapeHTML(item.error)}</p>`
-        : `<div class="r101-result-text">${(item?.texts ?? []).map(x => `<p>${escapeHTML(x)}</p>`).join("")}</div>`;
+        : this.#singleBody(item?.texts ?? []);
     }
 
     return `
@@ -160,6 +160,12 @@ export class ResultDialog extends ApplicationV2 {
         <button type="button" data-action="whisper" ${disabled}><i class="fa-solid fa-user-secret" aria-hidden="true"></i> ${t("Whisper")}</button>
         <button type="button" data-action="ok"><i class="fa-solid fa-check" aria-hidden="true"></i> ${t("Ok")}</button>
       </footer>`;
+  }
+
+  /** One result stays a centered line. Several results (Ctrl+Reroll) become a spaced bulleted list. */
+  #singleBody(texts) {
+    if (texts.length < 2) return `<div class="r101-result-text">${texts.map(x => `<p>${escapeHTML(x)}</p>`).join("")}</div>`;
+    return `<ul class="r101-result-text r101-result-list">${texts.map(x => `<li>${escapeHTML(x)}</li>`).join("")}</ul>`;
   }
 
   /** @override */
