@@ -65,6 +65,7 @@
     },
     "Table": {
       "Roll": "At",
+      "RollHint": "Ctrl+tık: birbirinden farklı 5 sonuç birden",
       "More": "+{count} sonuç daha. Hepsini görmek için Aç'ı kullanın."
     },
     "Folder": {

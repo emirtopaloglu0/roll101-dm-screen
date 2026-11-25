@@ -45,17 +45,18 @@ export class ResultDialog extends ApplicationV2 {
 
   /**
    * Roll one table, or every table of a group, and show the result.
-   * @param {{uuids: string[], title?: string, group?: boolean}} request
+   * @param {{uuids: string[], title?: string, group?: boolean, count?: number}} request
+   *   `count` above 1 (single table only) rolls that many different results at once.
    * @param {ResultCallback} [onResult]
    */
-  static async show({ uuids, title = "", group = false }, onResult) {
+  static async show({ uuids, title = "", group = false, count = 1 }, onResult) {
     if (!uuids?.length) return;
     instance ??= new ResultDialog();
     const dialog = instance;
     dialog.#group = group;
     dialog.#groupTitle = title;
     dialog.#onResult = onResult ?? null;
-    dialog.#items = uuids.map(uuid => ({ uuid, name: "", texts: [], error: "" }));
+    dialog.#items = uuids.map(uuid => ({ uuid, count: group ? 1 : count, name: "", texts: [], error: "" }));
     await dialog.#rollAll();
     await dialog.render({ force: true, position: { width: group ? 560 : 380, height: "auto" } });
     dialog.bringToFront?.();
@@ -96,7 +97,7 @@ export class ResultDialog extends ApplicationV2 {
   async #rollItem(item) {
     item.error = "";
     try {
-      const { name, texts } = item.generate ? await item.generate() : await rollTableByUuid(item.uuid);
+      const { name, texts } = item.generate ? await item.generate() : await rollTableByUuid(item.uuid, item.count);
       item.name = name;
       item.texts = texts;
       if (!texts.length) item.error = game.i18n.localize(`${I18N}.Result.Empty`);
@@ -168,7 +169,11 @@ export class ResultDialog extends ApplicationV2 {
   }
 
   /** @this {ResultDialog} */
-  static async #onReroll() {
+  static async #onReroll(event) {
+    // Ctrl+Reroll switches a single table to the multi result. Plain Reroll keeps the current mode.
+    if (!this.#group && (event.ctrlKey || event.metaKey)) {
+      for (const item of this.#items) if (!item.generate) item.count = MULTI_ROLL_COUNT;
+    }
     await this.#rollAll();
     await this.render();
   }

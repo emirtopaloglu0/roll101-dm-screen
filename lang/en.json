@@ -65,6 +65,7 @@
     },
     "Table": {
       "Roll": "Roll",
+      "RollHint": "Ctrl+click: 5 different results at once",
       "More": "+{count} more results. Use Open to see all."
     },
     "Folder": {

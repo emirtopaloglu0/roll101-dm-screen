@@ -15,7 +15,7 @@ import { MAX_PARTY, coinSettings, coinTexts, coinsContext, glossaryContext, temp
 import { foldSearch, listTemplates, localize as localizeText } from "../templates.mjs";
 import { areaFree, cellKey, fitSpan, placeBoxes } from "../grid.mjs";
 import { cloneLayout, createLayout } from "../migrate.mjs";
-import { copyText, escapeHTML, whisperToGM } from "../tables.mjs";
+import { MULTI_ROLL_COUNT, copyText, escapeHTML, whisperToGM } from "../tables.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
 
@@ -1250,7 +1250,9 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const uuid = target.dataset.uuid;
     if (!uuid) return;
     const boxId = target.closest("[data-box-id]")?.dataset.boxId;
-    ResultDialog.show({ uuids: [uuid] }, (entry, updated) => this.#addHistory(boxId, entry, updated));
+    // Ctrl (Cmd on Mac) + click: several different results at once.
+    const count = event.ctrlKey || event.metaKey ? MULTI_ROLL_COUNT : 1;
+    ResultDialog.show({ uuids: [uuid], count }, (entry, updated) => this.#addHistory(boxId, entry, updated));
   }
 
   /**

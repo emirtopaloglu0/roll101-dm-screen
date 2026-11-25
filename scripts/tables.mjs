@@ -29,15 +29,35 @@ export function resultText(result) {
 /**
  * Roll a table without drawing (results are not marked as drawn) and without chat.
  * Nested tables are resolved by Foundry's own recursive roll.
+ * @param {string} uuid
+ * @param {number} [count] More than 1 returns that many different results (fewer if the table has fewer).
  * @returns {Promise<{name: string, texts: string[]}>}
  */
-export async function rollTableByUuid(uuid) {
+export async function rollTableByUuid(uuid, count = 1) {
   const table = await fromUuid(uuid).catch(() => null);
   if (!table || table.documentName !== "RollTable") throw new Error("missing");
-  const { results } = await table.roll();
-  const texts = (results ?? []).map(resultText).filter(Boolean);
+  if (count <= 1) {
+    const { results } = await table.roll();
+    return { name: table.name, texts: (results ?? []).map(resultText).filter(Boolean) };
+  }
+  // Several different results: roll again on a repeat. The attempt cap keeps small
+  // tables (fewer distinct results than `count`) from looping for long.
+  const seen = new Set();
+  const texts = [];
+  const maxAttempts = count * 8 + 10;
+  for (let i = 0; i < maxAttempts && texts.length < count; i++) {
+    const { results } = await table.roll();
+    for (const text of (results ?? []).map(resultText).filter(Boolean)) {
+      if (seen.has(text) || texts.length >= count) continue;
+      seen.add(text);
+      texts.push(text);
+    }
+  }
   return { name: table.name, texts };
 }
+
+/** How many different results Ctrl+Roll produces at once. */
+export const MULTI_ROLL_COUNT = 5;
 
 export async function copyText(text) {
   try {
