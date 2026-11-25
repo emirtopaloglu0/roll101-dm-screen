@@ -1,0 +1,46 @@
+# Roll101 DM Screen
+
+A configurable Game Master screen for Foundry VTT. Keep notes, rollable tables,
+table-folder generators, journals and quick rules references in one grid window,
+without leaving Foundry.
+
+> **Status:** early development. Not ready for live games yet.
+
+## Planned features
+
+- Grid layout you choose (for example 5 × 2 boxes), with adjustable window and text size.
+- Box types: notes, journal, rollable table, table-folder generator, coin converter, rules references.
+- Table-folder generator: browse or search a folder of rollable tables, generate a result
+  in a dialog, then reroll, copy or whisper it to the GM.
+- Multiple layouts (Combat, Town, Travel…) with export and import as JSON.
+- Rules references based on SRD 5.1 / 5.2.1, in English and Turkish.
+- Visible to the Gamemaster only. Players and trusted players see nothing.
+
+## Compatibility
+
+| Foundry VTT | Status |
+|---|---|
+| v14 | Verified target |
+| v13 | Minimum supported |
+
+System-agnostic. Some optional boxes (actor summary) need the dnd5e system.
+
+## Installation
+
+Not yet published. After the first release, install with this manifest URL:
+
+```
+https://github.com/emirtopaloglu0/roll101-dm-screen/releases/latest/download/module.json
+```
+
+## Privacy note
+
+The screen UI is GM-only, but Foundry sends world settings to every connected client.
+Do not store secrets you would never want a technically skilled player to read.
+
+## License
+
+Code: [MIT](LICENSE).
+Rules content: based on the System Reference Document 5.1 and 5.2.1 by Wizards of the Coast LLC,
+licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+This project is not affiliated with Wizards of the Coast or Foundry Gaming LLC.

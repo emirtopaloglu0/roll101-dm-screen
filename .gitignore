@@ -1,0 +1,22 @@
+# Local planning notes (not published)
+claude.md
+CLAUDE.md
+screen.md
+Action-Plan.md
+.claude/
+
+# Private content packs (copyrighted / personal data, never committed)
+private/
+
+# Build output
+dist/
+*.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log
+node_modules/

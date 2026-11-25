@@ -1,0 +1,19 @@
+{
+  "id": "roll101-dm-screen",
+  "title": "Roll101 DM Screen",
+  "description": "A configurable, GM-only screen with notes, rollable tables, table-folder generators, journals and quick rules references.",
+  "version": "0.0.0",
+  "authors": [
+    { "name": "Roll101" }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE",
+  "readme": "README.md",
+  "changelog": "CHANGELOG.md"
+}
