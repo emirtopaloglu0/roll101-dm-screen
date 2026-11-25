@@ -31,7 +31,7 @@ jobs:
 
       - name: Build module.zip
         run: |
-          FILES="module.json README.md LICENSE CHANGELOG.md"
+          FILES="module.json README.md LICENSE NOTICE.md CHANGELOG.md"
           for dir in scripts templates styles lang data assets; do
             [ -d "$dir" ] && FILES="$FILES $dir"
           done

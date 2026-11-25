@@ -4,12 +4,16 @@ A configurable Game Master screen for Foundry VTT. Keep notes, rollable tables,
 table-folder generators, journals and quick rules references in one grid window,
 without leaving Foundry.
 
-> **Status:** 1.0.0. Tested on Foundry v14; v13 untested. Back up your world before first use.
+> **Status:** 1.1.0. Tested on Foundry v14; v13 untested. Back up your world before first use.
 > See [docs/TESTING.md](docs/TESTING.md).
 
 ## Screenshots
 
-Coming with the 1.0.0 release.
+![The main layout: rules glossary, coin converter, notes, combat environment, random events and loot generator](docs/image/P1.png)
+
+Several layouts as tabs. Empty cells take notes, library boxes or dropped journals and tables.
+
+![An empty layout with add buttons in every cell](docs/image/P2.png)
 
 ## Features
 
@@ -52,7 +56,7 @@ System-agnostic. Some optional boxes (actor summary) need the dnd5e system.
 
 ## Installation
 
-Not yet published. After the first release, install with this manifest URL:
+In Foundry: **Add-on Modules → Install Module**, then paste this manifest URL:
 
 ```
 https://github.com/emirtopaloglu0/roll101-dm-screen/releases/latest/download/module.json
@@ -65,7 +69,12 @@ Do not store secrets you would never want a technically skilled player to read.
 
 ## License
 
-Code: [MIT](LICENSE).
+Open source. Code: [MIT](LICENSE).
 Rules content: based on the System Reference Document 5.1 and 5.2.1 by Wizards of the Coast LLC,
-licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode). See [NOTICE.md](NOTICE.md).
 This project is not affiliated with Wizards of the Coast or Foundry Gaming LLC.
+
+## Contributing and security
+
+Pull requests are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).
+To report a vulnerability, see [SECURITY.md](SECURITY.md).
