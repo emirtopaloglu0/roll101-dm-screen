@@ -12,9 +12,29 @@
     <select class="r101-select" data-r101-generator="lang" aria-label="{{localize 'R101DMSCREEN.Template.Language'}}">
       {{#each langs}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
     </select>
+    <span class="r101-push-right"></span>
+    <button type="button" class="r101-small-button" data-action="copyLoot"
+            data-tooltip="R101DMSCREEN.Result.Copy" aria-label="{{localize 'R101DMSCREEN.Result.Copy'}}">
+      <i class="fa-solid fa-copy" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="r101-small-button" data-action="whisperLoot"
+            data-tooltip="R101DMSCREEN.Result.Whisper" aria-label="{{localize 'R101DMSCREEN.Result.Whisper'}}">
+      <i class="fa-solid fa-user-secret" aria-hidden="true"></i>
+    </button>
+    <i class="fa-solid fa-circle-info r101-note" data-tooltip="{{attribution}}" aria-label="{{attribution}}"></i>
   </div>
-  <div class="r101-scroll r101-loot-body">
-    <p>{{hint}}</p>
-    {{#if attribution}}<p class="r101-attribution">{{attribution}}</p>{{/if}}
+  <div class="r101-loot-limits" role="group" aria-label="{{localize 'R101DMSCREEN.Loot.Limits'}}">
+    {{#each limits}}
+    <div class="r101-loot-limit">
+      <span class="r101-coin-label">{{denom}}</span>
+      <input type="number" min="0" step="1" inputmode="numeric" value="{{min}}" placeholder="{{localize 'R101DMSCREEN.Loot.Min'}}"
+             data-r101-loot-limit="{{denom}}.min" aria-label="{{denom}} {{localize 'R101DMSCREEN.Loot.Min'}}">
+      <input type="number" min="0" step="1" inputmode="numeric" value="{{max}}" placeholder="{{localize 'R101DMSCREEN.Loot.Max'}}"
+             data-r101-loot-limit="{{denom}}.max" aria-label="{{denom}} {{localize 'R101DMSCREEN.Loot.Max'}}">
+    </div>
+    {{/each}}
+  </div>
+  <div class="r101-scroll r101-loot-result" data-r101-loot-result aria-live="polite">
+    {{#each result}}<p>{{this}}</p>{{/each}}
   </div>
 </div>

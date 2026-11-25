@@ -18,14 +18,17 @@ const BUDGET = Object.freeze({
   hoard: { t1: [6, 6, 20], t2: [6, 6, 150], t3: [6, 6, 1000], t4: [6, 6, 8000] }
 });
 
-/** Share of the coin value paid in each coin. The first coins are filled first. */
+/** Coins loot can contain. Platinum and electrum are never produced. */
+const COINS = Object.freeze(["gp", "sp", "cp"]);
+
+/** Share of the coin value paid in each coin. */
 const COIN_MIX = Object.freeze({
   t1: { cp: 0.15, sp: 0.35, gp: 0.5 },
-  t2: { sp: 0.2, ep: 0.1, gp: 0.6, pp: 0.1 },
-  t3: { gp: 0.7, pp: 0.3 },
-  t4: { gp: 0.6, pp: 0.4 }
+  t2: { sp: 0.25, gp: 0.75 },
+  t3: { gp: 1 },
+  t4: { gp: 1 }
 });
-const RATE = Object.freeze({ cp: 0.01, sp: 0.1, ep: 0.5, gp: 1, pp: 10 });
+const RATE = Object.freeze({ cp: 0.01, sp: 0.1, gp: 1 });
 const MAGIC_RARITY = Object.freeze({
   t1: ["common", "uncommon"],
   t2: ["uncommon", "rare"],
@@ -105,26 +108,63 @@ function formatValue(gp, lang) {
   return `${num.format(gp * 100)} cp`;
 }
 
-/** Split a gp value into coins following the tier's mix. Rounds down; the rest goes to gp, sp, cp. */
-function makeCoins(value, tier) {
-  const coins = {};
+/**
+ * Clean the min/max limits of each coin: whole numbers, 0 or more. Blank means no limit.
+ * @returns {Record<string, {min: number|null, max: number|null}>}
+ */
+export function cleanLimits(raw) {
+  const num = v => {
+    if (v === "" || v === null || v === undefined) return null;
+    const n = Math.floor(Number(v));
+    return Number.isFinite(n) && n >= 0 ? n : null;
+  };
+  const out = {};
+  for (const denom of COINS) {
+    const min = num(raw?.[denom]?.min);
+    let max = num(raw?.[denom]?.max);
+    if (min !== null && max !== null && max < min) max = min;
+    out[denom] = { min, max };
+  }
+  return out;
+}
+
+const capOf = (limits, denom) => limits[denom].max ?? Infinity;
+const coinValueOf = coins => COINS.reduce((sum, d) => sum + coins[d] * RATE[d], 0);
+
+/** Add as much of a gp value as the limits allow, largest coin first. Returns what did not fit. */
+function addValue(coins, value, limits) {
   let remain = value;
+  for (const denom of COINS) {
+    const count = Math.min(Math.floor(remain / RATE[denom] + 1e-9), capOf(limits, denom) - coins[denom]);
+    if (count > 0) {
+      coins[denom] += count;
+      remain -= count * RATE[denom];
+    }
+  }
+  return remain;
+}
+
+/**
+ * Split a gp value into coins: the minimums first, then the tier's mix, then the rest.
+ * A coin never goes over its maximum. Value that does not fit is returned for items.
+ */
+function makeCoins(value, tier, limits) {
+  const coins = { gp: 0, sp: 0, cp: 0 };
+  let remain = value;
+  for (const denom of COINS) {
+    coins[denom] = Math.min(limits[denom].min ?? 0, capOf(limits, denom));
+    remain -= coins[denom] * RATE[denom];
+  }
+  const pool = Math.max(0, remain);
   for (const [denom, share] of Object.entries(COIN_MIX[tier])) {
-    const wanted = Math.min(remain, value * share * (0.7 + rand() * 0.6));
-    const count = Math.floor(wanted / RATE[denom] + 1e-9);
+    const wanted = Math.min(remain, pool * share * (0.7 + rand() * 0.6));
+    const count = Math.min(Math.floor(wanted / RATE[denom] + 1e-9), capOf(limits, denom) - coins[denom]);
     if (count > 0) {
-      coins[denom] = count;
+      coins[denom] += count;
       remain -= count * RATE[denom];
     }
   }
-  for (const denom of ["gp", "sp", "cp"]) {
-    const count = Math.floor(remain / RATE[denom] + 1e-9);
-    if (count > 0) {
-      coins[denom] = (coins[denom] ?? 0) + count;
-      remain -= count * RATE[denom];
-    }
-  }
-  return coins;
+  return { coins, unplaced: addValue(coins, Math.max(0, remain), limits) };
 }
 
 /**
@@ -142,17 +182,21 @@ function candidates(entries, left, flat) {
 /**
  * Roll treasure.
  * @param {object} data  Loaded loot data.
- * @param {{mode: string, tier: string}} choice
+ * @param {{mode: string, tier: string, limits?: object}} choice
  * @param {string} lang
  * @returns {string[]}  Result lines.
  */
-export function generateLoot(data, { mode, tier }, lang) {
+export function generateLoot(data, { mode, tier, limits: rawLimits }, lang) {
   const t = key => game.i18n.localize(`${I18N}.Loot.${key}`);
   const L = value => localize(value, lang);
-  const budget = rollBudget(BUDGET[mode][tier]);
+  const limits = cleanLimits(rawLimits);
+  const minValue = COINS.reduce((sum, d) => sum + (limits[d].min ?? 0) * RATE[d], 0);
+  const budget = Math.max(rollBudget(BUDGET[mode][tier]), minValue);
   const coinShare = mode === "hoard" ? 0.35 + rand() * 0.25 : 0.7 + rand() * 0.3;
-  let coinValue = budget * coinShare;
-  let left = budget - coinValue;
+  const wanted = Math.max(budget * coinShare, minValue);
+  // Coins come first. Value that the limits do not allow as coins goes to items instead.
+  const { coins, unplaced } = makeCoins(wanted, tier, limits);
+  let left = budget - wanted + unplaced;
 
   // Spend the item budget on items of the same total value.
   const weights = mode === "hoard" ? { gems: 3, art: 2, trade: 2, goods: 2 } : { gems: 1, art: 0, trade: 2, goods: 2 };
@@ -163,6 +207,7 @@ export function generateLoot(data, { mode, tier }, lang) {
     goods: data.goods.map(g => ({ ...g, kind: "goods" }))
   };
   const picked = new Map();
+  let itemsWorth = 0;
   // Stop when what is left is too small to bother with; it stays as coins.
   const floor = Math.max(1, budget * 0.02);
   for (let i = 0; i < 12 && left > floor; i++) {
@@ -183,13 +228,14 @@ export function generateLoot(data, { mode, tier }, lang) {
     if (prior) prior.qty += qty;
     else picked.set(key, { kind: entry.kind, name, qty, each: entry.v });
     left -= qty * entry.v;
+    itemsWorth += qty * entry.v;
   }
-  coinValue += Math.max(0, left); // Whatever the items did not use stays as coins.
+  addValue(coins, Math.max(0, left), limits); // What the items did not use goes back to coins, if allowed.
 
   const lines = [];
-  const coins = makeCoins(coinValue, tier);
-  const coinText = ["pp", "gp", "ep", "sp", "cp"].filter(d => coins[d]).map(d => `${coins[d].toLocaleString(lang)} ${d}`).join(", ");
+  const coinText = COINS.filter(d => coins[d]).map(d => `${coins[d].toLocaleString(lang)} ${d}`).join(", ");
   if (coinText) lines.push(`${t("Coins")}: ${coinText}`);
+  const worth = coinValueOf(coins) + itemsWorth;
 
   for (const item of picked.values()) {
     const label = item.kind === "gem" ? `${t("Gem")}: ` : item.kind === "art" ? `${t("Art")}: ` : "";
@@ -213,6 +259,6 @@ export function generateLoot(data, { mode, tier }, lang) {
   }
 
   if (!lines.length) lines.push(t("Nothing"));
-  else lines.push(`${t("Worth")} ≈ ${formatValue(budget, lang)}${mode === "hoard" ? ` ${t("MagicExcluded")}` : ""}`);
+  else lines.push(`${t("Worth")} ≈ ${formatValue(worth, lang)}${mode === "hoard" ? ` ${t("MagicExcluded")}` : ""}`);
   return lines;
 }

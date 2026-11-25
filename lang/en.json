@@ -218,13 +218,12 @@
       "Each": "each",
       "Worth": "Total worth",
       "MagicExcluded": "(without magic items)",
+      "Limits": "Coin limits (blank = no limit)",
+      "Min": "min",
+      "Max": "max",
       "Nothing": "Nothing of value.",
       "Mode": { "individual": "Individual", "hoard": "Hoard" },
       "Tier": { "t1": "CR 0–4", "t2": "CR 5–10", "t3": "CR 11–16", "t4": "CR 17+" },
-      "Hint": {
-        "individual": "Loot carried by one creature: mostly coins, sometimes a few goods or a gem. Coins and goods always add up to the same total value.",
-        "hoard": "A stash: coins, gems, art objects, trade goods and equipment of the same total value, plus magic items. Item names and prices follow the SRD 5.1. Magic items stay in English."
-      },
       "Rarity": { "common": "common", "uncommon": "uncommon", "rare": "rare", "very-rare": "very rare", "legendary": "legendary" }
     },
     "Generator": {

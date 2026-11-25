@@ -63,3 +63,6 @@ and the project uses [Semantic Versioning](https://semver.org/).
   prices); hoards add magic items by rarity. Results use the result window and recent results.
 - Party summary: drop a dnd5e group actor to see its coins and members (read only). Coins and members
   can be shown or hidden separately.
+- Loot: the result now appears inside the box and each new roll replaces it (no dialog). Copy and
+  whisper buttons sit in the box toolbar. Coins are gp, sp and cp only, each with an optional min and
+  max; value that the limits do not allow as coins turns into items instead.

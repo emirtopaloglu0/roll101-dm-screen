@@ -1092,3 +1092,33 @@
 .r101-dm-screen .r101-actor-coins dt {
   text-transform: uppercase;
 }
+
+.r101-dm-screen .r101-loot-limits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--r101-border);
+}
+
+.r101-dm-screen .r101-loot-limit {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.r101-dm-screen .r101-loot-limit input {
+  width: 5em;
+  height: auto;
+  padding: 0.1em 0.3em;
+  font-variant-numeric: tabular-nums;
+}
+
+.r101-dm-screen .r101-loot-result {
+  padding: 6px 10px;
+  user-select: text;
+}
+
+.r101-dm-screen .r101-loot-result p {
+  margin: 0 0 3px;
+}

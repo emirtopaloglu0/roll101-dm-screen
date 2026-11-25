@@ -1,10 +1,14 @@
 import { I18N } from "../constants.mjs";
-import { LOOT_LANGS, LOOT_MODES, LOOT_TIERS, generateLoot, loadLoot } from "../loot.mjs";
+import { LOOT_LANGS, LOOT_MODES, LOOT_TIERS, cleanLimits, generateLoot, loadLoot } from "../loot.mjs";
 import { localize } from "../templates.mjs";
 import { pickLanguage } from "./reference.mjs";
 
+/** Last result of each loot box. Memory only: a new roll replaces it, closing the window clears it. */
+export const lastLoot = new Map();
+
 const choose = (value, list) => (list.includes(value) ? value : list[0]);
 const t = key => game.i18n.localize(`${I18N}.Loot.${key}`);
+const LIMIT_COINS = ["gp", "sp", "cp"];
 
 /** Template data for a loot box. */
 export async function lootContext(box) {
@@ -14,6 +18,7 @@ export async function lootContext(box) {
   const tier = choose(box.data.tier, LOOT_TIERS);
   const lang = pickLanguage(box.data.lang, LOOT_LANGS);
   const chosenLang = box.data.lang && box.data.lang !== "auto" ? box.data.lang : "auto";
+  const stored = box.data.limits ?? {};
   return {
     name: t("Title"),
     modes: LOOT_MODES.map(id => ({ id, label: t(`Mode.${id}`), selected: id === mode })),
@@ -22,14 +27,19 @@ export async function lootContext(box) {
       { id: "auto", label: game.i18n.localize(`${I18N}.Template.AutoLanguage`), selected: chosenLang === "auto" },
       ...LOOT_LANGS.map(l => ({ id: l, label: l.toUpperCase(), selected: chosenLang === l }))
     ],
-    hint: t(`Hint.${mode}`),
+    limits: LIMIT_COINS.map(denom => ({
+      denom,
+      min: stored[denom]?.min ?? "",
+      max: stored[denom]?.max ?? ""
+    })),
+    result: lastLoot.get(box.id) ?? [],
     attribution: localize(data.attribution, lang)
   };
 }
 
 /**
- * What the result window needs to roll this box's loot.
- * Choices are read once, so rerolling keeps what the dialog opened with.
+ * What a roll needs. Choices are read when the button is pressed.
+ * @returns {Promise<{title: string, generate: () => Promise<{name: string, texts: string[]}>}|null>}
  */
 export async function lootRequest(box) {
   const data = await loadLoot();
@@ -37,9 +47,10 @@ export async function lootRequest(box) {
   const mode = choose(box.data.mode, LOOT_MODES);
   const tier = choose(box.data.tier, LOOT_TIERS);
   const lang = pickLanguage(box.data.lang, LOOT_LANGS);
+  const limits = cleanLimits(box.data.limits);
   const title = `${t("Title")} · ${t(`Mode.${mode}`)} · ${t(`Tier.${tier}`)}`;
   return {
     title,
-    generate: async () => ({ name: title, texts: generateLoot(data, { mode, tier }, lang) })
+    generate: async () => ({ name: title, texts: generateLoot(data, { mode, tier, limits }, lang) })
   };
 }

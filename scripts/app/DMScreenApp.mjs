@@ -10,12 +10,12 @@ import { exportLayouts, importLayouts, restoreBackup } from "./layout-io.mjs";
 import { managePacks } from "./packs-io.mjs";
 import { MAX_ACTORS, actorsContext, partyActors } from "../boxes/actors.mjs";
 import { generatorContext, generatorRequest } from "../boxes/generator.mjs";
-import { lootContext, lootRequest } from "../boxes/loot.mjs";
+import { lastLoot, lootContext, lootRequest } from "../boxes/loot.mjs";
 import { MAX_PARTY, coinSettings, coinTexts, coinsContext, glossaryContext, templateContext } from "../boxes/reference.mjs";
 import { foldSearch, listTemplates, localize as localizeText } from "../templates.mjs";
 import { areaFree, cellKey, fitSpan, placeBoxes } from "../grid.mjs";
 import { cloneLayout, createLayout } from "../migrate.mjs";
-import { escapeHTML } from "../tables.mjs";
+import { copyText, escapeHTML, whisperToGM } from "../tables.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
 
@@ -92,7 +92,9 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       generateText: DMScreenApp.#onGenerateText,
       toggleActorMode: DMScreenApp.#onToggleActorMode,
       removeActor: DMScreenApp.#onRemoveActor,
-      toggleActorSection: DMScreenApp.#onToggleActorSection
+      toggleActorSection: DMScreenApp.#onToggleActorSection,
+      copyLoot: DMScreenApp.#onCopyLoot,
+      whisperLoot: DMScreenApp.#onWhisperLoot
     }
   };
 
@@ -251,6 +253,19 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         if (!box) return;
         if (field === "title") box.title = value.slice(0, TITLE_MAX_LENGTH);
         else if (field === "text") box.data.text = value;
+      });
+      return;
+    }
+
+    const limit = target.dataset.r101LootLimit;
+    if (limit) {
+      const [denom, bound] = limit.split(".");
+      const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+      if (!box || !["gp", "sp", "cp"].includes(denom) || !["min", "max"].includes(bound)) return;
+      const value = target.value;
+      storage.update(() => {
+        box.data.limits ??= {};
+        box.data.limits[denom] = { ...(box.data.limits[denom] ?? {}), [bound]: value };
       });
       return;
     }
@@ -1273,7 +1288,39 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       ui.notifications.warn(`${I18N}.Missing.Generator`, { localize: true });
       return;
     }
-    ResultDialog.showGenerated(request, (entry, updated) => this.#addHistory(box.id, entry, updated));
+    if (box.type !== "loot") {
+      ResultDialog.showGenerated(request, (entry, updated) => this.#addHistory(box.id, entry, updated));
+      return;
+    }
+    // Loot shows in the box itself. A new roll replaces the last one.
+    const { texts } = await request.generate();
+    lastLoot.set(box.id, texts);
+    const out = this.element?.querySelector(`[data-box-id="${CSS.escape(box.id)}"] [data-r101-loot-result]`);
+    out?.replaceChildren(...texts.map(line => {
+      const p = document.createElement("p");
+      p.textContent = line;
+      return p;
+    }));
+    this.#addHistory(box.id, { table: request.title, text: texts.join("; ") }, false);
+  }
+
+  /** @this {DMScreenApp} */
+  static async #onCopyLoot(event, target) {
+    const lines = lastLoot.get(target.closest("[data-box-id]")?.dataset.boxId);
+    if (!lines?.length) return;
+    if (await copyText(lines.join("\n"))) ui.notifications.info(`${I18N}.Result.Copied`, { localize: true });
+  }
+
+  /** @this {DMScreenApp} */
+  static async #onWhisperLoot(event, target) {
+    const lines = lastLoot.get(target.closest("[data-box-id]")?.dataset.boxId);
+    if (!lines?.length) return;
+    try {
+      await whisperToGM(game.i18n.localize(`${I18N}.Loot.Title`), lines.join("\n"));
+      ui.notifications.info(`${I18N}.Result.Whispered`, { localize: true });
+    } catch (err) {
+      console.error(`${MODULE_ID} | Whisper failed`, err);
+    }
   }
 
   /** Party box: switch between all player characters and a hand-picked list. @this {DMScreenApp} */
