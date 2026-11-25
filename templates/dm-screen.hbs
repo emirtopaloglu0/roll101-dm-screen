@@ -1,0 +1,56 @@
+<div class="r101-screen" style="--r101-cols: {{layout.cols}}; --r101-rows: {{layout.rows}}; --r101-font-scale: {{font.value}};">
+  <header class="r101-toolbar">
+    <label class="r101-field">
+      <span>{{localize "R101DMSCREEN.Toolbar.Columns"}}</span>
+      <select data-r101-setting="cols">{{selectOptions colChoices selected=layout.cols}}</select>
+    </label>
+    <span class="r101-times" aria-hidden="true">×</span>
+    <label class="r101-field">
+      <span>{{localize "R101DMSCREEN.Toolbar.Rows"}}</span>
+      <select data-r101-setting="rows">{{selectOptions rowChoices selected=layout.rows}}</select>
+    </label>
+    <label class="r101-field r101-font" data-tooltip="R101DMSCREEN.Toolbar.FontSizeHint">
+      <i class="fa-solid fa-text-height" aria-hidden="true"></i>
+      <input type="range" data-r101-setting="fontScale" min="{{font.min}}" max="{{font.max}}" step="{{font.step}}"
+             value="{{font.value}}" aria-label="{{localize 'R101DMSCREEN.Toolbar.FontSize'}}">
+      <span class="r101-font-value">{{font.percent}}%</span>
+    </label>
+    {{#if hiddenText}}
+    <span class="r101-note"><i class="fa-solid fa-eye-slash" aria-hidden="true"></i> {{hiddenText}}</span>
+    {{/if}}
+    {{#if readOnly}}
+    <span class="r101-note r101-warning"><i class="fa-solid fa-lock" aria-hidden="true"></i> {{localize "R101DMSCREEN.Toolbar.ReadOnly"}}</span>
+    {{/if}}
+  </header>
+
+  <div class="r101-grid">
+    {{#each cells}}
+    {{#if box}}
+    <section class="r101-box" style="grid-column: {{col}}; grid-row: {{row}};" data-col="{{col}}" data-row="{{row}}" data-box-id="{{box.id}}">
+      <header class="r101-box-header">
+        <input class="r101-box-title" type="text" value="{{box.title}}" maxlength="{{@root.titleMaxLength}}"
+               placeholder="{{localize 'R101DMSCREEN.Box.UntitledNotes'}}" data-r101-field="title"
+               aria-label="{{localize 'R101DMSCREEN.Box.Title'}}">
+      </header>
+      {{#if box.isNotes}}
+      <textarea class="r101-notes" data-r101-field="text" spellcheck="false"
+                placeholder="{{localize 'R101DMSCREEN.Box.NotesPlaceholder'}}">{{box.text}}</textarea>
+      {{else}}
+      <p class="r101-unsupported">{{localize "R101DMSCREEN.Box.Unsupported"}}</p>
+      {{/if}}
+      {{!-- Last in DOM so Tab goes title -> text -> remove. CSS places it in the header. --}}
+      <button type="button" class="r101-icon-button" data-action="removeBox"
+              data-tooltip="R101DMSCREEN.Box.Remove" aria-label="{{localize 'R101DMSCREEN.Box.Remove'}}">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </section>
+    {{else}}
+    <section class="r101-box r101-empty" style="grid-column: {{col}}; grid-row: {{row}};" data-col="{{col}}" data-row="{{row}}">
+      <button type="button" class="r101-add" data-action="addNotes">
+        <i class="fa-solid fa-plus" aria-hidden="true"></i> {{localize "R101DMSCREEN.Box.AddNotes"}}
+      </button>
+    </section>
+    {{/if}}
+    {{/each}}
+  </div>
+</div>

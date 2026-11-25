@@ -1,0 +1,45 @@
+{
+  "R101DMSCREEN": {
+    "Title": "DM Screen",
+    "Controls": {
+      "Toggle": "DM Screen"
+    },
+    "Keybinding": {
+      "ShowOrMinimize": {
+        "Name": "Show / minimize DM Screen",
+        "Hint": "Opens the DM Screen. When it is open, minimizes it. When it is minimized, restores it. Gamemaster only."
+      },
+      "Toggle": {
+        "Name": "Open / close DM Screen",
+        "Hint": "Opens or closes the DM Screen. Gamemaster only."
+      }
+    },
+    "Settings": {
+      "AllowAssistant": {
+        "Name": "Allow Assistant GMs",
+        "Hint": "When enabled, Assistant GMs can also open the DM Screen. By default only the Gamemaster can."
+      }
+    },
+    "Toolbar": {
+      "Columns": "Columns",
+      "Rows": "Rows",
+      "FontSize": "Text size",
+      "FontSizeHint": "Text size. Double-click to reset.",
+      "HiddenBoxes": "{count} box(es) outside the grid are kept. Enlarge the grid to see them.",
+      "ReadOnly": "Saved by a newer version of this module. Changes are not saved."
+    },
+    "Box": {
+      "AddNotes": "Add notes",
+      "Title": "Box title",
+      "UntitledNotes": "Notes",
+      "NotesPlaceholder": "Write here…",
+      "Remove": "Remove box",
+      "RemoveConfirmTitle": "Remove box",
+      "RemoveConfirmContent": "Remove this box and its contents? This cannot be undone.",
+      "Unsupported": "This box type needs a newer version of Roll101 DM Screen."
+    },
+    "Notifications": {
+      "SaveFailed": "DM Screen: changes could not be saved. See the console (F12) for details."
+    }
+  }
+}

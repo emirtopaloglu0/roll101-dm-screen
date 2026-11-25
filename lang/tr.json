@@ -1,0 +1,45 @@
+{
+  "R101DMSCREEN": {
+    "Title": "DM Ekranı",
+    "Controls": {
+      "Toggle": "DM Ekranı"
+    },
+    "Keybinding": {
+      "ShowOrMinimize": {
+        "Name": "DM Ekranını göster / küçült",
+        "Hint": "DM Ekranını açar. Açıksa küçültür, küçültülmüşse geri getirir. Sadece Gamemaster."
+      },
+      "Toggle": {
+        "Name": "DM Ekranını aç / kapat",
+        "Hint": "DM Ekranını açar veya kapatır. Sadece Gamemaster."
+      }
+    },
+    "Settings": {
+      "AllowAssistant": {
+        "Name": "Assistant GM'lere izin ver",
+        "Hint": "Açıkken Assistant GM'ler de DM Ekranını açabilir. Varsayılan olarak sadece Gamemaster açabilir."
+      }
+    },
+    "Toolbar": {
+      "Columns": "Sütun",
+      "Rows": "Satır",
+      "FontSize": "Yazı boyutu",
+      "FontSizeHint": "Yazı boyutu. Sıfırlamak için çift tıklayın.",
+      "HiddenBoxes": "Grid dışında kalan {count} kutu saklanıyor. Görmek için grid'i büyütün.",
+      "ReadOnly": "Bu modülün daha yeni bir sürümüyle kaydedilmiş. Değişiklikler kaydedilmez."
+    },
+    "Box": {
+      "AddNotes": "Not ekle",
+      "Title": "Kutu başlığı",
+      "UntitledNotes": "Notlar",
+      "NotesPlaceholder": "Buraya yazın…",
+      "Remove": "Kutuyu kaldır",
+      "RemoveConfirmTitle": "Kutuyu kaldır",
+      "RemoveConfirmContent": "Bu kutu ve içeriği kaldırılsın mı? Bu işlem geri alınamaz.",
+      "Unsupported": "Bu kutu türü için Roll101 DM Screen'in daha yeni bir sürümü gerekiyor."
+    },
+    "Notifications": {
+      "SaveFailed": "DM Ekranı: değişiklikler kaydedilemedi. Ayrıntılar için konsola (F12) bakın."
+    }
+  }
+}

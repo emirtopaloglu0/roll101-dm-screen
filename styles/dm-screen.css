@@ -1,0 +1,188 @@
+/* Roll101 DM Screen. Every selector is scoped under .r101-dm-screen. */
+
+.r101-dm-screen .window-content {
+  padding: 0;
+  overflow: hidden;
+}
+
+.r101-dm-screen .r101-screen {
+  --r101-gap: 6px;
+  --r101-radius: 6px;
+  --r101-border: color-mix(in srgb, currentColor 22%, transparent);
+  --r101-muted: color-mix(in srgb, currentColor 60%, transparent);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Toolbar */
+.r101-dm-screen .r101-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--r101-border);
+}
+
+.r101-dm-screen .r101-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.r101-dm-screen .r101-field select {
+  width: auto;
+  min-width: 3.5em;
+}
+
+.r101-dm-screen .r101-times {
+  color: var(--r101-muted);
+}
+
+.r101-dm-screen .r101-font input[type="range"] {
+  width: 120px;
+}
+
+.r101-dm-screen .r101-font-value {
+  min-width: 3.2em;
+  font-variant-numeric: tabular-nums;
+  color: var(--r101-muted);
+}
+
+.r101-dm-screen .r101-note {
+  font-size: 0.85em;
+  color: var(--r101-muted);
+}
+
+.r101-dm-screen .r101-warning {
+  color: var(--color-level-warning, #c27d0e);
+}
+
+/* Grid. Size and text changes only touch custom properties: no re-render. */
+.r101-dm-screen .r101-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--r101-cols, 3), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--r101-rows, 2), minmax(0, 1fr));
+  gap: var(--r101-gap);
+  padding: var(--r101-gap);
+  font-size: calc(14px * var(--r101-font-scale, 1));
+}
+
+.r101-dm-screen .r101-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid var(--r101-border);
+  border-radius: var(--r101-radius);
+  overflow: hidden;
+  contain: layout paint;
+}
+
+.r101-dm-screen .r101-box:focus-within {
+  border-color: color-mix(in srgb, currentColor 45%, transparent);
+}
+
+.r101-dm-screen .r101-box-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  padding: 2px 2.2em 2px 2px;
+  border-bottom: 1px solid var(--r101-border);
+}
+
+.r101-dm-screen .r101-box-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: auto;
+  padding: 3px 6px;
+  border: none;
+  background: transparent;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+/* Sits after the text in DOM order (for Tab), shown in the header's right corner. */
+.r101-dm-screen .r101-icon-button {
+  position: absolute;
+  top: 0.3em;
+  right: 4px;
+  width: 1.8em;
+  height: 1.8em;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 0.85em;
+  line-height: 1;
+  color: var(--r101-muted);
+  opacity: 0;
+}
+
+.r101-dm-screen .r101-box:hover .r101-icon-button,
+.r101-dm-screen .r101-icon-button:focus-visible {
+  opacity: 1;
+}
+
+.r101-dm-screen .r101-notes {
+  flex: 1 1 auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1.45;
+  resize: none;
+}
+
+.r101-dm-screen .r101-notes:focus,
+.r101-dm-screen .r101-box-title:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.r101-dm-screen .r101-unsupported {
+  margin: auto;
+  padding: 0.5em;
+  text-align: center;
+  color: var(--r101-muted);
+}
+
+/* Empty cell */
+.r101-dm-screen .r101-empty {
+  border-style: dashed;
+  align-items: center;
+  justify-content: center;
+}
+
+.r101-dm-screen .r101-add {
+  width: auto;
+  padding: 0.3em 0.8em;
+  font-size: 0.9em;
+  opacity: 0.55;
+}
+
+.r101-dm-screen .r101-empty:hover .r101-add,
+.r101-dm-screen .r101-add:focus-visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .r101-dm-screen .r101-icon-button,
+  .r101-dm-screen .r101-add {
+    transition: opacity 120ms ease;
+  }
+}

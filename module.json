@@ -10,7 +10,13 @@
     "minimum": "13",
     "verified": "14"
   },
-  "url": "",
+  "esmodules": ["scripts/main.mjs"],
+  "styles": ["styles/dm-screen.css"],
+  "languages": [
+    { "lang": "en", "name": "English", "path": "lang/en.json" },
+    { "lang": "tr", "name": "Türkçe", "path": "lang/tr.json" }
+  ],
+  "url": "https://github.com/emirtopaloglu0/roll101-dm-screen",
   "manifest": "",
   "download": "",
   "license": "LICENSE",
