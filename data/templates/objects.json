@@ -1,0 +1,223 @@
+{
+  "id": "objects",
+  "category": "rules",
+  "title": {
+    "en": "Objects: AC & HP",
+    "tr": "Nesneler: AC ve HP"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Object Armor Class",
+            "tr": "Nesne Zırh Sınıfı"
+          },
+          "columns": [
+            {
+              "en": "Substance",
+              "tr": "Malzeme"
+            },
+            "AC"
+          ],
+          "rows": [
+            [
+              {
+                "en": "Cloth, paper, rope",
+                "tr": "Kumaş, kağıt, ip"
+              },
+              "11"
+            ],
+            [
+              {
+                "en": "Crystal, glass, ice",
+                "tr": "Kristal, cam, buz"
+              },
+              "13"
+            ],
+            [
+              {
+                "en": "Wood",
+                "tr": "Ahşap"
+              },
+              "15"
+            ],
+            [
+              {
+                "en": "Stone",
+                "tr": "Taş"
+              },
+              "17"
+            ],
+            [
+              {
+                "en": "Iron, steel",
+                "tr": "Demir, çelik"
+              },
+              "19"
+            ],
+            [
+              {
+                "en": "Mithral",
+                "tr": "Mithral"
+              },
+              "21"
+            ],
+            [
+              {
+                "en": "Adamantine",
+                "tr": "Adamantine"
+              },
+              "23"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Object Hit Points",
+            "tr": "Nesne Can Puanı"
+          },
+          "columns": [
+            {
+              "en": "Size",
+              "tr": "Boyut"
+            },
+            {
+              "en": "Fragile",
+              "tr": "Kırılgan"
+            },
+            {
+              "en": "Resilient",
+              "tr": "Dayanıklı"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Tiny (bottle, lock)",
+                "tr": "Tiny (şişe, kilit)"
+              },
+              "2 (1d4)",
+              "5 (2d4)"
+            ],
+            [
+              {
+                "en": "Small (chest, lute)",
+                "tr": "Small (sandık, lavta)"
+              },
+              "3 (1d6)",
+              "10 (3d6)"
+            ],
+            [
+              {
+                "en": "Medium (barrel, chandelier)",
+                "tr": "Medium (fıçı, avize)"
+              },
+              "4 (1d8)",
+              "18 (4d8)"
+            ],
+            [
+              {
+                "en": "Large (cart, dining table)",
+                "tr": "Large (araba, yemek masası)"
+              },
+              "5 (1d10)",
+              "27 (5d10)"
+            ]
+          ],
+          "note": {
+            "en": "Huge or Gargantuan objects: split into Large or smaller sections, each with its own HP.",
+            "tr": "Huge veya Gargantuan nesneler: Large ya da daha küçük parçalara böl, her birinin HP'si ayrı."
+          }
+        },
+        {
+          "title": {
+            "en": "Object rules",
+            "tr": "Nesne kuralları"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Immunities",
+                "tr": "Bağışıklıklar"
+              },
+              {
+                "en": "Poison and Psychic damage.",
+                "tr": "Poison ve Psychic hasar."
+              }
+            ],
+            [
+              {
+                "en": "Damage types",
+                "tr": "Hasar türleri"
+              },
+              {
+                "en": "The GM may adjust: bludgeoning smashes but doesn't cut; paper or cloth may be Vulnerable to Fire.",
+                "tr": "GM ayarlayabilir: bludgeoning parçalar ama kesmez; kağıt veya kumaş Fire'a karşı zafiyetli olabilir."
+              }
+            ],
+            [
+              {
+                "en": "Saving throws",
+                "tr": "Kurtarma zarları"
+              },
+              {
+                "en": "No ability scores unless a rule gives some: fails all saves and can't make checks.",
+                "tr": "Bir kural vermedikçe yetenek skoru yoktur: tüm kurtarma zarlarında başarısız, kontrol yapamaz."
+              }
+            ],
+            [
+              {
+                "en": "Damage threshold",
+                "tr": "Hasar eşiği"
+              },
+              {
+                "en": "Big objects (castle walls) may ignore any hit below their threshold.",
+                "tr": "Büyük nesneler (kale duvarı) eşiğin altındaki vuruşları yok sayabilir."
+              }
+            ],
+            [
+              {
+                "en": "Fragile objects",
+                "tr": "Kırılgan nesneler"
+              },
+              {
+                "en": "As an action you can break a fragile, nonmagical object (glass, paper) automatically.",
+                "tr": "Aksiyonla kırılgan, büyüsüz bir nesneyi (cam, kağıt) otomatik kırabilirsin."
+              }
+            ],
+            [
+              {
+                "en": "0 HP",
+                "tr": "0 HP"
+              },
+              {
+                "en": "The object is destroyed.",
+                "tr": "Nesne yok olur."
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

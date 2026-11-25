@@ -15,11 +15,15 @@ without leaving Foundry.
 - Table-folder generator: browse or search a folder of rollable tables, generate one result
   or a whole folder at once, then reroll, copy or whisper it to the GM.
 - Multiple layouts as tabs, with export and import as JSON and automatic local backups.
+- Library with search and categories to add any box to an empty cell.
 - Content packs: add your own reference tables. See [docs/content-packs.md](docs/content-packs.md).
 - Visible to the Gamemaster only. Players and trusted players see nothing.
 
-Planned: SRD rules references (conditions, cover, exhaustion and more), random event generators,
-actor summary for dnd5e.
+- Rules references summarized from SRD 5.2.1 (2024) and SRD 5.1 (2014), in English and Turkish:
+  conditions, exhaustion, combat actions, cover, concentration, death and dying, DCs, light and vision,
+  movement, damage, objects, traps, environmental hazards and weapon mastery, plus a searchable Rules Glossary.
+
+Planned: random event and combat environment generators, actor summary for dnd5e.
 
 ## Compatibility
 

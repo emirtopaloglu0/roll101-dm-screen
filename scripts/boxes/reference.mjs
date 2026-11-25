@@ -1,6 +1,6 @@
 import { I18N } from "../constants.mjs";
 import { DENOMS, breakdown, normalizeAmounts, split, totalCp } from "../coins.mjs";
-import { getTemplate, localize, templateLanguages } from "../templates.mjs";
+import { getBuiltinsByCategory, getTemplate, localize, templateLanguages } from "../templates.mjs";
 
 /**
  * Template data for the coin converter and reference template boxes.
@@ -78,6 +78,57 @@ function pickLanguage(chosen, available) {
   return available[0] ?? "en";
 }
 
+/* -------------------------------------------- */
+/*  Rules glossary                              */
+/* -------------------------------------------- */
+
+export const GLOSSARY_EDITIONS = Object.freeze(["2024", "2014"]);
+
+/**
+ * Every row of every built-in rules template, for one edition, as searchable entries.
+ * The first column is the term; the other columns are joined as its text.
+ */
+export async function glossaryContext(box) {
+  const rules = await getBuiltinsByCategory("rules");
+  const edition = GLOSSARY_EDITIONS.includes(box.data.variant) ? box.data.variant : GLOSSARY_EDITIONS[0];
+  const languages = [...new Set(rules.flatMap(templateLanguages))];
+  const lang = pickLanguage(box.data.lang, languages);
+  const L = value => localize(value, lang);
+
+  const groups = [];
+  let count = 0;
+  for (const template of rules) {
+    const variant = template.variants.find(v => v.id === edition);
+    if (!variant) continue;
+    const entries = [];
+    for (const section of variant.sections) {
+      for (const row of section.rows) {
+        const term = L(row[0]);
+        const text = row.slice(1).map(L).filter(Boolean).join(" — ");
+        entries.push({ term, text, section: L(section.title), search: `${term} ${text}`.toLocaleLowerCase(lang) });
+      }
+    }
+    count += entries.length;
+    groups.push({ name: L(template.title), attribution: L(variant.attribution), entries });
+  }
+
+  const chosenLang = box.data.lang && box.data.lang !== "auto" ? box.data.lang : "auto";
+  return {
+    name: game.i18n.localize(`${I18N}.Glossary.Title`),
+    // Glossary groups start closed; the toggle-all button stores the choice.
+    open: box.data.collapsed === false,
+    count,
+    groups,
+    variants: GLOSSARY_EDITIONS.map(id => ({ id, label: id, selected: id === edition })),
+    langs: languages.length > 1
+      ? [
+        { id: "auto", label: game.i18n.localize(`${I18N}.Template.AutoLanguage`), selected: chosenLang === "auto" },
+        ...languages.map(l => ({ id: l, label: l.toUpperCase(), selected: chosenLang === l }))
+      ]
+      : null
+  };
+}
+
 export async function templateContext(box) {
   const template = await getTemplate(box.data.template);
   if (!template) return { missing: true };
@@ -102,7 +153,7 @@ export async function templateContext(box) {
     name: L(template.title),
     variants,
     langs,
-    hasControls: !!(variants || langs),
+    open: box.data.collapsed !== true,
     attribution: L(variant.attribution),
     sections: variant.sections.map(s => ({
       title: L(s.title),

@@ -142,7 +142,13 @@
       "CoinsHint": "Parayı çevir ve paylaştır",
       "BuiltIn": "Yerleşik",
       "Add": "Ekle",
-      "PacksHint": "Kendi şablonlarını eklemek için araç çubuğundaki kutu butonundan içerik paketi içe aktar."
+      "PacksHint": "Kendi şablonlarını eklemek için araç çubuğundaki kutu butonundan içerik paketi içe aktar.",
+      "GlossaryHint": "Tüm kural referanslarında tek kutuda ara",
+      "Rules": "Kural referansı (SRD)",
+      "Tools": "Araçlar",
+      "Prices": "Fiyatlar ve hizmetler",
+      "Search": "Kütüphanede ara…",
+      "NoMatch": "Bu aramaya uyan bir şey yok."
     },
     "Coins": {
       "Title": "Para çevirici",
@@ -167,7 +173,8 @@
     "Template": {
       "AutoLanguage": "Otomatik",
       "Variant": "Sürüm",
-      "Language": "Dil"
+      "Language": "Dil",
+      "ToggleAll": "Tüm başlıkları kapat veya aç"
     },
     "Packs": {
       "Title": "İçerik paketleri",
@@ -184,6 +191,11 @@
       "Imported": "{name} içe aktarıldı: {count} şablon.",
       "RemoveTitle": "Paketi kaldır",
       "RemoveContent": "Bu paket kaldırılsın mı? Onu kullanan kutular, paket tekrar içe aktarılana kadar \"bulunamadı\" gösterir."
+    },
+    "Glossary": {
+      "Title": "Kural Sözlüğü",
+      "Search": "Kural ara…",
+      "Empty": "Kural şablonu bulunamadı."
     }
   }
 }

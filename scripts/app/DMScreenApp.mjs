@@ -8,8 +8,8 @@ import { getHistory, pushHistory } from "../history.mjs";
 import { ResultDialog } from "./ResultDialog.mjs";
 import { exportLayouts, importLayouts, restoreBackup } from "./layout-io.mjs";
 import { managePacks } from "./packs-io.mjs";
-import { MAX_PARTY, coinSettings, coinTexts, coinsContext, templateContext } from "../boxes/reference.mjs";
-import { listTemplates, localize as localizeText } from "../templates.mjs";
+import { MAX_PARTY, coinSettings, coinTexts, coinsContext, glossaryContext, templateContext } from "../boxes/reference.mjs";
+import { foldSearch, listTemplates, localize as localizeText } from "../templates.mjs";
 import { areaFree, cellKey, fitSpan, placeBoxes } from "../grid.mjs";
 import { cloneLayout, createLayout } from "../migrate.mjs";
 import { escapeHTML } from "../tables.mjs";
@@ -27,7 +27,8 @@ const LINKED_TYPES = {
   journal: { build: journalContext, key: "journal", missing: `${I18N}.Missing.Journal` },
   table: { build: tableContext, key: "table", missing: `${I18N}.Missing.Table` },
   tableFolder: { build: tableFolderContext, key: "folder", missing: `${I18N}.Missing.Folder` },
-  template: { build: templateContext, key: "template", missing: `${I18N}.Missing.Template` }
+  template: { build: templateContext, key: "template", missing: `${I18N}.Missing.Template` },
+  glossary: { build: glossaryContext, key: "glossary", missing: `${I18N}.Missing.Template` }
 };
 
 /** Document hooks watched only while the window is open. */
@@ -63,6 +64,7 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       generate: DMScreenApp.#onRollTable,
       generateGroup: DMScreenApp.#onGenerateGroup,
       toggleHistory: DMScreenApp.#onToggleHistory,
+      toggleSections: DMScreenApp.#onToggleSections,
       switchLayout: DMScreenApp.#onSwitchLayout,
       addLayout: DMScreenApp.#onAddLayout,
       duplicateLayout: DMScreenApp.#onDuplicateLayout,
@@ -87,7 +89,8 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         `${TEMPLATES}/boxes/tree-node.hbs`,
         `${TEMPLATES}/boxes/history.hbs`,
         `${TEMPLATES}/boxes/coins.hbs`,
-        `${TEMPLATES}/boxes/template.hbs`
+        `${TEMPLATES}/boxes/template.hbs`,
+        `${TEMPLATES}/boxes/glossary.hbs`
       ]
     }
   };
@@ -233,6 +236,24 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     if (target.dataset.r101Setting === "fontScale") this.#applyFontScale(target, target.value);
     else if (target.hasAttribute("data-r101-search")) this.#filterTree(target);
     else if (target.matches("[data-r101-coin], [data-r101-coin-party]")) this.#onCoinInput(target);
+    else if (target.hasAttribute("data-r101-glossary-search")) this.#filterGlossary(target);
+  }
+
+  /** Rules glossary: show entries whose term or text contains the query. DOM only. */
+  #filterGlossary(input) {
+    const list = input.closest("[data-box-id]")?.querySelector(".r101-glossary-list");
+    if (!list) return;
+    const query = input.value.trim().toLocaleLowerCase(game.i18n.lang);
+    for (const li of list.querySelectorAll(".r101-glossary-entry")) {
+      li.hidden = !!query && !(li.dataset.search ?? "").includes(query);
+    }
+    // While searching, groups with matches open. An empty query restores the saved state.
+    const box = this.#findBox(input.closest("[data-box-id]")?.dataset.boxId);
+    const savedOpen = box?.data.collapsed === false;
+    for (const group of list.querySelectorAll(".r101-glossary-group")) {
+      group.hidden = !!query && !group.querySelector(".r101-glossary-entry:not([hidden])");
+      group.open = query ? !group.hidden : savedOpen;
+    }
   }
 
   /** Coin converter: save amounts and update the result lines. DOM only: no re-render. */
@@ -896,26 +917,11 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const row = Number(cell?.dataset.row);
     if (!col || !row) return;
 
-    const lang = game.i18n.lang;
-    const t = key => escapeHTML(game.i18n.localize(`${I18N}.${key}`));
-    const option = (value, icon, label, meta, checked) => `<label class="r101-backup-row">
-        <input type="radio" name="libraryChoice" value="${escapeHTML(value)}" ${checked ? "checked" : ""}>
-        <span class="r101-backup-time"><i class="${icon}" aria-hidden="true"></i> ${escapeHTML(label)}</span>
-        <span class="r101-backup-meta">${escapeHTML(meta)}</span>
-      </label>`;
-    const items = [
-      option("notes", "fa-solid fa-note-sticky", game.i18n.localize(`${I18N}.Library.Notes`), game.i18n.localize(`${I18N}.Library.NotesHint`), true),
-      option("coins", "fa-solid fa-coins", game.i18n.localize(`${I18N}.Coins.Title`), game.i18n.localize(`${I18N}.Library.CoinsHint`), false)
-    ];
-    for (const tpl of await listTemplates()) {
-      const source = tpl.source === "builtin" ? game.i18n.localize(`${I18N}.Library.BuiltIn`) : tpl.source;
-      items.push(option(tpl.key, "fa-solid fa-table-list", localizeText(tpl.title, lang), source, false));
-    }
-
     const choice = await DialogV2.wait({
       window: { title: `${I18N}.Library.Title`, icon: "fa-solid fa-book" },
-      classes: ["r101-backup-dialog"],
-      content: `<div class="r101-backup-list">${items.join("")}</div><p class="hint">${t("Library.PacksHint")}</p>`,
+      classes: ["r101-backup-dialog", "r101-library-dialog"],
+      position: { width: 460 },
+      content: await this.#libraryContent(),
       buttons: [{
         action: "add",
         label: `${I18N}.Library.Add`,
@@ -923,6 +929,8 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         default: true,
         callback: (ev, button) => button.form?.elements.namedItem("libraryChoice")?.value ?? null
       }],
+      // v13 passes the dialog, older versions passed its element.
+      render: (event, dialog) => DMScreenApp.#bindLibrary(dialog?.element ?? dialog),
       rejectClose: false
     });
     if (typeof choice !== "string" || choice === "add") return;
@@ -931,6 +939,7 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     let data;
     if (choice === "notes") [type, data] = ["notes", { text: "" }];
     else if (choice === "coins") [type, data] = ["coins", { amounts: {}, showPP: true, showEP: true, party: 1 }];
+    else if (choice === "glossary") [type, data] = ["glossary", { variant: "2024", lang: "auto" }];
     else [type, data] = ["template", { template: choice, variant: null, lang: "auto" }];
 
     storage.update(() => {
@@ -939,6 +948,159 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       layout.boxes.push(this.#newBox(col, row, type, data));
     });
     this.render();
+  }
+
+  /**
+   * Collapse every section of a reference box, or expand all when all are closed.
+   * The choice is saved so a re-render keeps it. DOM only: no re-render.
+   * @this {DMScreenApp}
+   */
+  static #onToggleSections(event, target) {
+    const cell = target.closest("[data-box-id]");
+    const box = this.#findBox(cell?.dataset.boxId);
+    if (!box) return;
+    const sections = [...cell.querySelectorAll("details.r101-tpl-section")].filter(d => !d.hidden);
+    const open = !sections.some(d => d.open);
+    for (const details of sections) details.open = open;
+    const icon = target.querySelector("i");
+    icon?.classList.toggle("fa-angles-up", open);
+    icon?.classList.toggle("fa-angles-down", !open);
+    storage.update(() => { box.data.collapsed = !open; });
+  }
+
+  /**
+   * Library dialog body: a search field and one collapsible group per category.
+   * Tools, then built-in rules, then other built-ins, then one group per content pack
+   * (sub-headed by each template's "group").
+   */
+  async #libraryContent() {
+    const lang = game.i18n.lang;
+    const t = key => escapeHTML(game.i18n.localize(`${I18N}.${key}`));
+    const allText = value => (value && typeof value === "object") ? Object.values(value).join(" ") : String(value ?? "");
+    let first = true;
+    const row = (value, icon, label, meta, searchText) => {
+      const checked = first ? "checked" : "";
+      first = false;
+      return `<label class="r101-backup-row" data-search="${escapeHTML(foldSearch(`${label} ${meta} ${searchText}`))}">
+        <input type="radio" name="libraryChoice" value="${escapeHTML(value)}" ${checked}>
+        <span class="r101-backup-time"><i class="${icon}" aria-hidden="true"></i> ${escapeHTML(label)}</span>
+        ${meta ? `<span class="r101-backup-meta">${escapeHTML(meta)}</span>` : ""}
+      </label>`;
+    };
+    const group = (icon, label, rows, open) => {
+      const count = rows.filter(r => r.trimStart().startsWith("<label")).length;
+      if (!count) return "";
+      return `<details class="r101-library-group" ${open ? "open" : ""} data-default-open="${open}">
+        <summary><i class="${icon}" aria-hidden="true"></i> ${escapeHTML(label)} <span class="r101-library-count">${count}</span></summary>
+        <div class="r101-backup-list">${rows.join("")}</div>
+      </details>`;
+    };
+
+    const groups = [group("fa-solid fa-toolbox", game.i18n.localize(`${I18N}.Library.Tools`), [
+      row("notes", "fa-solid fa-note-sticky", game.i18n.localize(`${I18N}.Library.Notes`), game.i18n.localize(`${I18N}.Library.NotesHint`), ""),
+      row("coins", "fa-solid fa-coins", game.i18n.localize(`${I18N}.Coins.Title`), game.i18n.localize(`${I18N}.Library.CoinsHint`), ""),
+      row("glossary", "fa-solid fa-magnifying-glass", game.i18n.localize(`${I18N}.Glossary.Title`), game.i18n.localize(`${I18N}.Library.GlossaryHint`), "")
+    ], true)];
+
+    const templates = await listTemplates();
+    const byTitle = (a, b) => localizeText(a.title, lang).localeCompare(localizeText(b.title, lang), lang);
+    // Search matches every language of the title, not only the shown one.
+    const tplRow = tpl => row(tpl.key, "fa-solid fa-table-list", localizeText(tpl.title, lang), "",
+      `${allText(tpl.title)} ${allText(tpl.group)}`);
+    const builtins = templates.filter(tpl => tpl.source === "builtin");
+    groups.push(group("fa-solid fa-scale-balanced", game.i18n.localize(`${I18N}.Library.Rules`),
+      builtins.filter(tpl => tpl.category === "rules").sort(byTitle).map(tplRow), false));
+    groups.push(group("fa-solid fa-coins", game.i18n.localize(`${I18N}.Library.Prices`),
+      builtins.filter(tpl => tpl.category !== "rules").sort(byTitle).map(tplRow), false));
+
+    // Content packs: one group each, templates sorted under their sub-heading.
+    const packs = new Map();
+    for (const tpl of templates) {
+      if (tpl.source === "builtin") continue;
+      if (!packs.has(tpl.packId)) packs.set(tpl.packId, { name: tpl.source, items: [] });
+      packs.get(tpl.packId).items.push(tpl);
+    }
+    for (const { name, items } of packs.values()) {
+      const sub = tpl => localizeText(tpl.group, lang);
+      items.sort((a, b) => sub(a).localeCompare(sub(b), lang) || byTitle(a, b));
+      const rows = [];
+      let heading = "";
+      for (const tpl of items) {
+        if (sub(tpl) && sub(tpl) !== heading) {
+          heading = sub(tpl);
+          rows.push(`<p class="r101-library-sub">${escapeHTML(heading)}</p>`);
+        }
+        rows.push(tplRow(tpl));
+      }
+      groups.push(group("fa-solid fa-box-archive", name, rows, false));
+    }
+
+    return `<div class="r101-library">
+      <input type="search" class="r101-library-search" placeholder="${t("Library.Search")}" aria-label="${t("Library.Search")}">
+      <div class="r101-library-list">${groups.join("")}</div>
+      <p class="r101-library-empty hint" hidden>${t("Library.NoMatch")}</p>
+    </div>
+    <p class="hint">${t("Library.PacksHint")}</p>`;
+  }
+
+  /** Library search: filter rows, hide empty groups, open groups with matches. DOM only. */
+  static #bindLibrary(root) {
+    const el = root instanceof HTMLElement ? root : root?.[0];
+    const input = el?.querySelector(".r101-library-search");
+    if (!input) return;
+    const groups = [...el.querySelectorAll(".r101-library-group")];
+    const empty = el.querySelector(".r101-library-empty");
+
+    input.addEventListener("input", () => {
+      const words = foldSearch(input.value).split(/\s+/).filter(Boolean);
+      let any = false;
+      for (const details of groups) {
+        let matches = 0;
+        for (const label of details.querySelectorAll(".r101-backup-row")) {
+          const hit = words.every(w => label.dataset.search.includes(w));
+          label.hidden = !hit;
+          if (hit) matches++;
+        }
+        // A sub-heading shows when a row after it (before the next heading) is visible.
+        for (const sub of details.querySelectorAll(".r101-library-sub")) {
+          let next = sub.nextElementSibling;
+          let visible = false;
+          while (next && !next.matches(".r101-library-sub")) {
+            if (!next.hidden) { visible = true; break; }
+            next = next.nextElementSibling;
+          }
+          sub.hidden = !visible;
+        }
+        details.hidden = matches === 0;
+        details.open = words.length ? matches > 0 : details.dataset.defaultOpen === "true";
+        if (matches) any = true;
+      }
+      if (empty) empty.hidden = any;
+      // Keep the selection on a visible row so Add never picks a hidden one.
+      const radios = [...el.querySelectorAll('input[name="libraryChoice"]')];
+      const checked = radios.find(r => r.checked);
+      if (!checked || checked.closest("[hidden]")) {
+        const firstVisible = radios.find(r => !r.closest("[hidden]"));
+        if (firstVisible) firstVisible.checked = true;
+      }
+    });
+
+    // Enter in the search field adds the selected row.
+    input.addEventListener("keydown", event => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      el.querySelector('button[data-action="add"]')?.click();
+    });
+
+    // Double-click a row to add it at once.
+    el.addEventListener("dblclick", event => {
+      const label = event.target instanceof Element ? event.target.closest(".r101-backup-row") : null;
+      if (!label) return;
+      label.querySelector("input").checked = true;
+      el.querySelector('button[data-action="add"]')?.click();
+    });
+
+    input.focus();
   }
 
   /** Show or hide platinum or electrum in a coin box. @this {DMScreenApp} */

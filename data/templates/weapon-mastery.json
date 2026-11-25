@@ -1,0 +1,101 @@
+{
+  "id": "weapon-mastery",
+  "category": "rules",
+  "title": {
+    "en": "Weapon Mastery",
+    "tr": "Silah Ustalığı (Weapon Mastery)"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Mastery properties",
+            "tr": "Ustalık özellikleri"
+          },
+          "columns": [
+            {
+              "en": "Property",
+              "tr": "Özellik"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              "Cleave",
+              {
+                "en": "Hit a creature with a melee attack: make one more melee attack against a second creature within 5 ft of the first and within your reach. No ability modifier to its damage unless negative. Once per turn.",
+                "tr": "Yakın dövüşte bir yaratığı vurunca: ilkine 5 ft yakın ve erişimindeki ikinci bir yaratığa bir yakın saldırı daha yap. Yetenek değiştiricisi hasara eklenmez (negatifse eklenir). Turda bir kez."
+              }
+            ],
+            [
+              "Graze",
+              {
+                "en": "Miss a creature: it still takes damage equal to the ability modifier you attacked with, of the weapon's type.",
+                "tr": "Bir yaratığı ıskalayınca: yine de saldırıdaki yetenek değiştiricin kadar, silahın türünde hasar alır."
+              }
+            ],
+            [
+              "Nick",
+              {
+                "en": "The extra attack from the Light property can be part of the Attack action instead of a Bonus Action. Once per turn.",
+                "tr": "Light özelliğinden gelen ek saldırı, Bonus Aksiyon yerine Attack aksiyonunun parçası olabilir. Turda bir kez."
+              }
+            ],
+            [
+              "Push",
+              {
+                "en": "On a hit, push the creature up to 10 ft straight away from you, if it is Large or smaller.",
+                "tr": "İsabette, Large veya daha küçükse yaratığı senden uzağa doğru 10 ft'e kadar it."
+              }
+            ],
+            [
+              "Sap",
+              {
+                "en": "On a hit, the creature has Disadvantage on its next attack roll before the start of your next turn.",
+                "tr": "İsabette, yaratık sıradaki turunun başına kadar yapacağı ilk saldırıda dezavantajlıdır."
+              }
+            ],
+            [
+              "Slow",
+              {
+                "en": "Hit and deal damage: its Speed drops by 10 ft until the start of your next turn. Several hits don't stack beyond 10 ft.",
+                "tr": "Vurup hasar verince: sıradaki turunun başına kadar Hızı 10 ft düşer. Birden fazla isabet 10 ft'i aşmaz."
+              }
+            ],
+            [
+              "Topple",
+              {
+                "en": "On a hit, it makes a Con save (DC 8 + the ability modifier you attacked with + your Proficiency Bonus) or falls Prone.",
+                "tr": "İsabette, Con kurtarma zarı atar (DC 8 + saldırıdaki yetenek değiştiricin + Yetkinlik Bonusun); başarısızsa Prone olur."
+              }
+            ],
+            [
+              "Vex",
+              {
+                "en": "Hit and deal damage: you have Advantage on your next attack roll against that creature before the end of your next turn.",
+                "tr": "Vurup hasar verince: sıradaki turunun sonuna kadar o yaratığa yapacağın ilk saldırıda avantajlısın."
+              }
+            ]
+          ],
+          "note": {
+            "en": "Each weapon has one mastery property (see the Weapons table). You can use it only with a feature such as Weapon Mastery.",
+            "tr": "Her silahın bir ustalık özelliği vardır (Silahlar tablosuna bak). Ancak Weapon Mastery gibi bir özelliğin varsa kullanabilirsin."
+          }
+        }
+      ]
+    }
+  ]
+}

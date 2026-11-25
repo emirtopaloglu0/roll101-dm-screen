@@ -1,0 +1,417 @@
+{
+  "id": "damage",
+  "category": "rules",
+  "title": {
+    "en": "Damage",
+    "tr": "Hasar"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Improvised and environmental damage",
+            "tr": "Doğaçlama ve çevresel hasar"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Improvised weapon",
+                "tr": "Doğaçlama silah"
+              },
+              {
+                "en": "No Proficiency Bonus to hit. 1d4 damage of a fitting type. Thrown: 20/60 ft. If it looks like a real weapon, the GM may use that weapon's rules (a table leg as a Club). Also applies to a Ranged weapon used in melee or a Melee weapon thrown without the Thrown property.",
+                "tr": "İsabete Yetkinlik Bonusu eklenmez. Uygun türde 1d4 hasar. Fırlatma: 20/60 ft. Gerçek bir silaha benziyorsa GM o silahın kurallarını kullanabilir (masa ayağı = Club). Yakın dövüşte kullanılan uzak silah ve Thrown özelliği olmadan fırlatılan yakın silah da buna girer."
+              }
+            ],
+            [
+              {
+                "en": "Falling",
+                "tr": "Düşme"
+              },
+              {
+                "en": "1d6 Bludgeoning per 10 ft, max 20d6.",
+                "tr": "Her 10 ft için 1d6 Bludgeoning, en fazla 20d6."
+              }
+            ],
+            [
+              {
+                "en": "Burning",
+                "tr": "Yanma"
+              },
+              {
+                "en": "1d4 Fire at the start of each of its turns. Action: drop Prone and roll to put it out. Also ends if doused, submerged or smothered.",
+                "tr": "Her turunun başında 1d4 Fire. Aksiyon: Prone olup yuvarlanarak söndür. Islanırsa, suya batarsa veya boğulursa da söner."
+              }
+            ],
+            [
+              {
+                "en": "Critical Hit",
+                "tr": "Kritik vuruş"
+              },
+              {
+                "en": "Roll all the attack's damage dice twice, then add modifiers.",
+                "tr": "Saldırının tüm hasar zarlarını iki kez at, sonra değiştiricileri ekle."
+              }
+            ],
+            [
+              {
+                "en": "Resistance / Vulnerability",
+                "tr": "Direnç / Zafiyet"
+              },
+              {
+                "en": "Damage of that type is halved (round down) / doubled. Each applies once per instance.",
+                "tr": "O türdeki hasar yarıya iner (aşağı yuvarla) / ikiye katlanır. Her biri bir hasarda bir kez uygulanır."
+              }
+            ],
+            [
+              {
+                "en": "Immunity",
+                "tr": "Bağışıklık"
+              },
+              {
+                "en": "No damage of that type.",
+                "tr": "O türde hasar alınmaz."
+              }
+            ],
+            [
+              {
+                "en": "Damage threshold",
+                "tr": "Hasar eşiği"
+              },
+              {
+                "en": "Only damage equal to or above the threshold in a single hit is taken; smaller hits do nothing.",
+                "tr": "Tek seferde eşiğe eşit veya üstü hasar alınır; daha küçük vuruşlar etkisizdir."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Mental stress",
+            "tr": "Zihinsel baskı"
+          },
+          "columns": [
+            {
+              "en": "Example",
+              "tr": "Örnek"
+            },
+            {
+              "en": "Save DC",
+              "tr": "Kurtarma DC"
+            },
+            {
+              "en": "Psychic damage",
+              "tr": "Psychic hasar"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Unsettling (hallucinogen)",
+                "tr": "Tedirgin edici (halüsinojen)"
+              },
+              "10",
+              "1d6"
+            ],
+            [
+              {
+                "en": "Mind-tearing (fiendish idol)",
+                "tr": "Zihin parçalayan (iblis putu)"
+              },
+              "15",
+              "3d6"
+            ],
+            [
+              {
+                "en": "Shattering (thrown into the Far Realm)",
+                "tr": "Yıkıcı (Far Realm'e fırlatılmak)"
+              },
+              "20",
+              "9d6"
+            ]
+          ],
+          "note": {
+            "en": "Usually a Wis save; Int or Cha can fit too. On a success, half or no damage (GM's choice).",
+            "tr": "Genelde Wis kurtarma zarı; Int veya Cha da uygun olabilir. Başarıda yarım ya da hiç hasar (GM'in kararı)."
+          }
+        },
+        {
+          "title": {
+            "en": "Damage types",
+            "tr": "Hasar türleri"
+          },
+          "columns": [
+            {
+              "en": "Type",
+              "tr": "Tür"
+            },
+            {
+              "en": "Examples",
+              "tr": "Örnekler"
+            }
+          ],
+          "rows": [
+            [
+              "Acid",
+              {
+                "en": "Corrosive liquids, digestive enzymes",
+                "tr": "Aşındırıcı sıvılar, sindirim salgıları"
+              }
+            ],
+            [
+              "Bludgeoning",
+              {
+                "en": "Blunt objects, constriction, falling",
+                "tr": "Künt nesneler, sıkma, düşme"
+              }
+            ],
+            [
+              "Cold",
+              {
+                "en": "Freezing water, icy blasts",
+                "tr": "Donmuş su, buz patlamaları"
+              }
+            ],
+            [
+              "Fire",
+              {
+                "en": "Flames, unbearable heat",
+                "tr": "Alevler, dayanılmaz sıcak"
+              }
+            ],
+            [
+              "Force",
+              {
+                "en": "Pure magical energy",
+                "tr": "Saf büyü enerjisi"
+              }
+            ],
+            [
+              "Lightning",
+              {
+                "en": "Electricity",
+                "tr": "Elektrik"
+              }
+            ],
+            [
+              "Necrotic",
+              {
+                "en": "Life-draining energy",
+                "tr": "Yaşam emen enerji"
+              }
+            ],
+            [
+              "Piercing",
+              {
+                "en": "Fangs, puncturing objects",
+                "tr": "Dişler, delici nesneler"
+              }
+            ],
+            [
+              "Poison",
+              {
+                "en": "Toxic gas, venom",
+                "tr": "Zehirli gaz, zehir"
+              }
+            ],
+            [
+              "Psychic",
+              {
+                "en": "Mind-rending energy",
+                "tr": "Zihin parçalayan enerji"
+              }
+            ],
+            [
+              "Radiant",
+              {
+                "en": "Holy energy, searing radiation",
+                "tr": "Kutsal enerji, yakıcı ışınım"
+              }
+            ],
+            [
+              "Slashing",
+              {
+                "en": "Claws, cutting objects",
+                "tr": "Pençeler, kesici nesneler"
+              }
+            ],
+            [
+              "Thunder",
+              {
+                "en": "Concussive sound",
+                "tr": "Sarsıcı ses"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Improvised and environmental damage",
+            "tr": "Doğaçlama ve çevresel hasar"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Improvised weapon",
+                "tr": "Doğaçlama silah"
+              },
+              {
+                "en": "1d4 damage of a type the GM picks. Thrown: 20/60 ft. If it is like a real weapon (a table leg is like a club), it can be treated as that weapon, and the GM may allow proficiency.",
+                "tr": "GM'in seçtiği türde 1d4 hasar. Fırlatma: 20/60 ft. Gerçek bir silaha benziyorsa (masa ayağı ≈ club) o silah gibi kullanılabilir; GM yetkinliğe izin verebilir."
+              }
+            ],
+            [
+              {
+                "en": "Falling",
+                "tr": "Düşme"
+              },
+              {
+                "en": "1d6 bludgeoning per 10 ft, max 20d6.",
+                "tr": "Her 10 ft için 1d6 bludgeoning, en fazla 20d6."
+              }
+            ],
+            [
+              {
+                "en": "Critical hit",
+                "tr": "Kritik vuruş"
+              },
+              {
+                "en": "Roll all the attack's damage dice twice, then add modifiers.",
+                "tr": "Saldırının tüm hasar zarlarını iki kez at, sonra değiştiricileri ekle."
+              }
+            ],
+            [
+              {
+                "en": "Resistance / Vulnerability",
+                "tr": "Direnç / Zafiyet"
+              },
+              {
+                "en": "Damage of that type is halved / doubled.",
+                "tr": "O türdeki hasar yarıya iner / ikiye katlanır."
+              }
+            ],
+            [
+              {
+                "en": "Several targets",
+                "tr": "Birden çok hedef"
+              },
+              {
+                "en": "Roll damage once for all targets of one effect.",
+                "tr": "Bir etkinin tüm hedefleri için hasarı bir kez at."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Damage by level and danger (traps and improvised harm)",
+            "tr": "Seviye ve tehlikeye göre hasar (tuzak ve doğaçlama zarar)"
+          },
+          "columns": [
+            {
+              "en": "Character level",
+              "tr": "Karakter seviyesi"
+            },
+            {
+              "en": "Setback",
+              "tr": "Engel"
+            },
+            {
+              "en": "Dangerous",
+              "tr": "Tehlikeli"
+            },
+            {
+              "en": "Deadly",
+              "tr": "Ölümcül"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Levels 1–4",
+                "tr": "Seviye 1–4"
+              },
+              "1d10",
+              "2d10",
+              "4d10"
+            ],
+            [
+              {
+                "en": "Levels 5–10",
+                "tr": "Seviye 5–10"
+              },
+              "2d10",
+              "4d10",
+              "10d10"
+            ],
+            [
+              {
+                "en": "Levels 11–16",
+                "tr": "Seviye 11–16"
+              },
+              "4d10",
+              "10d10",
+              "18d10"
+            ],
+            [
+              {
+                "en": "Levels 17–20",
+                "tr": "Seviye 17–20"
+              },
+              "10d10",
+              "18d10",
+              "24d10"
+            ]
+          ],
+          "note": {
+            "en": "Setback: unlikely to seriously harm. Dangerous: can seriously injure. Deadly: likely to kill.",
+            "tr": "Engel: ciddi zarar vermez. Tehlikeli: ağır yaralayabilir. Ölümcül: büyük ihtimalle öldürür."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -40,6 +40,7 @@ See [`examples/example-pack.json`](../examples/example-pack.json) for a complete
 {
   "id": "tavern-menu",
   "title": { "en": "Menu", "tr": "Menü" },
+  "group": { "en": "Taverns", "tr": "Hanlar" },
   "variants": [
     {
       "id": "default",
@@ -61,6 +62,8 @@ See [`examples/example-pack.json`](../examples/example-pack.json) for a complete
 - **Text** is either a plain string or an object with one string per language, for example
   `{ "en": "Ale", "tr": "Bira" }`. The box shows the Foundry language, then English, then any.
   A language switch appears in the box when a template has more than one language.
+- **Group** is optional. The library lists each pack as its own category and sorts the
+  pack's templates under these sub-headings, so a large pack stays easy to browse.
 - **Variants** are versions of the same template, for example 2014 and 2024 rules.
   A switch appears in the box when there is more than one.
 - **Sections** are tables. `columns` and `note` are optional. Up to 8 columns and 500 rows.

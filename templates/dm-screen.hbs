@@ -105,6 +105,8 @@
       {{> "modules/roll101-dm-screen/templates/boxes/coins.hbs" box.coins}}
       {{else if box.template}}
       {{> "modules/roll101-dm-screen/templates/boxes/template.hbs" box.template}}
+      {{else if box.glossary}}
+      {{> "modules/roll101-dm-screen/templates/boxes/glossary.hbs" box.glossary}}
       {{else}}
       <p class="r101-unsupported">{{localize "R101DMSCREEN.Box.Unsupported"}}</p>
       {{/if}}

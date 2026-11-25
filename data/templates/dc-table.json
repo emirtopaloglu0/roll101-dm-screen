@@ -1,0 +1,386 @@
+{
+  "id": "dc-table",
+  "category": "rules",
+  "title": {
+    "en": "DC Table",
+    "tr": "DC Tablosu"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Typical Difficulty Classes",
+            "tr": "Tipik Zorluk Dereceleri (DC)"
+          },
+          "columns": [
+            {
+              "en": "Difficulty",
+              "tr": "Zorluk"
+            },
+            "DC"
+          ],
+          "rows": [
+            [
+              {
+                "en": "Very easy",
+                "tr": "Çok kolay"
+              },
+              "5"
+            ],
+            [
+              {
+                "en": "Easy",
+                "tr": "Kolay"
+              },
+              "10"
+            ],
+            [
+              {
+                "en": "Medium",
+                "tr": "Orta"
+              },
+              "15"
+            ],
+            [
+              {
+                "en": "Hard",
+                "tr": "Zor"
+              },
+              "20"
+            ],
+            [
+              {
+                "en": "Very hard",
+                "tr": "Çok zor"
+              },
+              "25"
+            ],
+            [
+              {
+                "en": "Nearly impossible",
+                "tr": "Neredeyse imkansız"
+              },
+              "30"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Common DCs",
+            "tr": "Sık kullanılan DC'ler"
+          },
+          "columns": [
+            {
+              "en": "Check",
+              "tr": "Kontrol"
+            },
+            "DC"
+          ],
+          "rows": [
+            [
+              {
+                "en": "Hide (Dex (Stealth))",
+                "tr": "Saklanma (Dex (Stealth))"
+              },
+              "15"
+            ],
+            [
+              {
+                "en": "Influence a hesitant monster",
+                "tr": "Tereddütlü canavarı etkileme"
+              },
+              {
+                "en": "15 or its Int score, whichever is higher",
+                "tr": "15 ya da Int skoru, hangisi yüksekse"
+              }
+            ],
+            [
+              {
+                "en": "Climb a slippery surface / swim in rough water (Str (Athletics))",
+                "tr": "Kaygan yüzeye tırmanma / dalgalı suda yüzme (Str (Athletics))"
+              },
+              {
+                "en": "15 (GM's option)",
+                "tr": "15 (GM isterse)"
+              }
+            ],
+            [
+              {
+                "en": "Land in Difficult Terrain after a Long Jump (Dex (Acrobatics))",
+                "tr": "Uzun atlayıştan sonra zorlu araziye düşme (Dex (Acrobatics))"
+              },
+              "10"
+            ],
+            [
+              {
+                "en": "Clear a low obstacle in a Long Jump (Str (Athletics))",
+                "tr": "Uzun atlayışta alçak engeli aşma (Str (Athletics))"
+              },
+              "10"
+            ],
+            [
+              {
+                "en": "Fall into water feet or head first (Str (Athletics) or Dex (Acrobatics))",
+                "tr": "Suya ayak ya da baş üstü düşme (Str (Athletics) veya Dex (Acrobatics))"
+              },
+              {
+                "en": "15, halves fall damage",
+                "tr": "15, düşme hasarını yarıya indirir"
+              }
+            ],
+            [
+              {
+                "en": "Stabilize or wake a knocked-out creature (Wis (Medicine))",
+                "tr": "Stabil hale getirme ya da bayılanı uyandırma (Wis (Medicine))"
+              },
+              "10"
+            ],
+            [
+              {
+                "en": "Pick a lock / disarm a trap (Thieves' Tools)",
+                "tr": "Kilit açma / tuzak etkisizleştirme (Thieves' Tools)"
+              },
+              "15"
+            ],
+            [
+              {
+                "en": "Concentration after damage (Con save)",
+                "tr": "Hasardan sonra Konsantrasyon (Con kurtarma)"
+              },
+              {
+                "en": "10 or half the damage, max 30",
+                "tr": "10 ya da hasarın yarısı, en fazla 30"
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Passive scores",
+            "tr": "Pasif skorlar"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Passive Perception",
+                "tr": "Pasif Perception"
+              },
+              {
+                "en": "10 + Wis (Perception) bonus. +5 with Advantage, −5 with Disadvantage.",
+                "tr": "10 + Wis (Perception) bonusu. Avantajda +5, dezavantajda −5."
+              }
+            ],
+            [
+              {
+                "en": "Initiative score",
+                "tr": "İnisiyatif skoru"
+              },
+              {
+                "en": "10 + Dex modifier (+5 / −5 as above), if the GM uses scores instead of rolls.",
+                "tr": "10 + Dex değiştiricisi (yukarıdaki gibi +5 / −5); GM zar yerine skor kullanırsa."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Typical Difficulty Classes",
+            "tr": "Tipik Zorluk Dereceleri (DC)"
+          },
+          "columns": [
+            {
+              "en": "Difficulty",
+              "tr": "Zorluk"
+            },
+            "DC"
+          ],
+          "rows": [
+            [
+              {
+                "en": "Very easy",
+                "tr": "Çok kolay"
+              },
+              "5"
+            ],
+            [
+              {
+                "en": "Easy",
+                "tr": "Kolay"
+              },
+              "10"
+            ],
+            [
+              {
+                "en": "Medium",
+                "tr": "Orta"
+              },
+              "15"
+            ],
+            [
+              {
+                "en": "Hard",
+                "tr": "Zor"
+              },
+              "20"
+            ],
+            [
+              {
+                "en": "Very hard",
+                "tr": "Çok zor"
+              },
+              "25"
+            ],
+            [
+              {
+                "en": "Nearly impossible",
+                "tr": "Neredeyse imkansız"
+              },
+              "30"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Common DCs",
+            "tr": "Sık kullanılan DC'ler"
+          },
+          "columns": [
+            {
+              "en": "Check",
+              "tr": "Kontrol"
+            },
+            "DC"
+          ],
+          "rows": [
+            [
+              {
+                "en": "Land in difficult terrain after a long jump (Dex (Acrobatics))",
+                "tr": "Uzun atlayıştan sonra zorlu araziye düşme (Dex (Acrobatics))"
+              },
+              "10"
+            ],
+            [
+              {
+                "en": "Clear a low obstacle in a long jump (Str (Athletics))",
+                "tr": "Uzun atlayışta alçak engeli aşma (Str (Athletics))"
+              },
+              "10"
+            ],
+            [
+              {
+                "en": "Stabilize a creature (Wis (Medicine))",
+                "tr": "Stabil hale getirme (Wis (Medicine))"
+              },
+              "10"
+            ],
+            [
+              {
+                "en": "Pick a lock (thieves' tools)",
+                "tr": "Kilit açma (thieves' tools)"
+              },
+              "15"
+            ],
+            [
+              {
+                "en": "Escape or break manacles",
+                "tr": "Kelepçeden kurtulma veya kırma"
+              },
+              {
+                "en": "20 (Dex to escape, Str to break)",
+                "tr": "20 (kurtulmak için Dex, kırmak için Str)"
+              }
+            ],
+            [
+              {
+                "en": "Too little water (Con save)",
+                "tr": "Yetersiz su (Con kurtarma)"
+              },
+              "15"
+            ],
+            [
+              {
+                "en": "Concentration after damage (Con save)",
+                "tr": "Hasardan sonra Konsantrasyon (Con kurtarma)"
+              },
+              {
+                "en": "10 or half the damage",
+                "tr": "10 ya da hasarın yarısı"
+              }
+            ],
+            [
+              {
+                "en": "Forced march, each hour past 8 (Con save)",
+                "tr": "Zorlu yürüyüş, 8 saatten sonraki her saat (Con kurtarma)"
+              },
+              {
+                "en": "10 + 1 per extra hour",
+                "tr": "10 + fazladan her saat için 1"
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Passive scores",
+            "tr": "Pasif skorlar"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Passive check",
+                "tr": "Pasif kontrol"
+              },
+              {
+                "en": "10 + all modifiers that normally apply. +5 with Advantage, −5 with Disadvantage.",
+                "tr": "10 + normalde geçerli tüm değiştiriciler. Avantajda +5, dezavantajda −5."
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

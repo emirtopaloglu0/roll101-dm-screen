@@ -1,5 +1,19 @@
 {
   "templates": [
-    "services.json"
+    "services.json",
+    "conditions.json",
+    "exhaustion.json",
+    "combat-actions.json",
+    "cover.json",
+    "concentration.json",
+    "death-dying.json",
+    "dc-table.json",
+    "light-vision.json",
+    "movement.json",
+    "damage.json",
+    "objects.json",
+    "traps.json",
+    "hazards.json",
+    "weapon-mastery.json"
   ]
 }

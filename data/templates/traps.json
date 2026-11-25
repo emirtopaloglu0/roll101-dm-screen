@@ -1,0 +1,336 @@
+{
+  "id": "traps",
+  "category": "rules",
+  "title": {
+    "en": "Traps: DCs & Damage",
+    "tr": "Tuzaklar: DC ve Hasar"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Trap basics",
+            "tr": "Tuzak temelleri"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Severity",
+                "tr": "Şiddet"
+              },
+              {
+                "en": "Nuisance: unlikely to seriously harm characters of the listed levels. Deadly: can grievously harm them. A nuisance at one level range can be deadly for lower levels.",
+                "tr": "Rahatsız edici (nuisance): belirtilen seviyedeki karakterlere ciddi zarar vermez. Ölümcül (deadly): ağır zarar verebilir. Bir seviye aralığında rahatsız edici olan tuzak, daha düşük seviyelerde ölümcül olabilir."
+              }
+            ],
+            [
+              {
+                "en": "Trigger",
+                "tr": "Tetikleyici"
+              },
+              {
+                "en": "Pressure plate, trip wire, doorknob, wrong key in a lock, entering an area.",
+                "tr": "Basınç plakası, tel, kapı kolu, kilitte yanlış anahtar, bir alana girmek."
+              }
+            ],
+            [
+              {
+                "en": "Duration",
+                "tr": "Süre"
+              },
+              {
+                "en": "Instantaneous, rounds, minutes or until destroyed. Some traps reset; others are inert after one use.",
+                "tr": "Anlık, tur, dakika ya da yok edilene kadar. Bazıları sıfırlanır; diğerleri bir kullanımdan sonra etkisizdir."
+              }
+            ],
+            [
+              {
+                "en": "Finding a trap",
+                "tr": "Tuzak bulma"
+              },
+              {
+                "en": "Search action with Wis (Perception), typically DC 10–15, when searching near it. Detect Magic reveals magical traps.",
+                "tr": "Yakınında arama yaparken Wis (Perception) ile Search aksiyonu; genelde DC 10–15. Detect Magic büyülü tuzakları gösterir."
+              }
+            ],
+            [
+              {
+                "en": "Disarming",
+                "tr": "Etkisizleştirme"
+              },
+              {
+                "en": "Usually an action with Thieves' Tools or Dex (Sleight of Hand), typically DC 15. A failure may trigger the trap.",
+                "tr": "Genelde Thieves' Tools ya da Dex (Sleight of Hand) ile aksiyon; tipik DC 15. Başarısızlık tuzağı tetikleyebilir."
+              }
+            ],
+            [
+              {
+                "en": "Use sparingly",
+                "tr": "Az kullan"
+              },
+              {
+                "en": "Too many traps slow the game. The best ones are quick obstacles or puzzles for the group.",
+                "tr": "Çok fazla tuzak oyunu yavaşlatır. En iyileri hızlı engeller ya da grup bulmacalarıdır."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Typical DCs in the SRD example traps",
+            "tr": "SRD örnek tuzaklarındaki tipik DC'ler"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Spot the trap",
+                "tr": "Tuzağı fark etme"
+              },
+              {
+                "en": "Wis (Perception) DC 10–15",
+                "tr": "Wis (Perception) DC 10–15"
+              }
+            ],
+            [
+              {
+                "en": "Understand a magical trap",
+                "tr": "Büyülü tuzağı anlama"
+              },
+              {
+                "en": "Int (Arcana) DC 15",
+                "tr": "Int (Arcana) DC 15"
+              }
+            ],
+            [
+              {
+                "en": "Disarm",
+                "tr": "Etkisizleştirme"
+              },
+              {
+                "en": "Dex (Sleight of Hand) or Thieves' Tools DC 15",
+                "tr": "Dex (Sleight of Hand) ya da Thieves' Tools DC 15"
+              }
+            ],
+            [
+              {
+                "en": "Break free (net, rope)",
+                "tr": "Kurtulma (ağ, ip)"
+              },
+              {
+                "en": "Str (Athletics) DC 10",
+                "tr": "Str (Athletics) DC 10"
+              }
+            ]
+          ],
+          "note": {
+            "en": "For damage scaling, the 2014 rules have a table by level and danger.",
+            "tr": "Hasar ölçeği için 2014 kurallarında seviye ve tehlikeye göre bir tablo vardır."
+          }
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Trap save DCs and attack bonuses",
+            "tr": "Tuzak kurtarma DC'leri ve saldırı bonusları"
+          },
+          "columns": [
+            {
+              "en": "Danger",
+              "tr": "Tehlike"
+            },
+            {
+              "en": "Save DC",
+              "tr": "Kurtarma DC"
+            },
+            {
+              "en": "Attack bonus",
+              "tr": "Saldırı bonusu"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Setback",
+                "tr": "Engel (setback)"
+              },
+              "10–11",
+              "+3 … +5"
+            ],
+            [
+              {
+                "en": "Dangerous",
+                "tr": "Tehlikeli"
+              },
+              "12–15",
+              "+6 … +8"
+            ],
+            [
+              {
+                "en": "Deadly",
+                "tr": "Ölümcül"
+              },
+              "16–20",
+              "+9 … +12"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Damage severity by level",
+            "tr": "Seviyeye göre hasar şiddeti"
+          },
+          "columns": [
+            {
+              "en": "Character level",
+              "tr": "Karakter seviyesi"
+            },
+            {
+              "en": "Setback",
+              "tr": "Engel"
+            },
+            {
+              "en": "Dangerous",
+              "tr": "Tehlikeli"
+            },
+            {
+              "en": "Deadly",
+              "tr": "Ölümcül"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Levels 1–4",
+                "tr": "Seviye 1–4"
+              },
+              "1d10",
+              "2d10",
+              "4d10"
+            ],
+            [
+              {
+                "en": "Levels 5–10",
+                "tr": "Seviye 5–10"
+              },
+              "2d10",
+              "4d10",
+              "10d10"
+            ],
+            [
+              {
+                "en": "Levels 11–16",
+                "tr": "Seviye 11–16"
+              },
+              "4d10",
+              "10d10",
+              "18d10"
+            ],
+            [
+              {
+                "en": "Levels 17–20",
+                "tr": "Seviye 17–20"
+              },
+              "10d10",
+              "18d10",
+              "24d10"
+            ]
+          ],
+          "note": {
+            "en": "Setback: unlikely to kill. Dangerous: likely to seriously injure, can kill. Deadly: likely to kill.",
+            "tr": "Engel: öldürmesi zor. Tehlikeli: ağır yaralar, öldürebilir. Ölümcül: büyük ihtimalle öldürür."
+          }
+        },
+        {
+          "title": {
+            "en": "Trap basics",
+            "tr": "Tuzak temelleri"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Spotting",
+                "tr": "Fark etme"
+              },
+              {
+                "en": "Compare passive Wis (Perception) to the trap's DC, or an active search with a check.",
+                "tr": "Pasif Wis (Perception) tuzağın DC'siyle karşılaştırılır ya da aktif aramada kontrol atılır."
+              }
+            ],
+            [
+              {
+                "en": "Mechanical vs magical",
+                "tr": "Mekanik ve büyülü"
+              },
+              {
+                "en": "Mechanical: pits, darts, blades, falling blocks. Magical: device traps or spells such as glyph of warding.",
+                "tr": "Mekanik: çukur, ok, bıçak, düşen blok. Büyülü: büyülü düzenek ya da glyph of warding gibi büyüler."
+              }
+            ],
+            [
+              {
+                "en": "Disarming",
+                "tr": "Etkisizleştirme"
+              },
+              {
+                "en": "Usually a Dex check with thieves' tools; magic traps may need dispel magic or an Int (Arcana) check.",
+                "tr": "Genelde thieves' tools ile Dex kontrolü; büyülü tuzaklar dispel magic ya da Int (Arcana) kontrolü isteyebilir."
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

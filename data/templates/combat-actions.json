@@ -1,0 +1,488 @@
+{
+  "id": "combat-actions",
+  "category": "rules",
+  "title": {
+    "en": "Combat Actions",
+    "tr": "Savaş Aksiyonları"
+  },
+  "variants": [
+    {
+      "id": "2024",
+      "label": {
+        "en": "2024 (SRD 5.2.1)",
+        "tr": "2024 (SRD 5.2.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Actions",
+            "tr": "Aksiyonlar"
+          },
+          "columns": [
+            {
+              "en": "Action",
+              "tr": "Aksiyon"
+            },
+            {
+              "en": "What it does",
+              "tr": "Ne yapar"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Attack",
+                "tr": "Attack (Saldırı)"
+              },
+              {
+                "en": "One attack with a weapon or an Unarmed Strike. Equip or unequip one weapon with each attack. With Extra Attack you can move between attacks.",
+                "tr": "Bir silah veya silahsız vuruşla bir saldırı. Her saldırıda bir silah kuşanabilir ya da bırakabilirsin. Extra Attack varsa saldırılar arasında hareket edebilirsin."
+              }
+            ],
+            [
+              {
+                "en": "Dash",
+                "tr": "Dash (Koşu)"
+              },
+              {
+                "en": "Extra movement this turn equal to your Speed (after modifiers). You can use a special speed (fly, swim) instead.",
+                "tr": "Bu tur, Hızın kadar (değişikliklerden sonra) ek hareket. Yerine özel bir hız (uçma, yüzme) kullanabilirsin."
+              }
+            ],
+            [
+              {
+                "en": "Disengage",
+                "tr": "Disengage (Geri Çekilme)"
+              },
+              {
+                "en": "Your movement doesn't provoke Opportunity Attacks for the rest of the turn.",
+                "tr": "Tur sonuna kadar hareketin fırsat saldırısı tetiklemez."
+              }
+            ],
+            [
+              {
+                "en": "Dodge",
+                "tr": "Dodge (Kaçınma)"
+              },
+              {
+                "en": "Until your next turn: attacks against you have Disadvantage if you can see the attacker, and you have Advantage on Dex saves. Lost if you are Incapacitated or your Speed is 0.",
+                "tr": "Sıradaki turuna kadar: saldıranı görüyorsan sana saldırılar dezavantajlı, Dex kurtarma zarların avantajlı. Incapacitated olursan ya da Hızın 0 olursa kaybolur."
+              }
+            ],
+            [
+              {
+                "en": "Help",
+                "tr": "Help (Yardım)"
+              },
+              {
+                "en": "• Ability check: an ally gets Advantage on its next check with one of your skill or tool proficiencies, before your next turn.\n• Attack: the next attack by an ally against an enemy within 5 ft of you has Advantage, until your next turn.\n• First aid: stabilize a creature at 0 HP with a DC 10 Wis (Medicine) check.",
+                "tr": "• Yetenek kontrolü: bir müttefik, senin yetkin olduğun beceri veya aletle yapacağı sonraki kontrolde sıradaki turuna kadar avantajlı olur.\n• Saldırı: 5 ft içindeki bir düşmana müttefikinin yapacağı sonraki saldırı, sıradaki turuna kadar avantajlıdır.\n• İlk yardım: 0 HP'deki yaratığı DC 10 Wis (Medicine) ile stabil hale getir."
+              }
+            ],
+            [
+              {
+                "en": "Hide",
+                "tr": "Hide (Saklanma)"
+              },
+              {
+                "en": "DC 15 Dex (Stealth) while Heavily Obscured or behind Three-Quarters or Total Cover, out of enemies' sight. Success: you are Invisible while hidden, and your total is the DC to find you. Ends if you make a sound louder than a whisper, are found, make an attack roll or cast a spell with a Verbal component.",
+                "tr": "Yoğun örtülü ya da 3/4 veya tam siperin arkasındayken, düşmanların görüşü dışında DC 15 Dex (Stealth). Başarı: saklıyken Invisible olursun; sonucun seni bulma DC'sidir. Fısıltıdan yüksek ses çıkarırsan, bulunursan, saldırı zarı atarsan veya sözlü bileşenli büyü yaparsan biter."
+              }
+            ],
+            [
+              {
+                "en": "Influence",
+                "tr": "Influence (Etkileme)"
+              },
+              {
+                "en": "Cha (Deception, Intimidation, Performance, Persuasion) or Wis (Animal Handling) to urge a hesitant monster. DC 15 or the monster's Int score, whichever is higher. Friendly: Advantage. Hostile: Disadvantage. On a failure, wait 24 hours before urging the same way again.",
+                "tr": "Tereddütlü bir canavarı ikna etmek için Cha (Deception, Intimidation, Performance, Persuasion) veya Wis (Animal Handling). DC 15 ya da canavarın Int skoru, hangisi yüksekse. Dost: avantaj. Düşman: dezavantaj. Başarısızlıkta aynı şekilde tekrar denemek için 24 saat bekle."
+              }
+            ],
+            [
+              {
+                "en": "Magic",
+                "tr": "Magic (Büyü)"
+              },
+              {
+                "en": "Cast a spell with a casting time of an action, or use a magic item or feature that needs a Magic action. Spells of 1 minute or longer need this action every turn and Concentration; if it breaks, the spell fails but the slot isn't spent.",
+                "tr": "Döküm süresi 1 aksiyon olan bir büyü yap ya da Magic aksiyonu isteyen bir eşya veya özelliği kullan. 1 dakika ve üstü büyüler her tur bu aksiyonu ve Konsantrasyonu ister; bozulursa büyü başarısız olur ama slot harcanmaz."
+              }
+            ],
+            [
+              {
+                "en": "Ready",
+                "tr": "Ready (Hazırlanma)"
+              },
+              {
+                "en": "Choose a trigger and an action (or a move up to your Speed). React with your Reaction before your next turn. A readied spell must be cast now (1 action), held with Concentration and released by your Reaction.",
+                "tr": "Bir tetikleyici ve aksiyon (ya da Hızın kadar hareket) seç. Sıradaki turundan önce Reaksiyonunla uygula. Hazırlanan büyü şimdi (1 aksiyon) yapılır, Konsantrasyonla tutulur ve Reaksiyonla salınır."
+              }
+            ],
+            [
+              {
+                "en": "Search",
+                "tr": "Search (Arama)"
+              },
+              {
+                "en": "Wis check: Insight (state of mind), Medicine (ailment or cause of death), Perception (hidden creature or object), Survival (tracks or food).",
+                "tr": "Wis kontrolü: Insight (ruh hali), Medicine (hastalık veya ölüm sebebi), Perception (gizli yaratık veya nesne), Survival (iz veya yiyecek)."
+              }
+            ],
+            [
+              {
+                "en": "Study",
+                "tr": "Study (İnceleme)"
+              },
+              {
+                "en": "Int check to recall or work out information: Arcana, History, Investigation, Nature or Religion.",
+                "tr": "Bilgi hatırlamak veya çıkarmak için Int kontrolü: Arcana, History, Investigation, Nature veya Religion."
+              }
+            ],
+            [
+              {
+                "en": "Utilize",
+                "tr": "Utilize (Kullanma)"
+              },
+              {
+                "en": "Use an object that needs an action, or interact with a second object this turn.",
+                "tr": "Aksiyon gerektiren bir nesneyi kullan ya da bu tur ikinci bir nesneyle etkileşime gir."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Also on your turn",
+            "tr": "Turunda ayrıca"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Bonus Action",
+                "tr": "Bonus Aksiyon"
+              },
+              {
+                "en": "At most one per turn, only if a rule gives you one.",
+                "tr": "Turda en fazla bir; sadece bir kural verirse."
+              }
+            ],
+            [
+              {
+                "en": "Reaction",
+                "tr": "Reaksiyon"
+              },
+              {
+                "en": "One until the start of your next turn. Can be used on any turn.",
+                "tr": "Sıradaki turunun başına kadar bir tane. Herhangi bir turda kullanılabilir."
+              }
+            ],
+            [
+              {
+                "en": "Opportunity Attack",
+                "tr": "Fırsat Saldırısı"
+              },
+              {
+                "en": "Reaction: one melee attack (weapon or Unarmed Strike) when a creature you can see leaves your reach using its action, Bonus Action, Reaction or one of its speeds. Teleporting doesn't provoke it.",
+                "tr": "Reaksiyon: görebildiğin bir yaratık aksiyonu, bonus aksiyonu, reaksiyonu ya da bir hızıyla erişiminden çıkarken bir yakın dövüş saldırısı (silah veya silahsız vuruş). Işınlanma tetiklemez."
+              }
+            ],
+            [
+              {
+                "en": "Unarmed Strike",
+                "tr": "Silahsız Vuruş"
+              },
+              {
+                "en": "Choose one:\n• Damage: Str mod + PB to hit; 1 + Str mod Bludgeoning.\n• Grapple: target makes a Str or Dex save (DC 8 + Str mod + PB) or is Grappled. Needs a free hand.\n• Shove: same save, or you push it 5 ft or knock it Prone.\nGrapple and Shove: target at most one size larger.",
+                "tr": "Birini seç:\n• Hasar: isabet Str + PB; hasar 1 + Str, Bludgeoning.\n• Grapple: hedef Str veya Dex kurtarma zarı atar (DC 8 + Str + PB), başarısızsa Grappled. Boş el gerekir.\n• Shove: aynı zar; başarısızsa 5 ft itersin ya da Prone yaparsın.\nGrapple ve Shove: hedef en fazla bir boy büyük olabilir."
+              }
+            ],
+            [
+              {
+                "en": "Light weapons",
+                "tr": "Hafif (Light) silahlar"
+              },
+              {
+                "en": "After attacking with a Light weapon in the Attack action, make one Bonus Action attack with a different Light weapon. Don't add your ability modifier to that damage unless it is negative.",
+                "tr": "Attack aksiyonunda Light bir silahla saldırdıktan sonra, başka bir Light silahla Bonus Aksiyon olarak bir saldırı. Yetenek değiştiricini hasara ekleme (negatifse ekle)."
+              }
+            ],
+            [
+              {
+                "en": "Free interaction",
+                "tr": "Serbest etkileşim"
+              },
+              {
+                "en": "One object or feature per turn during your move or action (open a door, draw a sword).",
+                "tr": "Turda bir nesne veya unsurla, hareket ya da aksiyon sırasında (kapı açmak, kılıç çekmek)."
+              }
+            ],
+            [
+              {
+                "en": "Drop Prone",
+                "tr": "Yere yatma"
+              },
+              {
+                "en": "Free, but not while your Speed is 0.",
+                "tr": "Serbesttir; Hızın 0 iken yapılamaz."
+              }
+            ],
+            [
+              {
+                "en": "Unseen attacker or target",
+                "tr": "Görünmeyen saldıran veya hedef"
+              },
+              {
+                "en": "Attacking a target you can't see: Disadvantage. Attacking a creature that can't see you: Advantage. If hidden, the attack reveals your location.",
+                "tr": "Göremediğin hedefe saldırı: dezavantaj. Seni göremeyen yaratığa saldırı: avantaj. Saklıysan saldırı yerini belli eder."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": {
+        "en": "2014 (SRD 5.1)",
+        "tr": "2014 (SRD 5.1)"
+      },
+      "attribution": {
+        "en": "Summarized from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0).",
+        "tr": "Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden özetlenmiştir, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0)."
+      },
+      "sections": [
+        {
+          "title": {
+            "en": "Actions",
+            "tr": "Aksiyonlar"
+          },
+          "columns": [
+            {
+              "en": "Action",
+              "tr": "Aksiyon"
+            },
+            {
+              "en": "What it does",
+              "tr": "Ne yapar"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Attack",
+                "tr": "Attack (Saldırı)"
+              },
+              {
+                "en": "One melee or ranged attack. Extra Attack gives more. One attack can be replaced by a grapple or a shove.",
+                "tr": "Bir yakın veya uzak saldırı. Extra Attack daha fazlasını verir. Bir saldırının yerine tutma (grapple) veya itme (shove) yapılabilir."
+              }
+            ],
+            [
+              {
+                "en": "Cast a Spell",
+                "tr": "Cast a Spell (Büyü Yapma)"
+              },
+              {
+                "en": "Cast a spell with a casting time of 1 action.",
+                "tr": "Döküm süresi 1 aksiyon olan bir büyü yap."
+              }
+            ],
+            [
+              {
+                "en": "Dash",
+                "tr": "Dash (Koşu)"
+              },
+              {
+                "en": "Extra movement this turn equal to your Speed (after modifiers).",
+                "tr": "Bu tur, Hızın kadar (değişikliklerden sonra) ek hareket."
+              }
+            ],
+            [
+              {
+                "en": "Disengage",
+                "tr": "Disengage (Geri Çekilme)"
+              },
+              {
+                "en": "Your movement doesn't provoke Opportunity Attacks for the rest of the turn.",
+                "tr": "Tur sonuna kadar hareketin fırsat saldırısı tetiklemez."
+              }
+            ],
+            [
+              {
+                "en": "Dodge",
+                "tr": "Dodge (Kaçınma)"
+              },
+              {
+                "en": "Until your next turn: attacks against you have Disadvantage if you can see the attacker, and you have Advantage on Dex saves. Lost if you are Incapacitated or your Speed is 0.",
+                "tr": "Sıradaki turuna kadar: saldıranı görüyorsan sana saldırılar dezavantajlı, Dex kurtarma zarların avantajlı. Incapacitated olursan ya da Hızın 0 olursa kaybolur."
+              }
+            ],
+            [
+              {
+                "en": "Help",
+                "tr": "Help (Yardım)"
+              },
+              {
+                "en": "• A creature gets Advantage on its next check for the task you help with, before your next turn.\n• Or: an ally's first attack against a creature within 5 ft of you has Advantage, before your next turn.",
+                "tr": "• Yardım ettiğin iş için bir yaratık, sıradaki turundan önce yapacağı sonraki kontrolde avantajlıdır.\n• Ya da: müttefikinin 5 ft içindeki bir yaratığa sıradaki turundan önce yapacağı ilk saldırı avantajlıdır."
+              }
+            ],
+            [
+              {
+                "en": "Hide",
+                "tr": "Hide (Saklanma)"
+              },
+              {
+                "en": "Dex (Stealth) check, contested by the Wis (Perception) of creatures looking for you. You can't hide from a creature that can see you clearly.",
+                "tr": "Seni arayan yaratıkların Wis (Perception) kontrolüne karşı Dex (Stealth). Seni net görebilen bir yaratıktan saklanamazsın."
+              }
+            ],
+            [
+              {
+                "en": "Ready",
+                "tr": "Ready (Hazırlanma)"
+              },
+              {
+                "en": "Choose a trigger and an action (or a move up to your Speed). React with your Reaction before your next turn. A readied spell must be cast now (1 action), held with Concentration and released by your Reaction.",
+                "tr": "Bir tetikleyici ve aksiyon (ya da Hızın kadar hareket) seç. Sıradaki turundan önce Reaksiyonunla uygula. Hazırlanan büyü şimdi (1 aksiyon) yapılır, Konsantrasyonla tutulur ve Reaksiyonla salınır."
+              }
+            ],
+            [
+              {
+                "en": "Search",
+                "tr": "Search (Arama)"
+              },
+              {
+                "en": "Wis (Perception) or Int (Investigation) check, as the GM decides.",
+                "tr": "GM'in kararına göre Wis (Perception) veya Int (Investigation) kontrolü."
+              }
+            ],
+            [
+              {
+                "en": "Use an Object",
+                "tr": "Use an Object (Nesne Kullanma)"
+              },
+              {
+                "en": "Use an object that needs an action, or interact with a second object this turn.",
+                "tr": "Aksiyon gerektiren bir nesneyi kullan ya da bu tur ikinci bir nesneyle etkileşime gir."
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "en": "Also on your turn",
+            "tr": "Turunda ayrıca"
+          },
+          "columns": [
+            {
+              "en": "Rule",
+              "tr": "Kural"
+            },
+            {
+              "en": "Effect",
+              "tr": "Etkisi"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Bonus Action",
+                "tr": "Bonus Aksiyon"
+              },
+              {
+                "en": "At most one per turn, only if a rule gives you one.",
+                "tr": "Turda en fazla bir; sadece bir kural verirse."
+              }
+            ],
+            [
+              {
+                "en": "Reaction",
+                "tr": "Reaksiyon"
+              },
+              {
+                "en": "One per round; it comes back at the start of your turn.",
+                "tr": "Turda (round) bir tane; kendi turunun başında geri gelir."
+              }
+            ],
+            [
+              {
+                "en": "Opportunity Attack",
+                "tr": "Fırsat Saldırısı"
+              },
+              {
+                "en": "Reaction: one melee attack when a hostile creature you can see moves out of your reach. Teleporting, or being moved without using its own movement, doesn't provoke it.",
+                "tr": "Reaksiyon: görebildiğin düşman bir yaratık erişiminden çıkarken bir yakın dövüş saldırısı. Işınlanma ya da kendi hareketini kullanmadan itilmek tetiklemez."
+              }
+            ],
+            [
+              {
+                "en": "Grapple",
+                "tr": "Grapple (Tutma)"
+              },
+              {
+                "en": "Replaces one attack. Target at most one size larger, within reach; you need a free hand. Your Str (Athletics) vs its Str (Athletics) or Dex (Acrobatics). Escape: action, same contest. Moving a grappled creature halves your speed unless it is 2+ sizes smaller.",
+                "tr": "Bir saldırının yerine. Hedef en fazla bir boy büyük ve erişimde olmalı; boş el gerekir. Senin Str (Athletics) kontrolün onun Str (Athletics) veya Dex (Acrobatics) kontrolüne karşı. Kurtulma: aksiyon, aynı çekişme. Tutulan yaratığı taşımak, 2+ boy küçük değilse hızını yarıya indirir."
+              }
+            ],
+            [
+              {
+                "en": "Shove",
+                "tr": "Shove (İtme)"
+              },
+              {
+                "en": "Replaces one attack. Target at most one size larger, within reach. Your Str (Athletics) vs its Str (Athletics) or Dex (Acrobatics). Win: knock it prone or push it 5 ft.",
+                "tr": "Bir saldırının yerine. Hedef en fazla bir boy büyük ve erişimde olmalı. Senin Str (Athletics) kontrolün onun Str (Athletics) veya Dex (Acrobatics) kontrolüne karşı. Kazanırsan: yere düşür ya da 5 ft it."
+              }
+            ],
+            [
+              {
+                "en": "Two-weapon fighting",
+                "tr": "İki silahla dövüş"
+              },
+              {
+                "en": "After attacking with a light melee weapon in the Attack action, make a Bonus Action attack with a different light melee weapon in the other hand. No ability modifier to its damage unless negative.",
+                "tr": "Attack aksiyonunda hafif bir yakın dövüş silahıyla saldırdıktan sonra, diğer eldeki başka bir hafif silahla Bonus Aksiyon olarak saldır. Yetenek değiştiricini hasara ekleme (negatifse ekle)."
+              }
+            ],
+            [
+              {
+                "en": "Free interaction",
+                "tr": "Serbest etkileşim"
+              },
+              {
+                "en": "One object per turn during your move or action.",
+                "tr": "Turda bir nesne, hareket ya da aksiyon sırasında."
+              }
+            ],
+            [
+              {
+                "en": "Unseen attacker or target",
+                "tr": "Görünmeyen saldıran veya hedef"
+              },
+              {
+                "en": "Attacking a target you can't see: Disadvantage. Attacking a creature that can't see you: Advantage. If hidden, the attack reveals your location.",
+                "tr": "Göremediğin hedefe saldırı: dezavantaj. Seni göremeyen yaratığa saldırı: avantaj. Saklıysan saldırı yerini belli eder."
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
