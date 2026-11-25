@@ -46,6 +46,34 @@
         {
           "en": "A child delivers a sealed note with no sender. It names a meeting place at midnight.",
           "tr": "Bir çocuk gönderen belirtilmemiş mühürlü bir not getirir. Not gece yarısı bir buluşma yeri söyler."
+        },
+        {
+          "en": "A temple bell tolls at an odd hour. The priests say it is a prayer meeting, but a DC 13 Wisdom (Insight) check senses they are hiding a death.",
+          "tr": "Bir tapınak çanı akla gelmedik bir saatte çalar. Rahipler bunun bir dua toplantısı olduğunu söyler, ancak DC 13 Bilgelik (Insight) kontrolü bir ölümü sakladıklarını sezer."
+        },
+        {
+          "en": "A public execution is set for tomorrow. The condemned whispers to a character that they are innocent and names the real culprit.",
+          "tr": "Yarın için halka açık bir idam planlanmıştır. Mahkûm bir karaktere fısıldayarak masum olduğunu söyler ve gerçek suçlunun adını verir."
+        },
+        {
+          "en": "Wanted posters with a character's face appear on every wall overnight. Someone paid well for them, and the reward keeps growing.",
+          "tr": "Bir gecede her duvarda bir karakterin yüzünü taşıyan arananlar afişleri belirir. Birileri bunlar için iyi para ödemiştir ve ödül giderek büyür."
+        },
+        {
+          "en": "A street vendor sells \"healing potions\" that are mostly colored water. A DC 12 Intelligence (Investigation) check reveals the trick, but one bottle on the cart is real.",
+          "tr": "Bir seyyar satıcı çoğu renkli sudan ibaret \"iyileştirme iksirleri\" satar. DC 12 Zeka (Investigation) kontrolü numarayı ortaya çıkarır; ancak arabadaki bir şişe gerçektir."
+        },
+        {
+          "en": "After heavy rain the sewers overflow and strange creatures crawl into the market square. The watch is overwhelmed.",
+          "tr": "Şiddetli yağmurdan sonra kanalizasyon taşar ve tuhaf yaratıklar pazar meydanına sürünür. Muhafızlar başa çıkamaz."
+        },
+        {
+          "en": "A masked festival fills the streets. A figure in the crowd presses a coin with a strange symbol into a character's hand and vanishes.",
+          "tr": "Maskeli bir festival sokakları doldurur. Kalabalıktaki bir figür bir karakterin eline garip bir sembol taşıyan bir sikke bırakıp kaybolur."
+        },
+        {
+          "en": "A scholar chases the party through a crowded market. A book they bought earlier has a hand-drawn map hidden in its binding.",
+          "tr": "Bir bilgin kalabalık bir pazarda partinin peşine düşer. Daha önce satın aldıkları bir kitabın cildinde elle çizilmiş gizli bir harita vardır."
         }
       ]
     },
@@ -84,6 +112,34 @@
         {
           "en": "A stranger asks careful questions about a local legend. He carries a worn map and pays well for answers.",
           "tr": "Bir yabancı yerel bir efsane hakkında dikkatli sorular sorar. Eski bir harita taşıyor ve cevaplara iyi öder."
+        },
+        {
+          "en": "A scarecrow was moved to the middle of the road overnight. The farmers swear it was facing the other way yesterday.",
+          "tr": "Bir korkuluk gece boyunca yolun ortasına taşınmıştır. Çiftçiler dün ters yöne baktığına yemin eder."
+        },
+        {
+          "en": "A woman goes into labor during a storm and the only road to the healer is flooded. A DC 12 Wisdom (Medicine) check helps the birth go safely.",
+          "tr": "Bir kadın fırtına sırasında doğum sancısı çeker ve şifacıya giden tek yol sel altındadır. DC 12 Bilgelik (Medicine) kontrolü doğumun güvenle geçmesine yardım eder."
+        },
+        {
+          "en": "A traveling priest arrives to bless the village but refuses to enter the chapel. He will not say why.",
+          "tr": "Gezgin bir rahip köyü kutsamaya gelir, ancak şapele girmeyi reddeder. Nedenini söylemez."
+        },
+        {
+          "en": "The village blacksmith is drunk and refuses to finish a promised order. His apprentice begs the party to find out what happened to him.",
+          "tr": "Köyün demircisi sarhoştur ve söz verdiği siparişi bitirmeyi reddeder. Çırağı, partiden ona ne olduğunu öğrenmelerini ister."
+        },
+        {
+          "en": "The cattle fall ill. A DC 12 Intelligence (Nature) check shows someone poisoned the pasture. Two families accuse each other.",
+          "tr": "Sığırlar hastalanır. DC 12 Zeka (Nature) kontrolü, birinin otlağı zehirlediğini gösterir. İki aile birbirini suçlar."
+        },
+        {
+          "en": "A traveling bard arrives, and his new song accuses the village headman of a crime. The headman wants the bard silenced, quietly.",
+          "tr": "Gezgin bir ozan köye gelir ve yeni şarkısı muhtarı bir suçla suçlar. Muhtar, ozanın sessizce susturulmasını ister."
+        },
+        {
+          "en": "Children found a strange egg in the barn. It is warm, and it has begun to hum.",
+          "tr": "Çocuklar ahırda garip bir yumurta bulmuştur. Yumurta sıcaktır ve mırıldanmaya başlamıştır."
         }
       ]
     },
@@ -122,6 +178,34 @@
         {
           "en": "The bridge toll was doubled overnight. Travelers are angry and a toll collector is being threatened.",
           "tr": "Köprü geçiş ücreti bir gecede ikiye katlandı. Yolcular öfkeli ve bir vergi memuru tehdit ediliyor."
+        },
+        {
+          "en": "A guild hall is robbed overnight and nothing visible is missing. The guildmaster hires the party to figure out what was taken.",
+          "tr": "Bir lonca binası gece soyulur ve gözle görülür hiçbir şey eksik değildir. Lonca başkanı, neyin çalındığını bulmaları için partiyi tutar."
+        },
+        {
+          "en": "The tax collector arrives with an armed escort and demands payment in kind. An innkeeper begs the party to hide his savings.",
+          "tr": "Vergi memuru silahlı bir eskortla gelir ve ayni ödeme ister. Bir hancı, partiden birikimini saklamalarını ister."
+        },
+        {
+          "en": "A card game at the tavern turns into a brawl. One player is cheating with magic, noticed with a DC 14 Wisdom (Perception) check.",
+          "tr": "Tavernada bir kâğıt oyunu kavgaya döner. Oyunculardan biri büyüyle hile yapıyordur; DC 14 Bilgelik (Perception) kontrolüyle fark edilir."
+        },
+        {
+          "en": "A bridge collapses and traps a crew of workers. The watch asks for volunteers. A DC 13 Strength (Athletics) check lifts a fallen beam.",
+          "tr": "Bir köprü çöker ve bir grup işçiyi hapseder. Muhafızlar gönüllü ister. DC 13 Güç (Athletics) kontrolü düşen bir kirişi kaldırır."
+        },
+        {
+          "en": "A fortune teller predicts the death of a character's ally, down to the date. The prediction is eerily specific.",
+          "tr": "Bir falcı, bir karakterin müttefikinin ölümünü tarihine kadar öngörür. Kehanet ürpertici derecede ayrıntılıdır."
+        },
+        {
+          "en": "The town watchtower's bell was stolen. It is said its sound keeps something in the old mine asleep.",
+          "tr": "Kasabanın gözetleme kulesinin çanı çalınmıştır. Sesinin eski madendeki bir şeyi uykuda tuttuğu söylenir."
+        },
+        {
+          "en": "A rival merchant spreads a rumor that the party's patron sells cursed goods. Sales collapse and an angry crowd gathers outside the shop.",
+          "tr": "Rakip bir tüccar, partinin hamisinin lanetli mal sattığı söylentisini yayar. Satışlar çöker ve dükkânın önünde öfkeli bir kalabalık toplanır."
         }
       ]
     },
@@ -160,6 +244,34 @@
         {
           "en": "A signpost has been turned to point the wrong way. Someone wants travelers to take the other road.",
           "tr": "Bir yön tabelası yanlış yöne çevrilmiş. Biri yolcuların diğer yola sapmasını istiyor."
+        },
+        {
+          "en": "A burned wagon sits at the roadside. The oxen are alive and still hitched, but there is no sign of the driver.",
+          "tr": "Yol kenarında yanmış bir araba durur. Öküzler hâlâ koşumlu ve hayattadır, ancak sürücüden iz yoktur."
+        },
+        {
+          "en": "A merchant's strongbox is chained to a tree with a note: \"Open me, take half, and deliver the rest to the address inside.\"",
+          "tr": "Bir tüccarın kasası bir ağaca zincirlenmiştir ve üzerinde bir not vardır: \"Beni aç, yarısını al, kalanını içerideki adrese ulaştır.\""
+        },
+        {
+          "en": "A rockslide closes the pass. The only other route crosses lands patrolled by a hobgoblin war band.",
+          "tr": "Bir kaya kayması geçidi kapatır. Tek alternatif yol, bir hobgoblin savaş grubunun devriye gezdiği topraklardan geçer."
+        },
+        {
+          "en": "A hunting party of locals asks the party to help track a beast that killed three of their own. They will share the bounty.",
+          "tr": "Yerel avcılardan oluşan bir grup, kendilerinden üç kişiyi öldüren bir canavarı izlemek için partiden yardım ister. Ödülü paylaşmayı teklif ederler."
+        },
+        {
+          "en": "Lights glow beneath the surface of a misty lake at night. A DC 13 Intelligence (Arcana) check recognizes a sunken ritual circle.",
+          "tr": "Geceleri sisli bir gölün yüzeyinin altında ışıklar parlar. DC 13 Zeka (Arcana) kontrolü, suyun altında batmış bir ritüel çemberi tanır."
+        },
+        {
+          "en": "A saddled, spooked horse bolts past the party. Its saddlebags hold a half-written will.",
+          "tr": "Eyerli, ürkmüş bir at partinin yanından fırlayıp geçer. Heybelerinde yarım kalmış bir vasiyet vardır."
+        },
+        {
+          "en": "A roadside shrine to a forgotten god is heaped with offerings. A character who leaves a coin dreams of a safe path. One who takes something makes a DC 12 Wisdom save or is cursed with bad luck for a day.",
+          "tr": "Yol kenarında unutulmuş bir tanrının türbesi adaklarla doludur. Sikke bırakan karakter güvenli bir yol rüyası görür. Bir şey alan karakter DC 12 Bilgelik kurtarma zarı atar; başarısız olursa bir gün boyunca kötü talihle lanetlenir."
         }
       ]
     },
@@ -198,6 +310,34 @@
         {
           "en": "A druid asks the party to leave the grove untouched, or to help drive off those who would cut it down.",
           "tr": "Bir druid gruptan koruyu olduğu gibi bırakmasını ya da onu kesmek isteyenleri kovmasına yardım etmesini ister."
+        },
+        {
+          "en": "A tree grows in a perfect circle of bare earth, and its leaves whisper names. One of the names belongs to a character.",
+          "tr": "Bir ağaç, çıplak toprakla çevrili mükemmel bir dairenin içinde büyür ve yaprakları isimler fısıldar. İsimlerden biri bir karaktere aittir."
+        },
+        {
+          "en": "Glowing eyes watch from the underbrush. Fey creatures offer a trade: a secret in exchange for a memory.",
+          "tr": "Çalılıkların arasından parlayan gözler izler. Periler bir takas önerir: bir sır karşılığında bir anı."
+        },
+        {
+          "en": "A hunter's lodge stands with its door open and its table set. The meal is still hot, and no one is home.",
+          "tr": "Bir avcı kulübesinin kapısı açık, sofrası kurulmuştur. Yemek hâlâ sıcaktır ve evde kimse yoktur."
+        },
+        {
+          "en": "An injured stag with golden antlers collapses before the party. Hunters follow its blood trail, closing in.",
+          "tr": "Altın boynuzlu yaralı bir geyik partinin önünde yığılır. Avcılar kan izini takip ederek yaklaşmaktadır."
+        },
+        {
+          "en": "Totems of twigs and bone hang from the branches in a tightening pattern. Whoever made them is watching.",
+          "tr": "Çubuk ve kemikten totemler, giderek daralan bir düzende dallardan sarkar. Onları yapan kişi izlemektedir."
+        },
+        {
+          "en": "Woodcutters refuse to enter a stretch of forest after one of them cut a tree that bled red sap.",
+          "tr": "Oduncular, içlerinden biri kırmızı öz akıtan bir ağacı kestikten sonra ormanın bir bölümüne girmeyi reddeder."
+        },
+        {
+          "en": "Fireflies lead the party off the path to a clearing where a feast is underway. The hosts will not say who invited them.",
+          "tr": "Ateş böcekleri partiyi yoldan çıkarıp bir şölenin sürdüğü bir açıklığa götürür. Ev sahipleri onları kimin davet ettiğini söylemez."
         }
       ]
     },
@@ -236,6 +376,34 @@
         {
           "en": "A sled team arrives at the camp with no driver, their harness cut and a bloodied note tied to it.",
           "tr": "Bir kızak ekibi sürücüsüz kampa gelir; koşumları kesilmiş ve üzerine kanlı bir not bağlanmış."
+        },
+        {
+          "en": "Footprints circle the camp each morning, a little closer every night. A DC 13 Wisdom (Survival) check shows they match no creature the party knows.",
+          "tr": "Ayak izleri her sabah kampın etrafında dönüyor ve her gece biraz daha yaklaşıyor. DC 13 Bilgelik (Survival) kontrolü, izlerin partinin bildiği hiçbir yaratığa uymadığını gösterir."
+        },
+        {
+          "en": "A frozen waterfall hides a cave. The ice sculptures inside look like the party members, in poses they have never held.",
+          "tr": "Donmuş bir şelale bir mağarayı gizler. İçindeki buz heykeller parti üyelerine benzer, hem de hiç almadıkları pozlarda."
+        },
+        {
+          "en": "A caravan stuck in a drift is out of food. They offer a valuable cargo in exchange for supplies and an escort.",
+          "tr": "Bir kar yığınında mahsur kalan kervanın yiyeceği bitmiştir. Erzak ve eskort karşılığında değerli bir yük önerirler."
+        },
+        {
+          "en": "A wolf pack trails a lone figure on snowshoes who waves for help from far away. The wolves do not seem hungry.",
+          "tr": "Bir kurt sürüsü, uzaktan yardım için el sallayan kar ayakkabılı yalnız bir figürün peşindedir. Kurtlar aç görünmez."
+        },
+        {
+          "en": "A creaking ice bridge is the only way across a gorge. A DC 12 Wisdom (Survival) check reads where the ice is thick.",
+          "tr": "Gıcırdayan bir buz köprüsü, bir vadiden geçmenin tek yoludur. DC 12 Bilgelik (Survival) kontrolü buzun nerede kalın olduğunu okur."
+        },
+        {
+          "en": "A temple bell buried in the snow rings once every hour, though nothing touches it.",
+          "tr": "Karın altına gömülü bir tapınak çanı, ona hiçbir şey dokunmadığı halde her saat başı bir kez çalar."
+        },
+        {
+          "en": "A trapper's cabin is full of preserved furs. The trapper insists the party leave before dark and will not say why.",
+          "tr": "Bir kürkçünün kulübesi saklanmış kürklerle doludur. Kürkçü partinin karanlıktan önce gitmesinde ısrar eder ve nedenini söylemez."
         }
       ]
     },
@@ -274,6 +442,34 @@
         {
           "en": "A thirst-crazed traveler stumbles in, begs for water and warns of what chased them.",
           "tr": "Susuzluktan çılgına dönmüş bir yolcu sendeleyerek gelir, su ister ve onu kovalayan şey hakkında uyarır."
+        },
+        {
+          "en": "A caravan's camels all died overnight with no wounds. The merchants blame the party's arrival.",
+          "tr": "Bir kervanın develerinin hepsi gece boyunca yarasız ölmüştür. Tüccarlar partinin gelişini suçlar."
+        },
+        {
+          "en": "A patch of glass-smooth fused sand, as large as a house, is still warm. Something burned here recently.",
+          "tr": "Bir ev büyüklüğünde, cam gibi pürüzsüz kaynaşmış bir kum parçası hâlâ sıcaktır. Burada yakın zamanda bir şey yanmıştır."
+        },
+        {
+          "en": "A dust devil carries a scrap of silk and a ring. Following the wind leads to a buried tomb entrance.",
+          "tr": "Bir toz kasırgası bir parça ipek ve bir yüzük taşır. Rüzgârı izlemek gömülü bir mezar girişine çıkar."
+        },
+        {
+          "en": "Nomads invite the party to a night feast. Custom demands each guest tell a true story, and the host notices lies with a DC 14 Wisdom (Insight) check.",
+          "tr": "Göçebeler partiyi gece şölenine davet eder. Gelenek her misafirin gerçek bir hikâye anlatmasını ister; ev sahibi yalanları DC 14 Bilgelik (Insight) kontrolüyle fark eder."
+        },
+        {
+          "en": "The shed shell of a giant scorpion, big enough to shelter in, lies near a spring. The creature is not far.",
+          "tr": "Bir dev akrebin içine sığınılabilecek büyüklükteki çıkarılmış kabuğu bir pınarın yakınında yatar. Yaratık çok uzakta değildir."
+        },
+        {
+          "en": "Barefoot pilgrims walk toward a distant mountain and beg to travel with the party. One of them hides a relic.",
+          "tr": "Yalınayak hacılar uzaktaki bir dağa yürür ve partiyle yolculuk etmek için yalvarır. İçlerinden biri bir kutsal emanet saklar."
+        },
+        {
+          "en": "A sun-bleached skeleton clutches a full waterskin and a map to a place that appears on no chart.",
+          "tr": "Güneşten ağarmış bir iskelet, dolu bir su tulumunu ve hiçbir haritada görünmeyen bir yerin haritasını sımsıkı tutar."
         }
       ]
     },
@@ -328,6 +524,38 @@
         {
           "en": "A debt collector is looking for someone who matches a character's past.",
           "tr": "Bir tefeci, bir karakterin geçmişine uyan birini arıyor."
+        },
+        {
+          "en": "Someone has been following the party for days. It turns out to be a guard sent by a worried patron.",
+          "tr": "Birisi günlerdir partiyi takip etmektedir. Bunun endişeli bir hami tarafından gönderilmiş bir muhafız olduğu ortaya çıkar."
+        },
+        {
+          "en": "One of the party's mounts or pack animals falls ill. The local remedies are expensive, and a cheaper cure needs a rare herb.",
+          "tr": "Partinin binek veya yük hayvanlarından biri hastalanır. Yerel ilaçlar pahalıdır ve daha ucuz bir tedavi nadir bir bitki ister."
+        },
+        {
+          "en": "A letter arrives for a character, sealed with the crest of a family they thought was gone.",
+          "tr": "Bir karaktere, yok olduğunu sandığı bir ailenin armasıyla mühürlenmiş bir mektup gelir."
+        },
+        {
+          "en": "A bard recognizes a character from a story that mixes truth and exaggeration, and starts telling it loudly at the nearest tavern.",
+          "tr": "Bir ozan, bir karakteri gerçek ve abartının karıştığı bir hikâyeden tanır ve hikâyeyi en yakın tavernada yüksek sesle anlatmaya başlar."
+        },
+        {
+          "en": "A storm wrecks a ship or wagon train. The cargo washes ashore and is free for the taking, until a salvager guild claims it.",
+          "tr": "Bir fırtına bir gemiyi veya araba kafilesini parçalar. Yük kıyıya vurur ve alınmayı bekler, ta ki bir kurtarma loncası hak iddia edene kadar."
+        },
+        {
+          "en": "A wandering priest offers a free blessing for a small price: a promise to do a good deed within the week.",
+          "tr": "Gezgin bir rahip küçük bir bedel karşılığında ücretsiz bir kutsama sunar: bir hafta içinde iyi bir iş yapma sözü."
+        },
+        {
+          "en": "Strange sounds come at night from a locked trunk in the party's room. None of them remember bringing it.",
+          "tr": "Partinin odasındaki kilitli bir sandıktan geceleri tuhaf sesler gelir. Hiçbiri onu getirdiğini hatırlamaz."
+        },
+        {
+          "en": "A friendly dog adopts the party. Its collar bears the name of someone the party has heard about recently.",
+          "tr": "Dost canlısı bir köpek partiyi sahiplenir. Tasmasında partinin yakın zamanda adını duyduğu birinin ismi yazar."
         }
       ]
     }

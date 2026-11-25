@@ -6,6 +6,16 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-25
+
+### Added
+- Layout tabs can be reordered by dragging one onto another.
+- Many more entries for Combat Environment (40 → 80) and Random Events (65 → 126), in English and Turkish.
+
+### Changed
+- Several results at once (Ctrl+Reroll) show as a spaced, bulleted list.
+- The action bar of every box wraps its controls in small boxes instead of cutting them off.
+
 ## [1.0.0] - 2026-11-25
 
 First release. Tested on Foundry VTT v14. Not tested on v13 yet (v13 is the declared minimum, so

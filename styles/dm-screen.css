@@ -342,11 +342,26 @@
 
 .r101-dm-screen .r101-box-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5em;
+  gap: 4px 0.5em;
   flex: 0 0 auto;
+  /* In very small boxes the bar scrolls instead of eating the whole box. */
+  max-height: 50%;
+  overflow-y: auto;
   padding: 4px 6px;
   border-bottom: 1px solid var(--r101-border);
+}
+
+/* Controls wrap to the next line instead of being cut off; never wider than the box. */
+.r101-dm-screen .r101-box-actions > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.r101-dm-screen .r101-box-actions .r101-search {
+  flex: 1 1 8em;
+  min-width: 6em;
 }
 
 .r101-dm-screen .r101-small-button {
@@ -602,6 +617,24 @@
 
 .r101-result-dialog .r101-result-text p {
   margin: 0.15em 0;
+}
+
+.r101-result-dialog .r101-result-list {
+  margin: 0 0 12px;
+  padding: 0 0 0 1.3em;
+  list-style: disc;
+  font-size: 1.15em;
+  text-align: left;
+}
+
+.r101-result-dialog .r101-result-list li {
+  margin: 0 0 0.7em;
+  padding-left: 0.2em;
+  line-height: 1.35;
+}
+
+.r101-result-dialog .r101-result-list li:last-child {
+  margin-bottom: 0;
 }
 
 .r101-result-dialog .r101-result-error {
@@ -1096,17 +1129,17 @@
 .r101-dm-screen .r101-loot-limits {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 14px;
+  align-items: center;
+  gap: 4px 8px;
+  flex: 0 0 auto;
   padding: 4px 8px;
   border-bottom: 1px solid var(--r101-border);
 }
 
-.r101-dm-screen .r101-loot-limits {
-  align-items: center;
-}
-
 .r101-dm-screen .r101-loot-limits input {
+  flex: 0 1 5em;
   width: 5em;
+  min-width: 3em;
   height: auto;
   padding: 0.1em 0.3em;
   font-variant-numeric: tabular-nums;
