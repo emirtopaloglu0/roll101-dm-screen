@@ -7,6 +7,9 @@ import { journalContext, tableContext, tableFolderContext } from "../boxes/resol
 import { getHistory, pushHistory } from "../history.mjs";
 import { ResultDialog } from "./ResultDialog.mjs";
 import { exportLayouts, importLayouts, restoreBackup } from "./layout-io.mjs";
+import { managePacks } from "./packs-io.mjs";
+import { MAX_PARTY, coinSettings, coinTexts, coinsContext, templateContext } from "../boxes/reference.mjs";
+import { listTemplates, localize as localizeText } from "../templates.mjs";
 import { areaFree, cellKey, fitSpan, placeBoxes } from "../grid.mjs";
 import { cloneLayout, createLayout } from "../migrate.mjs";
 import { escapeHTML } from "../tables.mjs";
@@ -23,7 +26,8 @@ const toChoices = n => Object.fromEntries(range(n).map(i => [i, String(i)]));
 const LINKED_TYPES = {
   journal: { build: journalContext, key: "journal", missing: `${I18N}.Missing.Journal` },
   table: { build: tableContext, key: "table", missing: `${I18N}.Missing.Table` },
-  tableFolder: { build: tableFolderContext, key: "folder", missing: `${I18N}.Missing.Folder` }
+  tableFolder: { build: tableFolderContext, key: "folder", missing: `${I18N}.Missing.Folder` },
+  template: { build: templateContext, key: "template", missing: `${I18N}.Missing.Template` }
 };
 
 /** Document hooks watched only while the window is open. */
@@ -65,7 +69,11 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       deleteLayout: DMScreenApp.#onDeleteLayout,
       exportLayouts: DMScreenApp.#onExport,
       importLayouts: DMScreenApp.#onImport,
-      restoreBackup: DMScreenApp.#onRestore
+      restoreBackup: DMScreenApp.#onRestore,
+      managePacks: DMScreenApp.#onManagePacks,
+      openLibrary: DMScreenApp.#onOpenLibrary,
+      toggleCoin: DMScreenApp.#onToggleCoin,
+      clearCoins: DMScreenApp.#onClearCoins
     }
   };
 
@@ -77,7 +85,9 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         `${TEMPLATES}/boxes/table.hbs`,
         `${TEMPLATES}/boxes/folder.hbs`,
         `${TEMPLATES}/boxes/tree-node.hbs`,
-        `${TEMPLATES}/boxes/history.hbs`
+        `${TEMPLATES}/boxes/history.hbs`,
+        `${TEMPLATES}/boxes/coins.hbs`,
+        `${TEMPLATES}/boxes/template.hbs`
       ]
     }
   };
@@ -144,6 +154,11 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     if (box.type === "notes") {
       ctx.isNotes = true;
       ctx.text = typeof box.data.text === "string" ? box.data.text : "";
+      return ctx;
+    }
+    if (box.type === "coins") {
+      ctx.coins = coinsContext(box);
+      ctx.placeholder = ctx.coins.name;
       return ctx;
     }
 
@@ -217,11 +232,41 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
     if (target.dataset.r101Setting === "fontScale") this.#applyFontScale(target, target.value);
     else if (target.hasAttribute("data-r101-search")) this.#filterTree(target);
+    else if (target.matches("[data-r101-coin], [data-r101-coin-party]")) this.#onCoinInput(target);
+  }
+
+  /** Coin converter: save amounts and update the result lines. DOM only: no re-render. */
+  #onCoinInput(input) {
+    const cell = input.closest("[data-box-id]");
+    const box = cell ? this.#findBox(cell.dataset.boxId) : null;
+    if (!box) return;
+    const amounts = {};
+    for (const el of cell.querySelectorAll("[data-r101-coin]")) amounts[el.dataset.r101Coin] = el.value;
+    const partyInput = cell.querySelector("[data-r101-coin-party]");
+    storage.update(() => {
+      box.data.amounts = { ...(box.data.amounts ?? {}), ...coinSettings({ amounts }).amounts };
+      if (partyInput) box.data.party = Math.min(MAX_PARTY, Math.max(1, Math.floor(Number(partyInput.value)) || 1));
+    });
+    const texts = coinTexts(coinSettings(box.data));
+    for (const [key, text] of Object.entries(texts)) {
+      const out = cell.querySelector(`[data-r101-coin-out="${key}"]`);
+      if (out) out.textContent = text;
+    }
   }
 
   #onChange(event) {
     const target = event.target;
     if (!(target instanceof HTMLSelectElement)) return;
+
+    const templateKey = target.dataset.r101Template;
+    if (templateKey === "variant" || templateKey === "lang") {
+      const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+      if (!box) return;
+      storage.update(() => { box.data[templateKey] = target.value; });
+      this.render();
+      return;
+    }
+
     const key = target.dataset.r101Setting;
     if (key !== "cols" && key !== "rows") return;
     const max = key === "cols" ? GRID_LIMITS.maxCols : GRID_LIMITS.maxRows;
@@ -833,6 +878,85 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
   /** @this {DMScreenApp} */
   static async #onRestore() {
     if (await restoreBackup()) this.render();
+  }
+
+  /** @this {DMScreenApp} */
+  static async #onManagePacks() {
+    // The pack setting's onChange re-renders the window when packs change.
+    await managePacks();
+  }
+
+  /**
+   * Choose what to put in an empty cell: notes, coin converter or a reference template.
+   * @this {DMScreenApp}
+   */
+  static async #onOpenLibrary(event, target) {
+    const cell = target.closest("[data-col]");
+    const col = Number(cell?.dataset.col);
+    const row = Number(cell?.dataset.row);
+    if (!col || !row) return;
+
+    const lang = game.i18n.lang;
+    const t = key => escapeHTML(game.i18n.localize(`${I18N}.${key}`));
+    const option = (value, icon, label, meta, checked) => `<label class="r101-backup-row">
+        <input type="radio" name="libraryChoice" value="${escapeHTML(value)}" ${checked ? "checked" : ""}>
+        <span class="r101-backup-time"><i class="${icon}" aria-hidden="true"></i> ${escapeHTML(label)}</span>
+        <span class="r101-backup-meta">${escapeHTML(meta)}</span>
+      </label>`;
+    const items = [
+      option("notes", "fa-solid fa-note-sticky", game.i18n.localize(`${I18N}.Library.Notes`), game.i18n.localize(`${I18N}.Library.NotesHint`), true),
+      option("coins", "fa-solid fa-coins", game.i18n.localize(`${I18N}.Coins.Title`), game.i18n.localize(`${I18N}.Library.CoinsHint`), false)
+    ];
+    for (const tpl of await listTemplates()) {
+      const source = tpl.source === "builtin" ? game.i18n.localize(`${I18N}.Library.BuiltIn`) : tpl.source;
+      items.push(option(tpl.key, "fa-solid fa-table-list", localizeText(tpl.title, lang), source, false));
+    }
+
+    const choice = await DialogV2.wait({
+      window: { title: `${I18N}.Library.Title`, icon: "fa-solid fa-book" },
+      classes: ["r101-backup-dialog"],
+      content: `<div class="r101-backup-list">${items.join("")}</div><p class="hint">${t("Library.PacksHint")}</p>`,
+      buttons: [{
+        action: "add",
+        label: `${I18N}.Library.Add`,
+        icon: "fa-solid fa-plus",
+        default: true,
+        callback: (ev, button) => button.form?.elements.namedItem("libraryChoice")?.value ?? null
+      }],
+      rejectClose: false
+    });
+    if (typeof choice !== "string" || choice === "add") return;
+
+    let type;
+    let data;
+    if (choice === "notes") [type, data] = ["notes", { text: "" }];
+    else if (choice === "coins") [type, data] = ["coins", { amounts: {}, showPP: true, showEP: true, party: 1 }];
+    else [type, data] = ["template", { template: choice, variant: null, lang: "auto" }];
+
+    storage.update(() => {
+      const layout = storage.getActiveLayout();
+      if (layout.boxes.some(b => b.col === col && b.row === row)) return;
+      layout.boxes.push(this.#newBox(col, row, type, data));
+    });
+    this.render();
+  }
+
+  /** Show or hide platinum or electrum in a coin box. @this {DMScreenApp} */
+  static #onToggleCoin(event, target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    const denom = target.dataset.denom;
+    if (!box || (denom !== "pp" && denom !== "ep")) return;
+    const key = denom === "pp" ? "showPP" : "showEP";
+    storage.update(() => { box.data[key] = box.data[key] === false; });
+    this.render();
+  }
+
+  /** @this {DMScreenApp} */
+  static #onClearCoins(event, target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    if (!box) return;
+    storage.update(() => { box.data.amounts = {}; });
+    this.render();
   }
 
   /** @this {DMScreenApp} */

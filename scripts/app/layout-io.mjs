@@ -62,7 +62,8 @@ export async function exportLayouts() {
 /*  Import                                      */
 /* -------------------------------------------- */
 
-function pickFile() {
+/** Ask the user for one .json file. Resolves null when cancelled. */
+export function pickFile() {
   return new Promise(resolve => {
     const input = document.createElement("input");
     input.type = "file";

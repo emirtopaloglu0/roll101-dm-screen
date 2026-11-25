@@ -1,0 +1,259 @@
+{
+  "id": "services",
+  "title": { "en": "Services & Prices", "tr": "Hizmet Ücretleri" },
+  "variants": [
+    {
+      "id": "2024",
+      "label": { "en": "2024 (SRD 5.2.1)", "tr": "2024 (SRD 5.2.1)" },
+      "attribution": {
+        "en": "Prices from the System Reference Document 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0). Homebrew rows are not official.",
+        "tr": "Fiyatlar Wizards of the Coast LLC'nin System Reference Document 5.2.1 belgesinden alınmıştır, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0). Homebrew satırları resmi değildir."
+      },
+      "sections": [
+        {
+          "title": { "en": "Inn and meals (per day)", "tr": "Han ve yemek (günlük)" },
+          "columns": [
+            { "en": "Quality", "tr": "Kalite" },
+            { "en": "Inn stay", "tr": "Han" },
+            { "en": "Meal", "tr": "Yemek" }
+          ],
+          "rows": [
+            [{ "en": "Squalid", "tr": "Sefil" }, "7 cp", "1 cp"],
+            [{ "en": "Poor", "tr": "Yoksul" }, "1 sp", "2 cp"],
+            [{ "en": "Modest", "tr": "Mütevazı" }, "5 sp", "1 sp"],
+            [{ "en": "Comfortable", "tr": "Rahat" }, "8 sp", "2 sp"],
+            [{ "en": "Wealthy", "tr": "Varlıklı" }, "2 gp", "3 sp"],
+            [{ "en": "Aristocratic", "tr": "Aristokrat" }, "4 gp", "6 sp"]
+          ]
+        },
+        {
+          "title": { "en": "Food and drink", "tr": "Yiyecek ve içecek" },
+          "columns": [
+            { "en": "Item", "tr": "Ürün" },
+            { "en": "Cost", "tr": "Fiyat" }
+          ],
+          "rows": [
+            [{ "en": "Ale (mug)", "tr": "Bira (kupa)" }, "4 cp"],
+            [{ "en": "Bread (loaf)", "tr": "Ekmek (somun)" }, "2 cp"],
+            [{ "en": "Cheese (wedge)", "tr": "Peynir (dilim)" }, "1 sp"],
+            [{ "en": "Wine, common (bottle)", "tr": "Şarap, sıradan (şişe)" }, "2 sp"],
+            [{ "en": "Wine, fine (bottle)", "tr": "Şarap, kaliteli (şişe)" }, "10 gp"]
+          ]
+        },
+        {
+          "title": { "en": "Lifestyle (per day)", "tr": "Yaşam tarzı (günlük)" },
+          "columns": [
+            { "en": "Lifestyle", "tr": "Yaşam tarzı" },
+            { "en": "Cost", "tr": "Fiyat" }
+          ],
+          "rows": [
+            [{ "en": "Wretched", "tr": "Perişan" }, { "en": "Free", "tr": "Ücretsiz" }],
+            [{ "en": "Squalid", "tr": "Sefil" }, "1 sp"],
+            [{ "en": "Poor", "tr": "Yoksul" }, "2 sp"],
+            [{ "en": "Modest", "tr": "Mütevazı" }, "1 gp"],
+            [{ "en": "Comfortable", "tr": "Rahat" }, "2 gp"],
+            [{ "en": "Wealthy", "tr": "Varlıklı" }, "4 gp"],
+            [{ "en": "Aristocratic", "tr": "Aristokrat" }, "10 gp"]
+          ],
+          "note": {
+            "en": "Lifestyle covers lodging, food, upkeep of equipment and other needs. Paid at the start of each week or month.",
+            "tr": "Yaşam tarzı; konaklama, yemek, ekipman bakımı ve diğer ihtiyaçları kapsar. Her hafta veya ay başında ödenir."
+          }
+        },
+        {
+          "title": { "en": "Hirelings and travel", "tr": "Kiralık yardımcılar ve yolculuk" },
+          "columns": [
+            { "en": "Service", "tr": "Hizmet" },
+            { "en": "Cost", "tr": "Fiyat" }
+          ],
+          "rows": [
+            [{ "en": "Skilled hireling", "tr": "Vasıflı yardımcı" }, { "en": "2 gp per day", "tr": "günlük 2 gp" }],
+            [{ "en": "Untrained hireling", "tr": "Vasıfsız yardımcı" }, { "en": "2 sp per day", "tr": "günlük 2 sp" }],
+            [{ "en": "Messenger", "tr": "Ulak" }, { "en": "2 cp per mile", "tr": "mil başına 2 cp" }],
+            [{ "en": "Ship passage, hammock", "tr": "Gemi yolculuğu, hamak" }, { "en": "5 sp per day", "tr": "günlük 5 sp" }],
+            [{ "en": "Ship passage, small private cabin", "tr": "Gemi yolculuğu, küçük özel kamara" }, { "en": "2 gp per day", "tr": "günlük 2 gp" }]
+          ],
+          "note": {
+            "en": "Skilled pay is a minimum; experts can ask for more. Ship prices vary from ship to ship.",
+            "tr": "Vasıflı ücret en düşük ücrettir; uzmanlar daha fazla isteyebilir. Gemi fiyatları gemiden gemiye değişir."
+          }
+        },
+        {
+          "title": { "en": "Spellcasting services", "tr": "Büyü hizmetleri" },
+          "columns": [
+            { "en": "Spell level", "tr": "Büyü seviyesi" },
+            { "en": "Where", "tr": "Nerede" },
+            { "en": "Cost", "tr": "Fiyat" }
+          ],
+          "rows": [
+            [{ "en": "Cantrip", "tr": "Cantrip" }, { "en": "Village, town or city", "tr": "Köy, kasaba veya şehir" }, "30 gp"],
+            ["1", { "en": "Village, town or city", "tr": "Köy, kasaba veya şehir" }, "50 gp"],
+            ["2", { "en": "Village, town or city", "tr": "Köy, kasaba veya şehir" }, "200 gp"],
+            ["3", { "en": "Town or city only", "tr": "Sadece kasaba veya şehir" }, "300 gp"],
+            ["4–5", { "en": "Town or city only", "tr": "Sadece kasaba veya şehir" }, "2,000 gp"],
+            ["6–8", { "en": "City only", "tr": "Sadece şehir" }, "20,000 gp"],
+            ["9", { "en": "City only", "tr": "Sadece şehir" }, "100,000 gp"]
+          ],
+          "note": {
+            "en": "Add the cost of any expensive components. Higher-level casters are harder to find.",
+            "tr": "Pahalı bileşenlerin fiyatını ekleyin. Seviye yükseldikçe büyüyü yapacak birini bulmak zorlaşır."
+          }
+        },
+        {
+          "title": { "en": "Healing", "tr": "Sağlık" },
+          "columns": [
+            { "en": "Item or service", "tr": "Ürün veya hizmet" },
+            { "en": "Cost", "tr": "Fiyat" }
+          ],
+          "rows": [
+            [{ "en": "Healer's Kit (10 uses)", "tr": "Healer's Kit (10 kullanım)" }, "5 gp"],
+            [{ "en": "Potion of Healing", "tr": "Potion of Healing" }, "50 gp"],
+            [{ "en": "Cure Wounds cast for you (level 1 spell)", "tr": "Cure Wounds yaptırmak (1. seviye büyü)" }, "50 gp"],
+            [{ "en": "Lesser Restoration cast for you (level 2 spell)", "tr": "Lesser Restoration yaptırmak (2. seviye büyü)" }, "200 gp"]
+          ],
+          "note": {
+            "en": "Spell prices follow the spellcasting services table.",
+            "tr": "Büyü fiyatları büyü hizmetleri tablosuna göredir."
+          }
+        },
+        {
+          "title": { "en": "Homebrew additions (not official)", "tr": "Homebrew eklemeler (resmi değil)" },
+          "columns": [
+            { "en": "Service", "tr": "Hizmet" },
+            { "en": "Cost", "tr": "Fiyat" }
+          ],
+          "rows": [
+            [{ "en": "Public bath (cold water)", "tr": "Umumi hamam (soğuk su)" }, "1 cp"],
+            [{ "en": "Hot bath (private tub)", "tr": "Sıcak banyo (özel küvet)" }, "5 cp"],
+            [{ "en": "Bathhouse with steam room, soap and towel", "tr": "Buhar odalı hamam, sabun ve havlu dahil" }, "2 sp"],
+            [{ "en": "Barber (shave or haircut)", "tr": "Berber (tıraş veya saç kesimi)" }, "3 cp"],
+            [{ "en": "Laundry (one set of clothes)", "tr": "Çamaşır yıkama (bir takım kıyafet)" }, "2 cp"],
+            [{ "en": "Temple healer, wound care without magic", "tr": "Tapınak şifacısı, büyüsüz yara bakımı" }, "5 sp"]
+          ],
+          "note": {
+            "en": "Suggested prices for services the SRD does not list. Change them to fit your world.",
+            "tr": "SRD'de olmayan hizmetler için önerilen fiyatlar. Dünyanıza göre değiştirin."
+          }
+        }
+      ]
+    },
+    {
+      "id": "2014",
+      "label": { "en": "2014 (SRD 5.1)", "tr": "2014 (SRD 5.1)" },
+      "attribution": {
+        "en": "Prices from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0 (creativecommons.org/licenses/by/4.0). Homebrew rows are not official.",
+        "tr": "Fiyatlar Wizards of the Coast LLC'nin System Reference Document 5.1 belgesinden alınmıştır, CC-BY-4.0 lisanslıdır (creativecommons.org/licenses/by/4.0). Homebrew satırları resmi değildir."
+      },
+      "sections": [
+        {
+          "title": { "en": "Inn and meals (per day)", "tr": "Han ve yemek (günlük)" },
+          "columns": [
+            { "en": "Quality", "tr": "Kalite" },
+            { "en": "Inn stay", "tr": "Han" },
+            { "en": "Meals", "tr": "Yemekler" }
+          ],
+          "rows": [
+            [{ "en": "Squalid", "tr": "Sefil" }, "7 cp", "3 cp"],
+            [{ "en": "Poor", "tr": "Yoksul" }, "1 sp", "6 cp"],
+            [{ "en": "Modest", "tr": "Mütevazı" }, "5 sp", "3 sp"],
+            [{ "en": "Comfortable", "tr": "Rahat" }, "8 sp", "5 sp"],
+            [{ "en": "Wealthy", "tr": "Varlıklı" }, "2 gp", "8 sp"],
+            [{ "en": "Aristocratic", "tr": "Aristokrat" }, "4 gp", "2 gp"]
+          ]
+        },
+        {
+          "title": { "en": "Food and drink", "tr": "Yiyecek ve içecek" },
+          "columns": [
+            { "en": "Item", "tr": "Ürün" },
+            { "en": "Cost", "tr": "Fiyat" }
+          ],
+          "rows": [
+            [{ "en": "Ale (gallon)", "tr": "Bira (galon)" }, "2 sp"],
+            [{ "en": "Ale (mug)", "tr": "Bira (kupa)" }, "4 cp"],
+            [{ "en": "Banquet (per person)", "tr": "Ziyafet (kişi başı)" }, "10 gp"],
+            [{ "en": "Bread (loaf)", "tr": "Ekmek (somun)" }, "2 cp"],
+            [{ "en": "Cheese (hunk)", "tr": "Peynir (kalıp)" }, "1 sp"],
+            [{ "en": "Meat (chunk)", "tr": "Et (parça)" }, "3 sp"],
+            [{ "en": "Wine, common (pitcher)", "tr": "Şarap, sıradan (sürahi)" }, "2 sp"],
+            [{ "en": "Wine, fine (bottle)", "tr": "Şarap, kaliteli (şişe)" }, "10 gp"]
+          ]
+        },
+        {
+          "title": { "en": "Lifestyle (per day)", "tr": "Yaşam tarzı (günlük)" },
+          "columns": [
+            { "en": "Lifestyle", "tr": "Yaşam tarzı" },
+            { "en": "Cost", "tr": "Fiyat" }
+          ],
+          "rows": [
+            [{ "en": "Wretched", "tr": "Perişan" }, "—"],
+            [{ "en": "Squalid", "tr": "Sefil" }, "1 sp"],
+            [{ "en": "Poor", "tr": "Yoksul" }, "2 sp"],
+            [{ "en": "Modest", "tr": "Mütevazı" }, "1 gp"],
+            [{ "en": "Comfortable", "tr": "Rahat" }, "2 gp"],
+            [{ "en": "Wealthy", "tr": "Varlıklı" }, "4 gp"],
+            [{ "en": "Aristocratic", "tr": "Aristokrat" }, { "en": "10 gp minimum", "tr": "en az 10 gp" }]
+          ],
+          "note": {
+            "en": "Lifestyle covers lodging, food, upkeep of equipment and other needs. Multiply by 30 for a month.",
+            "tr": "Yaşam tarzı; konaklama, yemek, ekipman bakımı ve diğer ihtiyaçları kapsar. Bir ay için 30 ile çarpın."
+          }
+        },
+        {
+          "title": { "en": "Services", "tr": "Hizmetler" },
+          "columns": [
+            { "en": "Service", "tr": "Hizmet" },
+            { "en": "Cost", "tr": "Fiyat" }
+          ],
+          "rows": [
+            [{ "en": "Coach cab, between towns", "tr": "Araba, kasabalar arası" }, { "en": "3 cp per mile", "tr": "mil başına 3 cp" }],
+            [{ "en": "Coach cab, within a city", "tr": "Araba, şehir içi" }, "1 cp"],
+            [{ "en": "Skilled hireling", "tr": "Vasıflı yardımcı" }, { "en": "2 gp per day", "tr": "günlük 2 gp" }],
+            [{ "en": "Untrained hireling", "tr": "Vasıfsız yardımcı" }, { "en": "2 sp per day", "tr": "günlük 2 sp" }],
+            [{ "en": "Messenger", "tr": "Ulak" }, { "en": "2 cp per mile", "tr": "mil başına 2 cp" }],
+            [{ "en": "Road or gate toll", "tr": "Yol veya kapı geçiş ücreti" }, "1 cp"],
+            [{ "en": "Ship's passage", "tr": "Gemi yolculuğu" }, { "en": "1 sp per mile", "tr": "mil başına 1 sp" }]
+          ],
+          "note": {
+            "en": "Skilled pay is a minimum; experts can ask for more.",
+            "tr": "Vasıflı ücret en düşük ücrettir; uzmanlar daha fazla isteyebilir."
+          }
+        },
+        {
+          "title": { "en": "Healing", "tr": "Sağlık" },
+          "columns": [
+            { "en": "Item or service", "tr": "Ürün veya hizmet" },
+            { "en": "Cost", "tr": "Fiyat" }
+          ],
+          "rows": [
+            [{ "en": "Healer's kit (10 uses)", "tr": "Healer's kit (10 kullanım)" }, "5 gp"],
+            [{ "en": "Potion of healing", "tr": "Potion of healing" }, "50 gp"],
+            [{ "en": "Common level 1–2 spell cast for you (cure wounds, identify)", "tr": "Yaygın 1–2. seviye büyü yaptırmak (cure wounds, identify)" }, "10–50 gp"]
+          ],
+          "note": {
+            "en": "Plus the cost of expensive components. Higher-level spells have no set price: the caster may ask for a favor or a quest instead.",
+            "tr": "Pahalı bileşenlerin fiyatı ayrıca eklenir. Yüksek seviyeli büyülerin sabit fiyatı yoktur: büyücü para yerine bir iyilik veya görev isteyebilir."
+          }
+        },
+        {
+          "title": { "en": "Homebrew additions (not official)", "tr": "Homebrew eklemeler (resmi değil)" },
+          "columns": [
+            { "en": "Service", "tr": "Hizmet" },
+            { "en": "Cost", "tr": "Fiyat" }
+          ],
+          "rows": [
+            [{ "en": "Public bath (cold water)", "tr": "Umumi hamam (soğuk su)" }, "1 cp"],
+            [{ "en": "Hot bath (private tub)", "tr": "Sıcak banyo (özel küvet)" }, "5 cp"],
+            [{ "en": "Bathhouse with steam room, soap and towel", "tr": "Buhar odalı hamam, sabun ve havlu dahil" }, "2 sp"],
+            [{ "en": "Barber (shave or haircut)", "tr": "Berber (tıraş veya saç kesimi)" }, "3 cp"],
+            [{ "en": "Laundry (one set of clothes)", "tr": "Çamaşır yıkama (bir takım kıyafet)" }, "2 cp"],
+            [{ "en": "Temple healer, wound care without magic", "tr": "Tapınak şifacısı, büyüsüz yara bakımı" }, "5 sp"]
+          ],
+          "note": {
+            "en": "Suggested prices for services the SRD does not list. Change them to fit your world.",
+            "tr": "SRD'de olmayan hizmetler için önerilen fiyatlar. Dünyanıza göre değiştirin."
+          }
+        }
+      ]
+    }
+  ]
+}

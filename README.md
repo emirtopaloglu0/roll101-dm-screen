@@ -6,15 +6,20 @@ without leaving Foundry.
 
 > **Status:** early development. Not ready for live games yet.
 
-## Planned features
+## Features
 
-- Grid layout you choose (for example 5 × 2 boxes), with adjustable window and text size.
-- Box types: notes, journal, rollable table, table-folder generator, coin converter, rules references.
-- Table-folder generator: browse or search a folder of rollable tables, generate a result
-  in a dialog, then reroll, copy or whisper it to the GM.
-- Multiple layouts (Combat, Town, Travel…) with export and import as JSON.
-- Rules references based on SRD 5.1 / 5.2.1, in English and Turkish.
+- Grid layout you choose (up to 8 × 6), with adjustable window and text size.
+  Boxes can be moved, swapped and resized over several cells.
+- Box types: notes, journal, rollable table, table-folder generator, coin converter,
+  reference templates (for example Services & Prices, 2014 and 2024, English and Turkish).
+- Table-folder generator: browse or search a folder of rollable tables, generate one result
+  or a whole folder at once, then reroll, copy or whisper it to the GM.
+- Multiple layouts as tabs, with export and import as JSON and automatic local backups.
+- Content packs: add your own reference tables. See [docs/content-packs.md](docs/content-packs.md).
 - Visible to the Gamemaster only. Players and trusted players see nothing.
+
+Planned: SRD rules references (conditions, cover, exhaustion and more), random event generators,
+actor summary for dnd5e.
 
 ## Compatibility
 

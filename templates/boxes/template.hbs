@@ -1,0 +1,33 @@
+<div class="r101-template">
+  {{#if hasControls}}
+  <div class="r101-box-actions">
+    {{#if variants}}
+    <select class="r101-select" data-r101-template="variant" aria-label="{{localize 'R101DMSCREEN.Template.Variant'}}">
+      {{#each variants}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    {{/if}}
+    {{#if langs}}
+    <select class="r101-select" data-r101-template="lang" aria-label="{{localize 'R101DMSCREEN.Template.Language'}}">
+      {{#each langs}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    {{/if}}
+  </div>
+  {{/if}}
+  <div class="r101-scroll r101-template-body">
+    {{#each sections}}
+    <details class="r101-tpl-section" open>
+      <summary>{{title}}</summary>
+      <table class="r101-tpl-table">
+        {{#if columns.length}}
+        <thead><tr>{{#each columns}}<th scope="col">{{this}}</th>{{/each}}</tr></thead>
+        {{/if}}
+        <tbody>
+          {{#each rows}}<tr>{{#each this}}<td>{{this}}</td>{{/each}}</tr>{{/each}}
+        </tbody>
+      </table>
+      {{#if note}}<p class="r101-note r101-tpl-note">{{note}}</p>{{/if}}
+    </details>
+    {{/each}}
+    {{#if attribution}}<p class="r101-attribution">{{attribution}}</p>{{/if}}
+  </div>
+</div>

@@ -4,7 +4,8 @@ export const I18N = "R101DMSCREEN";
 export const SETTINGS = Object.freeze({
   DATA: "screenData",
   ALLOW_ASSISTANT: "allowAssistantGM",
-  WINDOW: "windowPosition"
+  WINDOW: "windowPosition",
+  PACKS: "contentPacks"
 });
 
 export const SCHEMA_VERSION = 1;

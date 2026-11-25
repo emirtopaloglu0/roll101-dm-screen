@@ -1,5 +1,6 @@
 import { I18N, MODULE_ID, SETTINGS } from "./constants.mjs";
 import * as storage from "./storage.mjs";
+import * as templates from "./templates.mjs";
 
 /** Register settings. Runs on every client in `init` and does no other work. */
 export function registerSettings() {
@@ -19,6 +20,15 @@ export function registerSettings() {
     type: Boolean,
     default: false,
     requiresReload: true
+  });
+
+  // Imported content packs (reference templates). Loaded on demand by the GM's screen only.
+  game.settings.register(MODULE_ID, SETTINGS.PACKS, {
+    scope: "world",
+    config: false,
+    type: Object,
+    default: { packs: [] },
+    onChange: () => templates.onPacksChanged()
   });
 
   // Window size and place. Client scope: stored in this browser only, no network traffic.

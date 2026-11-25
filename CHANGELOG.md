@@ -30,6 +30,12 @@ and the project uses [Semantic Versioning](https://semver.org/).
   Dropping on the tab itself puts the box in that layout's first free cell.
 - Export one or all layouts to a .json file; import with Add or Replace all.
   Invalid or newer-version files are rejected without changing anything.
+- Library button on empty cells: add notes, the coin converter or a reference template.
+- Coin converter: pp/gp/ep/sp/cp inputs, total, fewest coins, split between up to 20 characters.
+  Platinum and electrum can be hidden.
+- Services & Prices template (EN/TR): inn, meals, food and drink, lifestyle, hirelings, travel,
+  spellcasting services and healing, for 2024 (SRD 5.2.1) and 2014 (SRD 5.1), plus labelled homebrew rows.
+- Content packs: import your own reference templates from a .json file (see docs/content-packs.md).
 - Automatic backups (last 5, stored on this computer only): before the first edit after opening,
   before removing a box, deleting a layout, importing or restoring. Restore from the toolbar.
 - Deleted or missing journals, tables and folders show a warning in the box instead of an error.

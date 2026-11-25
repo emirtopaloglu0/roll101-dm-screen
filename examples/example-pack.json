@@ -1,0 +1,46 @@
+{
+  "format": "roll101-dm-screen-pack",
+  "formatVersion": 1,
+  "id": "example-pack",
+  "name": "Example Pack",
+  "version": "1.0.0",
+  "templates": [
+    {
+      "id": "tavern-menu",
+      "title": { "en": "The Prancing Goat: Menu", "tr": "Zıplayan Keçi: Menü" },
+      "variants": [
+        {
+          "id": "default",
+          "label": { "en": "Homebrew", "tr": "Homebrew" },
+          "attribution": { "en": "Example content written for this pack.", "tr": "Bu paket için yazılmış örnek içerik." },
+          "sections": [
+            {
+              "title": { "en": "Food", "tr": "Yemekler" },
+              "columns": [
+                { "en": "Dish", "tr": "Yemek" },
+                { "en": "Cost", "tr": "Fiyat" }
+              ],
+              "rows": [
+                [{ "en": "Goat stew with bread", "tr": "Ekmekli keçi yahnisi" }, "4 cp"],
+                [{ "en": "Roast chicken", "tr": "Kızarmış tavuk" }, "2 sp"],
+                [{ "en": "Honey cake", "tr": "Ballı kek" }, "1 sp"]
+              ]
+            },
+            {
+              "title": { "en": "Drinks", "tr": "İçecekler" },
+              "columns": [
+                { "en": "Drink", "tr": "İçecek" },
+                { "en": "Cost", "tr": "Fiyat" }
+              ],
+              "rows": [
+                [{ "en": "House ale (mug)", "tr": "Ev birası (kupa)" }, "3 cp"],
+                [{ "en": "Spiced cider", "tr": "Baharatlı elma şırası" }, "5 cp"]
+              ],
+              "note": { "en": "Regulars get the first mug free on festival days.", "tr": "Bayram günlerinde müdavimlere ilk kupa bedava." }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

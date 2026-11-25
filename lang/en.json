@@ -55,7 +55,8 @@
     "Missing": {
       "Journal": "This journal was deleted or cannot be found.",
       "Table": "This rollable table was deleted or cannot be found.",
-      "Folder": "This table folder or compendium was deleted or cannot be found."
+      "Folder": "This table folder or compendium was deleted or cannot be found.",
+      "Template": "This template cannot be found. Its content pack may have been removed."
     },
     "Journal": {
       "OpenToView": "This page type cannot be shown here. Use Open.",
@@ -132,6 +133,57 @@
         "Import": "Before import",
         "Restore": "Before restore"
       }
+    },
+    "Library": {
+      "Open": "Library",
+      "Title": "Add to this cell",
+      "Notes": "Notes",
+      "NotesHint": "Empty notepad",
+      "CoinsHint": "Convert and split coins",
+      "BuiltIn": "Built in",
+      "Add": "Add",
+      "PacksHint": "Import content packs with the box button in the toolbar to add your own templates."
+    },
+    "Coins": {
+      "Title": "Coin converter",
+      "TogglePP": "Show platinum (pp)",
+      "ToggleEP": "Show electrum (ep)",
+      "Rates": "1 pp = 10 gp · 1 gp = 2 ep = 10 sp = 100 cp",
+      "Clear": "Clear amounts",
+      "Total": "Total",
+      "Fewest": "Fewest coins",
+      "SplitBetween": "Split between",
+      "PartySize": "Number of characters",
+      "Each": "each",
+      "LeftOver": "Left over",
+      "Denom": {
+        "pp": "Platinum pieces",
+        "gp": "Gold pieces",
+        "ep": "Electrum pieces",
+        "sp": "Silver pieces",
+        "cp": "Copper pieces"
+      }
+    },
+    "Template": {
+      "AutoLanguage": "Auto",
+      "Variant": "Edition",
+      "Language": "Language"
+    },
+    "Packs": {
+      "Title": "Content packs",
+      "Content": "Packs add your own reference templates to the Library.",
+      "None": "No content packs are installed.",
+      "Import": "Import pack",
+      "Remove": "Remove selected",
+      "PrivacyHint": "Packs are stored in this world. Like all world settings, they are sent to every connected client, but players never see them in the interface.",
+      "InvalidFile": "This is not a DM Screen content pack, or it is damaged. Nothing was changed.",
+      "NewerFile": "This pack needs a newer version of Roll101 DM Screen. Nothing was changed.",
+      "TooLarge": "This pack is too large (over 2 MB). Nothing was changed.",
+      "ReplaceTitle": "Replace pack",
+      "ReplaceContent": "A pack with this id is already installed ({name}). Replace it?",
+      "Imported": "Imported {name}: {count} template(s).",
+      "RemoveTitle": "Remove pack",
+      "RemoveContent": "Remove this pack? Boxes that use it will show \"not found\" until it is imported again."
     }
   }
 }

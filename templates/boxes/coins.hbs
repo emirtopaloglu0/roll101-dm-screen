@@ -1,0 +1,40 @@
+<div class="r101-coins">
+  <div class="r101-box-actions">
+    <button type="button" class="r101-small-button r101-toggle" data-action="toggleCoin" data-denom="pp"
+            aria-pressed="{{#if showPP}}true{{else}}false{{/if}}" data-tooltip="R101DMSCREEN.Coins.TogglePP">pp</button>
+    <button type="button" class="r101-small-button r101-toggle" data-action="toggleCoin" data-denom="ep"
+            aria-pressed="{{#if showEP}}true{{else}}false{{/if}}" data-tooltip="R101DMSCREEN.Coins.ToggleEP">ep</button>
+    <span class="r101-note">{{localize "R101DMSCREEN.Coins.Rates"}}</span>
+    <button type="button" class="r101-small-button r101-push-right" data-action="clearCoins"
+            data-tooltip="R101DMSCREEN.Coins.Clear" aria-label="{{localize 'R101DMSCREEN.Coins.Clear'}}">
+      <i class="fa-solid fa-eraser" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="r101-scroll r101-coins-body">
+    <div class="r101-coin-inputs">
+      {{#each fields}}
+      <label class="r101-coin" data-tooltip="{{label}}">
+        <span class="r101-coin-label r101-coin-{{key}}">{{key}}</span>
+        <input type="number" min="0" step="1" inputmode="numeric" placeholder="0" value="{{value}}"
+               data-r101-coin="{{key}}" aria-label="{{label}}">
+      </label>
+      {{/each}}
+    </div>
+    <dl class="r101-coin-summary">
+      <dt>{{localize "R101DMSCREEN.Coins.Total"}}</dt>
+      <dd data-r101-coin-out="total">{{texts.total}}</dd>
+      <dt>{{localize "R101DMSCREEN.Coins.Fewest"}}</dt>
+      <dd data-r101-coin-out="coins">{{texts.coins}}</dd>
+      <dt>
+        <label class="r101-coin-party">
+          {{localize "R101DMSCREEN.Coins.SplitBetween"}}
+          <input type="number" min="1" max="{{maxParty}}" step="1" value="{{party}}" data-r101-coin-party
+                 aria-label="{{localize 'R101DMSCREEN.Coins.PartySize'}}">
+        </label>
+      </dt>
+      <dd><span data-r101-coin-out="each">{{texts.each}}</span> <span class="r101-note">{{localize "R101DMSCREEN.Coins.Each"}}</span></dd>
+      <dt>{{localize "R101DMSCREEN.Coins.LeftOver"}}</dt>
+      <dd data-r101-coin-out="rest">{{texts.rest}}</dd>
+    </dl>
+  </div>
+</div>

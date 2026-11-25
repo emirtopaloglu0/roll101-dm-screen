@@ -55,7 +55,8 @@
     "Missing": {
       "Journal": "Bu journal silinmiş veya bulunamıyor.",
       "Table": "Bu rollable table silinmiş veya bulunamıyor.",
-      "Folder": "Bu tablo klasörü veya compendium silinmiş ya da bulunamıyor."
+      "Folder": "Bu tablo klasörü veya compendium silinmiş ya da bulunamıyor.",
+      "Template": "Bu şablon bulunamıyor. İçerik paketi kaldırılmış olabilir."
     },
     "Journal": {
       "OpenToView": "Bu sayfa türü burada gösterilemiyor. Aç'ı kullanın.",
@@ -132,6 +133,57 @@
         "Import": "İçe aktarmadan önce",
         "Restore": "Geri yüklemeden önce"
       }
+    },
+    "Library": {
+      "Open": "Kütüphane",
+      "Title": "Bu hücreye ekle",
+      "Notes": "Notlar",
+      "NotesHint": "Boş not defteri",
+      "CoinsHint": "Parayı çevir ve paylaştır",
+      "BuiltIn": "Yerleşik",
+      "Add": "Ekle",
+      "PacksHint": "Kendi şablonlarını eklemek için araç çubuğundaki kutu butonundan içerik paketi içe aktar."
+    },
+    "Coins": {
+      "Title": "Para çevirici",
+      "TogglePP": "Platini (pp) göster",
+      "ToggleEP": "Elektrumu (ep) göster",
+      "Rates": "1 pp = 10 gp · 1 gp = 2 ep = 10 sp = 100 cp",
+      "Clear": "Miktarları temizle",
+      "Total": "Toplam",
+      "Fewest": "En az sikke",
+      "SplitBetween": "Paylaştır:",
+      "PartySize": "Karakter sayısı",
+      "Each": "kişi başı",
+      "LeftOver": "Artan",
+      "Denom": {
+        "pp": "Platin sikke",
+        "gp": "Altın sikke",
+        "ep": "Elektrum sikke",
+        "sp": "Gümüş sikke",
+        "cp": "Bakır sikke"
+      }
+    },
+    "Template": {
+      "AutoLanguage": "Otomatik",
+      "Variant": "Sürüm",
+      "Language": "Dil"
+    },
+    "Packs": {
+      "Title": "İçerik paketleri",
+      "Content": "Paketler Kütüphane'ye kendi referans şablonlarını ekler.",
+      "None": "Yüklü içerik paketi yok.",
+      "Import": "Paket içe aktar",
+      "Remove": "Seçileni kaldır",
+      "PrivacyHint": "Paketler bu world'de saklanır. Tüm world ayarları gibi bağlanan her istemciye gönderilir, ama oyuncular arayüzde asla görmez.",
+      "InvalidFile": "Bu bir DM Ekranı içerik paketi değil veya bozuk. Hiçbir şey değişmedi.",
+      "NewerFile": "Bu paket Roll101 DM Screen'in daha yeni bir sürümünü gerektiriyor. Hiçbir şey değişmedi.",
+      "TooLarge": "Bu paket çok büyük (2 MB üstü). Hiçbir şey değişmedi.",
+      "ReplaceTitle": "Paketi değiştir",
+      "ReplaceContent": "Bu kimlikle bir paket zaten yüklü ({name}). Değiştirilsin mi?",
+      "Imported": "{name} içe aktarıldı: {count} şablon.",
+      "RemoveTitle": "Paketi kaldır",
+      "RemoveContent": "Bu paket kaldırılsın mı? Onu kullanan kutular, paket tekrar içe aktarılana kadar \"bulunamadı\" gösterir."
     }
   }
 }

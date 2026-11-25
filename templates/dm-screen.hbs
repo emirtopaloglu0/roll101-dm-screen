@@ -51,6 +51,10 @@
               data-tooltip="R101DMSCREEN.IO.Import" aria-label="{{localize 'R101DMSCREEN.IO.Import'}}">
         <i class="fa-solid fa-file-import" aria-hidden="true"></i>
       </button>
+      <button type="button" class="r101-tab-tool" data-action="managePacks"
+              data-tooltip="R101DMSCREEN.Packs.Title" aria-label="{{localize 'R101DMSCREEN.Packs.Title'}}">
+        <i class="fa-solid fa-box-archive" aria-hidden="true"></i>
+      </button>
       <button type="button" class="r101-tab-tool" data-action="restoreBackup"
               data-tooltip="R101DMSCREEN.Backup.Title" aria-label="{{localize 'R101DMSCREEN.Backup.Title'}}">
         <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
@@ -97,6 +101,10 @@
       {{> "modules/roll101-dm-screen/templates/boxes/table.hbs" box.table}}
       {{else if box.folder}}
       {{> "modules/roll101-dm-screen/templates/boxes/folder.hbs" box.folder}}
+      {{else if box.coins}}
+      {{> "modules/roll101-dm-screen/templates/boxes/coins.hbs" box.coins}}
+      {{else if box.template}}
+      {{> "modules/roll101-dm-screen/templates/boxes/template.hbs" box.template}}
       {{else}}
       <p class="r101-unsupported">{{localize "R101DMSCREEN.Box.Unsupported"}}</p>
       {{/if}}
@@ -118,6 +126,9 @@
     <section class="r101-box r101-empty" style="grid-column: {{col}}; grid-row: {{row}};" data-col="{{col}}" data-row="{{row}}">
       <button type="button" class="r101-add" data-action="addNotes">
         <i class="fa-solid fa-plus" aria-hidden="true"></i> {{localize "R101DMSCREEN.Box.AddNotes"}}
+      </button>
+      <button type="button" class="r101-add" data-action="openLibrary">
+        <i class="fa-solid fa-book" aria-hidden="true"></i> {{localize "R101DMSCREEN.Library.Open"}}
       </button>
       <p class="r101-drop-hint">{{localize "R101DMSCREEN.Box.DropHint"}}</p>
     </section>

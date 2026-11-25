@@ -1,6 +1,7 @@
 import { I18N, MODULE_ID, SETTINGS } from "./constants.mjs";
 import { registerKeybindings, registerSettings } from "./settings.mjs";
 import * as storage from "./storage.mjs";
+import * as templates from "./templates.mjs";
 import { DMScreenApp } from "./app/DMScreenApp.mjs";
 
 const TOOL_NAME = "r101DmScreen";
@@ -85,6 +86,9 @@ Hooks.once("setup", () => {
   }
 
   storage.subscribe(() => {
+    if (app?.rendered) app.render();
+  });
+  templates.subscribe(() => {
     if (app?.rendered) app.render();
   });
 

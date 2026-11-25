@@ -638,6 +638,159 @@
   gap: 6px;
 }
 
+/* Empty cell: two add buttons stacked */
+.r101-dm-screen .r101-empty {
+  gap: 0.4em;
+}
+
+/* Coin converter */
+.r101-dm-screen .r101-toggle {
+  min-width: 2.4em;
+  font-variant: small-caps;
+  opacity: 0.55;
+}
+
+.r101-dm-screen .r101-toggle[aria-pressed="true"] {
+  opacity: 1;
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.r101-dm-screen .r101-coins-body {
+  padding: 8px 10px;
+}
+
+.r101-dm-screen .r101-coin-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4.8em, 1fr));
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.r101-dm-screen .r101-coin {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.r101-dm-screen .r101-coin-label {
+  font-size: 0.8em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--r101-muted);
+}
+
+.r101-dm-screen .r101-coin input,
+.r101-dm-screen .r101-coin-party input {
+  width: 100%;
+  height: auto;
+  padding: 0.2em 0.4em;
+  font-size: 1em;
+  font-variant-numeric: tabular-nums;
+}
+
+.r101-dm-screen .r101-coin-party {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.r101-dm-screen .r101-coin-party input {
+  width: 3.5em;
+}
+
+.r101-dm-screen .r101-coin-summary {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  gap: 4px 12px;
+  margin: 0;
+}
+
+.r101-dm-screen .r101-coin-summary dt {
+  color: var(--r101-muted);
+}
+
+.r101-dm-screen .r101-coin-summary dd {
+  margin: 0;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  user-select: text;
+}
+
+/* Reference template */
+.r101-dm-screen .r101-template {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.r101-dm-screen .r101-select {
+  width: auto;
+  height: auto;
+  padding: 0.1em 0.4em;
+  font-size: 0.9em;
+}
+
+.r101-dm-screen .r101-template-body {
+  padding: 4px 8px 8px;
+}
+
+.r101-dm-screen .r101-tpl-section + .r101-tpl-section {
+  margin-top: 0.5em;
+}
+
+.r101-dm-screen .r101-tpl-section > summary {
+  padding: 3px 2px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.r101-dm-screen .r101-tpl-table {
+  width: 100%;
+  margin: 2px 0 0;
+  border: none;
+  border-collapse: collapse;
+  background: none;
+  font-size: 1em;
+}
+
+.r101-dm-screen .r101-tpl-table th,
+.r101-dm-screen .r101-tpl-table td {
+  padding: 2px 6px;
+  border: none;
+  text-align: left;
+  vertical-align: top;
+}
+
+.r101-dm-screen .r101-tpl-table th {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--r101-muted);
+  border-bottom: 1px solid var(--r101-border);
+}
+
+.r101-dm-screen .r101-tpl-table tbody tr:nth-child(even) {
+  background: color-mix(in srgb, currentColor 5%, transparent);
+}
+
+.r101-dm-screen .r101-tpl-table td:not(:first-child) {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.r101-dm-screen .r101-tpl-note {
+  margin: 3px 6px 0;
+  font-size: 0.85em;
+}
+
+.r101-dm-screen .r101-attribution {
+  margin: 1em 0 0;
+  font-size: 0.75em;
+  color: var(--r101-muted);
+}
+
 /* Backup restore dialog */
 .r101-backup-dialog .r101-backup-list {
   display: flex;
