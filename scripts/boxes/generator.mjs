@@ -6,7 +6,7 @@ import { pickLanguage } from "./reference.mjs";
 /** Most entries the box lists. The generators are far smaller; this is only a guard. */
 const LIST_LIMIT = 200;
 
-const ICONS = Object.freeze({ environment: "fa-solid fa-cloud-bolt", events: "fa-solid fa-signs-post", twists: "fa-solid fa-yin-yang" });
+export const GENERATOR_ICONS = Object.freeze({ environment: "fa-solid fa-cloud-bolt", events: "fa-solid fa-signs-post", twists: "fa-solid fa-yin-yang" });
 
 function languageChoices(languages, chosen) {
   if (languages.length < 2) return null;
@@ -30,7 +30,7 @@ export async function generatorContext(box) {
 
   return {
     name: L(gen.title),
-    icon: ICONS[box.data.generator] ?? "fa-solid fa-dice",
+    icon: GENERATOR_ICONS[box.data.generator] ?? "fa-solid fa-dice",
     filters: [
       { id: "any", label: game.i18n.localize(`${I18N}.Generator.Any`), selected: filter === "any" },
       ...gen.groups.map(g => ({ id: g.id, label: L(g.label), selected: g.id === filter }))

@@ -6,8 +6,24 @@ without leaving Foundry.
 
 Made by [Roll101](https://roll101rpg.com/en). Join us on [Discord](https://discord.gg/MdMkW2egww).
 
-> **Status:** 1.2.0. Tested on Foundry v14; v13 untested. Back up your world before first use.
+> **Status:** 1.3.0. Tested on Foundry v14; v13 untested. Back up your world before first use.
 > See [docs/TESTING.md](docs/TESTING.md).
+
+## New in 1.3.0: optional content packs
+
+Generator texts now live in optional content packs instead of the module itself. The module
+keeps the tools; you choose the content. Two packs are published with every release:
+
+| Pack | Contains | Download |
+|---|---|---|
+| **Roll101 Random Tables** | Combat Environment and Random Events generators (EN / TR) | [roll101-random-tables.json](https://github.com/emirtopaloglu0/roll101-dm-screen/releases/latest/download/roll101-random-tables.json) |
+| **Roll101 Command Center** | Blessings & Curses generator and Scene Pacing & Transitions reference (EN / TR) | [roll101-command-center.json](https://github.com/emirtopaloglu0/roll101-dm-screen/releases/latest/download/roll101-command-center.json) |
+
+More tables made by Roll101 (Turkish NPC tables: appearance, personality, quirks, secrets and more)
+are shared in the **#foundry-modules** channel of our [Discord](https://discord.gg/MdMkW2egww).
+
+The same files are in the [`content-packs/`](content-packs) folder. See
+[Content packs: import and export](#content-packs-import-and-export) below.
 
 ## New in 1.2.0: storytelling tools
 
@@ -16,12 +32,11 @@ A GM screen should help you tell the story, not only look up rules. Version 1.2.
 
 - **Spotlight & Stakes**: see at a glance who has been quiet, and what each character cares about.
 - **Tension Clocks**: colored countdown clocks you can show in chat or end with a curse.
-- **Blessings & Curses**: improv prompts for twists, complications and success at a cost.
-- **Scene Pacing & Transitions**: when to keep a scene and how to end it.
+- **Blessings & Curses** and **Scene Pacing & Transitions**: in the Roll101 Command Center pack.
 - **Command Center**: one click adds a tab with all of them.
 
 Idea credit: the video [“Why are DM Screens Missing these?”](https://youtu.be/MLX4CiTOW9M)
-by the YouTube channel **Corkboards & Curiosities**. Texts and code in this module are original.
+by the YouTube channel **Corkboards & Curiosities**.
 
 ## Screenshots
 
@@ -48,9 +63,9 @@ Several layouts as tabs. Empty cells take notes, library boxes or dropped journa
   conditions, exhaustion, combat actions, cover, concentration, death and dying, DCs, light and vision,
   movement, damage, objects, traps, environmental hazards and weapon mastery, plus a searchable Rules Glossary.
 
-- Generators (English and Turkish): Combat Environment (terrain, hazards, weather, magic, objects)
-  and Random Events (city, village, town, wilderness, forest, snow, desert, general).
-  Pick a category, press Generate, then reroll, copy or whisper the result to the GM.
+- Text generators from content packs: pick a category, press Generate, then reroll, copy or whisper
+  the result to the GM. The Roll101 Random Tables pack adds Combat Environment (terrain, hazards,
+  weather, magic, objects) and Random Events (city, village, town, wilderness, forest, snow, desert, general).
 - Party summary (D&D 5e): AC, HP, initiative, speed, passive scores, spell DC, inspiration and
   conditions of all player-owned characters, or of actors you drop in. Updates live.
 
@@ -65,10 +80,39 @@ Several layouts as tabs. Empty cells take notes, library boxes or dropped journa
     (patron, rival, fear, crush…) to make twists personal.
   - **Tension Clocks**: 3 to 12 segment clocks for chases, rituals, guards arriving. Click to fill,
     right-click to clear, show a clock in chat, or roll a curse when it fills up.
-  - **Blessings & Curses**: improv prompts for twists, complications and success at a cost.
-  - **Scene Pacing & Transitions**: when to keep a scene, and three ways to end one (cut, gentle close, hard push).
+  - **Blessings & Curses** (Command Center pack): improv prompts for twists, complications and success at a cost.
+  - **Scene Pacing & Transitions** (Command Center pack): when to keep a scene, and three ways to end one.
   - Each box has a language choice (EN / TR) and a **?** button that explains how to use it.
-  - Idea from [Corkboards & Curiosities](https://youtu.be/MLX4CiTOW9M) on YouTube. Texts are original.
+  - Idea from [Corkboards & Curiosities](https://youtu.be/MLX4CiTOW9M) on YouTube.
+
+## Content packs: import and export
+
+A content pack is a `.json` file with generators and reference tables. Packs are stored in the
+world, so import them once in every world where you want them.
+
+**Import a pack**
+
+1. Download the pack file (see the table above, or make your own: [docs/content-packs.md](docs/content-packs.md)).
+2. Open the DM Screen and click **Content packs** (box icon) in the toolbar.
+3. Click **Import** and choose the `.json` file.
+4. Open the **Library** in an empty cell. Pack generators appear under *Generators and party*,
+   pack references under the pack's own name or under *Storytelling*.
+
+Importing a pack with the same id again replaces the old version (you are asked first).
+Boxes that used a pack's content keep their settings: if the pack is missing they show
+"not installed", and they work again as soon as the pack is imported.
+
+**Remove a pack**: **Content packs** → choose the pack → **Remove**. Boxes stay and show "not installed".
+
+**Upgrading from 1.2.0 or older**: your Combat Environment, Random Events, Blessings & Curses and
+Scene Pacing boxes stay in place. Import the two Roll101 packs and they show their content again.
+
+**Export and import your screen**
+
+- **Export layouts** (toolbar, file icon) saves all tabs and boxes to a `.json` file.
+- **Import layouts** loads such a file, for example in another world. Import the content packs
+  there too, because a layout file stores which pack a box uses, not the pack itself.
+- **Restore a backup** (clock icon) brings back one of the last automatic local backups.
 
 ## Compatibility
 
