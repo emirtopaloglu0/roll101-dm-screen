@@ -9,7 +9,7 @@ import { localize } from "./templates.mjs";
  */
 
 /** Generator kinds a box may use. Anything else is treated as missing. */
-export const GENERATOR_KINDS = Object.freeze(["environment", "events"]);
+export const GENERATOR_KINDS = Object.freeze(["environment", "events", "twists"]);
 
 const LIMITS = { groups: 20, entries: 200, text: 1000 };
 const isObject = v => !!v && typeof v === "object" && !Array.isArray(v);

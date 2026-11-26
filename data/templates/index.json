@@ -14,6 +14,7 @@
     "objects.json",
     "traps.json",
     "hazards.json",
-    "weapon-mastery.json"
+    "weapon-mastery.json",
+    "scene-pacing.json"
   ]
 }

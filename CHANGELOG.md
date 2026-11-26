@@ -6,6 +6,21 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-11-26
+
+### Added
+- Storytelling (GM tools) group in the Library, in English and Turkish.
+- Spotlight & Stakes box: character-moment marks per player character (quietest first),
+  "New session" shift, hidden rows, extra names or dropped actors, and a stakes list per character.
+- Tension Clocks box: 3–12 segment clocks, click / right-click to fill or clear,
+  "Show in chat" for players, and "Roll a curse" from Blessings & Curses.
+- Blessings & Curses generator: blessings, curses and success-at-a-cost prompts.
+- Scene Pacing & Transitions reference: when to keep a scene, cut, gentle close and hard push.
+- Command Center layout: one click adds a new tab with all four tools.
+- Spotlight and Clocks boxes: own language choice (EN / TR) and a "?" help panel; clock colors.
+- Reference templates: optional `hint` per section, shown above its table.
+- Credit to Corkboards & Curiosities in the Library, the help panels, README and NOTICE.
+
 ## [1.1.0] - 2026-11-25
 
 ### Added

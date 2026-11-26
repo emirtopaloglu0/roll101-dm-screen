@@ -1,0 +1,68 @@
+<div class="r101-clocks">
+  <div class="r101-box-actions">
+    <button type="button" class="r101-small-button r101-primary" data-action="addClock" {{#unless canAdd}}disabled{{/unless}}>
+      <i class="fa-solid fa-plus" aria-hidden="true"></i> {{S.Add}}
+    </button>
+    <select class="r101-select" data-r101-story-lang aria-label="{{langLabel}}">
+      {{#each langs}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    <span class="r101-note r101-push-right">{{S.Hint}}</span>
+    <button type="button" class="r101-header-button" data-action="toggleHelp" data-tooltip="{{S.HelpToggle}}"
+            aria-label="{{S.HelpToggle}}" aria-expanded="{{#if helpOpen}}true{{else}}false{{/if}}">
+      <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="r101-help" {{#unless helpOpen}}hidden{{/unless}}>
+    <p>{{S.Help}}</p>
+    <p>{{S.HowTo}}</p>
+    <p class="r101-help-credit">{{credit}}</p>
+  </div>
+  <div class="r101-scroll r101-clock-list">
+    {{#each clocks}}
+    <div class="r101-clock{{#if full}} r101-clock-full{{/if}}" data-clock-id="{{id}}" style="--r101-clock-color: {{color}};">
+      <button type="button" class="r101-clock-face" data-action="clockStep" data-delta="1"
+              data-tooltip="{{../S.StepHint}}" aria-label="{{../S.StepHint}}">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          {{#each segments}}<path class="r101-clock-seg{{#if filled}} is-filled{{/if}}" d="{{d}}"></path>{{/each}}
+        </svg>
+      </button>
+      <div class="r101-clock-info">
+        <input type="text" class="r101-clock-name" value="{{name}}" maxlength="{{../nameMax}}"
+               placeholder="{{../S.Untitled}}" data-r101-clock-name aria-label="{{../S.Name}}">
+        <div class="r101-clock-controls">
+          <button type="button" class="r101-header-button" data-action="clockStep" data-delta="-1"
+                  data-tooltip="{{../S.Minus}}" aria-label="{{../S.Minus}}">
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="r101-clock-count" data-r101-clock-count>{{filled}} / {{size}}</span>
+          <button type="button" class="r101-header-button" data-action="clockStep" data-delta="1"
+                  data-tooltip="{{../S.Plus}}" aria-label="{{../S.Plus}}">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          <select class="r101-select" data-r101-clock-size aria-label="{{../S.Size}}" data-tooltip="{{../S.Size}}">
+            {{#each sizes}}<option value="{{n}}" {{#if selected}}selected{{/if}}>{{n}}</option>{{/each}}
+          </select>
+          <button type="button" class="r101-header-button r101-clock-color" data-action="clockColor"
+                  data-tooltip="{{../S.Color}}" aria-label="{{../S.Color}}">
+            <span class="r101-color-dot" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="r101-header-button" data-action="shareClock"
+                  data-tooltip="{{../S.Share}}" aria-label="{{../S.Share}}">
+            <i class="fa-solid fa-comment" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="r101-header-button" data-action="clockCurse"
+                  data-tooltip="{{../S.Curse}}" aria-label="{{../S.Curse}}">
+            <i class="fa-solid fa-skull" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="r101-header-button" data-action="removeClock"
+                  data-tooltip="{{../S.Remove}}" aria-label="{{../S.Remove}}">
+            <i class="fa-solid fa-trash" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    {{else}}
+    <p class="r101-note">{{S.Empty}}</p>
+    {{/each}}
+  </div>
+</div>

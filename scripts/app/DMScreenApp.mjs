@@ -13,6 +13,11 @@ import { generatorContext, generatorRequest } from "../boxes/generator.mjs";
 import { lastLoot, lootContext, lootRequest } from "../boxes/loot.mjs";
 import { MAX_PARTY, coinSettings, coinTexts, coinsContext, glossaryContext, templateContext } from "../boxes/reference.mjs";
 import { foldSearch, listTemplates, localize as localizeText } from "../templates.mjs";
+import {
+  CLOCK_COLORS, CLOCK_SIZES, MAX_CLOCKS, MAX_EXTRAS, MAX_STAKES, NAME_MAX, STAKE_MAX, STORY_LANGS,
+  cleanColor, clockChatHTML, clocksContext, newClock, readClocks, readSpotlight,
+  shiftMarks, spotlightContext, storyLanguage, storyTexts, toggleHelp, toggleStakes
+} from "../boxes/story.mjs";
 import { areaFree, cellKey, fitSpan, placeBoxes } from "../grid.mjs";
 import { cloneLayout, createLayout } from "../migrate.mjs";
 import { MULTI_ROLL_COUNT, copyText, escapeHTML, whisperToGM } from "../tables.mjs";
@@ -35,7 +40,9 @@ const LINKED_TYPES = {
   glossary: { build: glossaryContext, key: "glossary", missing: `${I18N}.Missing.Template` },
   generator: { build: generatorContext, key: "generator", missing: `${I18N}.Missing.Generator` },
   actors: { build: actorsContext, key: "actors", missing: `${I18N}.Missing.Template` },
-  loot: { build: lootContext, key: "loot", missing: `${I18N}.Missing.Generator` }
+  loot: { build: lootContext, key: "loot", missing: `${I18N}.Missing.Generator` },
+  clocks: { build: clocksContext, key: "clocks", missing: `${I18N}.Missing.Template` },
+  spotlight: { build: spotlightContext, key: "spotlight", missing: `${I18N}.Missing.Template` }
 };
 
 /** Actor changes that refresh a party box. Watched only while the window is open. */
@@ -95,7 +102,21 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       removeActor: DMScreenApp.#onRemoveActor,
       toggleActorSection: DMScreenApp.#onToggleActorSection,
       copyLoot: DMScreenApp.#onCopyLoot,
-      whisperLoot: DMScreenApp.#onWhisperLoot
+      whisperLoot: DMScreenApp.#onWhisperLoot,
+      addClock: DMScreenApp.#onAddClock,
+      clockStep: DMScreenApp.#onClockStep,
+      shareClock: DMScreenApp.#onShareClock,
+      clockCurse: DMScreenApp.#onClockCurse,
+      removeClock: DMScreenApp.#onRemoveClock,
+      spotlightNewSession: DMScreenApp.#onSpotlightNewSession,
+      spotlightShowAll: DMScreenApp.#onSpotlightShowAll,
+      spotlightMark: DMScreenApp.#onSpotlightMark,
+      spotlightRemove: DMScreenApp.#onSpotlightRemove,
+      toggleStakes: DMScreenApp.#onToggleStakes,
+      removeStake: DMScreenApp.#onRemoveStake,
+      startStake: DMScreenApp.#onStartStake,
+      clockColor: DMScreenApp.#onClockColor,
+      toggleHelp: DMScreenApp.#onToggleHelp
     }
   };
 
@@ -114,7 +135,9 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         `${TEMPLATES}/boxes/generator.hbs`,
         `${TEMPLATES}/boxes/actors.hbs`,
         `${TEMPLATES}/boxes/actors-list.hbs`,
-        `${TEMPLATES}/boxes/loot.hbs`
+        `${TEMPLATES}/boxes/loot.hbs`,
+        `${TEMPLATES}/boxes/clocks.hbs`,
+        `${TEMPLATES}/boxes/spotlight.hbs`
       ]
     }
   };
@@ -236,6 +259,8 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     el.addEventListener("dragleave", this.#onDragLeave.bind(this));
     el.addEventListener("drop", this.#onDrop.bind(this));
     el.addEventListener("pointerdown", this.#onPointerDown.bind(this));
+    el.addEventListener("contextmenu", this.#onContextMenu.bind(this));
+    el.addEventListener("focusout", this.#onFocusOut.bind(this));
     this.#watchDocuments();
     storage.beginSession();
   }
@@ -264,6 +289,19 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       if (!box) return;
       const value = target.value;
       storage.update(() => { box.data.range = { ...(box.data.range ?? {}), [bound]: value }; });
+      return;
+    }
+
+    if (target.hasAttribute("data-r101-clock-name")) {
+      const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+      const clockId = target.closest("[data-clock-id]")?.dataset.clockId;
+      if (!box || !clockId) return;
+      const value = target.value.slice(0, NAME_MAX);
+      storage.update(() => {
+        box.data.clocks = readClocks(box.data);
+        const clock = box.data.clocks.find(c => c.id === clockId);
+        if (clock) clock.name = value;
+      });
       return;
     }
 
@@ -313,6 +351,28 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const target = event.target;
     if (!(target instanceof HTMLSelectElement)) return;
 
+    if (target.hasAttribute("data-r101-story-lang")) {
+      const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+      if (!box) return;
+      storage.update(() => { box.data.lang = STORY_LANGS.includes(target.value) ? target.value : "auto"; });
+      this.render();
+      return;
+    }
+
+    if (target.hasAttribute("data-r101-clock-size")) {
+      const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+      const clockId = target.closest("[data-clock-id]")?.dataset.clockId;
+      const size = Number(target.value);
+      if (!box || !clockId || !CLOCK_SIZES.includes(size)) return;
+      storage.update(() => {
+        box.data.clocks = readClocks(box.data);
+        const clock = box.data.clocks.find(c => c.id === clockId);
+        if (clock) { clock.size = size; clock.filled = Math.min(clock.filled, size); }
+      });
+      this.render();
+      return;
+    }
+
     const generatorKey = target.dataset.r101Generator;
     if (["filter", "lang", "mode", "tier"].includes(generatorKey)) {
       const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
@@ -345,6 +405,47 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
    */
   #onKeyDown(event) {
     if (event.key === "Tab") event.stopPropagation();
+    if (!(event.target instanceof HTMLInputElement)) return;
+    const input = event.target;
+    if (event.key === "Escape" && input.hasAttribute("data-r101-stake-input")) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.#closeStakeInput(input);
+      return;
+    }
+    if (event.key !== "Enter") return;
+    if (input.hasAttribute("data-r101-stake-input")) {
+      event.preventDefault();
+      this.#addStake(input);
+    } else if (input.hasAttribute("data-r101-spotlight-add")) {
+      event.preventDefault();
+      this.#addSpotlightName(input);
+    }
+  }
+
+  /** An empty stake field closes when it loses focus. */
+  #onFocusOut(event) {
+    const input = event.target;
+    if (input instanceof HTMLInputElement && input.hasAttribute("data-r101-stake-input") && !input.value.trim()) {
+      this.#closeStakeInput(input);
+    }
+  }
+
+  /** Hide the stake field and show the "+ Add" chip again. DOM only. */
+  #closeStakeInput(input) {
+    input.value = "";
+    input.hidden = true;
+    const button = input.parentElement?.querySelector(".r101-stake-new");
+    if (button) button.hidden = false;
+  }
+
+  /** Right-click on a clock face takes one segment back. */
+  #onContextMenu(event) {
+    const face = event.target instanceof Element ? event.target.closest(".r101-clock-face") : null;
+    if (!face) return;
+    event.preventDefault();
+    event.stopPropagation();
+    this.#stepClock(face, -1);
   }
 
   /** Double-click: a layout tab starts renaming, the text size control resets to 100%. */
@@ -588,6 +689,11 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     if (boxId) {
       // Dropping on a linked box of the same type reconnects it.
       const box = this.#findBox(boxId);
+      if (box?.type === "spotlight" && dropped.type === "actors") {
+        this.#addSpotlightActors(box, dropped.data.uuids ?? []);
+        this.render();
+        return;
+      }
       if (!box || box.type !== dropped.type) {
         ui.notifications.warn(`${I18N}.Notifications.DropOccupied`, { localize: true });
         return;
@@ -634,10 +740,22 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
    */
   #onActorChange(name, doc, changes) {
     if (!this.rendered || !doc) return;
-    const boxes = storage.getActiveLayout().boxes.filter(b => b.type === "actors");
-    if (!boxes.length) return;
     const actor = doc.documentName === "Actor" ? doc : doc.parent;
     if (actor?.documentName !== "Actor") return;
+
+    // Spotlight rows show only names and portraits: re-render when the cast changes.
+    const castChanged = name === "createActor" || name === "deleteActor"
+      || (name === "updateActor" && !!changes && ("name" in changes || "img" in changes || "ownership" in changes));
+    if (castChanged && storage.getActiveLayout().boxes.some(b => b.type === "spotlight")) {
+      if (this.#renderTimer) clearTimeout(this.#renderTimer);
+      this.#renderTimer = setTimeout(() => {
+        this.#renderTimer = null;
+        if (this.rendered) this.render();
+      }, 250);
+    }
+
+    const boxes = storage.getActiveLayout().boxes.filter(b => b.type === "actors");
+    if (!boxes.length) return;
     // Ignore actor updates that cannot change what the box shows (flags, sort, stats of others).
     if (name === "updateActor" && changes && !("system" in changes || "name" in changes || "ownership" in changes || "effects" in changes)) return;
     const shown = boxes.some(b => (b.data.mode === "custom"
@@ -941,9 +1059,290 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     }));
   }
 
+  /**
+   * Move a clock one segment forward or back. Updates the drawing in place: no re-render.
+   * @param {Element} el  Any element inside the clock.
+   * @param {number} delta  +1 or -1
+   */
+  #stepClock(el, delta) {
+    const box = this.#findBox(el.closest("[data-box-id]")?.dataset.boxId);
+    const node = el.closest("[data-clock-id]");
+    if (!box || !node) return;
+    let clock = null;
+    storage.update(() => {
+      box.data.clocks = readClocks(box.data);
+      clock = box.data.clocks.find(c => c.id === node.dataset.clockId) ?? null;
+      if (clock) clock.filled = Math.min(clock.size, Math.max(0, clock.filled + delta));
+    });
+    if (!clock) return;
+    node.querySelectorAll(".r101-clock-seg").forEach((seg, i) => seg.classList.toggle("is-filled", i < clock.filled));
+    const count = node.querySelector("[data-r101-clock-count]");
+    if (count) count.textContent = `${clock.filled} / ${clock.size}`;
+    node.classList.toggle("r101-clock-full", clock.filled >= clock.size);
+  }
+
+  /** The clock an action button belongs to, read from saved data. */
+  #clockOf(target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    const clockId = target.closest("[data-clock-id]")?.dataset.clockId;
+    if (!box || !clockId) return { box: null, clock: null };
+    return { box, clock: readClocks(box.data).find(c => c.id === clockId) ?? null };
+  }
+
+  /** Change a spotlight box's data through a clean copy. */
+  #editSpotlight(box, mutate) {
+    storage.update(() => {
+      const data = readSpotlight(box.data);
+      mutate(data);
+      box.data = data;
+    });
+  }
+
+  /** The spotlight box and character row an element belongs to. */
+  #memberOf(target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    const key = target.closest("[data-member-key]")?.dataset.memberKey;
+    return { box: box?.type === "spotlight" ? box : null, key: key ?? null };
+  }
+
+  async #addStake(input) {
+    const { box, key } = this.#memberOf(input);
+    const text = input.value.trim().slice(0, STAKE_MAX);
+    if (!box || !key || !text) return;
+    this.#editSpotlight(box, data => {
+      data.stakes[key] = [...(data.stakes[key] ?? []), text].slice(0, MAX_STAKES);
+    });
+    // The field closes after each stake; the "+ Add" chip keeps focus for the next one.
+    await this.render();
+    const selector = `[data-box-id="${CSS.escape(box.id)}"] [data-member-key="${CSS.escape(key)}"] .r101-stake-new`;
+    this.element?.querySelector(selector)?.focus();
+  }
+
+  async #addSpotlightName(input) {
+    const box = this.#findBox(input.closest("[data-box-id]")?.dataset.boxId);
+    const name = input.value.trim().slice(0, NAME_MAX);
+    if (!box || !name) return;
+    this.#editSpotlight(box, data => {
+      if (data.extras.length < MAX_EXTRAS) data.extras.push({ id: foundry.utils.randomID(), name, uuid: "" });
+    });
+    await this.render();
+    this.element?.querySelector(`[data-box-id="${CSS.escape(box.id)}"] [data-r101-spotlight-add]`)?.focus();
+  }
+
+  /** Dropped actors join a spotlight box as extra rows (party members are already there). */
+  #addSpotlightActors(box, uuids) {
+    this.#editSpotlight(box, data => {
+      const known = new Set(data.extras.map(e => e.uuid));
+      for (const uuid of uuids) {
+        if (data.extras.length >= MAX_EXTRAS) break;
+        if (known.has(uuid)) continue;
+        data.extras.push({ id: foundry.utils.randomID(), name: "", uuid });
+        known.add(uuid);
+      }
+      // A hidden party member that is dropped again comes back.
+      data.hidden = data.hidden.filter(u => !uuids.includes(u));
+    });
+  }
+
+  /** A new layout tab with the storytelling tools laid out and ready. */
+  #addCommandCenter() {
+    const layout = createLayout(game.i18n.localize(`${I18N}.Library.CommandCenter`));
+    layout.cols = 3;
+    layout.rows = 2;
+    const box = (col, row, colSpan, rowSpan, type, data) => ({ ...this.#newBox(col, row, type, data), colSpan, rowSpan });
+    layout.boxes = [
+      box(1, 1, 1, 2, "spotlight", {}),
+      box(2, 1, 1, 1, "clocks", { clocks: [] }),
+      box(3, 1, 1, 1, "generator", { generator: "twists", filter: "any", lang: "auto" }),
+      box(2, 2, 2, 1, "template", { template: "builtin:scene-pacing", variant: null, lang: "auto" })
+    ];
+    storage.update(d => {
+      d.layouts.push(layout);
+      d.activeLayoutId = layout.id;
+    });
+  }
+
   /* -------------------------------------------- */
   /*  Actions                                     */
   /* -------------------------------------------- */
+
+  /** @this {DMScreenApp} */
+  static #onAddClock(event, target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    if (!box) return;
+    storage.update(() => {
+      const clocks = readClocks(box.data);
+      if (clocks.length < MAX_CLOCKS) clocks.push(newClock());
+      box.data.clocks = clocks;
+    });
+    this.render();
+  }
+
+  /** @this {DMScreenApp} */
+  static #onClockStep(event, target) {
+    // Shift + click on the face goes back, like a right-click.
+    const delta = Number(target.dataset.delta) < 0 || event.shiftKey ? -1 : 1;
+    this.#stepClock(target, delta);
+  }
+
+  /** @this {DMScreenApp} */
+  static async #onRemoveClock(event, target) {
+    const { box, clock } = this.#clockOf(target);
+    if (!box || !clock) return;
+    if (clock.name || clock.filled) {
+      const confirmed = await DialogV2.confirm({
+        window: { title: `${I18N}.Clocks.Remove` },
+        content: `<p><strong>${escapeHTML(clock.name || game.i18n.localize(`${I18N}.Clocks.Untitled`))}</strong></p>`,
+        rejectClose: false
+      });
+      if (!confirmed) return;
+    }
+    storage.update(() => { box.data.clocks = readClocks(box.data).filter(c => c.id !== clock.id); });
+    this.render();
+  }
+
+  /** Post the clock to chat for everyone. The screen itself stays GM-only. @this {DMScreenApp} */
+  static async #onShareClock(event, target) {
+    const { box, clock } = this.#clockOf(target);
+    if (!clock) return;
+    try {
+      const t = await storyTexts(storyLanguage(box.data.lang));
+      await ChatMessage.create({
+        content: await clockChatHTML(clock, box.data.lang),
+        speaker: { alias: t("Clocks.Title") }
+      });
+    } catch (err) {
+      console.error(`${MODULE_ID} | Could not share clock`, err);
+    }
+  }
+
+  /** Next color for a clock's filled segments. Updates the drawing in place. @this {DMScreenApp} */
+  static #onClockColor(event, target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    const node = target.closest("[data-clock-id]");
+    if (!box || !node) return;
+    let color = null;
+    storage.update(() => {
+      box.data.clocks = readClocks(box.data);
+      const clock = box.data.clocks.find(c => c.id === node.dataset.clockId);
+      if (!clock) return;
+      const step = event.shiftKey ? -1 : 1;
+      const index = CLOCK_COLORS.indexOf(cleanColor(clock.color));
+      clock.color = CLOCK_COLORS[(index + step + CLOCK_COLORS.length) % CLOCK_COLORS.length];
+      color = clock.color;
+    });
+    if (color) node.style.setProperty("--r101-clock-color", color);
+  }
+
+  /** Show or hide a box's help text. DOM only. @this {DMScreenApp} */
+  static #onToggleHelp(event, target) {
+    const cell = target.closest("[data-box-id]");
+    const panel = cell?.querySelector(".r101-help");
+    if (!panel) return;
+    const open = toggleHelp(cell.dataset.boxId);
+    panel.hidden = !open;
+    target.setAttribute("aria-expanded", String(open));
+  }
+
+  /** "+ Add" chip: swap it for the stake field. DOM only. @this {DMScreenApp} */
+  static #onStartStake(event, target) {
+    const input = target.parentElement?.querySelector("[data-r101-stake-input]");
+    if (!input) return;
+    target.hidden = true;
+    input.hidden = false;
+    input.focus();
+  }
+
+  /** A clock filled up (or the GM wants a twist): roll a curse. @this {DMScreenApp} */
+  static async #onClockCurse(event, target) {
+    // Language: the clock box's own choice, else that of a Blessings & Curses box on this tab.
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    const twists = storage.getActiveLayout().boxes.find(b => b.type === "generator" && b.data?.generator === "twists");
+    const lang = STORY_LANGS.includes(box?.data?.lang) ? box.data.lang : (twists?.data?.lang ?? "auto");
+    const request = await generatorRequest({ data: { generator: "twists", filter: "curse", lang } });
+    if (!request) {
+      ui.notifications.warn(`${I18N}.Missing.Generator`, { localize: true });
+      return;
+    }
+    ResultDialog.showGenerated(request);
+  }
+
+  /** @this {DMScreenApp} */
+  static async #onSpotlightNewSession(event, target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    if (!box) return;
+    storage.update(() => { box.data = shiftMarks(box.data); });
+    this.render();
+  }
+
+  /** @this {DMScreenApp} */
+  static #onSpotlightShowAll(event, target) {
+    const box = this.#findBox(target.closest("[data-box-id]")?.dataset.boxId);
+    if (!box) return;
+    this.#editSpotlight(box, data => { data.hidden = []; });
+    this.render();
+  }
+
+  /**
+   * Click a pip to set that many moments; click the last lit pip to take one back.
+   * The list re-sorts on the next render, so rows do not jump under the pointer.
+   * @this {DMScreenApp}
+   */
+  static #onSpotlightMark(event, target) {
+    const { box, key } = this.#memberOf(target);
+    const n = Number(target.dataset.n);
+    if (!box || !key || !n) return;
+    let marks = 0;
+    this.#editSpotlight(box, data => {
+      marks = (data.marks[key] ?? 0) === n ? n - 1 : n;
+      data.marks[key] = marks;
+    });
+    const row = target.closest("[data-member-key]");
+    row?.querySelectorAll(".r101-pip").forEach((pip, i) => {
+      pip.classList.toggle("is-on", i < marks);
+      pip.setAttribute("aria-pressed", String(i < marks));
+    });
+  }
+
+  /** Remove a row: extra rows are deleted, party members are hidden. @this {DMScreenApp} */
+  static #onSpotlightRemove(event, target) {
+    const { box, key } = this.#memberOf(target);
+    if (!box || !key) return;
+    this.#editSpotlight(box, data => {
+      const extra = data.extras.find(e => e.id === key);
+      if (extra) data.extras = data.extras.filter(e => e !== extra);
+      else if (!data.hidden.includes(key)) data.hidden.push(key);
+      delete data.marks[key];
+      if (extra) delete data.stakes[key];
+    });
+    this.render();
+  }
+
+  /** Open or close a character's stakes. DOM only. @this {DMScreenApp} */
+  static #onToggleStakes(event, target) {
+    const boxId = target.closest("[data-box-id]")?.dataset.boxId;
+    const row = target.closest("[data-member-key]");
+    const panel = row?.querySelector(".r101-stakes");
+    if (!boxId || !panel) return;
+    const open = toggleStakes(boxId, row.dataset.memberKey);
+    panel.hidden = !open;
+    target.setAttribute("aria-expanded", String(open));
+    if (open) panel.querySelector(".r101-stake-new")?.focus();
+  }
+
+  /** @this {DMScreenApp} */
+  static #onRemoveStake(event, target) {
+    const { box, key } = this.#memberOf(target);
+    const index = Number(target.dataset.index);
+    if (!box || !key || !Number.isInteger(index)) return;
+    this.#editSpotlight(box, data => {
+      const list = data.stakes[key] ?? [];
+      list.splice(index, 1);
+      if (list.length) data.stakes[key] = list;
+      else delete data.stakes[key];
+    });
+    this.render();
+  }
 
   /** @this {DMScreenApp} */
   static #onAddNotes(event, target) {
@@ -965,8 +1364,11 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const box = boxId ? this.#findBox(boxId) : null;
     if (!box) return;
 
-    // Only notes hold content of their own. Linked boxes just hold a reference.
-    const hasContent = box.type === "notes" && !!(box.title || box.data?.text);
+    // Notes, clocks and spotlight stakes hold content of their own. Linked boxes just hold a reference.
+    const spot = box.type === "spotlight" ? readSpotlight(box.data) : null;
+    const hasContent = (box.type === "notes" && !!(box.title || box.data?.text))
+      || (box.type === "clocks" && readClocks(box.data).some(c => c.name || c.filled))
+      || (!!spot && (Object.keys(spot.stakes).length > 0 || spot.extras.length > 0));
     if (hasContent) {
       const confirmed = await DialogV2.confirm({
         window: { title: `${I18N}.Box.RemoveConfirmTitle` },
@@ -1084,6 +1486,12 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     });
     if (typeof choice !== "string" || choice === "add") return;
 
+    if (choice === "preset:command-center") {
+      this.#addCommandCenter();
+      this.render();
+      return;
+    }
+
     let type;
     let data;
     if (choice === "notes") [type, data] = ["notes", { text: "" }];
@@ -1092,6 +1500,8 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     else if (choice.startsWith("gen:")) [type, data] = ["generator", { generator: choice.slice(4), filter: "any", lang: "auto" }];
     else if (choice === "actors") [type, data] = ["actors", { mode: "party", uuids: [] }];
     else if (choice === "loot") [type, data] = ["loot", { mode: "individual", tier: "t1", lang: "auto" }];
+    else if (choice === "clocks") [type, data] = ["clocks", { clocks: [newClock()] }];
+    else if (choice === "spotlight") [type, data] = ["spotlight", {}];
     else [type, data] = ["template", { template: choice, variant: null, lang: "auto" }];
 
     storage.update(() => {
@@ -1172,10 +1582,24 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const tplRow = tpl => row(tpl.key, "fa-solid fa-table-list", localizeText(tpl.title, lang), "",
       `${allText(tpl.title)} ${allText(tpl.group)}`);
     const builtins = templates.filter(tpl => tpl.source === "builtin");
+
+    groups.push(group("fa-solid fa-masks-theater", lib("GMTools"), [
+      `<p class="r101-library-credit"><i class="fa-brands fa-youtube" aria-hidden="true"></i> ${escapeHTML(lib("Credit"))}</p>`,
+      row("preset:command-center", "fa-solid fa-chess-board", lib("CommandCenter"), lib("CommandCenterHint"),
+        "command center storytelling preset layout komuta merkezi hikaye anlatim hazir sekme"),
+      row("spotlight", "fa-solid fa-lightbulb", lib("Spotlight"), lib("SpotlightHint"),
+        "spotlight screentime stakes hooks character moment sahne payi kanca karakter ani"),
+      row("clocks", "fa-solid fa-clock", lib("Clocks"), lib("ClocksHint"),
+        "clock countdown tension progress saat geri sayim gerilim ilerleme"),
+      row("gen:twists", "fa-solid fa-yin-yang", lib("Twists"), lib("TwistsHint"),
+        "blessings curses improv twist bargain lutuf lanet dogaclama bedel"),
+      ...builtins.filter(tpl => tpl.category === "gm").sort(byTitle).map(tplRow)
+    ], true));
+
     groups.push(group("fa-solid fa-scale-balanced", game.i18n.localize(`${I18N}.Library.Rules`),
       builtins.filter(tpl => tpl.category === "rules").sort(byTitle).map(tplRow), false));
     groups.push(group("fa-solid fa-coins", game.i18n.localize(`${I18N}.Library.Prices`),
-      builtins.filter(tpl => tpl.category !== "rules").sort(byTitle).map(tplRow), false));
+      builtins.filter(tpl => tpl.category !== "rules" && tpl.category !== "gm").sort(byTitle).map(tplRow), false));
 
     // Content packs: one group each, templates sorted under their sub-heading.
     const packs = new Map();

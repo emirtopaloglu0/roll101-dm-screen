@@ -159,7 +159,8 @@ export async function templateContext(box) {
       title: L(s.title),
       columns: s.columns.map(L),
       rows: s.rows.map(r => r.map(L)),
-      note: L(s.note)
+      note: L(s.note),
+      hint: L(s.hint)
     }))
   };
 }

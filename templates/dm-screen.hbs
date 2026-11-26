@@ -111,6 +111,10 @@
       {{> "modules/roll101-dm-screen/templates/boxes/generator.hbs" box.generator}}
       {{else if box.loot}}
       {{> "modules/roll101-dm-screen/templates/boxes/loot.hbs" box.loot}}
+      {{else if box.clocks}}
+      {{> "modules/roll101-dm-screen/templates/boxes/clocks.hbs" box.clocks}}
+      {{else if box.spotlight}}
+      {{> "modules/roll101-dm-screen/templates/boxes/spotlight.hbs" box.spotlight}}
       {{else if box.actors}}
       {{> "modules/roll101-dm-screen/templates/boxes/actors.hbs" box.actors}}
       {{else}}

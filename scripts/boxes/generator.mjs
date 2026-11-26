@@ -6,7 +6,7 @@ import { pickLanguage } from "./reference.mjs";
 /** Most entries the box lists. The generators are far smaller; this is only a guard. */
 const LIST_LIMIT = 200;
 
-const ICONS = Object.freeze({ environment: "fa-solid fa-cloud-bolt", events: "fa-solid fa-signs-post" });
+const ICONS = Object.freeze({ environment: "fa-solid fa-cloud-bolt", events: "fa-solid fa-signs-post", twists: "fa-solid fa-yin-yang" });
 
 function languageChoices(languages, chosen) {
   if (languages.length < 2) return null;

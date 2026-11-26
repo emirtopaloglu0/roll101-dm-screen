@@ -1153,3 +1153,319 @@
 .r101-dm-screen .r101-loot-result p {
   margin: 0 0 3px;
 }
+
+/* Storytelling tools: tension clocks */
+.r101-dm-screen .r101-clocks,
+.r101-dm-screen .r101-spotlight {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.r101-dm-screen .r101-clock-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 6px;
+  padding: 6px;
+}
+
+.r101-dm-screen .r101-clock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1 1 13em;
+  min-width: 0;
+  padding: 4px;
+  border: 1px solid var(--r101-border);
+  border-radius: var(--r101-radius);
+}
+
+.r101-dm-screen .r101-clock-face {
+  flex: 0 0 auto;
+  width: 3.6em;
+  height: 3.6em;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.r101-dm-screen .r101-clock-face svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.r101-dm-screen .r101-clock-seg {
+  fill: color-mix(in srgb, currentColor 8%, transparent);
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-opacity: 0.6;
+}
+
+.r101-dm-screen .r101-clock-seg.is-filled {
+  fill: var(--r101-clock-color, #b5462f);
+}
+
+.r101-dm-screen .r101-clock-full {
+  border-color: var(--r101-clock-color, #b5462f);
+  box-shadow: 0 0 0 1px var(--r101-clock-color, #b5462f) inset;
+}
+
+.r101-dm-screen .r101-color-dot {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: var(--r101-clock-color, #b5462f);
+  vertical-align: middle;
+}
+
+.r101-dm-screen .r101-clock-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.r101-dm-screen .r101-clock-name {
+  width: 100%;
+  height: auto;
+  padding: 0.1em 0.3em;
+  font-weight: bold;
+}
+
+.r101-dm-screen .r101-clock-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+}
+
+.r101-dm-screen .r101-clock-count {
+  min-width: 3.2em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.r101-dm-screen .r101-clock-controls .r101-select {
+  width: auto;
+  flex: 0 0 auto;
+}
+
+/* Storytelling tools: spotlight and stakes */
+.r101-dm-screen .r101-spotlight-add {
+  flex: 1 1 8em;
+  min-width: 5em;
+  height: auto;
+  padding: 0.1em 0.3em;
+}
+
+.r101-dm-screen .r101-spotlight-list {
+  margin: 0;
+  padding: 2px 0;
+  list-style: none;
+}
+
+.r101-dm-screen .r101-spotlight-row {
+  padding: 3px 8px;
+}
+
+.r101-dm-screen .r101-spotlight-row:nth-child(even) {
+  background: color-mix(in srgb, currentColor 5%, transparent);
+}
+
+.r101-dm-screen .r101-spotlight-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.r101-dm-screen .r101-spotlight-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 1.8em;
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 50%;
+  overflow: hidden;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  color: var(--r101-muted);
+  font-size: 1em;
+}
+
+.r101-dm-screen .r101-spotlight-avatar img {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+}
+
+.r101-dm-screen .r101-spotlight-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.r101-dm-screen .r101-spotlight-missing .r101-spotlight-name {
+  color: var(--color-level-warning, #c27d0e);
+  font-style: italic;
+}
+
+.r101-dm-screen .r101-spotlight-pips {
+  display: flex;
+  gap: 3px;
+}
+
+.r101-dm-screen .r101-pip {
+  width: 1em;
+  height: 1em;
+  min-height: 0;
+  padding: 0;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  opacity: 0.6;
+}
+
+.r101-dm-screen .r101-pip.is-on {
+  background: var(--color-level-success, #2e7d32);
+  border-color: var(--color-level-success, #2e7d32);
+  opacity: 1;
+}
+
+.r101-dm-screen .r101-stakes-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+  width: 2.8em;
+  padding: 0 0.3em;
+}
+
+.r101-dm-screen .r101-stakes-toggle.has-stakes {
+  color: inherit;
+}
+
+.r101-dm-screen .r101-stake-count {
+  min-width: 1ch;
+  font-variant-numeric: tabular-nums;
+}
+
+.r101-dm-screen .r101-stakes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 0 2px 2.4em;
+  padding: 4px 6px;
+  border-left: 2px solid var(--r101-border);
+}
+
+.r101-dm-screen .r101-stakes[hidden] {
+  display: none;
+}
+
+.r101-dm-screen .r101-stake {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 1.7em;
+  padding: 0 0.2em 0 0.6em;
+  border: 1px solid var(--r101-border);
+  border-radius: 1em;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  font-size: 0.9em;
+  line-height: 1.2;
+}
+
+.r101-dm-screen .r101-stake-new {
+  width: auto;
+  padding: 0 0.6em;
+  border-style: dashed;
+  background: transparent;
+  color: var(--r101-muted);
+  cursor: pointer;
+}
+
+.r101-dm-screen .r101-stake-new:hover,
+.r101-dm-screen .r101-stake-new:focus-visible {
+  color: inherit;
+  border-style: solid;
+}
+
+.r101-dm-screen .r101-stake-new[hidden],
+.r101-dm-screen .r101-stake-input[hidden] {
+  display: none;
+}
+
+.r101-dm-screen .r101-stake-remove {
+  width: 1.4em;
+  height: 1.4em;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 0.75em;
+  color: var(--r101-muted);
+}
+
+.r101-dm-screen .r101-stake-input {
+  flex: 0 1 16em;
+  min-width: 8em;
+  height: 1.7em;
+  padding: 0 0.7em;
+  border-radius: 1em;
+  font-size: 0.9em;
+}
+
+/* Help panels (storytelling boxes) and section hints (reference templates) */
+.r101-dm-screen .r101-help {
+  flex: 0 0 auto;
+  max-height: 45%;
+  overflow: auto;
+  margin: 4px 6px;
+  padding: 6px 8px;
+  border: 1px solid color-mix(in srgb, var(--color-level-info, #3567b5) 45%, transparent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--color-level-info, #3567b5) 10%, transparent);
+  font-size: 0.9em;
+  user-select: text;
+}
+
+.r101-dm-screen .r101-help[hidden] {
+  display: none;
+}
+
+.r101-dm-screen .r101-help p {
+  margin: 0 0 4px;
+}
+
+.r101-dm-screen .r101-help-credit {
+  font-size: 0.85em;
+  opacity: 0.75;
+}
+
+.r101-dm-screen .r101-tpl-hint {
+  margin: 4px 6px 6px;
+  padding: 5px 8px;
+  border: 1px solid color-mix(in srgb, var(--color-level-info, #3567b5) 45%, transparent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--color-level-info, #3567b5) 10%, transparent);
+  font-size: 0.9em;
+}
+
+.r101-library-dialog .r101-library-credit {
+  margin: 0 0 4px;
+  font-size: 0.85em;
+  opacity: 0.75;
+}

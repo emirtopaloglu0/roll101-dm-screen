@@ -4,10 +4,24 @@ A configurable Game Master screen for Foundry VTT. Keep notes, rollable tables,
 table-folder generators, journals and quick rules references in one grid window,
 without leaving Foundry.
 
-Made by [Roll101](https://roll101rpg.com/en).
+Made by [Roll101](https://roll101rpg.com/en). Join us on [Discord](https://discord.gg/MdMkW2egww).
 
-> **Status:** 1.1.0. Tested on Foundry v14; v13 untested. Back up your world before first use.
+> **Status:** 1.2.0. Tested on Foundry v14; v13 untested. Back up your world before first use.
 > See [docs/TESTING.md](docs/TESTING.md).
+
+## New in 1.2.0: storytelling tools
+
+A GM screen should help you tell the story, not only look up rules. Version 1.2.0 adds a
+**Storytelling (GM tools)** group to the Library, in English and Turkish:
+
+- **Spotlight & Stakes**: see at a glance who has been quiet, and what each character cares about.
+- **Tension Clocks**: colored countdown clocks you can show in chat or end with a curse.
+- **Blessings & Curses**: improv prompts for twists, complications and success at a cost.
+- **Scene Pacing & Transitions**: when to keep a scene and how to end it.
+- **Command Center**: one click adds a tab with all of them.
+
+Idea credit: the video [“Why are DM Screens Missing these?”](https://youtu.be/MLX4CiTOW9M)
+by the YouTube channel **Corkboards & Curiosities**. Texts and code in this module are original.
 
 ## Screenshots
 
@@ -44,6 +58,17 @@ Several layouts as tabs. Empty cells take notes, library boxes or dropped journa
   items always add up to the same total value: gems, art objects, trade goods and equipment (names
   and prices from SRD 5.1), plus magic items in hoards. Amounts and gem/art descriptions are original.
 - Party summary also shows dnd5e group actors (coins and members, read only). Toggle each section.
+
+- Storytelling tools (English and Turkish), or all of them at once with the **Command Center** layout:
+  - **Spotlight & Stakes**: mark who had a character moment; the quietest characters come first.
+    "New session" moves everyone back one mark. Each character keeps a short list of stakes
+    (patron, rival, fear, crush…) to make twists personal.
+  - **Tension Clocks**: 3 to 12 segment clocks for chases, rituals, guards arriving. Click to fill,
+    right-click to clear, show a clock in chat, or roll a curse when it fills up.
+  - **Blessings & Curses**: improv prompts for twists, complications and success at a cost.
+  - **Scene Pacing & Transitions**: when to keep a scene, and three ways to end one (cut, gentle close, hard push).
+  - Each box has a language choice (EN / TR) and a **?** button that explains how to use it.
+  - Idea from [Corkboards & Curiosities](https://youtu.be/MLX4CiTOW9M) on YouTube. Texts are original.
 
 ## Compatibility
 

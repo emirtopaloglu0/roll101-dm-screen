@@ -1,0 +1,78 @@
+{
+  "id": "twists",
+  "title": { "en": "Blessings & Curses", "tr": "Lütuflar ve Lanetler" },
+  "attribution": {
+    "en": "Original improv prompts. Fill each prompt with something from the scene or from a character's stakes. Use one when the game loses momentum, a clock fills, on a critical roll, to reward a creative idea, or to offer success at a cost. Idea from the YouTube channel Corkboards & Curiosities (\"Why are DM Screens Missing these?\").",
+    "tr": "Özgün doğaçlama fikirleri. Her fikri sahneden ya da bir karakterin kancalarından bir şeyle doldur. Oyun hız kaybettiğinde, bir saat dolduğunda, kritik bir zarda, yaratıcı bir fikri ödüllendirmek için ya da bedeli olan bir başarı önermek için kullan. Fikir: Corkboards & Curiosities YouTube kanalı (\"Why are DM Screens Missing these?\")."
+  },
+  "groups": [
+    {
+      "id": "blessing",
+      "label": { "en": "Blessing", "tr": "Lütuf" },
+      "entries": [
+        { "en": "You find a useful object right where you need it.", "tr": "Tam ihtiyacın olan yerde işe yarar bir eşya bulursun." },
+        { "en": "You spot a danger before it springs.", "tr": "Bir tehlikeyi daha harekete geçmeden fark edersin." },
+        { "en": "You draw someone's attention exactly where you want it.", "tr": "Birinin dikkatini tam istediğin yere çekersin." },
+        { "en": "An unexpected ally steps in, for now.", "tr": "Beklenmedik bir müttefik araya girer, şimdilik." },
+        { "en": "You learn a secret your enemy wanted kept.", "tr": "Düşmanının saklamak istediği bir sırrı öğrenirsin." },
+        { "en": "A shortcut opens up: save time or skip an obstacle.", "tr": "Bir kestirme açılır: zaman kazanırsın ya da bir engeli atlarsın." },
+        { "en": "Your reputation arrives before you and opens a door.", "tr": "Ünün senden önce gelir ve bir kapı açar." },
+        { "en": "The environment turns in your favor.", "tr": "Ortam senin lehine döner." },
+        { "en": "An enemy hesitates, doubts or makes a mistake.", "tr": "Bir düşman tereddüt eder, şüpheye düşer ya da hata yapar." },
+        { "en": "You gain a moment of calm: catch your breath or plan.", "tr": "Kısa bir sakinlik anı kazanırsın: nefeslen ya da plan yap." },
+        { "en": "Someone owes you a favor, and now is the time to call it in.", "tr": "Biri sana bir iyilik borçlu ve şimdi onu isteme zamanı." },
+        { "en": "You notice a weakness: in a lock, a wall, a lie or a foe.", "tr": "Bir zayıflık fark edersin: bir kilitte, duvarda, yalanda ya da düşmanda." },
+        { "en": "Two of your problems turn out to have the same solution.", "tr": "İki sorununun aynı çözümü olduğu ortaya çıkar." },
+        { "en": "A rumor or clue points you to the next step.", "tr": "Bir söylenti ya da ipucu sonraki adımı gösterir." },
+        { "en": "Your action inspires someone who was watching.", "tr": "Yaptığın şey, seni izleyen birine ilham verir." },
+        { "en": "Help arrives from a character's past or bond.", "tr": "Bir karakterin geçmişinden ya da bağlarından yardım gelir." },
+        { "en": "You get the drop on them: act first next time.", "tr": "Onları gafil avlarsın: bir dahaki sefere ilk sen davranırsın." },
+        { "en": "An object you carry proves more useful than expected.", "tr": "Taşıdığın bir eşya beklenenden daha işe yarar çıkar." },
+        { "en": "Something lost comes back to you.", "tr": "Kaybettiğin bir şey sana geri döner." },
+        { "en": "A higher power, a patron or fate itself gives a small sign.", "tr": "Yüce bir güç, bir hami ya da kaderin kendisi küçük bir işaret verir." }
+      ]
+    },
+    {
+      "id": "curse",
+      "label": { "en": "Curse", "tr": "Lanet" },
+      "entries": [
+        { "en": "You attract attention, the bad kind.", "tr": "Dikkat çekersin, ama kötü türden." },
+        { "en": "The worst possible person enters the scene.", "tr": "Olabilecek en kötü kişi sahneye girer." },
+        { "en": "You create an obstacle for yourself or an ally.", "tr": "Kendine ya da bir müttefikine engel yaratırsın." },
+        { "en": "Something breaks, runs out or gets lost.", "tr": "Bir şey kırılır, tükenir ya da kaybolur." },
+        { "en": "Time runs short: a clock ticks or a new one starts.", "tr": "Zaman daralır: bir saat ilerler ya da yeni bir saat başlar." },
+        { "en": "You must sacrifice something to get what you want.", "tr": "İstediğini almak için bir şeyden vazgeçmen gerekir." },
+        { "en": "An ally is put in danger.", "tr": "Bir müttefik tehlikeye girer." },
+        { "en": "A lie is exposed, or a truth comes out at the worst time.", "tr": "Bir yalan ortaya çıkar ya da bir gerçek en kötü anda açığa çıkar." },
+        { "en": "The situation gets bigger: more enemies, more witnesses, more at stake.", "tr": "Durum büyür: daha çok düşman, daha çok tanık, daha çok risk." },
+        { "en": "You are separated from the group or from your gear.", "tr": "Gruptan ya da eşyalarından ayrı düşersin." },
+        { "en": "An old enemy or debt catches up with you.", "tr": "Eski bir düşman ya da borç peşini bulur." },
+        { "en": "Your success helps a rival or an enemy too.", "tr": "Başarın bir rakibe ya da düşmana da yarar." },
+        { "en": "The environment turns against you.", "tr": "Ortam sana karşı döner." },
+        { "en": "Someone innocent gets caught in the middle.", "tr": "Masum biri arada kalır." },
+        { "en": "You owe someone now, and they will collect.", "tr": "Artık birine borçlusun ve o bunu tahsil edecek." },
+        { "en": "A choice is forced: you cannot have both.", "tr": "Bir seçim dayatılır: ikisine birden sahip olamazsın." },
+        { "en": "Your reputation takes a hit with someone who matters.", "tr": "Önemli biri gözünde itibarın zedelenir." },
+        { "en": "A character's fear, flaw or curse shows itself.", "tr": "Bir karakterin korkusu, kusuru ya da laneti kendini gösterir." },
+        { "en": "You leave a trail that someone will follow.", "tr": "Birinin takip edeceği bir iz bırakırsın." },
+        { "en": "The thing you wanted is not what you expected.", "tr": "İstediğin şey beklediğin gibi çıkmaz." }
+      ]
+    },
+    {
+      "id": "bargain",
+      "label": { "en": "Success at a cost", "tr": "Bedelli başarı" },
+      "entries": [
+        { "en": "You succeed, but you take damage or lose a resource.", "tr": "Başarırsın ama hasar alırsın ya da bir kaynağını kaybedersin." },
+        { "en": "You succeed, but it takes much longer than planned.", "tr": "Başarırsın ama planlanandan çok daha uzun sürer." },
+        { "en": "You succeed, but it is loud and someone noticed.", "tr": "Başarırsın ama gürültülü olur ve biri fark eder." },
+        { "en": "You succeed, but you break or leave something behind.", "tr": "Başarırsın ama bir şeyi kırarsın ya da geride bırakırsın." },
+        { "en": "You succeed, but someone else pays the price.", "tr": "Başarırsın ama bedeli başkası öder." },
+        { "en": "You succeed, but you owe a favor to the wrong person.", "tr": "Başarırsın ama yanlış kişiye bir iyilik borçlanırsın." },
+        { "en": "You succeed, but only partly: choose what you keep.", "tr": "Başarırsın ama yalnızca kısmen: neyi tutacağını seç." },
+        { "en": "You succeed, but a clock ticks forward.", "tr": "Başarırsın ama bir saat bir dilim ilerler." },
+        { "en": "You succeed, but you reveal something about yourself.", "tr": "Başarırsın ama kendinle ilgili bir şeyi açığa vurursun." },
+        { "en": "You succeed, but you lose ground with an ally or contact.", "tr": "Başarırsın ama bir müttefik ya da bağlantı gözünde kaybedersin." }
+      ]
+    }
+  ]
+}

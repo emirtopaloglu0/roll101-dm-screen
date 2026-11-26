@@ -160,7 +160,17 @@
       "Actors": "Party summary",
       "ActorsHint": "AC, HP, passive scores and conditions of your characters",
       "Loot": "Loot Generator",
-      "LootHint": "Coins and items of the same value, with magic items in hoards"
+      "LootHint": "Coins and items of the same value, with magic items in hoards",
+      "GMTools": "Storytelling (GM tools)",
+      "CommandCenter": "Command Center layout",
+      "CommandCenterHint": "New tab with spotlight, clocks, blessings & curses and scene pacing",
+      "Spotlight": "Spotlight & Stakes",
+      "SpotlightHint": "Who had a character moment, and what each character cares about",
+      "Clocks": "Tension Clocks",
+      "ClocksHint": "Countdowns and progress clocks for anything",
+      "Twists": "Blessings & Curses",
+      "TwistsHint": "Improv prompts: twists, complications and success at a cost",
+      "Credit": "Idea: Corkboards & Curiosities (YouTube)"
     },
     "Coins": {
       "Title": "Coin converter",
@@ -258,6 +268,46 @@
         "ins": "Insight",
         "dc": "Spell DC"
       }
+    },
+    "Clocks": {
+      "Title": "Tension clocks",
+      "Add": "Add clock",
+      "Hint": "Click: +1 · Right-click: −1",
+      "Untitled": "Unnamed clock",
+      "Name": "Clock name",
+      "StepHint": "Click to fill one segment, right-click to clear one",
+      "Plus": "Fill one segment",
+      "Minus": "Clear one segment",
+      "Size": "Segments",
+      "Share": "Show in chat (players see it)",
+      "Curse": "Roll a curse (Blessings & Curses)",
+      "Remove": "Remove clock",
+      "Empty": "No clocks yet. Add one for a chase, a ritual, guards arriving…",
+      "Color": "Color (click: next, Shift+click: previous)",
+      "HelpToggle": "What is this?",
+      "Help": "A clock is a progress bar for anything that should not be settled with one roll: escaping a forest, a chase, a ritual, guards on their way, a trial. Pick the number of segments by how hard or how long it is.",
+      "HowTo": "Fill a segment each time the characters make progress, or each time time passes or they fail. When the clock is full, it happens. Telling the players that a clock moved builds tension: use “Show in chat”. A full clock is a good moment for a curse."
+    },
+    "Spotlight": {
+      "Title": "Spotlight & Stakes",
+      "NewSession": "New session",
+      "NewSessionHint": "Everyone moves back one moment, so last session's stars can wait",
+      "ShowAll": "Show hidden ({count})",
+      "AddName": "Add a name…",
+      "Moments": "Character moments",
+      "MarkHint": "Had a character moment",
+      "Stakes": "Stakes: what this character cares about",
+      "AddStake": "Patron, rival, fear… then Enter (Esc: cancel)",
+      "RemoveStake": "Remove this stake",
+      "Remove": "Remove from this list",
+      "Missing": "Actor not found (deleted?)",
+      "Empty": "No player characters found. Add names above or drop actors here.",
+      "HelpToggle": "What is this?",
+      "Help": "Players care most about their own character. This list helps you share the spotlight: mark a pip when a character gets a moment of their own. Characters with fewer marks come first, so you can see at a glance who has been quiet.",
+      "HowTo": "Press “New session” at the start of each session: every character loses one mark. Someone who had two moments last time keeps one, so others come first this time, but nobody starts from zero by accident.",
+      "StakesHelp": "Stakes (⚓) are a few keywords about what matters to each character: a demanding patron, a rival, a fear, a crush, a slowly growing curse. When someone needs a moment, or when you need a twist, pick one of their stakes. A character with no stakes may need a chat with their player.",
+      "NoStakes": "No stakes yet.",
+      "AddStakeButton": "Add stake"
     }
   }
 }
