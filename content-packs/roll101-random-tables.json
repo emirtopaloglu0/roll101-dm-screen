@@ -1,0 +1,982 @@
+{
+  "format": "roll101-dm-screen-pack",
+  "formatVersion": 2,
+  "id": "roll101-random-tables",
+  "name": "Roll101 Random Tables",
+  "version": "1.0.0",
+  "description": {
+    "en": "Combat Environment and Random Events generators for the Roll101 DM Screen.",
+    "tr": "Roll101 DM Screen için Savaş Ortamı ve Rastgele Olaylar üreticileri."
+  },
+  "templates": [],
+  "generators": [
+    {
+      "id": "environment",
+      "title": {
+        "en": "Combat Environment",
+        "tr": "Savaş Ortamı"
+      },
+      "attribution": {
+        "en": "Original suggestions for any d20 fantasy game. Adjust DCs and damage to your party's level.",
+        "tr": "d20 fantezi oyunları için özgün önerilerdir. DC ve hasarı grubun seviyesine göre ayarla."
+      },
+      "groups": [
+        {
+          "id": "terrain",
+          "label": {
+            "en": "Terrain & footing",
+            "tr": "Zemin ve hareket"
+          },
+          "entries": [
+            {
+              "en": "Slick floor (oil, ice or wet stone). A creature that Dashes or is pushed here makes a DC 12 Dexterity save or falls Prone.",
+              "tr": "Kaygan zemin (yağ, buz veya ıslak taş). Burada koşan (Dash) veya itilen yaratık DC 12 Çeviklik kurtarma zarı atar; başarısız olursa Prone olur."
+            },
+            {
+              "en": "Sticky mud. Difficult terrain. A creature that ends its turn in it has Disadvantage on Dexterity saves until its next turn.",
+              "tr": "Yapışkan çamur. Zor arazi. Turunu içinde bitiren yaratık, bir sonraki turuna kadar Çeviklik kurtarma zarlarında Dezavantaj alır."
+            },
+            {
+              "en": "Rubble and debris fill half the area: difficult terrain. A DC 13 Dexterity (Acrobatics) check crosses it at normal speed for one move.",
+              "tr": "Alanın yarısı moloz ve enkazla dolu: zor arazi. DC 13 Çeviklik (Acrobatics) kontrolü, bir hareket boyunca normal hızla geçmeyi sağlar."
+            },
+            {
+              "en": "A ledge or beam only 1 foot wide. Each turn spent on it needs a DC 12 Dexterity (Acrobatics) check, or the creature falls Prone or off the edge.",
+              "tr": "Yalnızca 30 cm genişliğinde bir çıkıntı veya kiriş. Üzerinde geçirilen her tur DC 12 Çeviklik (Acrobatics) kontrolü ister; başarısızlıkta yaratık Prone olur veya düşer."
+            },
+            {
+              "en": "Crumbling floor: a 10-foot square gives way when 2 or more creatures stand on it. Each makes a DC 13 Dexterity save or falls 10 feet (1d6 bludgeoning).",
+              "tr": "Çöken zemin: 3 metrelik bir kare, üzerinde 2 veya daha fazla yaratık dururken çöker. Her biri DC 13 Çeviklik kurtarma zarı atar; başarısız olan 3 metre düşer (1d6 ezme hasarı)."
+            },
+            {
+              "en": "Thick undergrowth or webbing: difficult terrain. A creature entering it makes a DC 11 Strength save or its speed is 0 until its next turn.",
+              "tr": "Sık çalılık veya ağ: zor arazi. İçine giren yaratık DC 11 Güç kurtarma zarı atar; başarısız olursa bir sonraki turuna kadar hızı 0 olur."
+            },
+            {
+              "en": "A steep slope. Moving uphill costs double movement. A creature moving downhill faster than half its speed makes a DC 11 Dexterity save or falls Prone.",
+              "tr": "Dik yamaç. Yokuş yukarı hareket iki katı maliyetlidir. Yokuş aşağı hızının yarısından fazla ilerleyen yaratık DC 11 Çeviklik kurtarma zarı atar; başarısız olursa Prone olur."
+            },
+            {
+              "en": "Knee-deep, fast-flowing water: difficult terrain. At the end of its turn a creature makes a DC 12 Strength save or is pushed 10 feet downstream.",
+              "tr": "Diz boyu, hızlı akan su: zor arazi. Yaratık turunun sonunda DC 12 Güç kurtarma zarı atar; başarısız olursa akıntı yönünde 3 metre sürüklenir."
+            },
+            {
+              "en": "Loose gravel and scree. A creature that moves more than half its speed on its turn makes a DC 12 Dexterity save at the end of its move or falls Prone.",
+              "tr": "Gevşek çakıl ve taş yığını. Turunda hızının yarısından fazlasını hareket eden yaratık, hareketinin sonunda DC 12 Çeviklik kurtarma zarı atar; başarısız olursa Prone olur."
+            },
+            {
+              "en": "Deep snow or soft sand fills the area: difficult terrain. Tracks left here are easy to follow (DC 8 Wisdom (Survival) check).",
+              "tr": "Alanı derin kar veya yumuşak kum kaplıyor: zor arazi. Burada bırakılan izleri takip etmek kolaydır (DC 8 Bilgelik (Survival) kontrolü)."
+            },
+            {
+              "en": "A rope-and-plank walkway sways underfoot. A creature that takes damage while on it makes a DC 11 Dexterity (Acrobatics) check or falls Prone and slides toward the edge.",
+              "tr": "Ayak altında sallanan ip ve tahta bir yürüyüş yolu. Üzerindeyken hasar alan yaratık DC 11 Çeviklik (Acrobatics) kontrolü atar; başarısız olursa Prone olur ve kenara doğru kayar."
+            },
+            {
+              "en": "A low railing runs along a drop. A creature pushed into it makes a DC 12 Strength save or goes over the edge and falls 20 feet (2d6 bludgeoning).",
+              "tr": "Bir uçurumun kenarında alçak bir korkuluk var. Korkuluğa doğru itilen yaratık DC 12 Güç kurtarma zarı atar; başarısız olursa kenardan aşar ve 6 metre düşer (2d6 ezme hasarı)."
+            },
+            {
+              "en": "Cramped quarters. A creature using a weapon with the Heavy or Reach property has Disadvantage on attack rolls here, and Large creatures count the area as difficult terrain.",
+              "tr": "Dar ve sıkışık bir alan. Heavy veya Reach özellikli silah kullanan yaratık burada saldırı zarlarında Dezavantaj alır; Large yaratıklar için alan zor arazidir."
+            },
+            {
+              "en": "Quicksand or a sucking bog fills a 10-foot radius. A creature that enters it is Restrained. A creature can use an action to free itself or an ally with a DC 12 Strength (Athletics) check.",
+              "tr": "3 metre yarıçaplı bir alanı yutan kum veya bataklık kaplıyor. İçine giren yaratık Restrained olur. Bir yaratık, aksiyon harcayıp DC 12 Güç (Athletics) kontrolüyle kendini veya bir müttefiki kurtarabilir."
+            },
+            {
+              "en": "A rotating floor (a mill wheel, turntable or shifting drawbridge). At initiative count 20 it turns 90 degrees. Creatures on it make a DC 12 Dexterity save or slide 10 feet in a random direction.",
+              "tr": "Dönen bir zemin (değirmen çarkı, döner platform veya kayan köprü). Inisiyatif 20'de 90 derece döner. Üzerindeki yaratıklar DC 12 Çeviklik kurtarma zarı atar; başarısız olan rastgele bir yöne 3 metre kayar."
+            },
+            {
+              "en": "Moss-slick stairs or steps. A creature that moves down them faster than half its speed makes a DC 12 Dexterity (Acrobatics) check or falls Prone at the bottom, taking 1d4 bludgeoning damage.",
+              "tr": "Yosunlu, kaygan merdiven veya basamaklar. Aşağı inerken hızının yarısından fazla hızla giden yaratık DC 12 Çeviklik (Acrobatics) kontrolü atar; başarısız olursa dipte Prone olur ve 1d4 ezme hasarı alır."
+            }
+          ]
+        },
+        {
+          "id": "hazard",
+          "label": {
+            "en": "Hazards & damage",
+            "tr": "Tehlikeler ve hasar"
+          },
+          "entries": [
+            {
+              "en": "Fire spreads across the area. A creature that starts its turn there or enters it takes 1d6 fire damage. It spreads 5 feet each round.",
+              "tr": "Ateş alanı sarıyor. Turuna burada başlayan veya buraya giren yaratık 1d6 ateş hasarı alır. Ateş her tur 1,5 metre yayılır."
+            },
+            {
+              "en": "Falling debris. Creatures in a 10-foot square make a DC 13 Dexterity save, taking 2d6 bludgeoning damage on a failure, half on a success.",
+              "tr": "Tavandan enkaz düşüyor. 3 metrelik karedeki yaratıklar DC 13 Çeviklik kurtarma zarı atar; başarısızlıkta 2d6 ezme hasarı, başarıda yarısı."
+            },
+            {
+              "en": "Poisonous gas seeps in. A creature starting its turn in it makes a DC 12 Constitution save or takes 1d8 poison damage and is Poisoned until the end of its next turn.",
+              "tr": "Zehirli gaz sızıyor. Turuna içinde başlayan yaratık DC 12 Yapı kurtarma zarı atar; başarısız olursa 1d8 zehir hasarı alır ve bir sonraki turunun sonuna kadar Poisoned olur."
+            },
+            {
+              "en": "Scalding steam vents erupt at initiative count 20. Creatures within 5 feet of a vent make a DC 12 Dexterity save or take 2d6 fire damage.",
+              "tr": "Haşlayıcı buhar bacaları inisiyatif 20'de patlar. Bir bacaya 1,5 metre içindeki yaratıklar DC 12 Çeviklik kurtarma zarı atar; başarısız olursa 2d6 ateş hasarı alır."
+            },
+            {
+              "en": "Acid pools on the floor. A creature that ends its turn in it takes 2d4 acid damage.",
+              "tr": "Zeminde asit birikintileri var. Turunu içinde bitiren yaratık 2d4 asit hasarı alır."
+            },
+            {
+              "en": "Electrified water or metal. A creature touching it makes a DC 13 Constitution save or takes 2d8 lightning damage and cannot take reactions until its next turn.",
+              "tr": "Elektrik yüklü su veya metal. Dokunan yaratık DC 13 Yapı kurtarma zarı atar; başarısız olursa 2d8 yıldırım hasarı alır ve bir sonraki turuna kadar reaksiyon kullanamaz."
+            },
+            {
+              "en": "A hidden spiked pit. A DC 14 Wisdom (Perception) check spots it. A creature that falls in (10 feet) takes 1d6 bludgeoning and 1d6 piercing damage.",
+              "tr": "Gizli, kazıklı bir çukur. DC 14 Bilgelik (Perception) kontrolüyle fark edilir. Düşen yaratık (3 metre) 1d6 ezme ve 1d6 delici hasar alır."
+            },
+            {
+              "en": "A hidden mechanism fires bolts. Creatures in a 15-foot line make a DC 13 Dexterity save, taking 3d6 piercing damage on a failure, half on a success.",
+              "tr": "Gizli bir mekanizma ok fırlatır. 4,5 metrelik hattaki yaratıklar DC 13 Çeviklik kurtarma zarı atar; başarısızlıkta 3d6 delici hasar, başarıda yarısı."
+            },
+            {
+              "en": "Swarming insects fill a 15-foot cube. A creature that starts its turn there takes 1d4 piercing damage and has Disadvantage on Constitution saves made to keep concentration.",
+              "tr": "Saldıran böcek sürüsü 4,5 metrelik bir küpü dolduruyor. Turuna orada başlayan yaratık 1d4 delici hasar alır ve konsantrasyonu korumak için attığı Yapı kurtarma zarlarında Dezavantaj alır."
+            },
+            {
+              "en": "Fungus spores bloom from the walls. A creature that starts its turn within 10 feet of the growth makes a DC 12 Constitution save or is Poisoned until the end of its next turn.",
+              "tr": "Duvarlardan mantar sporları yayılıyor. Turuna mantar kümesinin 3 metre yakınında başlayan yaratık DC 12 Yapı kurtarma zarı atar; başarısız olursa bir sonraki turunun sonuna kadar Poisoned olur."
+            },
+            {
+              "en": "Boulders break loose and roll down the slope. Creatures in a 10-foot-wide, 30-foot-long line make a DC 14 Dexterity save, taking 3d6 bludgeoning damage on a failure or half as much on a success.",
+              "tr": "Kayalar yerinden kopup yamaçtan yuvarlanıyor. 3 metre genişliğinde, 9 metre uzunluğundaki hatta bulunan yaratıklar DC 14 Çeviklik kurtarma zarı atar; başarısızlıkta 3d6 ezme hasarı, başarıda yarısı kadar hasar alır."
+            },
+            {
+              "en": "Cursed ground leaks a creeping cold. A creature that ends its turn there takes 1d6 necrotic damage and cannot regain hit points until the start of its next turn.",
+              "tr": "Lanetli zemin içe işleyen bir soğuk yayıyor. Turunu orada bitiren yaratık 1d6 nekrotik hasar alır ve bir sonraki turunun başına kadar can puanı iyileştiremez."
+            },
+            {
+              "en": "The ceiling groans and dust rains down. After 3 rounds a 20-foot square collapses: DC 14 Dexterity save, 4d6 bludgeoning damage on a failure or half as much on a success. The area becomes difficult terrain.",
+              "tr": "Tavan gıcırdıyor ve toz yağıyor. 3 tur sonra 6 metrelik bir kare çöker: DC 14 Çeviklik kurtarma zarı, başarısızlıkta 4d6 ezme hasarı, başarıda yarısı. Alan zor araziye dönüşür."
+            },
+            {
+              "en": "A tripwire is linked to an alarm bell and a hanging net. A DC 13 Wisdom (Perception) check spots the wire. Otherwise the creature is Restrained (DC 12 Strength to escape) and everyone within 100 feet hears the bell.",
+              "tr": "Bir tuzak teli, alarm çanına ve asılı bir ağa bağlı. DC 13 Bilgelik (Perception) kontrolüyle tel fark edilir. Aksi halde yaratık Restrained olur (kurtulmak için DC 12 Güç) ve 30 metre içindeki herkes çanı duyar."
+            },
+            {
+              "en": "Molten metal splashes from a forge or lava vent. A creature within 5 feet makes a DC 13 Dexterity save or takes 2d6 fire damage and catches fire, taking 1d4 fire damage at the start of each turn until it uses an action to put the flames out.",
+              "tr": "Bir ocaktan veya lav deliğinden erimiş metal sıçrıyor. 1,5 metre içindeki yaratık DC 13 Çeviklik kurtarma zarı atar; başarısız olursa 2d6 ateş hasarı alır ve tutuşur; aksiyon harcayıp alevi söndürene kadar her turun başında 1d4 ateş hasarı alır."
+            },
+            {
+              "en": "Thorned vines lash out. A creature that starts its turn adjacent to them makes a DC 12 Dexterity save or takes 1d6 piercing damage and is Grappled (escape DC 12).",
+              "tr": "Dikenli sarmaşıklar kamçı gibi savruluyor. Turuna yanlarında başlayan yaratık DC 12 Çeviklik kurtarma zarı atar; başarısız olursa 1d6 delici hasar alır ve Grappled olur (kurtulmak için DC 12)."
+            }
+          ]
+        },
+        {
+          "id": "weather",
+          "label": {
+            "en": "Weather & visibility",
+            "tr": "Hava ve görüş"
+          },
+          "entries": [
+            {
+              "en": "Heavy rain. Disadvantage on Wisdom (Perception) checks that rely on sight or hearing. Open flames go out.",
+              "tr": "Şiddetli yağmur. Görme veya duymaya dayanan Bilgelik (Perception) kontrollerinde Dezavantaj. Açık alevler söner."
+            },
+            {
+              "en": "Thick fog. Everything more than 10 feet away is Heavily Obscured.",
+              "tr": "Yoğun sis. 3 metreden uzaktaki her şey Heavily Obscured olur."
+            },
+            {
+              "en": "Howling wind. Ranged weapon attacks have Disadvantage, and flying creatures must land by the end of their turn or fall.",
+              "tr": "Uluyan rüzgâr. Menzilli silah saldırılarında Dezavantaj; uçan yaratıklar turun sonunda inmezse düşer."
+            },
+            {
+              "en": "Blinding glare from the sun or a fire. Creatures looking toward it have Disadvantage on ranged attacks and sight-based Perception checks.",
+              "tr": "Güneşten veya ateşten kamaştırıcı ışık. Ona doğru bakan yaratıklar menzilli saldırılarda ve görmeye dayalı Perception kontrollerinde Dezavantaj alır."
+            },
+            {
+              "en": "Oppressive heat. Creatures in medium or heavy armor have Disadvantage on Constitution saves, and make a DC 11 Constitution save after the fight or gain a level of Exhaustion.",
+              "tr": "Bunaltıcı sıcak. Orta veya ağır zırhlı yaratıklar Yapı kurtarma zarlarında Dezavantaj alır; savaştan sonra DC 11 Yapı kurtarma zarı atar, başarısız olursa bir Exhaustion seviyesi kazanır."
+            },
+            {
+              "en": "Freezing cold. A creature without cold protection makes a DC 12 Constitution save at the end of each of its turns, or its speed drops by 10 feet until its next turn.",
+              "tr": "Dondurucu soğuk. Soğuktan korunmayan yaratık her turunun sonunda DC 12 Yapı kurtarma zarı atar; başarısız olursa bir sonraki turuna kadar hızı 3 metre azalır."
+            },
+            {
+              "en": "Lightning storm. At initiative count 20 roll 1d6. On a 1, lightning strikes a random creature or metal object: DC 14 Dexterity save, 3d10 lightning damage, half on a success.",
+              "tr": "Fırtına ve yıldırım. İnisiyatif 20'de 1d6 at. 1 gelirse rastgele bir yaratığa veya metal nesneye yıldırım düşer: DC 14 Çeviklik kurtarma zarı, 3d10 yıldırım hasarı, başarıda yarısı."
+            },
+            {
+              "en": "Smoke fills the area (Heavily Obscured). A creature starting its turn in it makes a DC 12 Constitution save or loses its bonus action while coughing.",
+              "tr": "Duman alanı kaplar (Heavily Obscured). Turuna içinde başlayan yaratık DC 12 Yapı kurtarma zarı atar; başarısız olursa öksürdüğü için bonus aksiyonunu kaybeder."
+            },
+            {
+              "en": "Hail hammers the area. A creature in the open takes 1 bludgeoning damage at the start of each turn, and the din gives Disadvantage on hearing-based Wisdom (Perception) checks.",
+              "tr": "Dolu alanı dövüyor. Açıkta olan yaratık her turun başında 1 ezme hasarı alır ve gürültü, işitmeye dayalı Bilgelik (Perception) kontrollerinde Dezavantaj verir."
+            },
+            {
+              "en": "A choking dust cloud. A creature that starts its turn there makes a DC 11 Constitution save or coughs and cannot cast spells with a verbal component until the end of its next turn.",
+              "tr": "Boğucu bir toz bulutu. Turuna orada başlayan yaratık DC 11 Yapı kurtarma zarı atar; başarısız olursa öksürür ve bir sonraki turunun sonuna kadar sözel bileşenli büyü yapamaz."
+            },
+            {
+              "en": "Dense snowfall. Everything more than 30 feet away is Lightly Obscured, and fresh tracks vanish within minutes.",
+              "tr": "Yoğun kar yağışı. 9 metreden uzaktaki her şey Lightly Obscured olur ve taze izler dakikalar içinde silinir."
+            },
+            {
+              "en": "Dusk falls fast or the lights fail. The whole area is dimly lit, and creatures without Darkvision have Disadvantage on Wisdom (Perception) checks that rely on sight.",
+              "tr": "Akşam hızla çöküyor veya ışıklar sönüyor. Tüm alan loş aydınlatılmış olur; Darkvision'ı olmayan yaratıklar görmeye dayalı Bilgelik (Perception) kontrollerinde Dezavantaj alır."
+            },
+            {
+              "en": "Thunder rolls overhead. At initiative count 20 a thunderclap sounds: each creature makes a DC 12 Constitution save or is Deafened until the end of its next turn.",
+              "tr": "Başlarının üzerinde gök gürlüyor. Inisiyatif 20'de bir gök gürültüsü patlar: her yaratık DC 12 Yapı kurtarma zarı atar; başarısız olursa bir sonraki turunun sonuna kadar Deafened olur."
+            },
+            {
+              "en": "Thick, humid air. A creature wearing heavy armor has its speed reduced by 5 feet, and metal surfaces are slippery to the touch.",
+              "tr": "Kalın, nemli bir hava. Ağır zırh giyen yaratığın hızı 1,5 metre azalır ve metal yüzeyler dokununca kayganlaşır."
+            },
+            {
+              "en": "The water is rising. Each round it climbs another foot: after 3 rounds the area is difficult terrain, after 6 rounds creatures must swim.",
+              "tr": "Su yükseliyor. Her tur 30 cm daha çıkıyor: 3 tur sonra alan zor arazi olur, 6 tur sonra yaratıkların yüzmesi gerekir."
+            },
+            {
+              "en": "Gusting wind at a cliff edge. A creature within 5 feet of the edge at the end of its turn makes a DC 11 Strength save or is pushed 5 feet toward the drop.",
+              "tr": "Uçurum kenarında şiddetli rüzgâr. Turunun sonunda kenarın 1,5 metre yakınında olan yaratık DC 11 Güç kurtarma zarı atar; başarısız olursa uçuruma doğru 1,5 metre itilir."
+            }
+          ]
+        },
+        {
+          "id": "magic",
+          "label": {
+            "en": "Magical & strange",
+            "tr": "Büyülü ve tuhaf"
+          },
+          "entries": [
+            {
+              "en": "Wild magic shimmers here. When a creature casts a spell of 1st level or higher, roll 1d6. On a 1 the spell targets a random creature in range.",
+              "tr": "Burada vahşi büyü titreşiyor. Bir yaratık 1. seviye veya üstü büyü yaptığında 1d6 at. 1 gelirse büyü menzildeki rastgele bir yaratığı hedef alır."
+            },
+            {
+              "en": "A pocket of dead magic (10-foot radius). A spell cast inside fails unless the caster succeeds on a DC 13 spellcasting ability check.",
+              "tr": "Ölü büyü cebi (3 metre yarıçap). İçeride yapılan büyü, büyücü DC 13 büyü yeteneği kontrolünü geçmedikçe başarısız olur."
+            },
+            {
+              "en": "Gravity wobbles. At the start of each round every creature makes a DC 12 Strength save or floats up 10 feet, then drops at the end of the round (1d6 bludgeoning).",
+              "tr": "Yerçekimi sallanıyor. Her turun başında her yaratık DC 12 Güç kurtarma zarı atar; başarısız olursa 3 metre yükselir ve turun sonunda düşer (1d6 ezme hasarı)."
+            },
+            {
+              "en": "Whispers of the dead. A creature starting its turn in the area makes a DC 12 Wisdom save or is Frightened until the end of its next turn.",
+              "tr": "Ölülerin fısıltıları. Turuna alanda başlayan yaratık DC 12 Bilgelik kurtarma zarı atar; başarısız olursa bir sonraki turunun sonuna kadar Frightened olur."
+            },
+            {
+              "en": "Glowing runes flare, a different one each round. Roll 1d4: fire, cold, lightning or radiant. A creature on a rune makes a DC 13 Dexterity save or takes 2d6 of that type, half on a success.",
+              "tr": "Parlayan rünler her tur farklı biri alevlenir. 1d4 at: ateş, soğuk, yıldırım veya ışıma. Rünün üzerindeki yaratık DC 13 Çeviklik kurtarma zarı atar; başarısızlıkta o türden 2d6 hasar, başarıda yarısı."
+            },
+            {
+              "en": "Time stutters. At the start of each round two random creatures swap their initiative counts for that round.",
+              "tr": "Zaman kekeliyor. Her turun başında rastgele iki yaratık o tur için inisiyatif sıralarını değiştirir."
+            },
+            {
+              "en": "Echoing illusions. After a creature moves, an illusory copy of it appears. An attack against it has a 1 in 3 chance (1–2 on a d6) of hitting the copy instead and missing.",
+              "tr": "Yankılanan illüzyonlar. Hareket eden yaratığın illüzyon bir kopyası belirir. Ona yapılan saldırı 3'te 1 ihtimalle (d6'da 1–2) kopyaya denk gelir ve ıskalar."
+            },
+            {
+              "en": "A ley-line surge. A creature that casts a cantrip here adds one extra damage die to it but takes 1d4 force damage.",
+              "tr": "Büyü hattı dalgalanması. Burada hile büyüsü (cantrip) yapan yaratık büyüsüne bir fazladan hasar zarı ekler ama 1d4 kuvvet hasarı alır."
+            },
+            {
+              "en": "A sacred spring or small shrine. A creature that starts its turn within 10 feet regains 1d4 hit points, but undead and fiends there have Disadvantage on attack rolls.",
+              "tr": "Kutsal bir pınar veya küçük bir türbe. Turuna 3 metre içinde başlayan yaratık 1d4 can puanı iyileştirir; ancak buradaki undead ve fiend yaratıkları saldırı zarlarında Dezavantaj alır."
+            },
+            {
+              "en": "The air drinks magic. Each spell of 1st level or higher cast here deals force damage to its caster equal to the spell's level.",
+              "tr": "Hava büyüyü emiyor. Burada yapılan 1. seviye veya üstü her büyü, büyücüye büyünün seviyesi kadar kuvvet hasarı verir."
+            },
+            {
+              "en": "Spectral soldiers replay an old duel. A creature that enters a spectral soldier's space makes a DC 12 Wisdom save or takes 1d8 psychic damage.",
+              "tr": "Hayalet askerler eski bir düelloyu yeniden oynuyor. Bir hayalet askerin alanına giren yaratık DC 12 Bilgelik kurtarma zarı atar; başarısız olursa 1d8 psişik hasar alır."
+            },
+            {
+              "en": "A mana storm crackles. At the start of each round, each spellcaster makes a DC 12 Constitution save or the range of its next spell is halved.",
+              "tr": "Bir mana fırtınası çatırdıyor. Her turun başında her büyücü DC 12 Yapı kurtarma zarı atar; başarısız olursa bir sonraki büyüsünün menzili yarıya iner."
+            },
+            {
+              "en": "An unstable portal flickers open at initiative count 20 each round for one turn, linking two points 30 feet apart. A creature can use 5 feet of movement to step through.",
+              "tr": "Kararsız bir portal her tur inisiyatif 20'de bir tur boyunca açılıp kapanıyor ve 9 metre arayla iki noktayı bağlıyor. Bir yaratık 1,5 metre hareket harcayarak içinden geçebilir."
+            },
+            {
+              "en": "Magical darkness covers a 20-foot radius. Even Darkvision cannot see through it, and it snuffs out light spells of 2nd level or lower.",
+              "tr": "6 metre yarıçaplı büyülü bir karanlık var. Darkvision bile içini göremez ve 2. seviye veya altı ışık büyülerini söndürür."
+            },
+            {
+              "en": "Living shadows stretch and grasp. A creature in dim light or darkness at the start of its turn makes a DC 12 Strength save or is Restrained until the end of that turn.",
+              "tr": "Canlı gölgeler uzanıp kavrıyor. Turuna loş ışıkta veya karanlıkta başlayan yaratık DC 12 Güç kurtarma zarı atar; başarısız olursa o turun sonuna kadar Restrained olur."
+            },
+            {
+              "en": "A zone of enchanted silence, 20-foot radius. No sound passes in or out, so spells with a verbal component fail, but creatures inside have Advantage on Dexterity (Stealth) checks.",
+              "tr": "6 metre yarıçaplı büyülü bir sessizlik bölgesi. İçeri veya dışarı ses geçmez; sözel bileşenli büyüler başarısız olur, ancak içerideki yaratıklar Çeviklik (Stealth) kontrollerinde Avantaj alır."
+            }
+          ]
+        },
+        {
+          "id": "objects",
+          "label": {
+            "en": "Objects & cover",
+            "tr": "Nesneler ve siper"
+          },
+          "entries": [
+            {
+              "en": "A heavy statue can be toppled with a DC 13 Strength check (action). Creatures in a 10-foot line make a DC 13 Dexterity save or take 3d6 bludgeoning damage.",
+              "tr": "Ağır bir heykel, DC 13 Güç kontrolüyle (aksiyon) devrilebilir. 3 metrelik hattaki yaratıklar DC 13 Çeviklik kurtarma zarı atar; başarısız olursa 3d6 ezme hasarı alır."
+            },
+            {
+              "en": "A hanging chandelier (AC 11, 5 HP). Cut loose, it drops on a 5-foot square: DC 12 Dexterity save, 2d6 bludgeoning damage, half on a success.",
+              "tr": "Asılı bir avize (AC 11, 5 HP). Kesilirse 1,5 metrelik kareye düşer: DC 12 Çeviklik kurtarma zarı, 2d6 ezme hasarı, başarıda yarısı."
+            },
+            {
+              "en": "Barrels of lamp oil (AC 9, 10 HP). Fire damage makes them burst: 10-foot radius, DC 13 Dexterity save, 3d6 fire damage, half on a success.",
+              "tr": "Lamba yağı fıçıları (AC 9, 10 HP). Ateş hasarı patlatır: 3 metre yarıçap, DC 13 Çeviklik kurtarma zarı, 3d6 ateş hasarı, başarıda yarısı."
+            },
+            {
+              "en": "Overturned tables and crates. Flipping one is a bonus action and gives half cover. Two stacked give three-quarters cover.",
+              "tr": "Devrilebilir masalar ve sandıklar. Birini devirmek bonus aksiyondur ve yarım siper sağlar. İki tanesi üst üste üç çeyrek siper sağlar."
+            },
+            {
+              "en": "A stone pillar gives three-quarters cover. A creature standing behind it can't be targeted by anyone on the other side without moving.",
+              "tr": "Taş bir sütun üç çeyrek siper sağlar. Arkasındaki yaratık, karşı taraftakilerce yer değiştirilmeden hedeflenemez."
+            },
+            {
+              "en": "A rope bridge. Cutting an anchor rope (AC 11, 5 HP) drops the bridge: creatures on it make a DC 13 Dexterity save or fall.",
+              "tr": "Bir halat köprü. Bir bağlantı halatını kesmek (AC 11, 5 HP) köprüyü düşürür: üzerindeki yaratıklar DC 13 Çeviklik kurtarma zarı atar; başarısız olan düşer."
+            },
+            {
+              "en": "A lever or wheel on the wall opens a portcullis or trapdoor. A DC 14 Intelligence (Investigation) check reveals what it does. Pulling it is an action.",
+              "tr": "Duvardaki bir kol veya çark bir parmaklık kapıyı ya da tuzak kapağı açar. DC 14 Zeka (Investigation) kontrolü ne işe yaradığını gösterir. Çekmek bir aksiyondur."
+            },
+            {
+              "en": "A narrow doorway. Only one Medium creature can pass at a time, and a creature in it has half cover against attacks from beyond.",
+              "tr": "Dar bir kapı aralığı. Aynı anda yalnızca bir Medium yaratık geçebilir; içindeki yaratık, ötesinden gelen saldırılara karşı yarım siper alır."
+            },
+            {
+              "en": "A loaded ballista. Aiming and firing takes one action: +5 to hit, 3d10 piercing damage. Reloading takes two actions.",
+              "tr": "Yüklü bir balista. Nişan alıp ateş etmek bir aksiyon sürer: +5 vuruş, 3d10 delici hasar. Yeniden yüklemek iki aksiyon sürer."
+            },
+            {
+              "en": "A rack of weapons and shields. A creature can use its action to arm itself, and a shield taken from it grants +2 AC until the end of the creature's next turn.",
+              "tr": "Bir silah ve kalkan rafı. Bir yaratık aksiyonunu harcayıp silahlanabilir; raftan alınan kalkan, yaratığın bir sonraki turunun sonuna kadar +2 AC verir."
+            },
+            {
+              "en": "A great alarm bell. Striking it (bonus action) alerts everyone within 300 feet, and creatures within 30 feet have Disadvantage on hearing-based Perception checks until the end of their next turn.",
+              "tr": "Büyük bir alarm çanı. Çana vurmak (bonus aksiyon) 90 metre içindeki herkesi uyarır; 9 metre içindeki yaratıklar bir sonraki turlarının sonuna kadar işitmeye dayalı Perception kontrollerinde Dezavantaj alır."
+            },
+            {
+              "en": "A tall bookcase can be toppled with a DC 12 Strength check (action). It crashes onto a 5-by-10-foot area (DC 13 Dexterity save, 2d8 bludgeoning damage) and leaves difficult terrain behind.",
+              "tr": "Uzun bir kitaplık DC 12 Güç kontrolüyle (aksiyon) devrilebilir. 1,5 x 3 metrelik bir alana çöker (DC 13 Çeviklik kurtarma zarı, 2d8 ezme hasarı) ve arkasında zor arazi bırakır."
+            },
+            {
+              "en": "A haystack or heap of grain, 10 feet across. A creature that falls into it takes no falling damage. Any fire damage ignites it and the burning heap deals 1d6 fire damage each round.",
+              "tr": "3 metre genişliğinde bir saman veya tahıl yığını. İçine düşen yaratık düşme hasarı almaz. Herhangi bir ateş hasarı onu tutuşturur ve yanan yığın her tur 1d6 ateş hasarı verir."
+            },
+            {
+              "en": "A loaded cart sits on a slope. Pushing it (DC 12 Strength, action) sends it rolling 30 feet in a line: creatures in the path make a DC 13 Dexterity save or take 2d6 bludgeoning damage and fall Prone.",
+              "tr": "Yokuşta yüklü bir araba duruyor. Onu itmek (DC 12 Güç, aksiyon) arabayı düz bir çizgide 9 metre yuvarlar: yoldaki yaratıklar DC 13 Çeviklik kurtarma zarı atar; başarısız olan 2d6 ezme hasarı alır ve Prone olur."
+            },
+            {
+              "en": "Rotten wooden boards cover an old well. A creature that steps on them makes a DC 12 Dexterity save or falls 20 feet into the cold water below (2d6 bludgeoning).",
+              "tr": "Çürümüş tahtalar eski bir kuyuyu örtüyor. Üzerine basan yaratık DC 12 Çeviklik kurtarma zarı atar; başarısız olursa 6 metre aşağıdaki soğuk suya düşer (2d6 ezme hasarı)."
+            },
+            {
+              "en": "A stack of crates 10 feet high. Climbing it needs a DC 10 Strength (Athletics) check. A creature on top has half cover and can see over the room.",
+              "tr": "3 metre yüksekliğinde bir sandık yığını. Tırmanmak DC 10 Güç (Athletics) kontrolü ister. Tepedeki yaratık yarım siper kazanır ve odanın üzerini görebilir."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "title": {
+        "en": "Random Events",
+        "tr": "Rastgele Olaylar"
+      },
+      "attribution": {
+        "en": "Original side-quest hooks and open-world events. \"General\" events fit any place and are mixed into every setting.",
+        "tr": "Özgün yan görev ve açık dünya olayı fikirleri. \"Genel\" olaylar her yere uyar ve her ortama karışır."
+      },
+      "alwaysInclude": "general",
+      "groups": [
+        {
+          "id": "city",
+          "label": {
+            "en": "City",
+            "tr": "Şehir"
+          },
+          "entries": [
+            {
+              "en": "A pickpocket bumps into a character and takes a small purse. A DC 13 Wisdom (Perception) check notices it. The thief runs for the rooftops.",
+              "tr": "Bir yankesici karaktere çarpıp küçük bir kese alır. DC 13 Bilgelik (Perception) kontrolüyle fark edilir. Hırsız çatılara kaçar."
+            },
+            {
+              "en": "The town crier announces a reward for a missing person. A character matches the description of the last person seen with them.",
+              "tr": "Tellal kayıp biri için ödül ilan eder. Karakterlerden biri, kayıpla son görülen kişinin tarifine uyar."
+            },
+            {
+              "en": "A street performer's act goes wrong and a crowd panics. Someone is hurt and the city watch arrives asking questions.",
+              "tr": "Bir sokak sanatçısının gösterisi ters gider ve kalabalık panikler. Biri yaralanır ve şehir muhafızları soru sormaya gelir."
+            },
+            {
+              "en": "The watch is hunting a thief and mistakes a character for them. Talking their way out needs a DC 13 Charisma check.",
+              "tr": "Muhafızlar bir hırsızı arar ve bir karakteri onunla karıştırır. Kurtulmak DC 13 Karizma kontrolü ister."
+            },
+            {
+              "en": "A fire breaks out in a nearby building. Residents need help: a DC 12 Strength (Athletics) check clears a door, and the owner remembers who helped.",
+              "tr": "Yakındaki bir binada yangın çıkar. Sakinlerin yardıma ihtiyacı var: DC 12 Güç (Athletics) kontrolü bir kapıyı açar; sahibi kimin yardım ettiğini unutmaz."
+            },
+            {
+              "en": "A merchant sells a rare item far below its worth. It is stolen, or it is cursed, or both.",
+              "tr": "Bir tüccar nadir bir eşyayı değerinin çok altında satar. Eşya ya çalıntıdır, ya lanetlidir ya da ikisi birden."
+            },
+            {
+              "en": "A noble's carriage overturns and blocks the street. The guards demand witnesses, and the driver whispers it was no accident.",
+              "tr": "Bir soylunun arabası devrilir ve sokağı kapatır. Muhafızlar tanık ister; sürücü kazanın tesadüf olmadığını fısıldar."
+            },
+            {
+              "en": "Two rival guilds brawl in the street, and a character is dragged in. Both sides want them as allies afterwards.",
+              "tr": "İki rakip lonca sokakta kavga eder ve bir karakter içine çekilir. Sonrasında iki taraf da onu müttefik olarak ister."
+            },
+            {
+              "en": "A child delivers a sealed note with no sender. It names a meeting place at midnight.",
+              "tr": "Bir çocuk gönderen belirtilmemiş mühürlü bir not getirir. Not gece yarısı bir buluşma yeri söyler."
+            },
+            {
+              "en": "A temple bell tolls at an odd hour. The priests say it is a prayer meeting, but a DC 13 Wisdom (Insight) check senses they are hiding a death.",
+              "tr": "Bir tapınak çanı akla gelmedik bir saatte çalar. Rahipler bunun bir dua toplantısı olduğunu söyler, ancak DC 13 Bilgelik (Insight) kontrolü bir ölümü sakladıklarını sezer."
+            },
+            {
+              "en": "A public execution is set for tomorrow. The condemned whispers to a character that they are innocent and names the real culprit.",
+              "tr": "Yarın için halka açık bir idam planlanmıştır. Mahkûm bir karaktere fısıldayarak masum olduğunu söyler ve gerçek suçlunun adını verir."
+            },
+            {
+              "en": "Wanted posters with a character's face appear on every wall overnight. Someone paid well for them, and the reward keeps growing.",
+              "tr": "Bir gecede her duvarda bir karakterin yüzünü taşıyan arananlar afişleri belirir. Birileri bunlar için iyi para ödemiştir ve ödül giderek büyür."
+            },
+            {
+              "en": "A street vendor sells \"healing potions\" that are mostly colored water. A DC 12 Intelligence (Investigation) check reveals the trick, but one bottle on the cart is real.",
+              "tr": "Bir seyyar satıcı çoğu renkli sudan ibaret \"iyileştirme iksirleri\" satar. DC 12 Zeka (Investigation) kontrolü numarayı ortaya çıkarır; ancak arabadaki bir şişe gerçektir."
+            },
+            {
+              "en": "After heavy rain the sewers overflow and strange creatures crawl into the market square. The watch is overwhelmed.",
+              "tr": "Şiddetli yağmurdan sonra kanalizasyon taşar ve tuhaf yaratıklar pazar meydanına sürünür. Muhafızlar başa çıkamaz."
+            },
+            {
+              "en": "A masked festival fills the streets. A figure in the crowd presses a coin with a strange symbol into a character's hand and vanishes.",
+              "tr": "Maskeli bir festival sokakları doldurur. Kalabalıktaki bir figür bir karakterin eline garip bir sembol taşıyan bir sikke bırakıp kaybolur."
+            },
+            {
+              "en": "A scholar chases the party through a crowded market. A book they bought earlier has a hand-drawn map hidden in its binding.",
+              "tr": "Bir bilgin kalabalık bir pazarda partinin peşine düşer. Daha önce satın aldıkları bir kitabın cildinde elle çizilmiş gizli bir harita vardır."
+            }
+          ]
+        },
+        {
+          "id": "village",
+          "label": {
+            "en": "Village",
+            "tr": "Köy"
+          },
+          "entries": [
+            {
+              "en": "The well water tastes strange and villagers fear a curse. A DC 12 Wisdom (Survival) check finds a dead animal upstream.",
+              "tr": "Kuyu suyu tuhaf tadıyor ve köylüler lanetten korkuyor. DC 12 Bilgelik (Survival) kontrolü, akıntı yukarısında ölü bir hayvan bulur."
+            },
+            {
+              "en": "The harvest festival is tomorrow and they need hands to finish the stalls. The best helper wins a prize from the elder.",
+              "tr": "Hasat şenliği yarın ve tezgâhları bitirmek için ele ihtiyaç var. En iyi yardımcı yaşlıdan bir ödül kazanır."
+            },
+            {
+              "en": "Livestock went missing overnight. Strange tracks lead toward the hills (DC 13 Survival to read them).",
+              "tr": "Hayvanlar gece kayboldu. Garip izler tepelere gidiyor (okumak için DC 13 Survival)."
+            },
+            {
+              "en": "The elder asks the party to settle a boundary dispute between two farmers. Each tells a convincing story.",
+              "tr": "Köy yaşlısı iki çiftçi arasındaki sınır anlaşmazlığını çözmelerini ister. İkisi de inandırıcı bir hikâye anlatır."
+            },
+            {
+              "en": "A peddler's cart has a broken wheel. He offers a discount on his wares for help, and his goods include one odd trinket.",
+              "tr": "Bir seyyar satıcının arabasının tekerleği kırıldı. Yardım karşılığında mallarında indirim önerir; mallar arasında tuhaf bir biblo vardır."
+            },
+            {
+              "en": "Village children dare each other to enter the abandoned mill. One of them has not come out.",
+              "tr": "Köy çocukları birbirini terk edilmiş değirmene girmeye kışkırtır. İçlerinden biri çıkmadı."
+            },
+            {
+              "en": "A wedding is interrupted when the ring is stolen. Everyone suspects the groom's cousin, who was seen near the barn.",
+              "tr": "Yüzük çalındığı için bir düğün yarıda kalır. Herkes ahır yakınında görülen damadın kuzeninden şüphelenir."
+            },
+            {
+              "en": "A stranger asks careful questions about a local legend. He carries a worn map and pays well for answers.",
+              "tr": "Bir yabancı yerel bir efsane hakkında dikkatli sorular sorar. Eski bir harita taşıyor ve cevaplara iyi öder."
+            },
+            {
+              "en": "A scarecrow was moved to the middle of the road overnight. The farmers swear it was facing the other way yesterday.",
+              "tr": "Bir korkuluk gece boyunca yolun ortasına taşınmıştır. Çiftçiler dün ters yöne baktığına yemin eder."
+            },
+            {
+              "en": "A woman goes into labor during a storm and the only road to the healer is flooded. A DC 12 Wisdom (Medicine) check helps the birth go safely.",
+              "tr": "Bir kadın fırtına sırasında doğum sancısı çeker ve şifacıya giden tek yol sel altındadır. DC 12 Bilgelik (Medicine) kontrolü doğumun güvenle geçmesine yardım eder."
+            },
+            {
+              "en": "A traveling priest arrives to bless the village but refuses to enter the chapel. He will not say why.",
+              "tr": "Gezgin bir rahip köyü kutsamaya gelir, ancak şapele girmeyi reddeder. Nedenini söylemez."
+            },
+            {
+              "en": "The village blacksmith is drunk and refuses to finish a promised order. His apprentice begs the party to find out what happened to him.",
+              "tr": "Köyün demircisi sarhoştur ve söz verdiği siparişi bitirmeyi reddeder. Çırağı, partiden ona ne olduğunu öğrenmelerini ister."
+            },
+            {
+              "en": "The cattle fall ill. A DC 12 Intelligence (Nature) check shows someone poisoned the pasture. Two families accuse each other.",
+              "tr": "Sığırlar hastalanır. DC 12 Zeka (Nature) kontrolü, birinin otlağı zehirlediğini gösterir. İki aile birbirini suçlar."
+            },
+            {
+              "en": "A traveling bard arrives, and his new song accuses the village headman of a crime. The headman wants the bard silenced, quietly.",
+              "tr": "Gezgin bir ozan köye gelir ve yeni şarkısı muhtarı bir suçla suçlar. Muhtar, ozanın sessizce susturulmasını ister."
+            },
+            {
+              "en": "Children found a strange egg in the barn. It is warm, and it has begun to hum.",
+              "tr": "Çocuklar ahırda garip bir yumurta bulmuştur. Yumurta sıcaktır ve mırıldanmaya başlamıştır."
+            }
+          ]
+        },
+        {
+          "id": "town",
+          "label": {
+            "en": "Town",
+            "tr": "Kasaba"
+          },
+          "entries": [
+            {
+              "en": "It is market day and a traveling auction sells confiscated goods. One lot looks very familiar to a character.",
+              "tr": "Pazar günü ve gezici bir müzayede el konulmuş malları satıyor. Bir parti bir karaktere çok tanıdık gelir."
+            },
+            {
+              "en": "Two candidates for mayor accuse each other of fraud. Both ask the party to find proof against the other.",
+              "tr": "Belediye başkanlığı için iki aday birbirini yolsuzlukla suçlar. İkisi de grubun diğerine karşı kanıt bulmasını ister."
+            },
+            {
+              "en": "The tavern holds a contest (arm wrestling, riddles or drinking). The winner gets a free week of lodging.",
+              "tr": "Taverna bir yarışma düzenler (bilek güreşi, bilmece veya içki). Kazanan bir hafta bedava konaklar."
+            },
+            {
+              "en": "Smugglers' tunnels are discovered under the granary. The guard captain wants outsiders to explore them quietly.",
+              "tr": "Tahıl ambarının altında kaçakçı tünelleri bulunur. Muhafız komutanı bunları yabancıların sessizce keşfetmesini ister."
+            },
+            {
+              "en": "Rumors of a sickness spread. The healer needs rare herbs from the nearby woods and pays in coin and favors.",
+              "tr": "Bir hastalık söylentisi yayılır. Şifacı yakındaki ormandan nadir otlara ihtiyaç duyar ve para ile iyilikle öder."
+            },
+            {
+              "en": "A caravan is days late and its guard captain is missing. The merchants offer a reward for news.",
+              "tr": "Bir kervan günlerdir geç kaldı ve muhafız komutanı kayıp. Tüccarlar haber getirene ödül verir."
+            },
+            {
+              "en": "A traveling theater troupe's lead actor has vanished before opening night. The troupe suspects a rival.",
+              "tr": "Gezici bir tiyatro topluluğunun başrol oyuncusu açılış gecesinden önce ortadan kayboldu. Topluluk bir rakipten şüpheleniyor."
+            },
+            {
+              "en": "The bridge toll was doubled overnight. Travelers are angry and a toll collector is being threatened.",
+              "tr": "Köprü geçiş ücreti bir gecede ikiye katlandı. Yolcular öfkeli ve bir vergi memuru tehdit ediliyor."
+            },
+            {
+              "en": "A guild hall is robbed overnight and nothing visible is missing. The guildmaster hires the party to figure out what was taken.",
+              "tr": "Bir lonca binası gece soyulur ve gözle görülür hiçbir şey eksik değildir. Lonca başkanı, neyin çalındığını bulmaları için partiyi tutar."
+            },
+            {
+              "en": "The tax collector arrives with an armed escort and demands payment in kind. An innkeeper begs the party to hide his savings.",
+              "tr": "Vergi memuru silahlı bir eskortla gelir ve ayni ödeme ister. Bir hancı, partiden birikimini saklamalarını ister."
+            },
+            {
+              "en": "A card game at the tavern turns into a brawl. One player is cheating with magic, noticed with a DC 14 Wisdom (Perception) check.",
+              "tr": "Tavernada bir kâğıt oyunu kavgaya döner. Oyunculardan biri büyüyle hile yapıyordur; DC 14 Bilgelik (Perception) kontrolüyle fark edilir."
+            },
+            {
+              "en": "A bridge collapses and traps a crew of workers. The watch asks for volunteers. A DC 13 Strength (Athletics) check lifts a fallen beam.",
+              "tr": "Bir köprü çöker ve bir grup işçiyi hapseder. Muhafızlar gönüllü ister. DC 13 Güç (Athletics) kontrolü düşen bir kirişi kaldırır."
+            },
+            {
+              "en": "A fortune teller predicts the death of a character's ally, down to the date. The prediction is eerily specific.",
+              "tr": "Bir falcı, bir karakterin müttefikinin ölümünü tarihine kadar öngörür. Kehanet ürpertici derecede ayrıntılıdır."
+            },
+            {
+              "en": "The town watchtower's bell was stolen. It is said its sound keeps something in the old mine asleep.",
+              "tr": "Kasabanın gözetleme kulesinin çanı çalınmıştır. Sesinin eski madendeki bir şeyi uykuda tuttuğu söylenir."
+            },
+            {
+              "en": "A rival merchant spreads a rumor that the party's patron sells cursed goods. Sales collapse and an angry crowd gathers outside the shop.",
+              "tr": "Rakip bir tüccar, partinin hamisinin lanetli mal sattığı söylentisini yayar. Satışlar çöker ve dükkânın önünde öfkeli bir kalabalık toplanır."
+            }
+          ]
+        },
+        {
+          "id": "wilderness",
+          "label": {
+            "en": "Wilderness",
+            "tr": "Vahşi doğa"
+          },
+          "entries": [
+            {
+              "en": "An abandoned campsite with still-warm embers. A DC 13 Wisdom (Survival) check shows they left in a hurry, three hours ago.",
+              "tr": "Közleri hâlâ sıcak terk edilmiş bir kamp. DC 13 Bilgelik (Survival) kontrolü, üç saat önce aceleyle ayrıldıklarını gösterir."
+            },
+            {
+              "en": "A wounded traveler lies by the road. Bandits ambushed them, and they know where the bandit camp is.",
+              "tr": "Yol kenarında yaralı bir yolcu yatıyor. Haydutlar pusu kurmuş; haydut kampının yerini biliyor."
+            },
+            {
+              "en": "A fallen tree blocks the road. Tracks around it suggest an ambush (DC 13 Survival to notice).",
+              "tr": "Devrilmiş bir ağaç yolu kapatmış. Etrafındaki izler bir pusuya işaret ediyor (fark etmek için DC 13 Survival)."
+            },
+            {
+              "en": "The river crossing is washed out. A local guide offers to ferry the party across for a toll.",
+              "tr": "Nehir geçidi sel almış. Yerel bir rehber ücret karşılığı grubu karşıya geçirmeyi önerir."
+            },
+            {
+              "en": "A circle of standing stones hums at dusk. Anyone who touches one has a brief, vivid vision of the past.",
+              "tr": "Ayakta duran taşlardan bir çember alacakaranlıkta uğuldar. Birine dokunan herkes geçmişten kısa ve canlı bir görüntü görür."
+            },
+            {
+              "en": "A herd of migrating animals stampedes across the path. A DC 12 Dexterity save avoids being swept along.",
+              "tr": "Göç eden bir hayvan sürüsü yolun üzerinden koşar. DC 12 Çeviklik kurtarma zarı sürüklenmeyi önler."
+            },
+            {
+              "en": "A lone hermit offers shelter and cryptic advice. What he says proves useful, though not in the way they expect.",
+              "tr": "Yalnız bir münzevi barınak ve esrarengiz tavsiyeler sunar. Söyledikleri işe yarar, ama beklenmedik şekilde."
+            },
+            {
+              "en": "A signpost has been turned to point the wrong way. Someone wants travelers to take the other road.",
+              "tr": "Bir yön tabelası yanlış yöne çevrilmiş. Biri yolcuların diğer yola sapmasını istiyor."
+            },
+            {
+              "en": "A burned wagon sits at the roadside. The oxen are alive and still hitched, but there is no sign of the driver.",
+              "tr": "Yol kenarında yanmış bir araba durur. Öküzler hâlâ koşumlu ve hayattadır, ancak sürücüden iz yoktur."
+            },
+            {
+              "en": "A merchant's strongbox is chained to a tree with a note: \"Open me, take half, and deliver the rest to the address inside.\"",
+              "tr": "Bir tüccarın kasası bir ağaca zincirlenmiştir ve üzerinde bir not vardır: \"Beni aç, yarısını al, kalanını içerideki adrese ulaştır.\""
+            },
+            {
+              "en": "A rockslide closes the pass. The only other route crosses lands patrolled by a hobgoblin war band.",
+              "tr": "Bir kaya kayması geçidi kapatır. Tek alternatif yol, bir hobgoblin savaş grubunun devriye gezdiği topraklardan geçer."
+            },
+            {
+              "en": "A hunting party of locals asks the party to help track a beast that killed three of their own. They will share the bounty.",
+              "tr": "Yerel avcılardan oluşan bir grup, kendilerinden üç kişiyi öldüren bir canavarı izlemek için partiden yardım ister. Ödülü paylaşmayı teklif ederler."
+            },
+            {
+              "en": "Lights glow beneath the surface of a misty lake at night. A DC 13 Intelligence (Arcana) check recognizes a sunken ritual circle.",
+              "tr": "Geceleri sisli bir gölün yüzeyinin altında ışıklar parlar. DC 13 Zeka (Arcana) kontrolü, suyun altında batmış bir ritüel çemberi tanır."
+            },
+            {
+              "en": "A saddled, spooked horse bolts past the party. Its saddlebags hold a half-written will.",
+              "tr": "Eyerli, ürkmüş bir at partinin yanından fırlayıp geçer. Heybelerinde yarım kalmış bir vasiyet vardır."
+            },
+            {
+              "en": "A roadside shrine to a forgotten god is heaped with offerings. A character who leaves a coin dreams of a safe path. One who takes something makes a DC 12 Wisdom save or is cursed with bad luck for a day.",
+              "tr": "Yol kenarında unutulmuş bir tanrının türbesi adaklarla doludur. Sikke bırakan karakter güvenli bir yol rüyası görür. Bir şey alan karakter DC 12 Bilgelik kurtarma zarı atar; başarısız olursa bir gün boyunca kötü talihle lanetlenir."
+            }
+          ]
+        },
+        {
+          "id": "forest",
+          "label": {
+            "en": "Forest",
+            "tr": "Orman"
+          },
+          "entries": [
+            {
+              "en": "A ring of mushrooms glows in a glade. Stepping in needs a DC 12 Wisdom save or an hour passes unnoticed.",
+              "tr": "Bir açıklıkta mantar halkası parlıyor. İçine adım atmak DC 12 Bilgelik kurtarma zarı ister; başarısız olursa fark edilmeden bir saat geçer."
+            },
+            {
+              "en": "A hunter's snare has caught something strange, and it begs to be released in a language they understand.",
+              "tr": "Bir avcının tuzağına tuhaf bir şey yakalanmış ve anladıkları bir dilde serbest bırakılmak için yalvarıyor."
+            },
+            {
+              "en": "Wolves howl and follow the party at a distance. They are herding it away from something.",
+              "tr": "Kurtlar uluyor ve grubu uzaktan izliyor. Onları bir şeyden uzaklaştırmaya çalışıyorlar."
+            },
+            {
+              "en": "An ancient tree has carved symbols. A hollow in it holds a small cache left by a ranger.",
+              "tr": "Eski bir ağacın üzerinde oyulmuş semboller var. İçindeki oyukta bir korucunun bıraktığı küçük bir saklık duruyor."
+            },
+            {
+              "en": "A poachers' camp, and they are hiding a captured rare creature. They hope the party leaves them alone.",
+              "tr": "Bir kaçak avcı kampı; yakalanmış nadir bir yaratığı saklıyorlar. Grubun onları rahat bırakmasını umuyorlar."
+            },
+            {
+              "en": "Smoke rises on the horizon and animals flee past the party. A wildfire is coming, or someone set it.",
+              "tr": "Ufukta duman yükseliyor ve hayvanlar grubun yanından kaçıyor. Orman yangını geliyor ya da biri çıkardı."
+            },
+            {
+              "en": "A stream runs a strange color. The source lies upstream, in a place the locals avoid.",
+              "tr": "Bir dere tuhaf bir renkte akıyor. Kaynağı, yerlilerin kaçındığı bir yerde, akıntı yukarısında."
+            },
+            {
+              "en": "A druid asks the party to leave the grove untouched, or to help drive off those who would cut it down.",
+              "tr": "Bir druid gruptan koruyu olduğu gibi bırakmasını ya da onu kesmek isteyenleri kovmasına yardım etmesini ister."
+            },
+            {
+              "en": "A tree grows in a perfect circle of bare earth, and its leaves whisper names. One of the names belongs to a character.",
+              "tr": "Bir ağaç, çıplak toprakla çevrili mükemmel bir dairenin içinde büyür ve yaprakları isimler fısıldar. İsimlerden biri bir karaktere aittir."
+            },
+            {
+              "en": "Glowing eyes watch from the underbrush. Fey creatures offer a trade: a secret in exchange for a memory.",
+              "tr": "Çalılıkların arasından parlayan gözler izler. Periler bir takas önerir: bir sır karşılığında bir anı."
+            },
+            {
+              "en": "A hunter's lodge stands with its door open and its table set. The meal is still hot, and no one is home.",
+              "tr": "Bir avcı kulübesinin kapısı açık, sofrası kurulmuştur. Yemek hâlâ sıcaktır ve evde kimse yoktur."
+            },
+            {
+              "en": "An injured stag with golden antlers collapses before the party. Hunters follow its blood trail, closing in.",
+              "tr": "Altın boynuzlu yaralı bir geyik partinin önünde yığılır. Avcılar kan izini takip ederek yaklaşmaktadır."
+            },
+            {
+              "en": "Totems of twigs and bone hang from the branches in a tightening pattern. Whoever made them is watching.",
+              "tr": "Çubuk ve kemikten totemler, giderek daralan bir düzende dallardan sarkar. Onları yapan kişi izlemektedir."
+            },
+            {
+              "en": "Woodcutters refuse to enter a stretch of forest after one of them cut a tree that bled red sap.",
+              "tr": "Oduncular, içlerinden biri kırmızı öz akıtan bir ağacı kestikten sonra ormanın bir bölümüne girmeyi reddeder."
+            },
+            {
+              "en": "Fireflies lead the party off the path to a clearing where a feast is underway. The hosts will not say who invited them.",
+              "tr": "Ateş böcekleri partiyi yoldan çıkarıp bir şölenin sürdüğü bir açıklığa götürür. Ev sahipleri onları kimin davet ettiğini söylemez."
+            }
+          ]
+        },
+        {
+          "id": "snow",
+          "label": {
+            "en": "Snow",
+            "tr": "Kar"
+          },
+          "entries": [
+            {
+              "en": "A sudden whiteout. A DC 12 Wisdom (Survival) check keeps the party on course. On a failure they lose an hour.",
+              "tr": "Ani bir kar fırtınası. DC 12 Bilgelik (Survival) kontrolü grubu rotada tutar. Başarısızlıkta bir saat kaybederler."
+            },
+            {
+              "en": "A frozen traveler clutches a key and a half-finished letter.",
+              "tr": "Donmuş bir yolcu bir anahtar ve yarım kalmış bir mektubu sıkıca tutuyor."
+            },
+            {
+              "en": "A low rumble warns of an avalanche. A DC 13 Dexterity save gets a creature clear. On a failure it takes 4d6 bludgeoning damage and is buried.",
+              "tr": "Alçak bir gümbürtü çığ uyarısı verir. DC 13 Çeviklik kurtarma zarı yaratığı kurtarır. Başarısızlıkta 4d6 ezme hasarı alır ve karın altında kalır."
+            },
+            {
+              "en": "Ice fishers invite the party to warm up at their fire and share a rumor about something that lives in the lake.",
+              "tr": "Buz balıkçıları grubu ateşlerinde ısınmaya çağırır ve gölde yaşayan bir şey hakkında söylenti paylaşır."
+            },
+            {
+              "en": "The frozen lake cracks underfoot, and something large moves beneath the ice.",
+              "tr": "Donmuş göl ayak altında çatırdar ve buzun altında büyük bir şey hareket eder."
+            },
+            {
+              "en": "A snowbound cabin has smoke in its chimney but no tracks lead to the door.",
+              "tr": "Karla çevrili bir kulübenin bacasından duman çıkıyor ama kapıya giden hiç iz yok."
+            },
+            {
+              "en": "An aurora fills the night sky. Spellcasters feel a faint pull from it, and any who watch have a strange dream.",
+              "tr": "Kutup ışıkları gece gökyüzünü doldurur. Büyücüler ondan hafif bir çekim hisseder; izleyenler tuhaf bir rüya görür."
+            },
+            {
+              "en": "A sled team arrives at the camp with no driver, their harness cut and a bloodied note tied to it.",
+              "tr": "Bir kızak ekibi sürücüsüz kampa gelir; koşumları kesilmiş ve üzerine kanlı bir not bağlanmış."
+            },
+            {
+              "en": "Footprints circle the camp each morning, a little closer every night. A DC 13 Wisdom (Survival) check shows they match no creature the party knows.",
+              "tr": "Ayak izleri her sabah kampın etrafında dönüyor ve her gece biraz daha yaklaşıyor. DC 13 Bilgelik (Survival) kontrolü, izlerin partinin bildiği hiçbir yaratığa uymadığını gösterir."
+            },
+            {
+              "en": "A frozen waterfall hides a cave. The ice sculptures inside look like the party members, in poses they have never held.",
+              "tr": "Donmuş bir şelale bir mağarayı gizler. İçindeki buz heykeller parti üyelerine benzer, hem de hiç almadıkları pozlarda."
+            },
+            {
+              "en": "A caravan stuck in a drift is out of food. They offer a valuable cargo in exchange for supplies and an escort.",
+              "tr": "Bir kar yığınında mahsur kalan kervanın yiyeceği bitmiştir. Erzak ve eskort karşılığında değerli bir yük önerirler."
+            },
+            {
+              "en": "A wolf pack trails a lone figure on snowshoes who waves for help from far away. The wolves do not seem hungry.",
+              "tr": "Bir kurt sürüsü, uzaktan yardım için el sallayan kar ayakkabılı yalnız bir figürün peşindedir. Kurtlar aç görünmez."
+            },
+            {
+              "en": "A creaking ice bridge is the only way across a gorge. A DC 12 Wisdom (Survival) check reads where the ice is thick.",
+              "tr": "Gıcırdayan bir buz köprüsü, bir vadiden geçmenin tek yoludur. DC 12 Bilgelik (Survival) kontrolü buzun nerede kalın olduğunu okur."
+            },
+            {
+              "en": "A temple bell buried in the snow rings once every hour, though nothing touches it.",
+              "tr": "Karın altına gömülü bir tapınak çanı, ona hiçbir şey dokunmadığı halde her saat başı bir kez çalar."
+            },
+            {
+              "en": "A trapper's cabin is full of preserved furs. The trapper insists the party leave before dark and will not say why.",
+              "tr": "Bir kürkçünün kulübesi saklanmış kürklerle doludur. Kürkçü partinin karanlıktan önce gitmesinde ısrar eder ve nedenini söylemez."
+            }
+          ]
+        },
+        {
+          "id": "desert",
+          "label": {
+            "en": "Desert",
+            "tr": "Çöl"
+          },
+          "entries": [
+            {
+              "en": "A mirage of an oasis. A DC 14 Wisdom (Survival) check sees through it. Chasing it costs a day of water.",
+              "tr": "Bir vaha serabı. DC 14 Bilgelik (Survival) kontrolü onu fark ettirir. Peşinden gitmek bir günlük suya mal olur."
+            },
+            {
+              "en": "A sandstorm approaches. The party must find shelter within the hour or take 1d4 slashing damage each round it hits.",
+              "tr": "Bir kum fırtınası yaklaşıyor. Grup bir saat içinde barınak bulmalı, yoksa fırtına her tur 1d4 kesme hasarı verir."
+            },
+            {
+              "en": "Shifting dunes expose a half-buried ruin. The entrance has been open for a very long time, or someone just dug it.",
+              "tr": "Kayan kum tepeleri yarı gömülü bir harabeyi ortaya çıkarır. Giriş çok uzun zamandır açık ya da biri yeni kazmış."
+            },
+            {
+              "en": "A nomad caravan trades water at a high price. They sell it cheaper for news from the road or an escort.",
+              "tr": "Göçebe bir kervan suyu yüksek fiyata satar. Yoldan haber ya da koruma karşılığında daha ucuza verirler."
+            },
+            {
+              "en": "A dry well bears strange markings, and echoes in it answer when someone calls down.",
+              "tr": "Kuru bir kuyunun üzerinde garip işaretler var ve aşağıya seslenince içindeki yankı cevap veriyor."
+            },
+            {
+              "en": "Giant bones lie in the sand and scavengers circle overhead. Something killed it recently.",
+              "tr": "Kumun içinde dev kemikler yatıyor ve leş kuşları tepede dönüyor. Onu yakın zamanda bir şey öldürmüş."
+            },
+            {
+              "en": "The cold night sky is clear. A DC 12 Intelligence check using the stars reveals a shortcut to the next well.",
+              "tr": "Soğuk gece gökyüzü açık. Yıldızları kullanan DC 12 Zeka kontrolü bir sonraki kuyuya kestirme bir yol gösterir."
+            },
+            {
+              "en": "A thirst-crazed traveler stumbles in, begs for water and warns of what chased them.",
+              "tr": "Susuzluktan çılgına dönmüş bir yolcu sendeleyerek gelir, su ister ve onu kovalayan şey hakkında uyarır."
+            },
+            {
+              "en": "A caravan's camels all died overnight with no wounds. The merchants blame the party's arrival.",
+              "tr": "Bir kervanın develerinin hepsi gece boyunca yarasız ölmüştür. Tüccarlar partinin gelişini suçlar."
+            },
+            {
+              "en": "A patch of glass-smooth fused sand, as large as a house, is still warm. Something burned here recently.",
+              "tr": "Bir ev büyüklüğünde, cam gibi pürüzsüz kaynaşmış bir kum parçası hâlâ sıcaktır. Burada yakın zamanda bir şey yanmıştır."
+            },
+            {
+              "en": "A dust devil carries a scrap of silk and a ring. Following the wind leads to a buried tomb entrance.",
+              "tr": "Bir toz kasırgası bir parça ipek ve bir yüzük taşır. Rüzgârı izlemek gömülü bir mezar girişine çıkar."
+            },
+            {
+              "en": "Nomads invite the party to a night feast. Custom demands each guest tell a true story, and the host notices lies with a DC 14 Wisdom (Insight) check.",
+              "tr": "Göçebeler partiyi gece şölenine davet eder. Gelenek her misafirin gerçek bir hikâye anlatmasını ister; ev sahibi yalanları DC 14 Bilgelik (Insight) kontrolüyle fark eder."
+            },
+            {
+              "en": "The shed shell of a giant scorpion, big enough to shelter in, lies near a spring. The creature is not far.",
+              "tr": "Bir dev akrebin içine sığınılabilecek büyüklükteki çıkarılmış kabuğu bir pınarın yakınında yatar. Yaratık çok uzakta değildir."
+            },
+            {
+              "en": "Barefoot pilgrims walk toward a distant mountain and beg to travel with the party. One of them hides a relic.",
+              "tr": "Yalınayak hacılar uzaktaki bir dağa yürür ve partiyle yolculuk etmek için yalvarır. İçlerinden biri bir kutsal emanet saklar."
+            },
+            {
+              "en": "A sun-bleached skeleton clutches a full waterskin and a map to a place that appears on no chart.",
+              "tr": "Güneşten ağarmış bir iskelet, dolu bir su tulumunu ve hiçbir haritada görünmeyen bir yerin haritasını sımsıkı tutar."
+            }
+          ]
+        },
+        {
+          "id": "general",
+          "label": {
+            "en": "General",
+            "tr": "Genel"
+          },
+          "entries": [
+            {
+              "en": "A messenger searches for the party with an urgent letter. Someone else is following the messenger.",
+              "tr": "Bir ulak acil bir mektupla grubu arıyor. Ulağı başka biri izliyor."
+            },
+            {
+              "en": "A rival adventuring party arrives with the same goal and a better map.",
+              "tr": "Rakip bir macera grubu aynı hedefle ve daha iyi bir haritayla gelir."
+            },
+            {
+              "en": "A friendly NPC from an earlier adventure asks for a favor, and it is not a small one.",
+              "tr": "Önceki bir maceradan dost bir NPC bir iyilik ister ve bu küçük bir iş değildir."
+            },
+            {
+              "en": "A traveler offers a map in exchange for an escort to the next settlement.",
+              "tr": "Bir yolcu bir sonraki yerleşime kadar eşlik karşılığında bir harita önerir."
+            },
+            {
+              "en": "An omen appears: a comet, a flock of silent crows or a partial eclipse. Locals are uneasy and want an explanation.",
+              "tr": "Bir alâmet belirir: bir kuyruklu yıldız, sessiz bir karga sürüsü ya da kısmi bir tutulma. Yerliler tedirgin ve açıklama bekliyor."
+            },
+            {
+              "en": "A lost child or pet is found nearby. The people who come looking for it are not who they claim to be.",
+              "tr": "Yakında kayıp bir çocuk ya da evcil hayvan bulunur. Onu aramaya gelenler söyledikleri kişiler değildir."
+            },
+            {
+              "en": "A local authority demands to inspect the party's goods. They are looking for something specific.",
+              "tr": "Yerel bir yetkili grubun eşyalarını denetlemek ister. Belirli bir şey arıyor."
+            },
+            {
+              "en": "A stranger offers a shortcut for a small fee. It is faster, and it is not entirely safe.",
+              "tr": "Bir yabancı küçük bir ücret karşılığında kestirme bir yol önerir. Daha hızlı ama tamamen güvenli değil."
+            },
+            {
+              "en": "The weather turns suddenly and everyone nearby seeks shelter in the same place.",
+              "tr": "Hava aniden değişir ve yakındaki herkes aynı yere sığınır."
+            },
+            {
+              "en": "Someone asks the party to deliver a sealed letter. The recipient is dangerous, or has been dead for years.",
+              "tr": "Biri gruptan mühürlü bir mektubu teslim etmesini ister. Alıcı ya tehlikelidir ya da yıllar önce ölmüştür."
+            },
+            {
+              "en": "Rumors of buried treasure spread, and every version of the story disagrees.",
+              "tr": "Gömülü bir hazine söylentisi yayılır ve hikâyenin her versiyonu birbirinden farklıdır."
+            },
+            {
+              "en": "A debt collector is looking for someone who matches a character's past.",
+              "tr": "Bir tefeci, bir karakterin geçmişine uyan birini arıyor."
+            },
+            {
+              "en": "Someone has been following the party for days. It turns out to be a guard sent by a worried patron.",
+              "tr": "Birisi günlerdir partiyi takip etmektedir. Bunun endişeli bir hami tarafından gönderilmiş bir muhafız olduğu ortaya çıkar."
+            },
+            {
+              "en": "One of the party's mounts or pack animals falls ill. The local remedies are expensive, and a cheaper cure needs a rare herb.",
+              "tr": "Partinin binek veya yük hayvanlarından biri hastalanır. Yerel ilaçlar pahalıdır ve daha ucuz bir tedavi nadir bir bitki ister."
+            },
+            {
+              "en": "A letter arrives for a character, sealed with the crest of a family they thought was gone.",
+              "tr": "Bir karaktere, yok olduğunu sandığı bir ailenin armasıyla mühürlenmiş bir mektup gelir."
+            },
+            {
+              "en": "A bard recognizes a character from a story that mixes truth and exaggeration, and starts telling it loudly at the nearest tavern.",
+              "tr": "Bir ozan, bir karakteri gerçek ve abartının karıştığı bir hikâyeden tanır ve hikâyeyi en yakın tavernada yüksek sesle anlatmaya başlar."
+            },
+            {
+              "en": "A storm wrecks a ship or wagon train. The cargo washes ashore and is free for the taking, until a salvager guild claims it.",
+              "tr": "Bir fırtına bir gemiyi veya araba kafilesini parçalar. Yük kıyıya vurur ve alınmayı bekler, ta ki bir kurtarma loncası hak iddia edene kadar."
+            },
+            {
+              "en": "A wandering priest offers a free blessing for a small price: a promise to do a good deed within the week.",
+              "tr": "Gezgin bir rahip küçük bir bedel karşılığında ücretsiz bir kutsama sunar: bir hafta içinde iyi bir iş yapma sözü."
+            },
+            {
+              "en": "Strange sounds come at night from a locked trunk in the party's room. None of them remember bringing it.",
+              "tr": "Partinin odasındaki kilitli bir sandıktan geceleri tuhaf sesler gelir. Hiçbiri onu getirdiğini hatırlamaz."
+            },
+            {
+              "en": "A friendly dog adopts the party. Its collar bears the name of someone the party has heard about recently.",
+              "tr": "Dost canlısı bir köpek partiyi sahiplenir. Tasmasında partinin yakın zamanda adını duyduğu birinin ismi yazar."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

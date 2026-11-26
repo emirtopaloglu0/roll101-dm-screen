@@ -9,10 +9,11 @@ import { ResultDialog } from "./ResultDialog.mjs";
 import { exportLayouts, importLayouts, restoreBackup } from "./layout-io.mjs";
 import { managePacks } from "./packs-io.mjs";
 import { MAX_ACTORS, actorsContext, partyActors } from "../boxes/actors.mjs";
-import { generatorContext, generatorRequest } from "../boxes/generator.mjs";
+import { GENERATOR_ICONS, generatorContext, generatorRequest } from "../boxes/generator.mjs";
 import { lastLoot, lootContext, lootRequest } from "../boxes/loot.mjs";
 import { MAX_PARTY, coinSettings, coinTexts, coinsContext, glossaryContext, templateContext } from "../boxes/reference.mjs";
-import { foldSearch, listTemplates, localize as localizeText } from "../templates.mjs";
+import { findPackTemplate, foldSearch, listTemplates, localize as localizeText } from "../templates.mjs";
+import { listGenerators } from "../generators.mjs";
 import {
   CLOCK_COLORS, CLOCK_SIZES, MAX_CLOCKS, MAX_EXTRAS, MAX_STAKES, NAME_MAX, STAKE_MAX, STORY_LANGS,
   cleanColor, clockChatHTML, clocksContext, newClock, readClocks, readSpotlight,
@@ -1152,10 +1153,16 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const box = (col, row, colSpan, rowSpan, type, data) => ({ ...this.#newBox(col, row, type, data), colSpan, rowSpan });
     layout.boxes = [
       box(1, 1, 1, 2, "spotlight", {}),
-      box(2, 1, 1, 1, "clocks", { clocks: [] }),
-      box(3, 1, 1, 1, "generator", { generator: "twists", filter: "any", lang: "auto" }),
-      box(2, 2, 2, 1, "template", { template: "builtin:scene-pacing", variant: null, lang: "auto" })
+      box(2, 1, 1, 1, "clocks", { clocks: [] })
     ];
+    // Prompts and the pacing reference come from the Command Center content pack, when installed.
+    if (listGenerators().some(g => g.id === "twists")) {
+      layout.boxes.push(box(3, 1, 1, 1, "generator", { generator: "twists", filter: "any", lang: "auto" }));
+    }
+    const pacing = findPackTemplate("scene-pacing");
+    if (pacing) {
+      layout.boxes.push(box(2, 2, 2, 1, "template", { template: `pack:${pacing.packId}:scene-pacing`, variant: null, lang: "auto" }));
+    }
     storage.update(d => {
       d.layouts.push(layout);
       d.activeLayoutId = layout.id;
@@ -1566,10 +1573,9 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
     const lib = key => game.i18n.localize(`${I18N}.Library.${key}`);
     groups.push(group("fa-solid fa-wand-magic-sparkles", lib("Generators"), [
-      row("gen:environment", "fa-solid fa-cloud-bolt", lib("Environment"), lib("EnvironmentHint"),
-        "combat environment terrain hazard weather savas ortami arazi tehlike hava"),
-      row("gen:events", "fa-solid fa-signs-post", lib("Events"), lib("EventsHint"),
-        "random events city village town wilderness forest snow desert rastgele olaylar sehir koy kasaba orman kar col"),
+      // Generators come from content packs; none ship with the module.
+      ...listGenerators().map(g => row(`gen:${g.id}`, GENERATOR_ICONS[g.id] ?? "fa-solid fa-dice",
+        localizeText(g.title, lang) || g.id, g.packName, `${allText(g.title)} ${g.id}`)),
       row("loot", "fa-solid fa-sack-dollar", lib("Loot"), lib("LootHint"),
         "loot treasure hoard gold coins gems magic items hazine ganimet altin"),
       row("actors", "fa-solid fa-users", lib("Actors"), lib("ActorsHint"),
@@ -1591,9 +1597,7 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         "spotlight screentime stakes hooks character moment sahne payi kanca karakter ani"),
       row("clocks", "fa-solid fa-clock", lib("Clocks"), lib("ClocksHint"),
         "clock countdown tension progress saat geri sayim gerilim ilerleme"),
-      row("gen:twists", "fa-solid fa-yin-yang", lib("Twists"), lib("TwistsHint"),
-        "blessings curses improv twist bargain lutuf lanet dogaclama bedel"),
-      ...builtins.filter(tpl => tpl.category === "gm").sort(byTitle).map(tplRow)
+      ...templates.filter(tpl => tpl.category === "gm").sort(byTitle).map(tplRow)
     ], true));
 
     groups.push(group("fa-solid fa-scale-balanced", game.i18n.localize(`${I18N}.Library.Rules`),
@@ -1604,7 +1608,7 @@ export class DMScreenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     // Content packs: one group each, templates sorted under their sub-heading.
     const packs = new Map();
     for (const tpl of templates) {
-      if (tpl.source === "builtin") continue;
+      if (tpl.source === "builtin" || tpl.category === "gm") continue;
       if (!packs.has(tpl.packId)) packs.set(tpl.packId, { name: tpl.source, items: [] });
       packs.get(tpl.packId).items.push(tpl);
     }

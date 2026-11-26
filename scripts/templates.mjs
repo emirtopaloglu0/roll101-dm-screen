@@ -1,4 +1,5 @@
 import { MODULE_ID, SETTINGS } from "./constants.mjs";
+import { validateGenerator } from "./generators.mjs";
 
 /**
  * Read-only reference templates (prices, rules tables).
@@ -12,7 +13,9 @@ import { MODULE_ID, SETTINGS } from "./constants.mjs";
  */
 
 export const PACK_FORMAT = "roll101-dm-screen-pack";
-export const PACK_FORMAT_VERSION = 1;
+/** 1: templates only. 2: adds "generators". A v1 pack is still a valid v2 pack. */
+export const PACK_FORMAT_VERSION = 2;
+const MAX_PACK_GENERATORS = 20;
 
 const LIMITS = { text: 2000, sections: 40, columns: 8, rows: 500, variants: 6, templates: 100 };
 const INDEX_URL = `modules/${MODULE_ID}/data/templates/index.json`;
@@ -90,13 +93,18 @@ export function validatePack(raw) {
   const templates = Array.isArray(raw.templates)
     ? raw.templates.slice(0, LIMITS.templates).map(validateTemplate).filter(Boolean)
     : [];
-  if (!id || !templates.length) return { error: "InvalidFile" };
+  // A generator needs an id: boxes find it by that id.
+  const generators = Array.isArray(raw.generators)
+    ? raw.generators.slice(0, MAX_PACK_GENERATORS).map(validateGenerator).filter(g => g?.id)
+    : [];
+  if (!id || (!templates.length && !generators.length)) return { error: "InvalidFile" };
   return {
     pack: {
       id,
       name: typeof raw.name === "string" && raw.name ? raw.name.slice(0, 100) : id,
       version: typeof raw.version === "string" ? raw.version.slice(0, 20) : "",
-      templates
+      templates,
+      generators
     }
   };
 }
@@ -231,11 +239,23 @@ export async function getBuiltinsByCategory(category) {
   return [...(await loadBuiltins()).values()].filter(t => t.category === category);
 }
 
+/** The first installed pack template with this id. @returns {{packId: string, template: object}|null} */
+export function findPackTemplate(id) {
+  for (const pack of getPacks()) {
+    const template = pack.templates.find(t => t.id === id);
+    if (template) return { packId: pack.id, template };
+  }
+  return null;
+}
+
 /** @returns {Promise<object|null>} */
 export async function getTemplate(key) {
   if (typeof key !== "string") return null;
   const [kind, a, b] = key.split(":");
-  if (kind === "builtin") return (await loadBuiltins()).get(a) ?? null;
+  if (kind === "builtin") {
+    // A template that moved from the module into a content pack keeps working once the pack is imported.
+    return (await loadBuiltins()).get(a) ?? findPackTemplate(a)?.template ?? null;
+  }
   if (kind === "pack") return getPacks().find(p => p.id === a)?.templates.find(t => t.id === b) ?? null;
   return null;
 }

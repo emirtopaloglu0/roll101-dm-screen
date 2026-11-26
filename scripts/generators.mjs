@@ -1,15 +1,16 @@
 import { MODULE_ID } from "./constants.mjs";
-import { localize } from "./templates.mjs";
+import { getPacks, localize } from "./templates.mjs";
 
 /**
- * Built-in text generators (combat environment, random events).
- * Data lives in data/generators/<id>.json and loads on first use.
- * Files are validated: text only, size limits. A broken or missing file gives null,
- * never an exception.
+ * Text generators (combat environment, random events, blessings & curses…).
+ * Their content comes from content packs (see docs/content-packs.md). A box keeps only the
+ * generator id, so importing a pack with the same id brings an old box back.
+ * Built-in files in data/generators/<id>.json are still supported but none ship today.
+ * Everything is validated: text only, size limits. Missing content gives null, never an exception.
  */
 
-/** Generator kinds a box may use. Anything else is treated as missing. */
-export const GENERATOR_KINDS = Object.freeze(["environment", "events", "twists"]);
+/** Built-in generator files shipped with the module. */
+export const BUILTIN_GENERATORS = Object.freeze([]);
 
 const LIMITS = { groups: 20, entries: 200, text: 1000 };
 const isObject = v => !!v && typeof v === "object" && !Array.isArray(v);
@@ -28,7 +29,8 @@ function cleanText(value) {
   return Object.keys(out).length ? out : "";
 }
 
-function validate(raw) {
+/** A safe copy of a generator, or null when unusable. Used for built-in files and packs. */
+export function validateGenerator(raw) {
   if (!isObject(raw) || !Array.isArray(raw.groups)) return null;
   const groups = raw.groups.slice(0, LIMITS.groups).map(g => {
     const id = isObject(g) ? cleanId(g.id) : null;
@@ -38,6 +40,7 @@ function validate(raw) {
   }).filter(Boolean);
   if (!groups.length) return null;
   return {
+    id: cleanId(raw.id) ?? "",
     title: cleanText(raw.title),
     attribution: cleanText(raw.attribution),
     alwaysInclude: cleanId(raw.alwaysInclude),
@@ -45,13 +48,30 @@ function validate(raw) {
   };
 }
 
-/** @returns {Promise<object|null>} */
+/**
+ * Every generator from the installed content packs. A later pack wins on a duplicate id.
+ * @returns {{id: string, title: object|string, packId: string, packName: string, gen: object}[]}
+ */
+export function listGenerators() {
+  const byId = new Map();
+  for (const pack of getPacks()) {
+    for (const gen of pack.generators ?? []) byId.set(gen.id, { id: gen.id, title: gen.title, packId: pack.id, packName: pack.name, gen });
+  }
+  return [...byId.values()];
+}
+
+/**
+ * A generator by id: from a content pack first, then from a built-in file.
+ * @returns {Promise<object|null>}
+ */
 export function loadGenerator(kind) {
-  if (!GENERATOR_KINDS.includes(kind)) return Promise.resolve(null);
+  const fromPack = typeof kind === "string" ? listGenerators().find(g => g.id === kind) : null;
+  if (fromPack) return Promise.resolve(fromPack.gen);
+  if (!BUILTIN_GENERATORS.includes(kind)) return Promise.resolve(null);
   if (!cache.has(kind)) {
     const promise = fetch(`modules/${MODULE_ID}/data/generators/${kind}.json`)
       .then(response => (response.ok ? response.json() : null))
-      .then(validate)
+      .then(validateGenerator)
       .catch(err => {
         console.warn(`${MODULE_ID} | Could not load generator "${kind}"`, err);
         return null;

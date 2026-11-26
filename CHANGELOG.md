@@ -6,6 +6,25 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-11-26
+
+### Changed
+- Generator texts moved out of the module into optional content packs, published with every release
+  and in the `content-packs/` folder:
+  - **Roll101 Random Tables**: Combat Environment and Random Events.
+  - **Roll101 Command Center**: Blessings & Curses and Scene Pacing & Transitions.
+- Existing boxes keep their settings. They show "not installed" until the pack is imported, then work again.
+- The Library lists generators from the installed packs. The Command Center layout adds the pack
+  boxes only when the pack is installed.
+
+### Added
+- Content pack format 2: packs can carry `generators` as well as `templates`. Format 1 packs still import.
+- README guide: importing, replacing and removing packs, and exporting / importing layouts.
+- README: where to find Roll101's own tables (Discord, #foundry-modules).
+
+### Fixed
+- The Content packs dialog keeps its width; a pack with many templates no longer stretches it.
+
 ## [1.2.0] - 2026-11-26
 
 ### Added

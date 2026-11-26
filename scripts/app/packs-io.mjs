@@ -19,11 +19,15 @@ export async function managePacks() {
   const packs = templates.getPacks();
   const lang = game.i18n.lang;
   const rows = packs.length
-    ? packs.map((p, i) => `<label class="r101-backup-row">
+    ? packs.map((p, i) => {
+      // A long list is cut to two lines; the full list shows on hover.
+      const contents = escapeHTML([...p.templates, ...(p.generators ?? [])].map(t => templates.localize(t.title, lang)).join(", "));
+      return `<label class="r101-backup-row">
         <input type="radio" name="pack" value="${i}" ${i === 0 ? "checked" : ""}>
         <span class="r101-backup-time">${escapeHTML(p.name)}${p.version ? ` <small>v${escapeHTML(p.version)}</small>` : ""}</span>
-        <span class="r101-backup-meta">${escapeHTML(p.templates.map(t => templates.localize(t.title, lang)).join(", "))}</span>
-      </label>`).join("")
+        <span class="r101-backup-meta r101-pack-contents" title="${contents}">${contents}</span>
+      </label>`;
+    }).join("")
     : `<p class="r101-note">${escapeHTML(L("None"))}</p>`;
 
   const buttons = [{ action: "import", label: `${I18N}.Packs.Import`, icon: "fa-solid fa-file-import", default: true }];
@@ -38,7 +42,9 @@ export async function managePacks() {
 
   const result = await DialogV2.wait({
     window: { title: `${I18N}.Packs.Title`, icon: "fa-solid fa-box-archive" },
-    classes: ["r101-backup-dialog"],
+    classes: ["r101-backup-dialog", "r101-packs-dialog"],
+    // Fixed width: a pack with many templates must not stretch the dialog.
+    position: { width: 520 },
     content: `<p>${escapeHTML(L("Content"))}</p><div class="r101-backup-list">${rows}</div>`
       + `<p class="hint">${escapeHTML(L("PrivacyHint"))}</p>`,
     buttons,
@@ -83,7 +89,7 @@ async function importPack() {
   const next = packs.filter(p => p.id !== pack.id);
   next.push(pack);
   await templates.savePacks(next);
-  ui.notifications.info(F("Imported", { name: pack.name, count: pack.templates.length }));
+  ui.notifications.info(F("Imported", { name: pack.name, count: pack.templates.length + pack.generators.length }));
   return true;
 }
 

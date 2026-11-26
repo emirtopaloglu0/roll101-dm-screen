@@ -57,7 +57,7 @@
       "Table": "Bu rollable table silinmiş veya bulunamıyor.",
       "Folder": "Bu tablo klasörü veya compendium silinmiş ya da bulunamıyor.",
       "Template": "Bu şablon bulunamıyor. İçerik paketi kaldırılmış olabilir.",
-      "Generator": "Bu üretecin veri dosyası eksik veya bozuk. Modülü yeniden kurun veya kutuyu kaldırın."
+      "Generator": "Bu üretecin içeriği yüklü değil. Araç çubuğundaki İçerik paketleri butonuyla paketini içe aktar (README'ye bak) ya da kutuyu kaldır."
     },
     "Journal": {
       "OpenToView": "Bu sayfa türü burada gösterilemiyor. Aç'ı kullanın.",
@@ -153,10 +153,6 @@
       "Search": "Kütüphanede ara…",
       "NoMatch": "Bu aramaya uyan bir şey yok.",
       "Generators": "Üreteçler ve grup",
-      "Environment": "Savaş Ortamı",
-      "EnvironmentHint": "Rastgele arazi, tehlike, hava ve nesneler",
-      "Events": "Rastgele Olaylar",
-      "EventsHint": "Ortama göre yan görev ve açık dünya olayları",
       "Actors": "Grup özeti",
       "ActorsHint": "Karakterlerinin AC, HP, pasif değerleri ve durumları",
       "Loot": "Ganimet Üreteci",
@@ -168,8 +164,6 @@
       "SpotlightHint": "Kim kendi anını yaşadı ve her karakteri ne ilgilendiriyor",
       "Clocks": "Gerilim Saatleri",
       "ClocksHint": "Her şey için geri sayım ve ilerleme saatleri",
-      "Twists": "Lütuflar ve Lanetler",
-      "TwistsHint": "Doğaçlama fikirleri: sürprizler, aksilikler ve bedelli başarılar",
       "Credit": "Fikir: Corkboards & Curiosities (YouTube)"
     },
     "Coins": {
