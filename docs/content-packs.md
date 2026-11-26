@@ -66,5 +66,5 @@ See [`examples/example-pack.json`](../examples/example-pack.json) for a complete
   pack's templates under these sub-headings, so a large pack stays easy to browse.
 - **Variants** are versions of the same template, for example 2014 and 2024 rules.
   A switch appears in the box when there is more than one.
-- **Sections** are tables. `columns` and `note` are optional. Up to 8 columns and 500 rows.
+- **Sections** are tables. `columns`, `note` and `hint` (a short "what is this for" text shown above the table) are optional. Up to 8 columns and 500 rows.
 - HTML is not allowed. All text is shown as plain text.

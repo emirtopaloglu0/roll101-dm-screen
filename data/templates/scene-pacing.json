@@ -1,0 +1,92 @@
+{
+  "id": "scene-pacing",
+  "category": "gm",
+  "title": { "en": "Scene Pacing & Transitions", "tr": "Sahne Temposu ve Geçişler" },
+  "variants": [
+    {
+      "id": "default",
+      "label": { "en": "Pacing", "tr": "Tempo" },
+      "attribution": {
+        "en": "Run the game in scenes: start where something meaningful can happen, end when nothing is left to do. Idea from the YouTube channel Corkboards & Curiosities (\"Why are DM Screens Missing these?\"); texts are original.",
+        "tr": "Oyunu sahnelerle yönet: anlamlı bir şeyin olabileceği yerde başla, yapacak bir şey kalmadığında bitir. Fikir: Corkboards & Curiosities YouTube kanalı (\"Why are DM Screens Missing these?\"); metinler özgündür."
+      },
+      "sections": [
+        {
+          "title": { "en": "Keep a scene only if it…", "tr": "Bir sahneyi yalnızca şu durumda tut…" },
+          "hint": {
+            "en": "Use this before and during a scene. Most tables play every step: walking, knocking, small talk. Playing in scenes means you skip what does not matter and keep only the moments that do. If a scene passes none of these checks, it is filler.",
+            "tr": "Bunu sahneden önce ve sahne sırasında kullan. Çoğu masa her adımı oynar: yürümek, kapı çalmak, havadan sudan sohbet. Sahnelerle oynamak, önemsiz kısmı atlayıp yalnızca önemli anları tutmak demektir. Bir sahne bu kontrollerin hiçbirini geçmiyorsa dolgudur."
+          },
+          "columns": [
+            { "en": "Reason", "tr": "Neden" },
+            { "en": "Ask yourself", "tr": "Kendine sor" }
+          ],
+          "rows": [
+            [{ "en": "Challenge", "tr": "Zorluk" }, { "en": "Will the characters face a problem and make a real choice?", "tr": "Karakterler bir sorunla karşılaşıp gerçek bir seçim yapacak mı?" }],
+            [{ "en": "Information", "tr": "Bilgi" }, { "en": "Does it reveal something about the plot, a place or a person?", "tr": "Olay örgüsü, bir yer ya da bir kişi hakkında bir şey ortaya çıkarıyor mu?" }],
+            [{ "en": "Atmosphere", "tr": "Atmosfer" }, { "en": "Does it set a mood the players will remember?", "tr": "Oyuncuların hatırlayacağı bir hava yaratıyor mu?" }],
+            [{ "en": "Spotlight", "tr": "Sahne payı" }, { "en": "Does a quiet character get a moment here?", "tr": "Sessiz kalan bir karakter burada kendi anını yaşıyor mu?" }]
+          ],
+          "note": {
+            "en": "None of these? Skip it with one line of narration. Players still role-playing with energy? Let the scene run.",
+            "tr": "Hiçbiri değilse tek satırlık anlatımla atla. Oyuncular hâlâ hevesle canlandırıyorsa sahne sürsün."
+          }
+        },
+        {
+          "title": { "en": "1. The cut (fast and clear)", "tr": "1. Kesme (hızlı ve net)" },
+          "hint": {
+            "en": "Use it when the scene is clearly over and you want to move on now, for example after travel or a long wait. One line of narration says what was skipped and where everyone is now, so the jump does not feel abrupt.",
+            "tr": "Sahne açıkça bittiyse ve hemen ilerlemek istiyorsan kullan; örneğin yolculuktan ya da uzun bir beklemeden sonra. Tek satırlık anlatım neyin atlandığını ve herkesin şimdi nerede olduğunu söyler; böylece geçiş ani hissettirmez."
+          },
+          "columns": [
+            { "en": "Technique", "tr": "Teknik" },
+            { "en": "Example line", "tr": "Örnek cümle" }
+          ],
+          "rows": [
+            [{ "en": "Time jump", "tr": "Zaman atlama" }, { "en": "\"By the time you reach the docks, the sun is already setting.\"", "tr": "\"Limana vardığınızda güneş çoktan batmaktadır.\"" }],
+            [{ "en": "Travel summary", "tr": "Yolculuk özeti" }, { "en": "\"Three days of rain and mud later, the walls of the city rise ahead.\"", "tr": "\"Üç gün süren yağmur ve çamurdan sonra şehrin surları önünüzde yükselir.\"" }],
+            [{ "en": "Camera move", "tr": "Kamera hareketi" }, { "en": "Follow a bird, a rat or a sound from this place to the next, where the characters already are.", "tr": "Bir kuşu, fareyi ya da sesi buradan bir sonraki yere takip et; karakterler zaten oradadır." }],
+            [{ "en": "Cut to the action", "tr": "Aksiyona kes" }, { "en": "Skip the walk and the small talk. Open the next scene at the door, the deal or the fight.", "tr": "Yürüyüşü ve havadan sudan sohbeti atla. Sonraki sahneyi kapıda, pazarlıkta ya da kavgada aç." }],
+            [{ "en": "Cut away", "tr": "Başka yere kes" }, { "en": "\"Meanwhile, across town…\" Switch to another group or to the villain.", "tr": "\"Bu sırada şehrin öbür ucunda…\" Başka bir gruba ya da kötü karaktere geç." }]
+          ]
+        },
+        {
+          "title": { "en": "2. The gentle close (players decide)", "tr": "2. Nazik kapanış (oyuncular karar verir)" },
+          "hint": {
+            "en": "Use it when the players are still talking but the energy is fading and they seem to fill the silence. A question invites them to wrap up on their own terms, so nobody feels cut off.",
+            "tr": "Oyuncular hâlâ konuşuyor ama enerji düşüyorsa ve sessizliği doldurmak için konuşuyor gibiyseler kullan. Bir soru onları sahneyi kendi istedikleri gibi kapatmaya davet eder; kimse sözünün kesildiğini hissetmez."
+          },
+          "columns": [
+            { "en": "Technique", "tr": "Teknik" },
+            { "en": "Example prompt", "tr": "Örnek soru" }
+          ],
+          "rows": [
+            [{ "en": "Last thought", "tr": "Son düşünce" }, { "en": "\"As this moment ends, what is still on your mind?\"", "tr": "\"Bu an sona ererken aklında hâlâ ne var?\"" }],
+            [{ "en": "Last action", "tr": "Son hareket" }, { "en": "\"Before you leave, is there anything else you do here?\"", "tr": "\"Ayrılmadan önce burada yaptığın başka bir şey var mı?\"" }],
+            [{ "en": "Next step", "tr": "Sonraki adım" }, { "en": "\"So, where do you go from here?\"", "tr": "\"Peki buradan nereye gidiyorsunuz?\"" }],
+            [{ "en": "Quick round", "tr": "Hızlı tur" }, { "en": "Ask each player for one line or one final action, then cut.", "tr": "Her oyuncudan tek bir cümle ya da son bir hareket iste, sonra kes." }],
+            [{ "en": "Summarize", "tr": "Özetle" }, { "en": "Repeat what they decided in one sentence; it signals the scene is done.", "tr": "Verdikleri kararı tek cümleyle tekrarla; bu sahnenin bittiğini gösterir." }]
+          ]
+        },
+        {
+          "title": { "en": "3. The hard push (momentum lost)", "tr": "3. Sert itiş (tempo düştü)" },
+          "hint": {
+            "en": "Use it when the game has stalled: the players are stuck, going in circles or getting bored. Something happens that demands action now, and the new scene starts by itself.",
+            "tr": "Oyun durduğunda kullan: oyuncular takıldıysa, aynı yerde dönüyorsa ya da sıkılıyorsa. Hemen harekete geçmeyi gerektiren bir şey olur ve yeni sahne kendiliğinden başlar."
+          },
+          "columns": [
+            { "en": "Technique", "tr": "Teknik" },
+            { "en": "Example", "tr": "Örnek" }
+          ],
+          "rows": [
+            [{ "en": "Foreshadow", "tr": "Önceden sezdir" }, { "en": "Footsteps approach. A door creaks. Torches appear on the hill.", "tr": "Ayak sesleri yaklaşır. Bir kapı gıcırdar. Tepede meşaleler belirir." }],
+            [{ "en": "Sudden news", "tr": "Ani haber" }, { "en": "A scream from the street. A messenger bursts in. The bells start ringing.", "tr": "Sokaktan bir çığlık gelir. Bir haberci içeri dalar. Çanlar çalmaya başlar." }],
+            [{ "en": "Tick a clock", "tr": "Saati ilerlet" }, { "en": "Tell the players a clock moved. Let them feel the time pressure.", "tr": "Oyunculara bir saatin ilerlediğini söyle. Zaman baskısını hissetsinler." }],
+            [{ "en": "Roll a curse", "tr": "Lanet çek" }, { "en": "No idea? Roll on Blessings & Curses and make it about a character's stakes.", "tr": "Fikir yok mu? Lütuflar ve Lanetler'den çek ve bir karakterin kancasına bağla." }],
+            [{ "en": "Enter a person", "tr": "Biri girsin" }, { "en": "Someone with an agenda walks in: a rival, a guard, a creditor, a lost friend.", "tr": "Kendi amacı olan biri içeri girer: bir rakip, bir muhafız, bir alacaklı, kayıp bir dost." }]
+          ]
+        }
+      ]
+    }
+  ]
+}

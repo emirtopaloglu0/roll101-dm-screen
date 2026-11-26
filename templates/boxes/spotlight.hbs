@@ -1,0 +1,74 @@
+<div class="r101-spotlight">
+  <div class="r101-box-actions">
+    <button type="button" class="r101-small-button r101-primary" data-action="spotlightNewSession"
+            data-tooltip="{{S.NewSessionHint}}">
+      <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> {{S.NewSession}}
+    </button>
+    {{#if hiddenCount}}
+    <button type="button" class="r101-small-button" data-action="spotlightShowAll">
+      <i class="fa-solid fa-eye" aria-hidden="true"></i> {{showAllText}}
+    </button>
+    {{/if}}
+    <select class="r101-select" data-r101-story-lang aria-label="{{langLabel}}">
+      {{#each langs}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    {{#if canAddExtra}}
+    <input type="text" class="r101-spotlight-add" maxlength="{{nameMax}}" data-r101-spotlight-add
+           placeholder="{{S.AddName}}" aria-label="{{S.AddName}}">
+    {{/if}}
+    <button type="button" class="r101-header-button r101-push-right" data-action="toggleHelp" data-tooltip="{{S.HelpToggle}}"
+            aria-label="{{S.HelpToggle}}" aria-expanded="{{#if helpOpen}}true{{else}}false{{/if}}">
+      <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="r101-help" {{#unless helpOpen}}hidden{{/unless}}>
+    <p>{{S.Help}}</p>
+    <p>{{S.HowTo}}</p>
+    <p>{{S.StakesHelp}}</p>
+    <p class="r101-help-credit">{{credit}}</p>
+  </div>
+  <ul class="r101-scroll r101-spotlight-list">
+    {{#each rows}}
+    <li class="r101-spotlight-row{{#if missing}} r101-spotlight-missing{{/if}}" data-member-key="{{key}}">
+      <div class="r101-spotlight-main">
+        <span class="r101-spotlight-avatar" aria-hidden="true">
+          {{#if img}}<img src="{{img}}" alt="" loading="lazy">{{else}}<i class="fa-solid fa-user"></i>{{/if}}
+        </span>
+        <span class="r101-spotlight-name">{{name}}</span>
+        <span class="r101-spotlight-pips" role="group" aria-label="{{../S.Moments}}">
+          {{#each pips}}
+          <button type="button" class="r101-pip{{#if on}} is-on{{/if}}" data-action="spotlightMark" data-n="{{n}}"
+                  aria-pressed="{{#if on}}true{{else}}false{{/if}}" data-tooltip="{{../../S.MarkHint}}"
+                  aria-label="{{../../S.MarkHint}}"></button>
+          {{/each}}
+        </span>
+        <button type="button" class="r101-header-button r101-stakes-toggle{{#if stakeCount}} has-stakes{{/if}}" data-action="toggleStakes"
+                aria-expanded="{{#if open}}true{{else}}false{{/if}}" data-tooltip="{{../S.Stakes}}" aria-label="{{../S.Stakes}}">
+          <i class="fa-solid fa-anchor" aria-hidden="true"></i><span class="r101-stake-count">{{#if stakeCount}}{{stakeCount}}{{/if}}</span>
+        </button>
+        <button type="button" class="r101-header-button" data-action="spotlightRemove"
+                data-tooltip="{{../S.Remove}}" aria-label="{{../S.Remove}}">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="r101-stakes" {{#unless open}}hidden{{/unless}}>
+        {{#each stakes}}
+        <span class="r101-stake">{{text}}
+          <button type="button" class="r101-stake-remove" data-action="removeStake" data-index="{{i}}"
+                  aria-label="{{../../S.RemoveStake}}"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </span>
+        {{/each}}
+        {{#unless stakeCount}}<span class="r101-note">{{../S.NoStakes}}</span>{{/unless}}
+        {{#if canAddStake}}
+        <button type="button" class="r101-stake r101-stake-new" data-action="startStake">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i> {{../S.AddStakeButton}}
+        </button>
+        <input type="text" class="r101-stake-input" maxlength="{{../stakeMax}}" data-r101-stake-input hidden
+               placeholder="{{../S.AddStake}}" aria-label="{{../S.AddStake}}">
+        {{/if}}
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+  {{#if empty}}<p class="r101-note">{{S.Empty}}</p>{{/if}}
+</div>

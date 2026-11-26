@@ -19,6 +19,7 @@
     {{#each sections}}
     <details class="r101-tpl-section" {{#if ../open}}open{{/if}}>
       <summary>{{title}}</summary>
+      {{#if hint}}<p class="r101-tpl-hint"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> {{hint}}</p>{{/if}}
       <table class="r101-tpl-table">
         {{#if columns.length}}
         <thead><tr>{{#each columns}}<th scope="col">{{this}}</th>{{/each}}</tr></thead>

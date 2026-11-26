@@ -47,7 +47,8 @@ function cleanSection(raw) {
   const rows = Array.isArray(raw.rows)
     ? raw.rows.slice(0, LIMITS.rows).filter(Array.isArray).map(r => r.slice(0, width).map(cleanText))
     : [];
-  return { title: cleanText(raw.title), columns, rows, note: cleanText(raw.note) };
+  // hint: optional "what is this for" text shown above the table.
+  return { title: cleanText(raw.title), columns, rows, note: cleanText(raw.note), hint: cleanText(raw.hint) };
 }
 
 function cleanVariant(raw) {

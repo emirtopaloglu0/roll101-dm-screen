@@ -160,7 +160,17 @@
       "Actors": "Grup özeti",
       "ActorsHint": "Karakterlerinin AC, HP, pasif değerleri ve durumları",
       "Loot": "Ganimet Üreteci",
-      "LootHint": "Aynı değerde para ve eşyalar, hazinelerde büyülü eşyalarla"
+      "LootHint": "Aynı değerde para ve eşyalar, hazinelerde büyülü eşyalarla",
+      "GMTools": "Hikâye anlatımı (GM araçları)",
+      "CommandCenter": "Komuta Merkezi sekmesi",
+      "CommandCenterHint": "Sahne payı, saatler, lütuf ve lanetler ile sahne temposunu içeren yeni sekme",
+      "Spotlight": "Sahne Payı ve Kancalar",
+      "SpotlightHint": "Kim kendi anını yaşadı ve her karakteri ne ilgilendiriyor",
+      "Clocks": "Gerilim Saatleri",
+      "ClocksHint": "Her şey için geri sayım ve ilerleme saatleri",
+      "Twists": "Lütuflar ve Lanetler",
+      "TwistsHint": "Doğaçlama fikirleri: sürprizler, aksilikler ve bedelli başarılar",
+      "Credit": "Fikir: Corkboards & Curiosities (YouTube)"
     },
     "Coins": {
       "Title": "Para çevirici",
@@ -258,6 +268,46 @@
         "ins": "Sezgi",
         "dc": "Büyü DC"
       }
+    },
+    "Clocks": {
+      "Title": "Gerilim saatleri",
+      "Add": "Saat ekle",
+      "Hint": "Tıkla: +1 · Sağ tık: −1",
+      "Untitled": "Adsız saat",
+      "Name": "Saat adı",
+      "StepHint": "Bir dilim doldurmak için tıkla, bir dilim silmek için sağ tıkla",
+      "Plus": "Bir dilim doldur",
+      "Minus": "Bir dilim sil",
+      "Size": "Dilim sayısı",
+      "Share": "Sohbette göster (oyuncular görür)",
+      "Curse": "Lanet çek (Lütuflar ve Lanetler)",
+      "Remove": "Saati kaldır",
+      "Empty": "Henüz saat yok. Bir kovalamaca, ritüel ya da gelen muhafızlar için ekle…",
+      "Color": "Renk (tıkla: sonraki, Shift+tık: önceki)",
+      "HelpToggle": "Bu ne işe yarar?",
+      "Help": "Saat, tek bir zarla çözülmemesi gereken her şey için bir ilerleme çubuğudur: ormandan çıkmak, kovalamaca, bir ritüel, yoldaki muhafızlar, bir duruşma. Dilim sayısını ne kadar zor ya da uzun olduğuna göre seç.",
+      "HowTo": "Karakterler her ilerleme kaydettiğinde, ya da zaman geçtiğinde veya başarısız olduklarında bir dilim doldur. Saat dolunca o şey olur. Oyunculara saatin ilerlediğini söylemek gerilim yaratır: “Sohbette göster”i kullan. Dolan bir saat, bir lanet için iyi bir andır."
+    },
+    "Spotlight": {
+      "Title": "Sahne payı ve kancalar",
+      "NewSession": "Yeni oturum",
+      "NewSessionHint": "Herkes bir an geri gider; geçen oturumun yıldızları biraz bekleyebilir",
+      "ShowAll": "Gizlileri göster ({count})",
+      "AddName": "İsim ekle…",
+      "Moments": "Karakter anları",
+      "MarkHint": "Kendi anını yaşadı",
+      "Stakes": "Kancalar: bu karakteri ne ilgilendiriyor",
+      "AddStake": "Hami, rakip, korku… sonra Enter (Esc: vazgeç)",
+      "RemoveStake": "Bu kancayı kaldır",
+      "Remove": "Bu listeden kaldır",
+      "Missing": "Aktör bulunamadı (silinmiş olabilir)",
+      "Empty": "Oyuncu karakteri bulunamadı. Yukarıdan isim ekle ya da buraya aktör sürükle.",
+      "HelpToggle": "Bu ne işe yarar?",
+      "Help": "Oyuncuları en çok kendi karakterleri ilgilendirir. Bu liste sahne payını dağıtmana yardım eder: bir karakter kendi anını yaşadığında bir yuvarlağı işaretle. Daha az işareti olan karakterler üstte durur; kimin uzun süredir sessiz kaldığını bir bakışta görürsün.",
+      "HowTo": "Her oturumun başında “Yeni oturum”a bas: her karakter bir işaret kaybeder. Geçen sefer iki anı olan biri bir işaretle kalır; bu sefer önce başkaları gelir, ama kimse yanlışlıkla sıfırdan başlamaz.",
+      "StakesHelp": "Kancalar (⚓), her karakter için önemli olan şeyleri anlatan birkaç anahtar kelimedir: talepkâr bir hami, bir rakip, bir korku, bir aşk, yavaş ilerleyen bir lanet. Birinin kendi anına ihtiyacı olduğunda ya da sana bir sürpriz gerektiğinde, kancalarından birini seç. Hiç kancası olmayan bir karakter için oyuncusuyla konuşmak gerekebilir.",
+      "NoStakes": "Henüz kanca yok.",
+      "AddStakeButton": "Kanca ekle"
     }
   }
 }
