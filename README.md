@@ -19,7 +19,7 @@ keeps the tools; you choose the content. Two packs are published with every rele
 | **Roll101 Random Tables** | Combat Environment and Random Events generators (EN / TR) | [roll101-random-tables.json](https://github.com/emirtopaloglu0/roll101-dm-screen/releases/latest/download/roll101-random-tables.json) |
 | **Roll101 Command Center** | Blessings & Curses generator and Scene Pacing & Transitions reference (EN / TR) | [roll101-command-center.json](https://github.com/emirtopaloglu0/roll101-dm-screen/releases/latest/download/roll101-command-center.json) |
 
-More tables made by Roll101 (Turkish NPC tables: appearance, personality, quirks, secrets and more)
+More tables made by Roll101 (NPC tables: appearance, personality, quirks, secrets and more)
 are shared in the **#foundry-modules** channel of our [Discord](https://discord.gg/MdMkW2egww).
 
 The same files are in the [`content-packs/`](content-packs) folder. See
